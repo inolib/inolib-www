@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="fr">
-      <body className={inter.className}>{children}</body>
+      <body className="font-manrope font-medium text-base leading-normal">{children}</body>
     </html>
   );
 }

@@ -1,10 +1,38 @@
-import React from "react";
+import Header from '~/components/Header';
+import HeaderHat from '~/components/HeaderHat';
+import BlogList from '~/components/blogLists';
 
-export default function Blog(){
+type Post = { 
+  id: string;
+  title: { rendered: string };
+  content: { rendered: string };
+  slug: string;
+  img: string;
+};
+
+async function fetchPosts(): Promise<Post[]> {
+  const res = await fetch('http://localhost/WORDPRESS/wp-json/wp/v2/posts');
+  if (!res.ok) {
+    throw new Error('Failed to fetch posts');
+  }
+  const posts = await res.json();
+  return posts;
+}
+
+export default async function Blog(){
+
+  const posts = await fetchPosts();
+
   return( 
-    <div className="bg-red-900">
-      <h1> blog </h1>
-      <p className="bg-lime-600">voici mon blog </p>
-      </div>
+<div className='overflow-hidden'>
+    <HeaderHat 
+    bgColor="bg-blue-100"
+    textColor="text-black"
+    buttonVariant="buttonNoir"/>
+       <Header 
+   textColor="text-black"
+   logosrc="/Logo/logo-jaune-noir.svg"/>
+   <BlogList posts={posts} />;
+   </div>
   )
 }

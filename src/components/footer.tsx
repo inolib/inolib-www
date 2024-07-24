@@ -1,12 +1,12 @@
-import Image from 'next/image'
+import Image from 'next/image';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#122023] text-white py-10">
+    <footer className="bg-[#122023] text-white py-10 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">Auditer</h3>
+            <h3 className="text-xl text-[#8EBBC5] font-semibold mb-4">Auditer</h3>
             <ul>
               <li><a href="#" className="hover:underline">Overview</a></li>
               <li><a href="#" className="hover:underline">Overview</a></li>
@@ -21,7 +21,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="text-xl font-bold mb-4">Accompagner</h3>
+            <h3 className="text-xl text-[#8EBBC5] font-semibold mb-4">Accompagner</h3>
             <ul>
               <li><a href="#" className="hover:underline">Overview</a></li>
               <li><a href="#" className="hover:underline">Overview</a></li>
@@ -32,7 +32,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="text-xl font-bold mb-4">Développer</h3>
+            <h3 className="text-xl text-[#8EBBC5] font-semibold mb-4">Développer</h3>
             <ul>
               <li><a href="#" className="hover:underline">Overview</a></li>
               <li><a href="#" className="hover:underline">Overview</a></li>
@@ -43,7 +43,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="text-xl font-bold mb-4">Former</h3>
+            <h3 className="text-xl text-[#8EBBC5] font-semibold mb-4">Former</h3>
             <ul>
               <li><a href="#" className="hover:underline">Overview</a></li>
               <li><a href="#" className="hover:underline">Overview</a></li>
@@ -54,7 +54,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="text-xl font-bold mb-4">À propos</h3>
+            <h3 className="text-xl text-[#8EBBC5] font-semibold mb-4">À propos</h3>
             <ul>
               <li><a href="#" className="hover:underline">Overview</a></li>
               <li><a href="#" className="hover:underline">Overview</a></li>
@@ -65,8 +65,8 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="text-xl font-bold mb-4 text-green-400">Blog</h3>
-            <ul>
+            <h3 className="text-xl text-[#8EBBC5] font-semibold mb-4">Blog</h3>
+            <ul className=''>
               <li><a href="#" className="hover:underline">Overview</a></li>
               <li><a href="#" className="hover:underline">Overview</a></li>
               <li><a href="#" className="hover:underline">Overview</a></li>
@@ -83,9 +83,8 @@ export default function Footer() {
             alt="Inolib logo" 
             width={150} 
             height={50} />
-            
           </div>
-          <p className="text-sm text-gray-400">&copy; 2023 Untitled UI. All rights reserved.</p>
+          <p className="text-sm text-gray-400 mt-4 md:mt-0">&copy; 2023 Untitled UI. All rights reserved.</p>
         </div>
       </div>
     </footer>

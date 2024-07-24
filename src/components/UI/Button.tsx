@@ -12,7 +12,7 @@ const buttonVariants = cva(
       variant: {
         ButtonJaune: "bg-[#E1FF01] text-black hover:bg-primary/90 pt-2.5 pr-4 pb-2.5 pl-4",
 
-        destructive: "bg-bleu rounded-full text-black ",
+        buttonNoir:"bg-[#254147] text-white hover:bg-primary/90 pt-2.5 pr-4 pb-2.5 pl-4",
         outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "bg-transparent text-black",

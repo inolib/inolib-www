@@ -1,10 +1,19 @@
 import Link from 'next/link';
 import { Button } from "~/components/UI/Button";
 
-export default function HeaderHat() {
+type HeaderHatProps ={
+  bgColor: string ;
+  textColor: string;
+  buttonVariant: string;
+  
+  
+
+}
+
+export default function HeaderHat({ bgColor, textColor, buttonVariant,  }: HeaderHatProps) {
   return (
-    <header className="relative bg-[#111F22] text-white p-4 flex items-center justify-between">
-      <Link href="#content" className="text-white hover:text-gray-400" aria-label="Accéder au contenu">
+    <header className={`relative ${bgColor} ${textColor} p-4 flex items-center justify-between`}>
+      <Link href="#content" className={`${textColor} hover:text-gray-400 ml-20 `} aria-label="Accéder au contenu">
         Accéder au contenu
       </Link>
       <div className="flex-1 flex justify-center">
@@ -31,7 +40,7 @@ export default function HeaderHat() {
           </svg>
         </div>
       </div>
-      <Button variant="ButtonJaune" aria-label="Nous contacter" > Nous contacter </Button>
+      <Button  variant={buttonVariant} aria-label="Nous contacter" > <Link href='/pages/contact'>Nous contacter </Link></Button>
     </header>
   );
 }

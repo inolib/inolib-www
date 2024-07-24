@@ -1,9 +1,11 @@
-import React from "react";
 
+import Image from 'next/image';
 type Post = { 
   id: string;
   title: { rendered: string };
   content: { rendered: string };
+  slug: string;
+  img:string;
 };
 
 type Props = {
@@ -24,9 +26,14 @@ export default async function Single({ params }: Props) {
   }
 
   return (
-    <div>
+    <div >
+         {post.img && <Image src={post.img} 
+         alt={post.title.rendered} 
+         width={600} 
+         height={400} />}
       <h1>{post.title.rendered}</h1>
       <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+      
     </div>
   );
 }
@@ -38,3 +45,4 @@ export async function generateStaticParams() {
     slug: post.slug,
   }));
 }
+export const revalidate = 0;
