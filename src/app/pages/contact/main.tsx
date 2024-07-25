@@ -25,17 +25,17 @@ export default function MainContact() {
 
       <section className="lg:flex lg:space-x-64">
         <aside className="lg:w-64 mb-8 lg:mb-0  ml-12 md:w-64 sm:w-50">
-          <div className="bg-blue-100 p-4 rounded-lg shadow mb-4">
+          <div className="bg-[#F5F9FA] p-4 rounded-lg shadow mb-4">
             <h2 className="text-lg font-semibold text-gray-900 mb-2">Chat to sales</h2>
             <p className="text-gray-700 mb-2">Speak to our friendly team.</p>
             <a href="mailto:sales@untitledui.com" className="text-blue-500">sales@untitledui.com</a>
           </div>
-          <div className="bg-blue-100 p-4 rounded-lg shadow mb-4">
+          <div className="bg-[#F5F9FA] p-4 rounded-lg shadow mb-4">
             <h2 className="text-lg font-semibold text-gray-900 mb-2">Call us</h2>
             <p className="text-gray-700 mb-2">Mon-Fri from 8am to 5pm.</p>
             <a href="tel:+15550000000" className="text-blue-500">+1 (555) 000-0000</a>
           </div>
-          <div className="bg-blue-100 p-4 rounded-lg shadow">
+          <div className="bg-[#F5F9FA] p-4 rounded-lg shadow">
             <h2 className="text-lg font-semibold text-gray-900 mb-2">Visit us</h2>
             <p className="text-gray-700 mb-2">Visit our office HQ.</p>
             <address className="not-italic text-gray-700">
@@ -51,22 +51,22 @@ export default function MainContact() {
             <fieldset className="mb-4">
               <legend className="text-lg font-semibold text-gray-900 mb-2 w-96 border-b-2 border-b-gray-200">Vous êtes intéressé par :</legend>
               <div className="flex flex-wrap gap-2 ">
-                <button type="button" className="px-4 py-2 border rounded-full focus:outline-none hover:bg-green-100 bg-blue-100">Audit</button>
-                <button type="button" className="px-4 py-2 border rounded-full focus:outline-none hover:bg-green-100 bg-blue-100">Accompagnement</button>
-                <button type="button" className="px-4 py-2 border rounded-full focus:outline-none hover:bg-green-100 bg-blue-100">Développement</button>
-                <button type="button" className="px-4 py-2 border rounded-full focus:outline-none hover:bg-green-100 bg-blue-100 ">Formation</button>
-                <button type="button" className="px-4 py-2 border rounded-full focus:outline-none hover:bg-green-100 bg-blue-100">Autre</button>
+                <button type="button" className="px-4 py-2 border rounded-full focus:outline-none hover:bg-green-100 bg-[#F5F9FA]">Audit</button>
+                <button type="button" className="px-4 py-2 border rounded-full focus:outline-none hover:bg-green-100 bg-[#F5F9FA]">Accompagnement</button>
+                <button type="button" className="px-4 py-2 border rounded-full focus:outline-none hover:bg-green-100 bg-[#F5F9FA]">Développement</button>
+                <button type="button" className="px-4 py-2 border rounded-full focus:outline-none hover:bg-green-100 bg-[#F5F9FA] ">Formation</button>
+                <button type="button" className="px-4 py-2 border rounded-full focus:outline-none hover:bg-green-100 bg-[#F5F9FA]">Autre</button>
               </div>
             </fieldset>
 
             <fieldset className="mb-4">
               <legend className="text-lg font-semibold text-gray-900 mb-2 w-96 border-b-2 border-b-gray-200">Votre budget</legend>
               <div className="flex flex-wrap gap-2">
-                <button type="button" className="px-4 py-2 border rounded-full focus:outline-none hover:bg-green-100 bg-blue-100">1000€</button>
-                <button type="button" className="px-4 py-2 border rounded-full focus:outline-none hover:bg-green-100 bg-blue-100">5k - 10k€</button>
-                <button type="button" className="px-4 py-2 border rounded-full focus:outline-none hover:bg-green-100 bg-blue-100">10k-20k€</button>
-                <button type="button" className="px-4 py-2 border rounded-full focus:outline-none hover:bg-green-100 bg-blue-100 ">20k-50k€</button>
-                <button type="button" className="px-4 py-2 border rounded-full focus:outline-none hover:bg-green-100 bg-blue-100">Autre</button>
+                <button type="button" className="px-4 py-2 border rounded-full focus:outline-none hover:bg-green-100 bg-[#F5F9FA]">1000€</button>
+                <button type="button" className="px-4 py-2 border rounded-full focus:outline-none hover:bg-green-100 bg-[#F5F9FA]">5k - 10k€</button>
+                <button type="button" className="px-4 py-2 border rounded-full focus:outline-none hover:bg-green-100 bg-[#F5F9FA]">10k-20k€</button>
+                <button type="button" className="px-4 py-2 border rounded-full focus:outline-none hover:bg-green-100 bg-[#F5F9FA] ">20k-50k€</button>
+                <button type="button" className="px-4 py-2 border rounded-full focus:outline-none hover:bg-green-100 bg-[#F5F9FA]">Autre</button>
               </div>
             </fieldset>
 

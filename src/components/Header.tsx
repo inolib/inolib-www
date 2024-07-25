@@ -66,7 +66,8 @@ export default function Header({ textColor, logosrc }: Headerprops) {
                 </svg>
               </Link>
               <div className="absolute left-0 mt-2 w-48 bg-white text-black rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <Link href="/audit" className="block px-4 py-2 hover:bg-gray-200">Audit d'accessibilité numérique </Link>
+                <Link href="/audit" className="block px-4 py-2 hover:bg-gray-200">Audit de conformité  </Link>
+                <Link href="/pages/audit/sous-pages/testU" className="block px-4 py-2 hover:bg-gray-200">Test Utilisateurs </Link>
                 
               </div>
             </li>
@@ -78,7 +79,11 @@ export default function Header({ textColor, logosrc }: Headerprops) {
                 </svg>
               </Link>
               <div className="absolute left-0 mt-2 w-48 bg-white text-black rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-             
+              <Link href="/audit" className="block px-4 py-2 hover:bg-gray-200">Accompagnemet de projet</Link>
+              <Link href="/audit" className="block px-4 py-2 hover:bg-gray-200"> Assictence</Link>
+              <Link href="/audit" className="block px-4 py-2 hover:bg-gray-200">referent en Accessibilité</Link>
+              <Link href="/audit" className="block px-4 py-2 hover:bg-gray-200">Test utilisateur</Link>
+              <Link href="/audit" className="block px-4 py-2 hover:bg-gray-200">schema</Link>
               </div>
             </li>
             <li className="relative group">
@@ -88,7 +93,11 @@ export default function Header({ textColor, logosrc }: Headerprops) {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
               </Link>
-              <div className="absolute left-0 mt-2 w-48 bg-white text-black rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute left-0 mt-2 w-48 bg-white text-black rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <Link href="/audit" className="block px-4 py-2 hover:bg-gray-200">Developpement Web</Link>
+              <Link href="/audit" className="block px-4 py-2 hover:bg-gray-200">Developpement mobile</Link>
+              <Link href="/audit" className="block px-4 py-2 hover:bg-gray-200">Saas</Link>
+              </div>
                
             </li>
             <li className="relative group">
@@ -99,7 +108,7 @@ export default function Header({ textColor, logosrc }: Headerprops) {
                 </svg>
               </Link>
               <div className="absolute left-0 mt-2 w-48 bg-white text-black rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              
+              <Link href="/audit" className="block px-4 py-2 hover:bg-gray-200">Nos formations </Link>
               </div>
             </li>
             <li>

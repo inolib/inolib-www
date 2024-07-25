@@ -30,7 +30,7 @@ const services: Service[] = [
 
 export default function ServiceSection () {
   return (
-    <section className="py-16 px-4 bg-white" aria-labelledby="services-heading">
+    <section className="py-16 px-4 bg-[#FAFAFA]" aria-labelledby="services-heading">
       <div className="max-w-5xl mx-auto text-center">
         <h2 id="services-heading" className="text-3xl font-bold mb-4">Services complémentaires pour propulser votre projet :</h2>
         <p className="text-gray-600 mb-12">Everything you need to know about the product and billing. Can't find the answer you're looking for? Please chat to our friendly team.</p>

@@ -7,7 +7,7 @@ export default function PageAccoumpagner(){
   return(
     <>
     <HeaderHat 
-      bgColor="bg-blue-100"
+      bgColor="bg-[#F5F9FA]"
       textColor="text-black"
       buttonVariant="buttonNoir"/>
       <Header 

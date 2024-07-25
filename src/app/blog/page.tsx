@@ -26,7 +26,7 @@ export default async function Blog(){
   return( 
 <div className='overflow-hidden'>
     <HeaderHat 
-    bgColor="bg-blue-100"
+    bgColor="bg-[#F5F9FA]"
     textColor="text-black"
     buttonVariant="buttonNoir"/>
        <Header 
