@@ -1,6 +1,7 @@
 import Header from '~/components/Header';
 import HeaderHat from '~/components/HeaderHat';
 import BlogList from '~/components/blogLists';
+import Footer from '~/components/Footer';
 
 type Post = { 
   id: string;
@@ -33,6 +34,7 @@ export default async function Blog(){
    textColor="text-black"
    logosrc="/Logo/logo-jaune-noir.svg"/>
    <BlogList posts={posts} />;
+   <Footer />
    </div>
   )
 }

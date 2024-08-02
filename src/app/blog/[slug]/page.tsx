@@ -1,4 +1,6 @@
-
+import Header from '~/components/Header';
+import HeaderHat from '~/components/HeaderHat';
+import Footer from '~/components/Footer';
 import Image from 'next/image';
 type Post = { 
   id: string;
@@ -6,16 +8,25 @@ type Post = {
   content: { rendered: string };
   slug: string;
   img:string;
+  authorName: string; // Ajout du nom de l'auteur
+  date: string;
 };
 
 type Props = {
   params: { slug: string };
 };
-/*   §§§§§§§ API REST pour recupérer un article*/ 
-async function fetchPost(slug: string) {
+
+async function fetchPost(slug: string): Promise<Post | null> {
   const res = await fetch(`http://localhost/WORDPRESS/wp-json/wp/v2/posts/?slug=${slug}`);
   const posts = await res.json();
-  return posts.length ? posts[0] : null;
+  if (posts.length === 0) return null;
+
+  const post = posts[0];
+  const authorRes = await fetch(`http://localhost/WORDPRESS/wp-json/wp/v2/users/${post.author}`);
+  const author = await authorRes.json();
+  post.authorName = author.name;
+
+  return post;
 }
 
 export default async function Single({ params }: Props) {
@@ -26,17 +37,34 @@ export default async function Single({ params }: Props) {
   }
 
   return (
-    <div >
-         {post.img && <Image src={post.img} 
-         alt={post.title.rendered} 
-         width={600} 
-         height={400} />}
-      <h1>{post.title.rendered}</h1>
-      <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+    <div>
+      <HeaderHat 
+       bgColor='bg-[#F5F9FA]'
+       textColor='text-black'
+        buttonVariant='buttonNoir'
+       />
+      <Header
+      textColor='text-black' 
+      logosrc='/Logo/logo-jaune-noir.svg'
+      />
       
+      <div>
+      <h1>{post.title.rendered}</h1>
+      
+      <div  className='font-bold' dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+      <p className='font-manrope'>{post.authorName}  {new Date(post.date).toLocaleDateString()}</p>
+
+    <Image 
+    src='/HomePage/article.svg'
+    alt=''
+    width={500} 
+    height={500} />
+      <Footer />
+    </div>
     </div>
   );
 }
+
 /**API pour récupérer tous les articles */
 export async function generateStaticParams() {
   const res = await fetch('http://localhost/WORDPRESS/wp-json/wp/v2/posts');

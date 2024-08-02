@@ -1,15 +1,16 @@
 import Header from '../components/Header';
 import HearderHat from '../components/HeaderHat';
 import Main from '~/components/main';
-import Footer from'~/components/footer';
-import Services from '~/components/service';
+import Footer from'~/components/Footer';
+import Services from '~/components/Service';
 import SocialProof from '~/components/SocialProof';
-import Testimonials from '~/components/Testimonials';
-import Newsletter from '~/components/newsletter';
-import News from '~/components/blogSection';
+import Testimonials from '~/components/Testimonial';
+import Newsletter from '~/components/Newsletter';
+import News from '~/components/BlogSection';
 import Faqs from '~/components/Faqs';
-import ServiceSection from '~/components/serviceSection';
-import ContactBanner from '~/components/contactBanner';
+import ServiceSection from '~/components/ServiceSection';
+import ContactBanner from '~/components/ContactBanner';
+import OurStory from '~/components/OurStory';
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
       />
       
       <Main />
+      <OurStory />
       <ContactBanner />
       <ServiceSection />
       <Faqs />

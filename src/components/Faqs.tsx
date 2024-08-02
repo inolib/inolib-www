@@ -2,26 +2,15 @@
 import { Accordion,
    AccordionItem,
     AccordionTrigger, 
-    AccordionContent } from '~/components/UI/accordion';
+    AccordionContent } from '~/components/UI/Accordion';
+    import { faqs } from '~/DATA/data';
 
-    type Faq={
-      question:string;
-      answer:string
-    }
-const faqs = [
-  {
-    question: 'Is there a free trial available?',
-    answer: "Yes, you can try us for free for 30 days. If you want, we'll provide you with a free, personalized 30-minute onboarding call to get you up and running as soon as possible."
-  },
-  {
-    question: 'Can I change my plan later?',
-    answer: 'Yes, you can upgrade or downgrade your plan at any time. Changes will take effect immediately.'
-  },
-  {
-    question: 'What is your cancellation policy?',
-    answer: 'You can cancel your subscription at any time. Your subscription will remain active until the end of the current billing period.'
-  }
-];
+    
+
+
+
+   
+
 
 const Faqs = () => {
 

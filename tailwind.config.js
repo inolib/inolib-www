@@ -6,6 +6,23 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      screens:{
+        screens: {
+          'lg':  '1200px',
+          'md':  '819px',
+          'sm':  '640px',
+          'xs':  '330px',
+        },
+
+      },
+      spacing: {
+        '128': '32rem', 
+        '160': '40rem', 
+        '192': '48rem', 
+        '200': '56rem', 
+        '256': '64rem', 
+        
+      },
       fontFamily: {
         'manrope': ['Manrope', 'sans-serif'],
       },
@@ -19,7 +36,10 @@ module.exports = {
         'normal': '26px',
       },
       borderRadius: {
-        'custom-tr': '18rem',
+        'customl-tr': '18rem',
+        'customm-tr':'12rem',
+        'customs-tr':'10rem',
+        'customx-tr':'7rem',
       },
       keyframes: {
         'accordion-down': {
@@ -40,6 +60,7 @@ module.exports = {
         'accordion-up': "accordion-up 0.2s ease-out",
         marquee: 'marquee 20s linear infinite',
       },
+      
     },
   },
   plugins: [],

@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { relative } from 'path';
+import { texts } from '~/DATA/data';
+import { Logos } from '~/DATA/data';
 
 export default function SocialProof() {
   const [isAnimating, setIsAnimating] = useState(true);
@@ -14,30 +16,18 @@ export default function SocialProof() {
     <main className="flex flex-col items-center bg-white p-6  ">
       <h1 className="text-lg font-bold mb-4 pt-6">Rejoignez nos clients satisfaits</h1>
       <div className="flex  w-full max-w-4xl pt-12 space-x-12 justify-center">
-      <Image 
-        src='/ParLogo/laposte.svg' 
-        width={500} 
-        height={200} 
-        alt='logo de nos clients : la poste,'>
-    </Image>
-    <Image 
-        src='/ParLogo/atomoto.svg' 
-        width={500} 
-        height={200} 
-        alt='logo de nos clients : la poste,'>
-    </Image>
-    <Image 
-        src='/ParLogo/med.svg' 
-        width={500} 
-        height={200} 
-        alt='logo de nos clients : la poste,'>
-    </Image>
-    <Image 
-        src='/ParLogo/3lurryAds.svg' 
-        width={500} 
-        height={200} 
-        alt='logo de nos clients : la poste,'>
-    </Image>
+      
+      {Logos.map((logo,i)=>(
+        <Image 
+        key={i}
+        src={logo.src}
+        width={logo.width}
+        height={logo.height}
+        alt={logo.alt}
+      />)
+
+
+      )}
     
       </div>
       <div 
@@ -45,12 +35,10 @@ export default function SocialProof() {
         onClick={toggleAnimation}
       >
         <div className={`flex whitespace-nowrap ${isAnimating ? 'animate-marquee' : ''}`}>
-          <p className="mx-4">L'inclusivité est la clé - Accessibilité rime avec beauté</p>
-          <p className="mx-4">L'inclusivité est la clé - Accessibilité rime avec beauté</p>
-          <p className="mx-4">L'inclusivité est la clé - Accessibilité rime avec beauté</p>
-          <p className="mx-4">L'inclusivité est la clé - Accessibilité rime avec beauté</p>
-          <p className="mx-4">L'inclusivité est la clé - Accessibilité rime avec beauté</p>
-          <p className="mx-4">L'inclusivité est la clé - Accessibilité rime avec beauté</p>
+          {texts.map((text,i)=>(
+            <p key={i} className=" mx-4">{text}</p>
+          ))}
+       
         </div>
       </div>
     </main>

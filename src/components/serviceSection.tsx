@@ -1,32 +1,9 @@
 import Image from 'next/image';
+import { services} from '~/DATA/data'
 
-interface Service {
-  title: string;
-  description: string;
-  icon: string;
-  alt: string;
-}
 
-const services: Service[] = [
-  {
-    title: 'Accompagnement',
-    description: 'Intégration de nos conseils dans votre stratégie de développement et la mise en œuvre des corrections.',
-    icon: '/icons/coeur.svg',
-    alt: 'Icone d\'accompagnement'
-  },
-  {
-    title: 'Coordination',
-    description: 'Création et suivi des tickets d\'anomalies dans votre outil de gestion de projets (Redmine, Jira, Trello, Asana, etc.) pour une conformité optimale.',
-    icon: '/icons/fleche.svg',
-    alt: 'Icone de coordination'
-  },
-  {
-    title: 'Coaching',
-    description: 'Profitez pour chaque réalisation d\'audit de trois heures de coaching en accessibilité numérique pour sensibiliser et booster vos équipes.',
-    icon: '/icons/fichier.svg',
-    alt: 'Icone de coaching'
-  }
-];
+
+
 
 export default function ServiceSection () {
   return (
