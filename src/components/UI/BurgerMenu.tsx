@@ -5,13 +5,17 @@ DropdownMenuContent,
 DropdownMenuTrigger} from '~/components/UI/DropDownMenu';
 import Link from 'next/link';
 import {Button }from '~/components/UI/Button';
+import Image from 'next/image';
 
 
 export default function BurgerMenu(){
   return(
 <main>
 <DropdownMenu > 
-    <DropdownMenuTrigger className='md:hidden'>☰ </DropdownMenuTrigger>
+    <DropdownMenuTrigger className='md:hidden'> <Image
+    src='/Icons/Navmenu.svg' alt=''
+    width={40}
+    height={40}></Image></DropdownMenuTrigger>
     <DropdownMenuContent>
 <DropdownMenuLabel>Menu</DropdownMenuLabel>
 <DropdownMenuSeparator />

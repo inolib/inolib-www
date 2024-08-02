@@ -182,18 +182,18 @@ export const Logos =[
     
     {
         src:'/ParLogo/atomoto.svg', 
-        width:500 ,
+        width:200 ,
         height:200,
         alt:'logo de nos clients : atomoto'},
    
     {   src:'/ParLogo/med.svg' ,
-        width:500 ,
-        height:200,
+        width:150 ,
+        height:100,
         alt:'logo de nos clients : '},
    
     
        {src:'/ParLogo/3lurryAds.svg', 
-        width:500 ,
+        width:150 ,
         height:200, 
         alt:'logo de nos clients : 3lurryAds'}
     

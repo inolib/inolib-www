@@ -64,7 +64,7 @@ export default function MainNav() {
   return (
     <>
       
-        <nav aria-label="Menu de navigation"  className="hidden md:block">
+        <nav aria-label="Menu de navigation"  className="hidden md:block py-8">
           <ul className="flex space-x-12 font-sans">
             {menuItems.map((item) => (
               <li

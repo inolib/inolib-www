@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <div className=" overflow-hidden bg-[#233f41]">
       <HearderHat 
-      bgColor="bg-slate-800"
+      bgColor="bg-[#111F22]"
       textColor='text-white' 
       buttonVariant='ButtonJaune'  
        />
