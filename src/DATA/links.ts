@@ -42,7 +42,7 @@ export const menuItems: MenuItemProps[] = [
     label: 'À propos',
   },
   {
-    href: '/Blog',
+    href: '/blog',
     label: 'Blog',
   },
 ];

@@ -49,7 +49,7 @@ export default function SearchBar() {
           type="text"
           placeholder="Rechercher"
           className="rounded-full py-2 px-4 pl-10 w-64 text-black focus:outline-none"
-          aria-label="Rechercher"
+          aria-label="bare de recherche articles ou pages"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />

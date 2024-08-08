@@ -20,7 +20,7 @@ type Post = {
   categoryNames: string[];
 };
 
-type Category = {
+type Category = { 
   id: number;
   name: string;
 };
@@ -31,9 +31,9 @@ async function fetchAllPosts(): Promise<Post[]> {
   if (!res.ok) {
     throw new Error('Network response was not ok');
   }
-// les posts sont récupérés sous forme de tableau d'objets
+  // les posts sont récupérés sous forme de tableau d'objets
   const posts = await res.json();
-// On retourne un tableau d'objets avec les propriétés id, title, content, slug, img, authorName, date et categoryNames
+  // On retourne un tableau d'objets avec les propriétés id, title, content, slug, img, authorName, date et categoryNames
   return posts.map((post: any) => ({
     id: post.id,
     title: post.title,
@@ -46,8 +46,8 @@ async function fetchAllPosts(): Promise<Post[]> {
   }));
 }
 
-// Fonction pour récupérer les catégories
-//ici on est obligé de faire un appel à l'API pour récupérer les catégories meme si on a déjà les catégories dans les articles car pour les filtres on a besoin de toutes les catégories
+// Fonction pour récupérer les catégories 
+// ici on est obligé de faire un appel à l'API pour récupérer les catégories même si on a déjà les catégories dans les articles car pour les filtres on a besoin de toutes les catégories
 async function fetchCategories(): Promise<Category[]> {
   const res = await fetch('http://localhost/WORDPRESS/wp-json/wp/v2/categories');
   if (!res.ok) {
@@ -75,7 +75,6 @@ export default function BlogList() {
   const categoryParam = searchParams.get('category') || 'Tous les articles';
   const currentPage = pageParam ? parseInt(pageParam) : 1; // Définir la page actuelle
   const postsPerPage = 2; // Définir le nombre d'articles par page
- 
 
   useEffect(() => {
     async function fetchData() {
@@ -86,11 +85,7 @@ export default function BlogList() {
         ]);
         setCategories(categoriesData);
         setAllPosts(allPostsData);
-        // Filtrer les articles en fonction de la catégorie sélectionnée
-        const filteredPosts = categoryParam === 'Tous les articles' 
-          ? allPostsData 
-          : allPostsData.filter(post => post.categoryNames.includes(categoryParam));
-        setPosts(filteredPosts.slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage));
+        filterAndPaginatePosts(allPostsData, categoryParam, searchTerm, currentPage);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -101,38 +96,51 @@ export default function BlogList() {
     fetchData();
   }, [currentPage, categoryParam]);
 
+  const filterAndPaginatePosts = (allPosts: Post[], category: string, searchTerm: string, page: number) => {
+    let filteredPosts = category === 'Tous les articles'
+      ? allPosts
+      : allPosts.filter(post => post.categoryNames.includes(category));
+
+    if (searchTerm) {
+      filteredPosts = filteredPosts.filter(post => 
+        post.title.rendered.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        post.content.rendered.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+
+    setPosts(filteredPosts.slice((page - 1) * postsPerPage, page * postsPerPage));
+  };
+
   const handleCategorySelect = (category: string) => {
     setLoading(true);
     setPosts([]);
-    router.push(`?category=${category}`);
+    router.push(`?category=${category}&page=1`);
   };
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
-    const filteredPosts = posts.filter(post => 
-      post.title.rendered.toLowerCase().includes(e.target.value.toLowerCase()) ||
-      post.content.rendered.toLowerCase().includes(e.target.value.toLowerCase())
-    );
-    setPosts(filteredPosts.slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage));
+    const searchValue = e.target.value;
+    setSearchTerm(searchValue);
+    filterAndPaginatePosts(allPosts, categoryParam, searchValue, currentPage);
   };
 
   if (loading) {
-    return <div>Loading...</div>
+    return <div>Loading...</div>;
   }
 
   if (error) {
-    return <div>Error: {error}</div>
+    return <div>Error: {error}</div>;
   }
-  // Filtrer les articles en fonction de la recherche
+
+  // calculer le nombre de pages dynamiquement en fonction du nombre d'articles
   const filteredPosts = categoryParam === 'Tous les articles'
-  ? allPosts
-  : allPosts.filter(post => post.categoryNames.includes(categoryParam));
-  // calculer le nombre de pages dynamiquement en fonction du nombre d'articles 
+    ? allPosts
+    : allPosts.filter(post => post.categoryNames.includes(categoryParam));
   const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+
   return (
     <div className="container mx-6 py-8 px-4 lg:px-0 ml-12 mt-28">
       {/* Breadcrumb */}
-      <Breadcrumb >
+      <Breadcrumb>
         <BreadcrumbList className='mb-10'>
           <BreadcrumbItem>
             <BreadcrumbLink href="/"><Image src='/Icons/BreadcrumIcon.svg' alt='' width={20} height={20}></Image></BreadcrumbLink>
@@ -180,7 +188,7 @@ export default function BlogList() {
             
           </div>
 
-          {/* Barre de recherche des articles en fontion de leurs titres et contenus*/}
+          {/* Barre de recherche des articles en fonction de leurs titres et contenus */}
           <div className="relative" >
             <input
               type="text"
@@ -235,14 +243,14 @@ export default function BlogList() {
                   </Link>
                 </div>
                 <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} className="mt-4 text-gray-700 line-clamp-3"/>
-                <p className="mt-4 text-gray-600">By {post.authorName}</p>
+                <p className="mt-4 text-gray-600">{post.authorName}</p>
                 <p className="text-gray-500">{new Date(post.date).toLocaleDateString()}</p>
               </div>
             </div>
           ))}
         </div>
       </Breadcrumb>
-{/* Pagination */}
+      {/* Pagination */}
       <Pagination className='max-w-6xl '>
         <PaginationContent>
           <PaginationItem>

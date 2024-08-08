@@ -22,7 +22,7 @@ export default function Header({ textColor, logosrc }: HeaderProps) {
 
   return (
     <header className={`relative ${textColor} h-20`}>
-      <div className="container mx-auto  flex flex-row space-x-10 px-4 xxs:space-x-14">
+      <div className="container mx-auto  flex flex-row lg:space-x-0 md:space-x-2 sm:space-x-2 px-4 xxs:space-x-10">
         <div className="logo ml-8 xxs:mr-14">
           <Link href="/">
             <Image

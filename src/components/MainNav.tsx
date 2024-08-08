@@ -64,7 +64,7 @@ export default function MainNav() {
   return (
     <>
       
-        <nav aria-label="Menu de navigation"  className="hidden md:block py-8">
+        <nav aria-label="Menu de navigation"  className="hidden md:block py-8 ml-1">
           <ul className="flex space-x-12 font-sans">
             {menuItems.map((item) => (
               <li
@@ -84,7 +84,7 @@ export default function MainNav() {
                       role="button"
                       tabIndex={0}
                       aria-expanded={openMenu === item.label}
-                      aria-label={`Toggle ${item.label} menu`}
+                      aria-label={` ${item.label} menu`}
                     >
                       {renderArrow(item.label)}
                     </div>
