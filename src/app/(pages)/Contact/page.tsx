@@ -14,7 +14,8 @@ export default function ContactPage(){
    buttonVariant="buttonNoir"/>
 <Header 
   textColor="text-black"
-  logosrc="/Logo/logo-jaune-noir.svg"/>
+  logosrc="/Logo/logo-jaune-noir.svg"
+  burgerMenu='/Icons/menuBlack.svg'/>
 <MainContact />
 <Footer />
 

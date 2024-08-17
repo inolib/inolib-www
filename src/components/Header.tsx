@@ -11,9 +11,10 @@ import { Button } from "~/components/UI/Button";
 type HeaderProps = {
   textColor: string;
   logosrc: string;
+  burgerMenu:string;
 };
 
-export default function Header({ textColor, logosrc }: HeaderProps) {
+export default function Header({ textColor, logosrc,burgerMenu }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -22,8 +23,8 @@ export default function Header({ textColor, logosrc }: HeaderProps) {
 
   return (
     <header className={`relative ${textColor} h-20`}>
-      <div className="container mx-auto  flex flex-row lg:space-x-0 md:space-x-2 sm:space-x-2 px-4 xxs:space-x-10">
-        <div className="logo ml-8 xxs:mr-14">
+      <div className="container mx-auto flex flex-row  md:space-x-4 sm:space-x-[440px]  xs:space-x-[270px]  xxs:space-x-[130px]">
+        <div className="logo  lg:ml-10 md:ml-0 xxs:ml-0    ">
           <Link href="/">
             <Image
               src={logosrc}
@@ -33,11 +34,14 @@ export default function Header({ textColor, logosrc }: HeaderProps) {
              
             />
           </Link>
+         
         </div>
-        
+        <div>
+          <BurgerMenu navMenu={burgerMenu}/>
+          </div>
         
           <MainNav />
-          <BurgerMenu />
+          
        
       </div>
       

@@ -23,6 +23,7 @@ export default function Home() {
       <Header 
       textColor='text-white'
       logosrc={'/Logo/logo_jaune_blanc.svg'}
+      burgerMenu='/Icons/Navmenu.svg'
       />
       
       <Main />

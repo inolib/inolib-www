@@ -27,7 +27,7 @@ type Category = {
 
 // Fonction pour récupérer tous les articles
 async function fetchAllPosts(): Promise<Post[]> {
-  const res = await fetch('http://localhost/WORDPRESS/wp-json/wp/v2/posts?per_page=100');
+  const res = await fetch('http://localhost/WORDPRESS/wp-json/wp/v2/posts?per_page=100&_embed');
   if (!res.ok) {
     throw new Error('Network response was not ok');
   }
@@ -39,16 +39,16 @@ async function fetchAllPosts(): Promise<Post[]> {
     title: post.title,
     content: post.content,
     slug: post.slug,
-    img: post.img,
-    authorName: post.author_name,
+    img: post._embedded?.['wp:featuredmedia']?.[0]?.source_url || null,
+    authorName: post._embedded?.author?.[0]?.name || 'Inconnu',
     date: post.date,
-    categoryNames: post.category_names,
+    categoryNames: post._embedded?.['wp:term']?.[0]?.map((term: any) => term.name) || [],
   }));
 }
 
 // Fonction pour récupérer les catégories 
-// ici on est obligé de faire un appel à l'API pour récupérer les catégories même si on a déjà les catégories dans les articles car pour les filtres on a besoin de toutes les catégories
-async function fetchCategories(): Promise<Category[]> {
+// ici on est obligé de faire un appel à l'API pour récupérer les catégories même si on a déjà les catégories dans les articles 
+/*async function fetchCategories(): Promise<Category[]> {
   const res = await fetch('http://localhost/WORDPRESS/wp-json/wp/v2/categories');
   if (!res.ok) {
     throw new Error('Network response was not ok');
@@ -59,7 +59,7 @@ async function fetchCategories(): Promise<Category[]> {
     id: category.id,
     name: category.name,
   }));
-}
+}**/
 
 // Composant BlogList
 export default function BlogList() {
@@ -79,12 +79,11 @@ export default function BlogList() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const [categoriesData, allPostsData] = await Promise.all([
-          fetchCategories(),
-          fetchAllPosts()
-        ]);
-        setCategories(categoriesData);
+        const allPostsData = await fetchAllPosts();
         setAllPosts(allPostsData);
+        // Vous pouvez créer une liste de catégories unique à partir des articles récupérés si nécessaire
+        const uniqueCategories = Array.from(new Set(allPostsData.flatMap(post => post.categoryNames)));
+        setCategories(uniqueCategories.map((name, index) => ({ id: index, name })));
         filterAndPaginatePosts(allPostsData, categoryParam, searchTerm, currentPage);
       } catch (error) {
         setError(error.message);
@@ -92,9 +91,10 @@ export default function BlogList() {
         setLoading(false);
       }
     }
-
+  
     fetchData();
   }, [currentPage, categoryParam]);
+  
 
   const filterAndPaginatePosts = (allPosts: Post[], category: string, searchTerm: string, page: number) => {
     let filteredPosts = category === 'Tous les articles'

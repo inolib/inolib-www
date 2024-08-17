@@ -5,7 +5,7 @@ export async function fetchLatestPosts(): Promise<Post[]> {
     throw new Error('Network response was not ok');
   }
   const posts = await res.json();
-  // 
+  //
   return posts.map((post: any) => ({
     id: post.id,
     title: post.title,

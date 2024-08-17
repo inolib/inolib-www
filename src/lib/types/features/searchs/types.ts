@@ -4,7 +4,12 @@ export interface SearchResult {
     title: {
       rendered: string;
     };
+    img:string;
     slug: string;
+   
+    categoryNames:string;
+    authorName: string;
+    date:string;
   }
   
   export interface StaticPage {
@@ -14,7 +19,7 @@ export interface SearchResult {
   
   export interface Results {
     articles: SearchResult[];
-    pages: SearchResult[];
+    
     staticPages: StaticPage[];
   }
   
