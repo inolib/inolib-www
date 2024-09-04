@@ -19,7 +19,7 @@ const SearchResultsPage = () => {
       <BreadcrumbList className='mb-10'>
   
     <BreadcrumbItem>
-      <BreadcrumbLink href="/"><Image src='/Icons/BreadcrumIcon.svg' alt='' width={20} height={20}></Image></BreadcrumbLink>
+      <BreadcrumbLink href="/"><Image src='/Icons/BreadcrumIcon.svg' alt="retour a la page d'accueil" width={20} height={20}></Image></BreadcrumbLink>
     </BreadcrumbItem>
     <BreadcrumbSeparator />
     <BreadcrumbItem>

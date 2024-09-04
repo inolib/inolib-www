@@ -1,6 +1,9 @@
 
 // Données pour la section "Notre équipe"
 import { TeamMember } from '~/lib/types/features/componentTypes/types';
+import { JobOffer} from '~/lib/types/features/componentTypes/types';
+import { ValueItem } from '~/lib/types/features/componentTypes/types';
+import { Service } from '~/lib/types/features/componentTypes/types';
 export const teamMembers: TeamMember[] = [
   {
     name: 'Amélie Laurent',
@@ -59,12 +62,7 @@ export const teamMembers: TeamMember[] = [
     alt: 'Marco Kelly'
   },
 ];
-export interface ValueItem {
-  title: string;
-  description: string;
-  icon: string;
-  alt: string;
-}
+
 // Données pour la section "Nos valeurs"
 export const valuesData: ValueItem[] = [
   {
@@ -198,3 +196,24 @@ export const Logos =[
         alt:'logo de nos clients : 3lurryAds'}
     
 ]
+// données pour le composant CarrerSection
+export const jobOffers: JobOffer[] = [
+  {
+    title: 'Product Designer',
+    location: 'Lyon, France',
+    type: 'Full-time',
+    salaryRange: '80k - 100k',
+  },
+  {
+    title: 'UX Designer',
+    location: 'Lyon, France',
+    type: 'Full-time',
+    salaryRange: '80k - 100k',
+  },
+  {
+    title: 'Frontend Developer',
+    location: 'Lyon, France',
+    type: 'Full-time',
+    salaryRange: '$80k - $100k',
+  },
+];

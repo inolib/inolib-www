@@ -24,13 +24,14 @@ export default function Header({ textColor, logosrc,burgerMenu }: HeaderProps) {
   return (
     <header className={`relative ${textColor} h-20`}>
       <div className="container mx-auto flex flex-row  md:space-x-4 sm:space-x-[440px]  xs:space-x-[270px]  xxs:space-x-[130px]">
-        <div className="logo  lg:ml-10 md:ml-0 xxs:ml-0    ">
+        <div className="logo  lg:ml-24 mt-4 md:ml-0 xxs:ml-0 py-2 ">
           <Link href="/">
             <Image
               src={logosrc}
-              alt="Inolib Accueil"
-              width={150}
-              height={50}
+              alt="Accueil"
+              width={100}
+              height={32}
+              className='object-contain'
              
             />
           </Link>

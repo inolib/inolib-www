@@ -4,7 +4,7 @@ import { TeamMember } from '~/lib/types/features/componentTypes/types';
 
 const TeamSection = () => {
   return (
-    <section className="py-16 px-4 bg-white" aria-labelledby="team-heading">
+    <section className="py-16 px-4 bg-[#FAFAFA]" aria-labelledby="team-heading">
       <div className="max-w-6xl mx-auto text-center ">
         <h2 id="team-heading" className="text-3xl font-bold mb-4">Notre équipe</h2>
         <p className="text-gray-600 mb-12 md:max-w-xl text-center md:mx-72 sm:max-w-80 sm:mx-40">
@@ -12,7 +12,7 @@ const TeamSection = () => {
         </p>
         <div className="grid gap-8 md:grid-cols-4 sm:grid-cols-2 mx-14 ">
           {teamMembers.map((member: TeamMember, index: number) => (
-            <div key={index} className="flex flex-col items-center bg-[#F5F9FA] rounded-t-full  h-80">
+            <div key={index} className="flex flex-col items-center bg-[#EEF5F6] rounded-t-full  h-80">
               <Image 
                 src={member.image} 
                 alt={member.alt} 

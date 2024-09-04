@@ -15,7 +15,7 @@ return(
    buttonVariant="buttonNoir"/>
 <Header 
   textColor="text-black"
-  logosrc="/Logo/logo-jaune-noir.svg"
+  logosrc="/Logo/LogoNoir.svg"
   burgerMenu='/Icons/menuBlack.svg'/>
 <MainDeveloppement />
 <Footer />

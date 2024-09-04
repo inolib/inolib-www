@@ -15,7 +15,7 @@ export default function ServiceSection () {
           {services.map((service, index) => (
             <div key={index} className="flex flex-col items-center">
               <div className="mb-4">
-                <Image src={service.icon} alt={service.alt} width={40} height={40} />
+                <Image src={service.icon} alt="" width={40} height={40} />
               </div>
               <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
               <p className="text-gray-600">{service.description}</p>

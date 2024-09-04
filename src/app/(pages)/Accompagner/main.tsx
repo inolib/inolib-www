@@ -1,55 +1,78 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from '~/components/UI/Breadcrumb';
+import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbLink, BreadcrumbSeparator } from "~/components/UI/Breadcrumb";
+import { RxArrowRight} from "react-icons/rx";
 
-export default function MainAccompagnement() {
+export default function MainForm() {
   return (
-    <main className="container mx-auto py-8 px-4 lg:px-0">
-             <Breadcrumb >
-  <BreadcrumbList className='mb-10'>
-  
-    <BreadcrumbItem>
-      <BreadcrumbLink href="/"><Image src='/Icons/BreadcrumIcon.svg' alt='' width={20} height={20}></Image></BreadcrumbLink>
-    </BreadcrumbItem>
-    <BreadcrumbSeparator />
-    <BreadcrumbItem>
-      <BreadcrumbLink href="/accompagner">Accompagnement</BreadcrumbLink>
-    </BreadcrumbItem>
-   
-   
-  </BreadcrumbList>
-      
+    <main className="container mx-auto  lg:px-0 mt-0">
+      {/* Breadcrumb */}
+      <div className="flex flex-col lg:flex-row justify-between items-center">
+        <section>
+      <Breadcrumb>
+        <BreadcrumbList className="ml-24 flex items-center space-x-2 mb-6 mt-0">
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/">
+              <Image src='/Icons/BreadcrumIcon.svg' alt='Home' width={20} height={20} />
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/Accompagner" className="text-gray-600">Accompgner</BreadcrumbLink>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+      <header className="lg:ml-24">
+          <h1 className="text-4xl font-bold text-gray-900">Accompagnement</h1>
+        </header>
+        </section>
 
-      <header className="mb-10">
-        <h1 className="text-3xl font-bold text-gray-900">Accompagnement</h1>
-      </header>
+    
+       
+        <section className=" mt-10 ">
+          <Image
+            src="/Homepage/newAcc.svg"
+            alt=""
+            width={550}
+            height={550}
+            className="object-cover"
+          />
+        </section>
+      </div>
 
-      <section className="mb-8">
-        <Image src="/Homepage/sommet.svg" 
-        alt="Illustration de l'accompagnement" 
-        width={600} 
-        height={400}/>
-      </section>
-
-      <section className="lg:flex lg:space-x-8">
-        <article className="lg:w-2/3 mb-8 lg:mb-0">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Audit d'accessibilité numérique - de quoi s'agit-il ?</h2>
-          <p className="text-gray-700 mb-4">
-            Un audit en accessibilité numérique évalue vos outils digitaux (sites web, logiciels, applications mobiles, documents, etc.) afin de garantir leur niveau d'accessibilité. Nos audits suivent les référentiels techniques RGAA 4.1 (référentiel pour l'amélioration de l'accessibilité), les normes internationales WCAG 2.1 (Web Content Accessibility Guidelines) éditées par le W3C. Pour les applications mobiles, nous nous appuyons sur le référentiel et RAAM 1. et la norme européenne EN 301-549. Nos offres d'audit sont disponibles en français et en anglais.
+      <section className="lg:flex lg:space-x-16 mt-6 lg:mt-12 px-4 lg:px-10 ml-14 pb-4">
+        <div className="flex flex-col lg:w-1/2">
+          <p className="text-gray-600 mb-6">
+            INOLIB vous accompagne dans la création d'expériences numériques accessibles et conviviales pour tous, conformément aux normes RGAA et WCAG. Nos formations et sessions de sensibilisation, interactives et pratiques, sont conçues pour répondre aux besoins de tout public, tels que les managers, chefs de projet, développeurs, designers et webmasters.
           </p>
-          <ul className="list-disc list-inside text-gray-700 mb-4">
-            <li>Élargir votre audience en incluant tous les utilisateurs</li>
-            <li>Améliorer l'expérience utilisateur pour tous</li>
-            <li>Respecter les obligations en matière d'accessibilité numérique</li>
+          <ul className="list-none text-gray-600 mb-6 space-y-3 ml-2">
+            <li className="flex items-start">
+              <Image src="/Icons/CheckIcon.svg" alt='' width={20} height={20} className="mr-2" />
+              Élargir votre audience en incluant tous les utilisateurs
+            </li>
+            <li className="flex items-start">
+              <Image src="/Icons/CheckIcon.svg" alt='' width={20} height={20} className="mr-2" />
+              Améliorer l'expérience utilisateur pour tous
+            </li>
+            <li className="flex items-start">
+              <Image src="/Icons/CheckIcon.svg" alt='' width={20} height={20} className="mr-2" />
+              Respecter les obligations en matière d'accessibilité numérique
+            </li>
           </ul>
-          <Link href="#" className="inline-flex items-center px-4 py-2 border border-black text-gray-800 font-semibold rounded-full hover:bg-gray-200 transition">
+          <Link href="/contact" className="bg-[#254147] text-white flex items-center justify-between hover:bg-primary/90 py-2.5 px-4 rounded-lg w-44">
             Nous contacter
+            <RxArrowRight className="w-6 h-6" />
           </Link>
-        </article>
+        </div>
 
-        <aside className="lg:w-1/3 space-y-4">
-          <div className="bg-gray-100 p-4 rounded-lg shadow">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Développement</h3>
+        <aside className="lg:w-1/2 space-y-6 mt-10 lg:mt-0">
+          <div className="bg-[#F5F9FA] p-6 rounded-lg shadow flex flex-row space-x-4">
+            <div className=' '>
+            <Image src='Icons/appli.svg' alt='' width={80} height={80}></Image>
+            </div>
+            <div>
+            <h2 className="text-lg font-semibold text-gray-900 mb-2">Site web</h2>
+            
             <p className="text-gray-700 mb-4">
               Give your team the autonomy they need with access to as many cards as they need. Authorise purchases with a click. Simple.
             </p>
@@ -60,8 +83,13 @@ export default function MainAccompagnement() {
               </svg>
             </Link>
           </div>
-          <div className="bg-gray-100 p-4 rounded-lg shadow">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Formation</h3>
+          </div>
+          <div className="bg-[#F5F9FA] p-6 rounded-lg shadow  flex flex-row space-x-4">
+          <div className=' '>
+            <Image src='Icons/siteWeb.svg' alt='' width={80} height={80}></Image>
+            </div>
+            <section>
+            <h2 className="text-lg font-semibold text-gray-900 mb-2">Application mobile</h2>
             <p className="text-gray-700 mb-4">
               Every card comes with configurable spending limits, purchase restrictions, and cancellations for each employee and team.
             </p>
@@ -71,10 +99,10 @@ export default function MainAccompagnement() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </Link>
+            </section>
           </div>
         </aside>
       </section>
-      </Breadcrumb>
     </main>
   );
 }

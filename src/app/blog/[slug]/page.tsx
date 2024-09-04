@@ -10,37 +10,11 @@ import Image from "next/image";
 import { fetchComments, fetchPost } from "~/lib/hooks/fetchPost";
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator } from "~/components/UI/Breadcrumb";
 
-type Comment = {
-  id: number;
-  author_name: string;
-  content: {
-    rendered: string;
-  };
-};
-
-type Post = {
-  id: number;
-  title: {
-    rendered: string;
-  };
-  content: {
-    rendered: string;
-  };
-  img:string;
-  slug: string;
-  authorName: string;
-  date: string;
-};
-
-type Props = {
-  params: {
-    slug: string;
-  };
-};
+import { Post, OneComment, Props } from "~/lib/types/features/componentTypes/types";
 
 export default function Single({ params }: Props) {
   const [post, setPost] = useState<Post | null>(null);
-  const [comments, setComments] = useState<Comment[]>([]);
+  const [comments, setComments] = useState<OneComment[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -62,7 +36,7 @@ export default function Single({ params }: Props) {
     fetchPostAndComments();
   }, [params.slug]);
 
-  const handleCommentAdded = (newComment: Comment) => {
+  const handleCommentAdded = (newComment: OneComment) => {
     setComments((prevComments) => [...prevComments, newComment]);
   };
 
@@ -93,10 +67,9 @@ export default function Single({ params }: Props) {
   return (
     <div>
       <HeaderHat bgColor="bg-[#F5F9FA]" textColor="text-black" buttonVariant="buttonNoir" />
-      <Header textColor="text-black" logosrc="/Logo/logo-jaune-noir.svg" burgerMenu="" />
-      {/* Breadcrumb */}
+      <Header textColor="text-black" logosrc="/Logo/LogoNoir.svg" burgerMenu="" />
       <Breadcrumb>
-        <BreadcrumbList className="mb-10 flex items-center w-5/12 ml-11">
+        <BreadcrumbList className="mb-6 mt-10 w-96 ml-20">
           <BreadcrumbItem>
             <BreadcrumbLink href="/">
               <Image src="/Icons/BreadcrumIcon.svg" alt="Home" width={20} height={20} />
@@ -112,34 +85,39 @@ export default function Single({ params }: Props) {
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-2 gap-8 ml-10">
+         {/* Breadcrumb */}
+      
         <div className="py-14 px-10">
-          <Image src={post.img} alt='' width={200}> height={200}</Image>
-          <h1>{post.title.rendered}</h1>
-          <article className="font-bold" dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
-          <p className="font-manrope">
+        {post.categoryNames.map((category, index) => (
+                  <span key={index} className="inline-block bg-[#CBE0E4] text-gray-800 text-xs px-2 py-1 rounded-full uppercase font-semibold tracking-wide mb-2">
+                    {category}
+                  </span> ))}
+          <h1 className="font-semibold">{post.title.rendered}</h1>
+          <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} className="mt-4 text-gray-700 line-clamp-3"/>
+        <p className="font-manrope">
             {post.authorName} {new Date(post.date).toLocaleDateString()}
           </p>
+          <article className="font-bold" dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
         </div>
         <div>
           <Image src="/HomePage/article.svg" alt="" width={500} height={500} />
         </div>
       </div>
-      <div>
+      <div className="flex flex-row justify-between">
+      <Image src="/Homepage/meufBD.svg" alt="" width={200} height={200} className="m-auto"/>
         <CommentForm postId={post.id} onCommentAdded={handleCommentAdded} />
+        </div>
         <div>
           {comments.map((comment) => (
-            <div key={comment.id} className="comment">
+            <div key={comment.id} className="comment py-4 justify-end"  aria-label='lire le commentaire'>
               <p>
                 <strong>{comment.author_name}</strong>
               </p>
               <p dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(comment.content.rendered) }} />
-              <button onClick={() => handleDeleteComment(comment.id)} className="text-red-500">
-                Delete
-              </button>
             </div>
           ))}
-        </div>
+       
       </div>
       <Footer />
     </div>

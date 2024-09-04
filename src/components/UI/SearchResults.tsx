@@ -6,9 +6,10 @@ import Image from 'next/image';
 
 interface SearchResultsProps {
   query: string;
+  results: Results;
 }
 
-const SearchResults: React.FC<SearchResultsProps> = ({ query }) => {
+const SearchResults: React.FC<SearchResultsProps> = ({ query  }) => {
   const [results, setResults] = useState<Results>({ articles: [], staticPages: [] });
   const [loading, setLoading] = useState(false);
 
@@ -40,7 +41,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({ query }) => {
                 <div className="flex-shrink-0 w-1/2 h-auto overflow-hidden rounded-xl">
                   <Image
                     src={article.img}
-                    alt={article.title}
+                    alt=""
                     width={300}
                     height={300}
                     className="object-cover h-full w-full"
@@ -49,13 +50,14 @@ const SearchResults: React.FC<SearchResultsProps> = ({ query }) => {
               )}
               <div className="flex-grow">
                 {article.categoryNames.map((category, index) => (
-                  <span key={index} className="inline-block bg-[#CBE0E4] text-gray-800 text-xs px-2 py-1 rounded-full uppercase font-semibold tracking-wide mb-2">
+                  <span key={index} className="inline-block bg-[#CBE0E4] text-gray-800
+                   text-xs px-2 py-1 rounded-full uppercase font-semibold tracking-wide mb-2">
                     {category}
                   </span>
                 ))}
                 <div className="flex flex-row">
                   <h2 className="text-xl font-semibold flex items-center">
-                    <Link href={`/blog/${article.slug}`}>
+                    <Link href={`/blog/${article.slug}`} aria-label={'visiter le lien'}>
                       <span dangerouslySetInnerHTML={{ __html: article.title }} />
                     </Link>
                   </h2>

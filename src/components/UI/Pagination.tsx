@@ -4,7 +4,7 @@ import Link from "next/link"
 import { cn } from "~/components/helpers/cn"
 import { ButtonProps, buttonVariants } from "~/components/UI/Button"
 
-const Pagination = ({ className, ...props }: React.ComponentProps<"nav">) => (
+const Pagination = ({ className='', ...props }: React.ComponentProps<"nav">) => (
   <nav
     role="navigation"
     aria-label="pagination"
@@ -17,7 +17,7 @@ Pagination.displayName = "Pagination"
 const PaginationContent = React.forwardRef<
   HTMLUListElement,
   React.ComponentProps<"ul">
->(({ className, ...props }, ref) => (
+>(({ className='', ...props }, ref) => (
   <ul
     ref={ref}
     className={cn("flex flex-row items-center gap-1", className)}
@@ -29,7 +29,7 @@ PaginationContent.displayName = "PaginationContent"
 const PaginationItem = React.forwardRef<
   HTMLLIElement,
   React.ComponentProps<"li">
->(({ className, ...props }, ref) => (
+>(({ className='', ...props }, ref) => (
   <li ref={ref} className={cn("", className)} {...props} />
 ))
 PaginationItem.displayName = "PaginationItem"
@@ -40,7 +40,7 @@ type PaginationLinkProps = {
   React.ComponentProps<typeof Link>
 
 const PaginationLink = ({
-  className,
+  className='',
   isActive,
   size = "default",
   ...props
@@ -52,7 +52,7 @@ const PaginationLink = ({
         variant: isActive ? "outline" : "ghost",
         size,
       }),
-      className
+      className, "text-gray-700 hover:text-black"
     )}
     {...props}
   />
@@ -60,13 +60,13 @@ const PaginationLink = ({
 PaginationLink.displayName = "PaginationLink"
 
 const PaginationPrevious = ({
-  className,
+  className='',
   ...props
 }: React.ComponentProps<typeof PaginationLink>) => (
   <PaginationLink
     aria-label="aller vers la page d'avant"
     size="default"
-    className={cn("gap-1 px-4 py-2 border rounded-md flex items-center", className)}
+    className={cn("gap-1 px-4 py-2 border rounded-md flex items-center ", className)}
     {...props}
   >
     <ChevronLeft className="h-4 w-4 mr-2" />
@@ -76,7 +76,7 @@ const PaginationPrevious = ({
 PaginationPrevious.displayName = "PaginationPrevious"
 
 const PaginationNext = ({
-  className,
+  className='',
   ...props
 }: React.ComponentProps<typeof PaginationLink>) => (
   <PaginationLink
@@ -92,7 +92,7 @@ const PaginationNext = ({
 PaginationNext.displayName = "PaginationNext"
 
 const PaginationEllipsis = ({
-  className,
+  className='',
   ...props
 }: React.ComponentProps<"span">) => (
   <span

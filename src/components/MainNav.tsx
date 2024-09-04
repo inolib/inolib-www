@@ -26,7 +26,8 @@ export default function MainNav() {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (!event.target.closest('.menu-item')) {
+      const target = event.target as HTMLElement | null;
+      if (target && !target.closest('.menu-item'))  {
         setOpenMenu(null);
       }
     };
@@ -64,7 +65,7 @@ export default function MainNav() {
   return (
     <>
       
-        <nav aria-label="Menu de navigation"  className="hidden  lg:block py-8 ml-1">
+        <nav className="hidden  lg:block py-6 px-2">
           <ul className="flex space-x-12 font-sans">
             {menuItems.map((item) => (
               <li
@@ -74,7 +75,7 @@ export default function MainNav() {
                 onMouseLeave={() => handleMouseLeave(item.label)}
               >
                 <div className="flex items-center cursor-pointer" aria-haspopup={item.subItems ? 'true' : 'false'}>
-                  <Link href={item.href} className="hover:text-yellow-500" aria-label={`Lien vers ${item.label}`}>
+                  <Link href={item.href} className="hover:" aria-label={`Lien vers ${item.label}`}>
                     {item.label}
                   </Link>
                   {item.subItems && (

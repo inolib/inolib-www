@@ -45,6 +45,7 @@ function MyMenuComponent() {
 // Composant Popover
 export function Popover({ state, children }: { state: any, children: React.ReactNode }) {
   let ref = React.useRef<HTMLDivElement | null>(null);
+
   let { overlayProps } = useOverlay({
     onClose: state.close,
     shouldCloseOnBlur: true,
@@ -65,15 +66,15 @@ export function Popover({ state, children }: { state: any, children: React.React
 // Composant Menu
 export function Menu(props: AriaMenuProps<any>) {
   let state = useTreeState(props);
-  let ref = React.useRef<HTMLElement | null>(null);
+  let ref = React.useRef<HTMLUListElement | null>(null);  
   let { menuProps } = useMenu(props, state, ref);
 
   return (
     <ul {...menuProps} ref={ref} style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-      {[...state.collection].map((item) => (
-        <MenuItem key={item.key} item={item} state={state} />
-      ))}
-    </ul>
+    {[...state.collection].map((item) => (
+      <MenuItem key={item.key} item={item} state={state} />
+    ))}
+  </ul>
   );
 }
 

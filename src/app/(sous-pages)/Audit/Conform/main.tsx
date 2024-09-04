@@ -20,7 +20,7 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbLink, BreadcrumbS
           </BreadcrumbItem> 
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href="/Audit/Conformité">Audit de conformité</BreadcrumbLink>
+            <BreadcrumbLink href="/Audit/Conform">Audit de conformité</BreadcrumbLink>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
@@ -34,7 +34,7 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbLink, BreadcrumbS
         <section className="grid md:grid-cols-2 gap-8 mb-16">
           <div className="flex flex-col justify-center ml-11">
             <div className="flex items-center mb-4">
-              <Image src="/Icons/eclaire.svg" alt="Instant answers icon" width={40} height={40} className='mr-2' />
+              <Image src="/Icons/eclaire.svg" alt="" width={40} height={40} className='mr-2' />
               <h2 className="text-2xl font-bold">Deliver instant answers</h2>
             </div>
             <p className="text-gray-600 mb-4">An all-in-one customer service platform that helps you balance everything your customers need to be happy.</p>
@@ -60,7 +60,7 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbLink, BreadcrumbS
             </>
           </div>
           <div className="flex justify-center items-center">
-            <Image src="/Homepage/image.svg" alt="Customer service team" 
+            <Image src="/Homepage/image.svg" alt="" 
             width={700}
             height={600}
              className="rounded-lg w-full" />
@@ -69,7 +69,7 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbLink, BreadcrumbS
 
         <section className="grid md:grid-cols-2 gap-8">
           <div className="flex justify-center">
-            <Image src="/Homepage/meufBD.svg" alt="Customer support illustration" width={300} height={300} />
+            <Image src="/Homepage/meufBD.svg" alt="" width={300} height={300} />
           </div>
           <div>
             <h2 id="main-test-heading" className="text-3xl font-bold mb-4">Le processus d'audit Inolib en 4 étapes clés :</h2>

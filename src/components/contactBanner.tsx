@@ -1,16 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Button } from '~/components/UI/Button';
 import { RxArrowRight } from 'react-icons/rx';
 
 const ContactBanner = () => {
   return (
-    <section className="py-8 px-4 bg-white" aria-labelledby="contact">
+    <section className="py-8 px-4 bg-white">
       <div className="max-w-6xl mx-auto bg-[#F5F4EE] rounded-3xl shadow-md overflow-hidden flex flex-col md:flex-row items-center">
         <div className="flex-shrink-0 p-4 md:pl-6">
           <Image
             src="/Homepage/p1.svg"
-            alt="Personne au téléphone"
+            alt=""
             width={150}
             height={150}
             className="object-contain"
@@ -24,7 +23,7 @@ const ContactBanner = () => {
             Can't find the answer you're looking for? Please chat to our friendly team.
           </p>
           <div className="flex justify-center">
-            <Link href="/contact" className="bg-[#254147] w-44 rounded-lg flex items-center justify-center text-white hover:bg-primary/90 py-2.5 px-4">
+            <Link href="/Contact" className="bg-[#254147] w-44 rounded-lg flex items-center justify-center text-white hover:bg-primary/90 py-2.5 px-4">
              
                 Nous contacter
                 <RxArrowRight className="w-6 h-6 ml-2" />
@@ -35,7 +34,7 @@ const ContactBanner = () => {
         <div className="flex-shrink-0 p-4 md:pr-6">
           <Image
             src="/Homepage/P2.svg"
-            alt="Personne sur un ordinateur"
+            alt=""
             width={150}
             height={150}
             className="object-contain"

@@ -19,6 +19,7 @@ import {
 } from "~/components/UI/Form";
 import { Input } from "~/components/UI/Input";
 import { Textarea } from "~/components/UI/TextArea";
+import { PostComment, OneComment } from "~/lib/types/features/componentTypes/types";
 
 // Schéma de validation pour le formulaire, incluant l'email
 const formSchema = z.object({
@@ -33,19 +34,10 @@ const formSchema = z.object({
   }),
 });
 
-type Comment = {
-  id: number;
-  post: number;
-  author_name: string;
-  author_email: string;
-  content: {
-    rendered: string;
-  };
-};
+
 
 // Fonction pour soumettre le commentaire à WordPress
-async function submitComment(postId: number, username: string, email: string, comment: string): Promise<Comment | null> {
-
+async function submitComment(postId: number, username: string, email: string, comment: string): Promise<PostComment | null> {
   const token = uuidv4(); // Génère un token temporaire unique
 
   try {
@@ -76,7 +68,7 @@ async function submitComment(postId: number, username: string, email: string, co
 }
 
 // Composant de formulaire de commentaire
-export function CommentForm({ postId, onCommentAdded }: { postId: number; onCommentAdded: (comment: Comment) => void }) {
+export function CommentForm({ postId, onCommentAdded }: { postId: number; onCommentAdded: (comment: OneComment) => void }) {
   const methods = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -100,7 +92,7 @@ export function CommentForm({ postId, onCommentAdded }: { postId: number; onComm
 
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)} className="space-y-8">
+      <form onSubmit={methods.handleSubmit(onSubmit)} className="space-y-8 w-1/3 m-auto  pb-4 justify-between ">
         <FormField
           control={methods.control}
           name="username"
@@ -142,7 +134,7 @@ export function CommentForm({ postId, onCommentAdded }: { postId: number; onComm
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button type="submit">Publier</Button>
       </form>
     </FormProvider>
   );

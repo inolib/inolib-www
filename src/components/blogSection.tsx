@@ -3,20 +3,11 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { fetchLatestPosts } from '~/lib/hooks/fetchLatestPosts';
+import { PropsPost } from '~/lib/types/features/componentTypes/types';
 
-type Post = {
-  id: string;
-  title: { rendered: string };
-  content: { rendered: string };
-  slug: string;
-  img: string;
-  authorName: string;
-  date: string;
-  categoryNames: string[];
-};
 
 export default function BlogSection() {
-  const [latestPosts, setLatestPosts] = useState<Post[]>([]);
+  const [latestPosts, setLatestPosts] = useState<PropsPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -26,7 +17,7 @@ export default function BlogSection() {
         const posts = await fetchLatestPosts();
         setLatestPosts(posts);
       } catch (error) {
-        setError(error.message);
+        ((error as Error).message);
       } finally {
         setLoading(false);
       }
@@ -61,7 +52,7 @@ export default function BlogSection() {
               <div className="w-full h-48 overflow-hidden rounded-xl mb-4">
                 <Image
                   src={post.img}
-                  alt={post.title.rendered}
+                  alt=""
                   width={200}
                   height={200}
                   className="w-full h-full object-cover"

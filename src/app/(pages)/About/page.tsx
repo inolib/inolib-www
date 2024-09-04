@@ -4,22 +4,26 @@ import TeamSection from '~/app/(pages)/About/team';
 import HeaderHat from '~/components/HeaderHat';
 import Header from '~/components/Header';
 import Footer from '~/components/Footer';
+import { CarrerSection } from '~/components/CarrerSection';
 
 
 export default function ABout(){
   return (
     <div className='overflow-hidden'>
        <HeaderHat 
-   bgColor="bg--[#F5F9FA]"
+   bgColor="bg-[#F5F9FA]"
    textColor="text-black"
    buttonVariant="buttonNoir"/>
       <Header 
   textColor="text-black"
-  logosrc="/Logo/logo-jaune-noir.svg"
+  logosrc="/Logo/LogoNoir.svg"
   burgerMenu='/Icons/menuBlack.svg'/>
       <Intro />
+     <TeamSection />
       <ValuesSection />
-      <TeamSection />
+      <section id="Carrer">
+      <CarrerSection />
+      </section>
       <Footer />
     </div>
   )

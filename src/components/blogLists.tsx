@@ -7,26 +7,9 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbS
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from './UI/Pagination';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "./UI/DropDownMenu";
 import { ChevronDown } from 'lucide-react';
-
-// TypeScript types
-type Post = { 
-  id: string;
-  title: { rendered: string };
-  content: { rendered: string };
-  slug: string;
-  img: string;
-  authorName: string;
-  date: string;
-  categoryNames: string[];
-};
-
-type Category = { 
-  id: number;
-  name: string;
-};
-
+import { PropsPost, Category  } from '~/lib/types/features/componentTypes/types';
 // Fonction pour récupérer tous les articles
-async function fetchAllPosts(): Promise<Post[]> {
+async function fetchAllPosts(): Promise<PropsPost[]> {
   const res = await fetch('http://localhost/WORDPRESS/wp-json/wp/v2/posts?per_page=100&_embed');
   if (!res.ok) {
     throw new Error('Network response was not ok');
@@ -45,26 +28,10 @@ async function fetchAllPosts(): Promise<Post[]> {
     categoryNames: post._embedded?.['wp:term']?.[0]?.map((term: any) => term.name) || [],
   }));
 }
-
-// Fonction pour récupérer les catégories 
-// ici on est obligé de faire un appel à l'API pour récupérer les catégories même si on a déjà les catégories dans les articles 
-/*async function fetchCategories(): Promise<Category[]> {
-  const res = await fetch('http://localhost/WORDPRESS/wp-json/wp/v2/categories');
-  if (!res.ok) {
-    throw new Error('Network response was not ok');
-  }
-
-  const categories = await res.json();
-  return categories.map((category: any) => ({
-    id: category.id,
-    name: category.name,
-  }));
-}**/
-
 // Composant BlogList
 export default function BlogList() {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [allPosts, setAllPosts] = useState<Post[]>([]);
+  const [posts, setPosts] = useState<PropsPost[]>([]);
+  const [allPosts, setAllPosts] = useState<PropsPost[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -74,29 +41,27 @@ export default function BlogList() {
   const pageParam = searchParams.get('page');
   const categoryParam = searchParams.get('category') || 'Tous les articles';
   const currentPage = pageParam ? parseInt(pageParam) : 1; // Définir la page actuelle
-  const postsPerPage = 2; // Définir le nombre d'articles par page
+  const postsPerPage = 9; // Définir le nombre d'articles par page
 
   useEffect(() => {
     async function fetchData() {
       try {
         const allPostsData = await fetchAllPosts();
         setAllPosts(allPostsData);
-        // Vous pouvez créer une liste de catégories unique à partir des articles récupérés si nécessaire
+        // Récupérer les catégories uniques
         const uniqueCategories = Array.from(new Set(allPostsData.flatMap(post => post.categoryNames)));
         setCategories(uniqueCategories.map((name, index) => ({ id: index, name })));
         filterAndPaginatePosts(allPostsData, categoryParam, searchTerm, currentPage);
       } catch (error) {
-        setError(error.message);
+        ((error as Error).message);
       } finally {
         setLoading(false);
       }
     }
   
     fetchData();
-  }, [currentPage, categoryParam]);
-  
-
-  const filterAndPaginatePosts = (allPosts: Post[], category: string, searchTerm: string, page: number) => {
+  }, [currentPage, categoryParam , searchTerm]);
+  const filterAndPaginatePosts = (allPosts: PropsPost[], category: string, searchTerm: string, page: number) => {
     let filteredPosts = category === 'Tous les articles'
       ? allPosts
       : allPosts.filter(post => post.categoryNames.includes(category));
@@ -138,12 +103,12 @@ export default function BlogList() {
   const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
 
   return (
-    <div className="container mx-6 py-8 px-4 lg:px-0 ml-12 mt-28">
+    <div className="container py-20 px-4 lg:px-0 ml-20 mt-10">
       {/* Breadcrumb */}
       <Breadcrumb>
-        <BreadcrumbList className='mb-10'>
+        <BreadcrumbList className='mb-6'>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/"><Image src='/Icons/BreadcrumIcon.svg' alt='' width={20} height={20}></Image></BreadcrumbLink>
+            <BreadcrumbLink href="/ "><Image src='/Icons/BreadcrumIcon.svg' alt=" page accueil" width={20} height={20}></Image></BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
@@ -187,12 +152,13 @@ export default function BlogList() {
             </DropdownMenu>
             
           </div>
-
-          {/* Barre de recherche des articles en fonction de leurs titres et contenus */}
+            {/* Barre de recherche des articles en fonction de leurs titres et contenus */}
           <div className="relative" >
             <input
+             id="search-input"
               type="text"
               placeholder="Rechercher un article"
+              aria-label="barre de recherche articles"
               value={searchTerm}
               onChange={handleSearchChange}
               className="px-4 py-2 border border-gray-300 rounded-full"
@@ -212,7 +178,7 @@ export default function BlogList() {
                 <div className="w-full h-48 overflow-hidden rounded-xl">
                   <Image
                     src={post.img}
-                    alt={post.title.rendered}
+                    alt=""
                     width={200}
                     height={200}
                     className="w-full h-full object-cover "
@@ -231,16 +197,15 @@ export default function BlogList() {
                   <h2 className="text-xl font-semibold mb-2 flex items-center">
                     <Link href={`/blog/${post.slug}`}>
                       <span dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-                    </Link>
-                  </h2>
-                  <Link href={`/blog/${post.slug}`}>
-                    <Image 
+                      <Image 
                       src='/Icons/iconA.svg' 
-                      alt=''
+                      alt=""
                       width={20}
                       height={20}
                       className='' />
-                  </Link>
+                    </Link>
+                  </h2>
+                 
                 </div>
                 <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} className="mt-4 text-gray-700 line-clamp-3"/>
                 <p className="mt-4 text-gray-600">{post.authorName}</p>
@@ -256,7 +221,7 @@ export default function BlogList() {
           <PaginationItem>
             <PaginationPrevious
               href={`?page=${currentPage - 1}`}
-              className={currentPage === 1 ? 'cursor-not-allowed opacity-50' : ''}
+              className={currentPage === 1 ? 'cursor-not-allowed opacity-75' : ''}
             />
           </PaginationItem>
          
@@ -271,7 +236,7 @@ export default function BlogList() {
           <PaginationItem>
             <PaginationNext
               href={`?page=${currentPage + 1}`}
-              className={currentPage === totalPages ? 'cursor-not-allowed opacity-50' : ''}
+              className={currentPage === totalPages ? 'cursor-not-allowed opacity-75' : ''}
             />
           </PaginationItem>
         </PaginationContent>

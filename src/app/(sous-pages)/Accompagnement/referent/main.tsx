@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { RxArrowRight } from "react-icons/rx";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbLink, BreadcrumbSeparator } from "~/components/UI/Breadcrumb";
 
-  const Conf = () => {
+const MainTest = () => {
   return (
     <main className="container mx-auto py-8 px-4 lg:px-0 mt-28">
       {/* Breadcrumb */}
@@ -16,25 +16,25 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbLink, BreadcrumbS
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href="/Audit">Audit d'accessibilité numérique</BreadcrumbLink>
+            <BreadcrumbLink href="/Accompagner">Accompagner</BreadcrumbLink>
           </BreadcrumbItem> 
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href="/Audit/Conformité">Audit de conformité</BreadcrumbLink>
+            <BreadcrumbLink href="/referent">Referent en accessibilité</BreadcrumbLink>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
 
       <div className=" mx-auto">
         <header className="mb-8 ">
-          <h1 className="text-3xl font-bold text-gray-900 ml-11">Audit de conformité</h1>
+          <h1 className="text-3xl font-bold text-gray-900 ml-11">Test utilisateurs</h1>
         </header>
 
         {/* Main content */}
         <section className="grid md:grid-cols-2 gap-8 mb-16">
           <div className="flex flex-col justify-center ml-11">
             <div className="flex items-center mb-4">
-              <Image src="/Icons/eclaire.svg" alt="Instant answers icon" width={40} height={40} className='mr-2' />
+              <Image src="/Icons/eclaire.svg" alt="" width={40} height={40} className='mr-2' />
               <h2 className="text-2xl font-bold">Deliver instant answers</h2>
             </div>
             <p className="text-gray-600 mb-4">An all-in-one customer service platform that helps you balance everything your customers need to be happy.</p>
@@ -52,15 +52,15 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbLink, BreadcrumbS
                 Respecter les obligations en matière d'accessibilité numérique
               </li>
             </ul>
-            <>
-              <Link href="/pages/contact" className="bg-[#254147] text-white flex items-center justify-between hover:bg-primary/90 py-2.5 px-4 rounded-lg w-44">
+            
+              <Link href="/contact" className="bg-[#254147] text-white flex items-center justify-between hover:bg-primary/90 py-2.5 px-4 rounded-lg w-44">
                 Nous contacter
                 <RxArrowRight className="w-6 h-6" />
               </Link>
-            </>
+            
           </div>
           <div className="flex justify-center items-center">
-            <Image src="/Homepage/image.svg" alt="Customer service team" 
+            <Image src="/Homepage/image.svg" alt="" 
             width={700}
             height={600}
              className="rounded-lg w-full" />
@@ -69,7 +69,7 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbLink, BreadcrumbS
 
         <section className="grid md:grid-cols-2 gap-8">
           <div className="flex justify-center">
-            <Image src="/Homepage/meufBD.svg" alt="Customer support illustration" width={300} height={300} />
+            <Image src="/Homepage/meufBD.svg" alt="" width={300} height={300} />
           </div>
           <div>
             <h2 id="main-test-heading" className="text-3xl font-bold mb-4">Le processus d'audit Inolib en 4 étapes clés :</h2>
@@ -111,4 +111,4 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbLink, BreadcrumbS
   );
 };
 
-export default Conf;
+export default MainTest;

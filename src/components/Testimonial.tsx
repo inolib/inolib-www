@@ -17,15 +17,15 @@ export default function Testimonials() {
   };
 
   return (
-    <div className="bg-[#111F22] text-white p-8 rounded-lg relative ">
-      <div className="text-center">
-        <div className="flex justify-center mb-4">
+    <div className="bg-[#111F22] text-white p-16  rounded-lg relative ">
+      <div className=" ml-20">
+        <div className="flex mb-4">
           {[...Array(5)].map((_, i) => (
             <span key={i} className="text-green-500 text-xl">★</span>
           ))}
         </div>
-        <p className="text-2xl font-semibold mb-4">{testimonials[current].text}</p>
-        <div className="flex items-center justify-center gap-4">
+        <p className="text-4xl  mb-4 mt-6 w-192">{testimonials[current].text}</p>
+        <div className="flex items-center  gap-4">
           <Image
             src={testimonials[current].image}
             width={50}
@@ -42,14 +42,14 @@ export default function Testimonials() {
       <button
         onClick={prevTestimonial}
         aria-label="Previous testimonial"
-        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white text-black rounded-full p-2"
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 ml-7 text-white border-[1px] border-white rounded-full p-2 shadow-lg"
       >
         ←
       </button>
       <button
         onClick={nextTestimonial}
         aria-label="Next testimonial"
-        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white text-black rounded-full p-2"
+        className="absolute right-2 top-1/2 transform -translate-y-1/2 mr-8 text-white border-[1px] border-white rounded-full p-2"
       >
         →
       </button>

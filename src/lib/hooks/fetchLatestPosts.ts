@@ -1,6 +1,7 @@
+import { PropsPost } from '~/lib/types/features/componentTypes/types';
 // fonction pour afficher les 3 derniers articles 
-export async function fetchLatestPosts(): Promise<Post[]> {
-  const res = await fetch('http://localhost/WORDPRESS/wp-json/wp/v2/posts?per_page=3&orderby=date&order=desc');
+export async function fetchLatestPosts(): Promise<PropsPost[]> {
+  const res = await fetch('http://localhost/WORDPRESS/wp-json/wp/v2/posts?per_page=3&orderby=date&order=desc&_embed');
   if (!res.ok) {
     throw new Error('Network response was not ok');
   }
@@ -11,9 +12,9 @@ export async function fetchLatestPosts(): Promise<Post[]> {
     title: post.title,
     content: post.content,
     slug: post.slug,
-    img: post.img,
-    authorName: post.author_name,
+    img: post._embedded?.['wp:featuredmedia']?.[0]?.source_url || '', 
+    authorName: post.author_name || 'Unknown Author', 
     date: post.date,
-    categoryNames: post.category_names,
+    categoryNames: post.category_names || [],
   }));
 }

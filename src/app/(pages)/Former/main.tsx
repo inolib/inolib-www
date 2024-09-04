@@ -1,108 +1,108 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "~/components/UI/Breadcrumb";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbLink, BreadcrumbSeparator } from "~/components/UI/Breadcrumb";
+import { RxArrowRight} from "react-icons/rx";
 
-export default function MainForm(){
-  return(
-   
-
+export default function MainForm() {
+  return (
+    <main className="container mx-auto  lg:px-0 mt-0">
+      {/* Breadcrumb */}
+      <div className="flex flex-col lg:flex-row justify-between items-center">
+        <section>
+      <Breadcrumb>
+        <BreadcrumbList className="ml-24 flex items-center space-x-2 mb-6 mt-0">
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/">
+              <Image src='/Icons/BreadcrumIcon.svg' alt='Home' width={20} height={20} />
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/former" className="text-gray-600">Formations</BreadcrumbLink>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+      <header className="lg:ml-24">
+          <h1 className="text-4xl font-bold text-gray-900">Formations</h1>
+        </header>
+        </section>
 
     
-      <main className="container mx-auto py-8 px-4 lg:px-0 ml-12 mt-28">
-         <Breadcrumb >
-  <BreadcrumbList className='mb-10'>
-  
-    <BreadcrumbItem>
-      <BreadcrumbLink href="/"><Image src='/Icons/BreadcrumIcon.svg' alt='' width={20} height={20}></Image></BreadcrumbLink>
-    </BreadcrumbItem>
-    <BreadcrumbSeparator />
-    <BreadcrumbItem>
-      <BreadcrumbLink href="/former">Formations</BreadcrumbLink>
-    </BreadcrumbItem>
-   
-   
-  </BreadcrumbList>
-      
        
-  
-        <header className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Formations</h1>
-        </header>
-  
-        <section className="mb-8">
-          <Image 
-          src="/Homepage/seated 2.svg" 
-          alt="Illustration des formations" 
-          width={600} 
-          height={400} 
-           />
+        <section className=" mt-10 mr-10">
+          <Image
+            src="/Homepage/newFor.svg"
+            alt=""
+            width={450}
+            height={450}
+            className="object-cover"
+          />
         </section>
-  
-        <section className="lg:flex lg:space-x-8">
-          <article className="lg:w-2/3 mb-8 lg:mb-0">
-            <h2 className="text-xl font-sans text-gray-900 mb-4">INOLIB vous accompagne dans la création d’expériences numériques accessibles et conviviales pour tous, conformément aux normes RGAA et WCAG. Nos formations et sessions de sensibilisation, interactives et pratiques, sont conçues pour répondre aux besoins de tout public, tels que les managers, chefs de projet, développeurs, designers et webmasters.</h2>
-            <ul className="list-disc list-inside text-gray-700 mb-4">
-              <li>Élargir votre audience en incluant tous les utilisateurs</li>
-              <li>Améliorer l'expérience utilisateur pour tous</li>
-              <li>Respecter les obligations en matière d'accessibilité numérique</li>
-            </ul>
+      </div>
+
+      <section className="lg:flex lg:space-x-16 mt-6 lg:mt-12 px-4 lg:px-10 ml-14 pb-4">
+        <div className="flex flex-col lg:w-1/2">
+          <p className="text-gray-600 mb-6">
+            INOLIB vous accompagne dans la création d'expériences numériques accessibles et conviviales pour tous, conformément aux normes RGAA et WCAG. Nos formations et sessions de sensibilisation, interactives et pratiques, sont conçues pour répondre aux besoins de tout public, tels que les managers, chefs de projet, développeurs, designers et webmasters.
+          </p>
+          <ul className="list-none text-gray-600 mb-6 space-y-3 ml-2">
+            <li className="flex items-start">
+              <Image src="/Icons/CheckIcon.svg" alt='' width={20} height={20} className="mr-2" />
+              Élargir votre audience en incluant tous les utilisateurs
+            </li>
+            <li className="flex items-start">
+              <Image src="/Icons/CheckIcon.svg" alt='' width={20} height={20} className="mr-2" />
+              Améliorer l'expérience utilisateur pour tous
+            </li>
+            <li className="flex items-start">
+              <Image src="/Icons/CheckIcon.svg" alt='' width={20} height={20} className="mr-2" />
+              Respecter les obligations en matière d'accessibilité numérique
+            </li>
+          </ul>
+          <Link href="/Contact" className="bg-[#254147] text-white flex items-center justify-between hover:bg-primary/90 py-2.5 px-4 rounded-lg w-44">
+            Nous contacter
+            <RxArrowRight className="w-6 h-6" />
+          </Link>
+        </div>
+
+        <aside className="lg:w-1/2 space-y-6 mt-10 lg:mt-0">
+          <div className="bg-[#F5F9FA] p-6 rounded-lg shadow flex flex-row space-x-4">
+            <div className=' '>
+            <Image src='Icons/appli.svg' alt='' width={80} height={80}></Image>
+            </div>
+            <div>
+            <h2 className="text-lg font-semibold text-gray-900 mb-2">Site web</h2>
+            
+            <p className="text-gray-700 mb-4">
+              Give your team the autonomy they need with access to as many cards as they need. Authorise purchases with a click. Simple.
+            </p>
             <Link href="#" className="inline-flex items-center px-4 py-2 border border-black text-gray-800 font-semibold rounded-full hover:bg-gray-200 transition">
-              Nous contacter
+              En savoir plus
               <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </Link>
-          </article>
-  
-          <aside className="lg:w-1/3 space-y-4">
-            <div className="bg-gray-100 p-4 rounded-lg shadow">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Site web</h3>
-              <p className="text-gray-700 mb-4">
-                Give your team the autonomy they need with access to as many cards as they need. Authorise purchases with a click. Simple.
-              </p>
-              <Link href="#" className="inline-flex items-center px-4 py-2 border border-black text-gray-800 font-semibold rounded-full hover:bg-gray-200 transition">
-                En savoir plus
-                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </Link>
+          </div>
+          </div>
+          <div className="bg-[#F5F9FA] p-6 rounded-lg shadow  flex flex-row space-x-4">
+          <div className=' '>
+            <Image src='Icons/siteWeb.svg' alt='' width={80} height={80}></Image>
             </div>
-            <div className="bg-gray-100 p-4 rounded-lg shadow">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Application mobile</h3>
-              <p className="text-gray-700 mb-4">
-                Every card comes with configurable spending limits, purchase restrictions, and cancellations for each employee and team.
-              </p>
-              <Link href="#" className="inline-flex items-center px-4 py-2 border border-black text-gray-800 font-semibold rounded-full hover:bg-gray-200 transition">
-                En savoir plus
-                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </Link>
-            </div>
-          </aside>
-        </section>
-        </Breadcrumb>
-        </main> 
-        )}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            <section>
+            <h2 className="text-lg font-semibold text-gray-900 mb-2">Application mobile</h2>
+            <p className="text-gray-700 mb-4">
+              Every card comes with configurable spending limits, purchase restrictions, and cancellations for each employee and team.
+            </p>
+            <Link href="#" className="inline-flex items-center px-4 py-2 border border-black text-gray-800 font-semibold rounded-full hover:bg-gray-200 transition">
+              En savoir plus
+              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </Link>
+            </section>
+          </div>
+        </aside>
+      </section>
+    </main>
+  );
+}

@@ -4,10 +4,13 @@ export interface SearchResult {
     title: {
       rendered: string;
     };
+    content:{
+      rendred:string;
+    }
     img:string;
     slug: string;
    
-    categoryNames:string;
+    categoryNames:[];
     authorName: string;
     date:string;
   }

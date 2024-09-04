@@ -3,6 +3,7 @@ import { Slot } from "@radix-ui/react-slot"
 import { ChevronRight, MoreHorizontal } from "lucide-react"
 
 import { cn } from "~/components/helpers/cn"
+import { string } from "zod"
 
 const Breadcrumb = React.forwardRef<
   HTMLElement,
@@ -15,7 +16,7 @@ Breadcrumb.displayName = "Breadcrumb"
 const BreadcrumbList = React.forwardRef<
   HTMLOListElement,
   React.ComponentPropsWithoutRef<"ol">
->(({ className, ...props }, ref) => (
+>(({ className ='', ...props }, ref) => (
   <ol
     ref={ref}
     className={cn(
@@ -30,7 +31,7 @@ BreadcrumbList.displayName = "BreadcrumbList"
 const BreadcrumbItem = React.forwardRef<
   HTMLLIElement,
   React.ComponentPropsWithoutRef<"li">
->(({ className, ...props }, ref) => (
+>(({ className='', ...props }, ref) => (
   <li
     ref={ref}
     className={cn("inline-flex items-center gap-1.5 ml-4 py-1", className)}
@@ -44,7 +45,7 @@ const BreadcrumbLink = React.forwardRef<
   React.ComponentPropsWithoutRef<"a"> & {
     asChild?: boolean
   }
->(({ asChild, className, ...props }, ref) => {
+>(({ asChild, className='', ...props }, ref) => {
   const Comp = asChild ? Slot : "a"
 
   return (
@@ -60,7 +61,7 @@ BreadcrumbLink.displayName = "BreadcrumbLink"
 const BreadcrumbPage = React.forwardRef<
   HTMLSpanElement,
   React.ComponentPropsWithoutRef<"span">
->(({ className, ...props }, ref) => (
+>(({ className='', ...props }, ref) => (
   <span
     ref={ref}
     role="link"
@@ -74,7 +75,7 @@ BreadcrumbPage.displayName = "BreadcrumbPage"
 
 const BreadcrumbSeparator = ({
   children,
-  className,
+  className='',
   ...props
 }: React.ComponentProps<"li">) => (
   <li
@@ -89,7 +90,7 @@ const BreadcrumbSeparator = ({
 BreadcrumbSeparator.displayName = "BreadcrumbSeparator"
 
 const BreadcrumbEllipsis = ({
-  className,
+  className='',
   ...props
 }: React.ComponentProps<"span">) => (
   <span

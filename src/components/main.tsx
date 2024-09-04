@@ -15,7 +15,7 @@ export default function Main() {
                 Nous recrutons !
               </span>
              
-              <Link href="/contact" className=" flex items-center pb-1 px-4 pt-1 sm:text-xs  sm:ml-2 xs:pl-1 xxs:text-xs xxs:px-0 xxs:pl-1 ">
+              <Link href="/About#Carrer" className=" flex items-center pb-1 px-4 pt-1 sm:text-xs  sm:ml-2 xs:pl-1 xxs:text-xs xxs:px-0 xxs:pl-1 ">
                 Voir les offres
                 <RxArrowRight className="ml-1 w-3 h-3" />
               </Link>
@@ -30,7 +30,7 @@ export default function Main() {
               of reinventing banking.
             </p>
             <div className="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
-              <Button  variant='gost' className="bg-[#254147] text-white px-4 py-2 rounded-md border-2 font-semibold hover:bg-yellow-600 transition">
+              <Button  variant='ghost' className="bg-[#254147] text-white px-4 py-2 rounded-md border-2 font-semibold hover:bg-yellow-600 transition">
                 Decouvrir nos services
               </Button>
               <Button href="/contact" variant="ButtonJaune">

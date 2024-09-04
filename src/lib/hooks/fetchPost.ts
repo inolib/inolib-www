@@ -1,8 +1,9 @@
-// 
-
+import { Post, OneComment } from "~/lib/types/features/componentTypes/types";
+// fetch les posts et les commentaires d'un post depuis l'API REST de WordPress.
+// fetch les posts 
 export async function fetchPost(slug: string): Promise<Post | null> {
   try {
-    const res = await fetch(`http://localhost/WORDPRESS/wp-json/wp/v2/posts?slug=${slug}`);
+    const res = await fetch(`http://localhost/WORDPRESS/wp-json/wp/v2/posts?slug=${slug}&_embed`);
     if (!res.ok) {
       throw new Error("Failed to fetch post");
     }
@@ -11,20 +12,24 @@ export async function fetchPost(slug: string): Promise<Post | null> {
       return null; // Aucun post trouvé pour ce slug
     }
     const post = posts[0]; // On prend le premier post trouvé
+
     const authorRes = await fetch(`http://localhost/WORDPRESS/wp-json/wp/v2/users/${post.author}`);
     if (!authorRes.ok) {
       throw new Error("Failed to fetch author");
     }
     const author = await authorRes.json();
     post.authorName = author.name;
+
+    const categories = post._embedded['wp:term']?.[0]?.map((term: any) => term.name) || [];
+    post.categoryNames = categories; 
     return post;
   } catch (error) {
     console.error("Error fetching post:", error);
     return null;
   }
 }
-
-export async function fetchComments(postId: number): Promise<Comment[]> {
+// fetch les commentaires d'un post depuis l'API REST de WordPress.
+export async function fetchComments(postId: number): Promise<OneComment[]> {
   try {
     const res = await fetch(`http://localhost/WORDPRESS/wp-json/wp/v2/comments?post=${postId}`);
     if (!res.ok) {

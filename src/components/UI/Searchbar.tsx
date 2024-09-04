@@ -6,14 +6,19 @@ import debounce from 'lodash/debounce';
 export default function SearchBar() {
   const [query, setQuery] = useState('');
   const router = useRouter();
-
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+// Définit une fonction qui exécute la recherche après un délai de 300ms
+  const debouncedSearch = debounce((query: string) => {
+    if (query.trim()) { // Vérifie que la recherche n'est pas vide
+      router.push(`/search-results?query=${query}`);
+    }
+  }, 300);
+// on inclut la fonction de recherche dans un hook useCallback pour éviter les répétitions
   const handleSearch = useCallback(
-    debounce((query: string) => {
-      if (query.trim()) { // Vérifie que la recherche n'est pas vide
-        router.push(`/search-results?query=${query}`);
-      }
-    }, 300),
-    [router]
+    (query: string) => {
+      debouncedSearch(query);
+    },
+    [debouncedSearch] 
   );
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,13 +28,15 @@ export default function SearchBar() {
 
   return (
     <div className="relative">
-      <div className="relative hidden md:block">
+      <div className={`relative ${isSearchOpen ? 'block' : 'hidden'} md:block`}>
         <input
+      
           type="text"
           placeholder="Rechercher"
           className="rounded-full py-2 px-4 pl-10 w-64 text-black focus:outline-none"
           aria-label="barre de recherche articles ou pages"
           value={query}
+          
           onChange={handleInputChange}
           onFocus={() => query.trim() && handleSearch(query)} // Exécute seulement si le champ n'est pas vide
         />
@@ -48,10 +55,11 @@ export default function SearchBar() {
           />
         </svg>
       </div>
+      {!isSearchOpen && (
       <button
         className="md:hidden absolute left-14 mr-2"
         aria-label="Ouvrir la recherche"
-        onClick={() => handleSearch(query)}
+        onClick={() => setIsSearchOpen(!isSearchOpen)}
       >
         <svg
           className="w-5 h-5 text-gray-500"
@@ -68,6 +76,7 @@ export default function SearchBar() {
           />
         </svg>
       </button>
+      )}
     </div>
   );
 }

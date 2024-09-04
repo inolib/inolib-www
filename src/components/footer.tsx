@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8">
           <div>
-            <h3 className="text-xl text-[#8EBBC5] font-semibold mb-4">Auditer</h3>
+            <h2 className="text-xl text-[#8EBBC5] font-semibold mb-4">Auditer</h2>
             <ul>
               <li><a href="#" className="hover:underline">Overview</a></li>
               <li><a href="#" className="hover:underline">Overview</a></li>
@@ -21,7 +21,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="text-xl text-[#8EBBC5] font-semibold mb-4">Accompagner</h3>
+            <h2 className="text-xl text-[#8EBBC5] font-semibold mb-4">Accompagner</h2>
             <ul>
               <li><a href="#" className="hover:underline">Overview</a></li>
               <li><a href="#" className="hover:underline">Overview</a></li>
@@ -32,7 +32,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="text-xl text-[#8EBBC5] font-semibold mb-4">Développer</h3>
+            <h2 className="text-xl text-[#8EBBC5] font-semibold mb-4">Développer</h2>
             <ul>
               <li><a href="#" className="hover:underline">Overview</a></li>
               <li><a href="#" className="hover:underline">Overview</a></li>
@@ -43,7 +43,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="text-xl text-[#8EBBC5] font-semibold mb-4">Former</h3>
+            <h2 className="text-xl text-[#8EBBC5] font-semibold mb-4">Former</h2>
             <ul>
               <li><a href="#" className="hover:underline">Overview</a></li>
               <li><a href="#" className="hover:underline">Overview</a></li>
@@ -54,7 +54,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="text-xl text-[#8EBBC5] font-semibold mb-4">À propos</h3>
+            <h2 className="text-xl text-[#8EBBC5] font-semibold mb-4">À propos</h2>
             <ul>
               <li><a href="#" className="hover:underline">Overview</a></li>
               <li><a href="#" className="hover:underline">Overview</a></li>
@@ -65,7 +65,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="text-xl text-[#8EBBC5] font-semibold mb-4">Blog</h3>
+            <h2 className="text-xl text-[#8EBBC5] font-semibold mb-4">Blog</h2>
             <ul className=''>
               <li><a href="#" className="hover:underline">Overview</a></li>
               <li><a href="#" className="hover:underline">Overview</a></li>
@@ -79,9 +79,9 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between mt-10">
           <div className="flex items-center space-x-2">
             <Image 
-            src="/Logo/logo_jaune_blanc.svg" 
-            alt="Inolib logo" 
-            width={150} 
+            src="/Logo/LogoJaune.svg" 
+            alt='Inolib logo' 
+            width={100} 
             height={50} />
           </div>
           <p className="text-sm text-gray-400 mt-4 md:mt-0">&copy; 2023 Untitled UI. All rights reserved.</p>

@@ -16,11 +16,11 @@ const MainTest = () => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href="/pages/former">Formations</BreadcrumbLink>
+            <BreadcrumbLink href="/former">Former</BreadcrumbLink>
           </BreadcrumbItem> 
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href="/pages/formation">Nos formations</BreadcrumbLink>
+            <BreadcrumbLink href="/formation">Nos formations</BreadcrumbLink>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
@@ -33,17 +33,19 @@ const MainTest = () => {
         {/* Main content */}
         <article className="grid md:grid-cols-2 gap-8 mb-16">
          
-            <p className=' px-10 text-gray-600 md:w-160 sm:w-128'>INOLIB vous accompagne dans la creation d'expériences numérique accessibleset conviviales pour tous,conformément aux normes RGAA et WCAG. Nos formations et sessions de sensibilisation ,interactives et pratique , sont conçues pour repondre aux besoins de tout public,
+            <p className=' px-10 text-gray-600 md:w-160 sm:w-128'>INOLIB vous accompagne dans la creation 
+              d'expériences numérique accessibleset conviviales pour tous,conformément aux normes RGAA et WCAG.
+               Nos formations et sessions de sensibilisation,interactives et pratique , sont conçues pour repondre aux besoins de tout public,
                tels que les managers, chefs de projet,developpeurs, designers et webmasters.</p>
             
           
          
         </article>
-        <div className='lg:w-[1160px] md:w-[600px] sm:w-128 border-t-2 ml-10 xxs:w-60 '></div>
+        <div className='lg:w-[1160px] md:w-[600px] sm:w-128 border-t-2 ml-10 xxs:w-60'></div>
         <section className="grid md:grid-cols-2 gap-8 ">
           
           <div className="flex justify-center mt-32">
-            <Image src="/Homepage/seated 2.svg" alt="Customer support illustration" width={500} height={500} />
+            <Image src="/Homepage/seated 2.svg" alt="" width={500} height={500} />
           </div>
           <div>
             <h2 id="main-test-heading" className="text-3xl font-bold mb-4 py-2 mt-16">Le processus d'audit Inolib en 4 étapes clés :</h2>

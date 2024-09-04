@@ -14,7 +14,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="fr">
-      <body className="font-manrope font-medium text-base leading-normal">{children}</body>
+        <body className="font-manrope font-medium text-base leading-normal">
+        <h1 className="sr-only">Developpement </h1>
+        {children}
+        </body>
     </html>
   );
 }

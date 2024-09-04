@@ -7,10 +7,7 @@ import SocialProof from '~/components/SocialProof';
 import Testimonials from '~/components/Testimonial';
 import Newsletter from '~/components/Newsletter';
 import News from '~/components/BlogSection';
-import Faqs from '~/components/Faqs';
-import ServiceSection from '~/components/ServiceSection';
-import ContactBanner from '~/components/ContactBanner';
-import OurStory from '~/components/OurStory';
+import Line from "~/components/UI/Line";
 
 export default function Home() {
   return (
@@ -22,19 +19,19 @@ export default function Home() {
        />
       <Header 
       textColor='text-white'
-      logosrc={'/Logo/logo_jaune_blanc.svg'}
+      logosrc={'/Logo/LogoJaune.svg'}
       burgerMenu='/Icons/Navmenu.svg'
       />
       
       <Main />
-      <OurStory />
-      <ContactBanner />
-      <ServiceSection />
-      <Faqs />
       <SocialProof />
+      <Line />
+      
+     <section id='services'>
       <Services />
+      </section>
       <Testimonials />
-      <News newsItems={[]} />
+      <News  />
       <Newsletter />
       <Footer/> 
       </div>

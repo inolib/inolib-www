@@ -34,8 +34,8 @@ export default function Services() {
                 <li className='flex Items-start py-1'>
                 <Image src="/Icons/CheckIcon.svg" alt='' width={20} height={20} className="mr-2" />Respecter les obligations en matière d'accessibilité numérique</li>
                 </ul>
-                <a href="#" className="inline-flex bg-transparent text-black border-2 border-black border-solid py-2 px-4 rounded-xl  hover:bg-[#b4cfd6] transition">
-                En savoir plus
+                <a href="/Audit" className="inline-flex bg-transparent text-black border-2 border-black border-solid py-2 px-4 rounded-xl  hover:bg-[#b4cfd6] transition">
+                En savoir plus 
                 <ArrowRightIcon className=" w-5 h-5 ml-2" />
               </a>
               </div>
@@ -55,14 +55,14 @@ export default function Services() {
           </div>
 
           <div className="flex flex-col md:flex-row items-center justify-center ">
-            <div className="flex-shrink-0 mb-6 md:mb-0 md:mr-6 mr-14">
+            <div className="flex-shrink-0 mb-6 md:mb-0 md:mr-6 lg:mr-60">
               <Image src="/HomePage/sommet.svg" 
-              alt="Accompagnement dans vos projets"
+              alt=""
                width={400}
               height={400}
               />
             </div>
-            <div className=' flex-col max-w-128'>
+            <div className=' flex-col max-w-128 mr-8'>
               <Image src="/Icons/flag.svg"
                alt=""
               width={30} height={30}></Image>
@@ -81,7 +81,7 @@ export default function Services() {
                 <Image src="/Icons/CheckIcon.svg" alt='' width={20} height={20} className="mr-2" />
                 Conseils sur les bonnes pratiques et les normes</li>
                 </ul>
-                <a href="#" className="inline-flex bg-transparent text-black border-2 border-black border-solid py-2 px-4 rounded-xl  hover:bg-[#b4cfd6] transition">
+                <a href="/Accoumpagner" className="inline-flex bg-transparent text-black border-2 border-black border-solid py-2 px-4 rounded-xl  hover:bg-[#b4cfd6] transition">
                 En savoir plus
                 <ArrowRightIcon className=" w-5 h-5 ml-2" />
               </a>
@@ -100,22 +100,22 @@ export default function Services() {
               <ul className="list-disc pl-5 mb-4">
                 <li className='flex Items-start py-1'>
                   
-                <Image src="/Icons/CheckIcon.svg" alt='' width={20} height={20} className="mr-2" />Projets sur-mesure, de la conception à la mise en ligne</li>
+                <Image src="/Icons/CheckIcon.svg" alt="" width={20} height={20} className="mr-2" />Projets sur-mesure, de la conception à la mise en ligne</li>
                 <li className='flex Items-start py-1'>
                   
-                <Image src="/Icons/CheckIcon.svg" alt='' width={20} height={20} className="mr-2" />Tests, audits, et améliorations en continue</li>
+                <Image src="/Icons/CheckIcon.svg" alt="" width={20} height={20} className="mr-2" />Tests, audits, et améliorations en continue</li>
                 <li className='flex Items-start py-1'>
                   
-                <Image src="/Icons/CheckIcon.svg" alt='' width={20} height={20} className="mr-2" />Intégration avec plus de 100 services et outils</li>
+                <Image src="/Icons/CheckIcon.svg" alt="" width={20} height={20} className="mr-2" />Intégration avec plus de 100 services et outils</li>
              </ul>
-              <a href="#" className="inline-flex bg-transparent text-black border-2 border-black border-solid py-2 px-4 rounded-xl  hover:bg-[#b4cfd6] transition">
+              <a href="/Developpement" className="inline-flex bg-transparent text-black border-2 border-black border-solid py-2 px-4 rounded-xl  hover:bg-[#b4cfd6] transition">
                 En savoir plus
                 <ArrowRightIcon className=" w-5 h-5 ml-2" />
               </a>
             </div>
             <div className="flex-shrink-0 mb-6 md:mb-0 md:mr-6 px-36">
               <Image src="/Homepage/maçon.svg" 
-              alt="Développement web et mobile"
+              alt=""
                width={400} 
                height={400} 
                />
@@ -123,14 +123,14 @@ export default function Services() {
             
           </div>
 
-          <div className="flex flex-col md:flex-row items-center justify-center ">
-            <div className="flex-shrink-0 mb-6 md:mb-0 md:mr-6 mr-14">
+          <div className="flex flex-col md:flex-row items-center  ">
+            <div className="flex-shrink-0 mb-6 md:mb-0 md:mr-6 lg:mr-60">
               <Image src="/Homepage/seated 2.svg" 
-              alt="Formation en accessibilité numérique" 
+              alt="" 
               width={400} 
               height={400}/>
             </div>
-            <div className='flex-col max-w-128'>
+            <div className='flex-col max-w-128 mr-12'>
             <Image src="/Icons/hat.svg"
                alt=""
               width={30} height={30}></Image>
@@ -149,7 +149,7 @@ export default function Services() {
                   
                 <Image src="/Icons/CheckIcon.svg" alt='' width={20} height={20} className="mr-2" />Support continu et sessions de questions-réponses</li>
               </ul>
-              <a href="#" className="inline-flex bg-transparent text-black border-2 border-black border-solid py-2 px-4 rounded-xl  hover:bg-[#b4cfd6] transition">
+              <a href="/Former" className="inline-flex bg-transparent text-black border-2 border-black border-solid py-2 px-4 rounded-xl  hover:bg-[#b4cfd6] transition">
                 En savoir plus
                 <ArrowRightIcon className=" w-5 h-5 ml-2" />
               </a>

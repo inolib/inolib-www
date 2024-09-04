@@ -16,7 +16,7 @@ export const SocialButton = ({
 }: JSX.IntrinsicElements["button"] & SocialButtonProps) => {
   return (
     <TooltipProvider>
-      <div className={cn("social-share-buttons mt-2 flex justify-center gap-2", className)}>
+      <div className={cn("social-share-buttons  flex justify-center gap-2", className)}>
         <Tooltip>
           <TooltipTrigger asChild>
             <a

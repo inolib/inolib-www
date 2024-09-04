@@ -1,10 +1,11 @@
 import Image from 'next/image';
-import { valuesData, ValueItem } from '~/DATA/data';
+import { valuesData } from '~/DATA/data';
+import { ValueItem } from '~/lib/types/features/componentTypes/types';
 
 const ValuesSection: React.FC = () => {
   return (
     <section className="py-16 px-4 bg-white text-center" aria-labelledby="values-heading">
-      <div className="max-w-6xl mx-auto mx-14 ">
+      <div className="max-w-6xl mx-auto ">
         <span className="inline-block px-3 py-1 mb-4 text-sm font-medium bg-[#CBE0E4] rounded-full">Nos valeurs</span>
         <h2 id="values-heading" className="text-3xl font-bold text-gray-900 mb-4">
           Ce qui nous anime au quotidien
@@ -17,7 +18,7 @@ const ValuesSection: React.FC = () => {
             <div key={index} className="flex flex-col items-center">
               <Image 
                 src={value.icon} 
-                alt={value.alt} 
+                alt="" 
                 width={50} 
                 height={50} 
                 className="mb-4" 
