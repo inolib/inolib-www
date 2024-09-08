@@ -40,7 +40,7 @@ export default function MainForm() {
         </section>
       </div>
 
-      <section className="lg:flex lg:space-x-16 mt-6 lg:mt-12 px-4 lg:px-10 ml-14 pb-4 xs:ml-6">
+      <section className="lg:flex lg:space-x-16 mt-6 lg:mt-12 px-4 lg:px-10 lg:ml-14 pb-4 xs:ml-6">
         <div className="flex flex-col lg:w-1/2">
           <p className="text-gray-600 mb-6">
             INOLIB vous accompagne dans la création d'expériences numériques accessibles et conviviales pour tous, conformément aux normes RGAA et WCAG. Nos formations et sessions de sensibilisation, interactives et pratiques, sont conçues pour répondre aux besoins de tout public, tels que les managers, chefs de projet, développeurs, designers et webmasters.
@@ -65,8 +65,8 @@ export default function MainForm() {
           </Link>
         </div>
 
-        <aside className="lg:w-1/2 space-y-6 mt-10 lg:mt-0 xs:mr-7">
-          <div className="bg-[#F5F9FA] p-6 rounded-lg shadow flex flex-row space-x-4 ">
+        <aside className="lg:w-1/2 space-y-6 mt-10 lg:mt-0 xs:mr-7 mb-16">
+          <div className="bg-[#F5F9FA] p-6 rounded-2xl shadow flex flex-row space-x-4 ">
             <div className=' '>
             <Image src='Icons/appli.svg' alt='' width={80} height={80}></Image>
             </div>
@@ -84,7 +84,7 @@ export default function MainForm() {
             </Link>
           </div>
           </div>
-          <div className="bg-[#F5F9FA] p-6 rounded-lg shadow  flex flex-row space-x-4">
+          <div className="bg-[#F5F9FA] p-6 rounded-2xl shadow  flex flex-row space-x-4">
           <div className=' '>
             <Image src='Icons/siteWeb.svg' alt='' width={80} height={80}></Image>
             </div>

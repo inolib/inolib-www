@@ -13,7 +13,7 @@ export default function MainForm() {
         <BreadcrumbList className="ml-24 flex items-center space-x-2 mb-6 mt-0">
           <BreadcrumbItem>
             <BreadcrumbLink href="/">
-              <Image src='/Icons/BreadcrumIcon.svg' alt='Home' width={20} height={20} />
+              <Image src='/Icons/BreadcrumIcon.svg' alt="" width={20} height={20} />
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
@@ -65,8 +65,8 @@ export default function MainForm() {
           </Link>
         </div>
 
-        <aside className="lg:w-1/2 space-y-6 mt-10 lg:mt-0">
-          <div className="bg-[#F5F9FA] p-6 rounded-lg shadow flex flex-row space-x-4">
+        <aside className="lg:w-1/2 space-y-6 mt-10 lg:mt-0 mb-14">
+          <div className="bg-[#F5F9FA] p-6 rounded-2xl shadow flex flex-row space-x-4">
             <div className=' '>
             <Image src='Icons/appli.svg' alt='' width={80} height={80}></Image>
             </div>
@@ -84,7 +84,7 @@ export default function MainForm() {
             </Link>
           </div>
           </div>
-          <div className="bg-[#F5F9FA] p-6 rounded-lg shadow  flex flex-row space-x-4">
+          <div className="bg-[#F5F9FA] p-6 rounded-2xl shadow  flex flex-row space-x-4">
           <div className=' '>
             <Image src='Icons/siteWeb.svg' alt='' width={80} height={80}></Image>
             </div>

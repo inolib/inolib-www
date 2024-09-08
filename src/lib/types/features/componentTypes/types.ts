@@ -82,8 +82,12 @@ export interface MenuItemProps {
   // TypeScript types
 export type PropsPost = { 
   id: string;
-  title:  string ;
-  content:string ;
+  title: {
+    rendered: string;
+  };
+  content: {
+    rendered: string;
+  };
   slug: string;
   img: string;
   authorName: string;

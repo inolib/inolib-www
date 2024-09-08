@@ -122,7 +122,7 @@ export default function BlogList() {
         <p className=" mb-12 max-w-xl">Décrypte l'actualité de l'accessibilité numérique, publie des articles techniques (design, développement) et partage ses rétrospectives.</p>
         
         <div className="flex space-x-4 mb-6">
-          <div className="flex items-center space-x-2 border-b-2 border-gray-200 w-200 " >
+          <div className="flex items-center space-x-2 border-b-2 border-gray-200 w-[875px] " >
             <button
               onClick={() => handleCategorySelect('Tous les articles')}
               className={` pb-4 hover:border-b-4 border-green-300 ${categoryParam === 'Tous les articles' ? ' text-gray-700' : ' text-gray-800'}`}
@@ -171,7 +171,7 @@ export default function BlogList() {
 
         {/* Liste des articles */}
 
-        <div className="grid gap-6 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 mr-24 pt-8">
+        <div className="grid gap-6 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 mr-36 pt-8">
           {posts.map((post) => (
             <div key={post.id} className="bg-white rounded-3xl  ">
               {post.img && (
@@ -218,10 +218,11 @@ export default function BlogList() {
           ))}
         </div>
       </Breadcrumb>
+      <div className=' w-[1130px]  '>
       {/* Pagination */}
-      <Pagination className='max-w-6xl '>
+      <Pagination >
         <PaginationContent>
-          <PaginationItem>
+          <PaginationItem className='space-x-28'>
             <PaginationPrevious
               href={`?page=${currentPage - 1}`}
               className={currentPage === 1 ? 'cursor-not-allowed opacity-75' : ''}
@@ -244,6 +245,7 @@ export default function BlogList() {
           </PaginationItem>
         </PaginationContent>
       </Pagination>
+      </div>
     </div>
   );
 }

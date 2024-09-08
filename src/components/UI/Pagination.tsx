@@ -8,7 +8,7 @@ const Pagination = ({ className='', ...props }: React.ComponentProps<"nav">) => 
   <nav
     role="navigation"
     aria-label="pagination"
-    className={cn("mx-auto flex w-full justify-between items-center pt-20", className)}
+    className={cn("mx-auto flex w-full space-x-14 pt-20", className)}
     {...props}
   />
 )
@@ -20,7 +20,7 @@ const PaginationContent = React.forwardRef<
 >(({ className='', ...props }, ref) => (
   <ul
     ref={ref}
-    className={cn("flex flex-row items-center gap-1", className)}
+    className={cn("flex flex-row space-x-[440px] gap-1 border-t-2 border-gray-200", className)}
     {...props}
   />
 ))
@@ -30,7 +30,7 @@ const PaginationItem = React.forwardRef<
   HTMLLIElement,
   React.ComponentProps<"li">
 >(({ className='', ...props }, ref) => (
-  <li ref={ref} className={cn("", className)} {...props} />
+  <li ref={ref} className={cn("mt-4", className)} {...props} />
 ))
 PaginationItem.displayName = "PaginationItem"
 

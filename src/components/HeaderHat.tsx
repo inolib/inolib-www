@@ -20,7 +20,7 @@ const handleLink = () => {
 };
 const [isSearchOpen, setIsSearchOpen] = useState(false);
   return (
-    <header className={`relative ${bgColor} ${textColor} p-4 lg:flex lg:items-center lg:justify-between xs:space-x-8`}>
+    <header className={`relative ${bgColor} ${textColor} p-4 lg:space-x-56  lg:flex lg:items-center  xs:space-x-8`}>
       {! isSearchOpen  && ( 
       <Link href={link} className={`${textColor} hover:text-gray-400 lg:ml-28 xs:ml-10 flex flex-row font-semibold`} aria-label="Accéder au contenu">
         Accéder au contenu
@@ -41,7 +41,7 @@ const [isSearchOpen, setIsSearchOpen] = useState(false);
 
       </Link>
       )}
-      <div className="  ">
+      <div className=" ">
 
         <SearchBar isSearchOpen={isSearchOpen} setIsSearchOpen={setIsSearchOpen}/>
        
@@ -50,7 +50,7 @@ const [isSearchOpen, setIsSearchOpen] = useState(false);
        variant={buttonVariant} 
        aria-label="Nous contacter" 
        onClick={handleLink}
-       className="hidden md:block lg:mr-60 "> Nous contacter </Button>
+       className="hidden md:block mr-20 "> Nous contacter </Button>
 
     </header>
   );

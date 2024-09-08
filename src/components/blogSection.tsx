@@ -1,7 +1,9 @@
 'use client'
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
+import {Button} from '~/components/UI/Button'
 import { fetchLatestPosts } from '~/lib/hooks/fetchLatestPosts';
 import { PropsPost } from '~/lib/types/features/componentTypes/types';
 
@@ -10,7 +12,10 @@ export default function BlogSection() {
   const [latestPosts, setLatestPosts] = useState<PropsPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
+  const router = useRouter();
+  const handleLink = () => {
+    router.push('/blog');
+  };
   useEffect(() => {
     async function fetchData() {
       try {
@@ -43,7 +48,10 @@ export default function BlogSection() {
       <p className="text-gray-700 mb-8">Tool and strategies modern teams need to help their companies grow.</p>
       </div>
       <div>
-<Link href='/blog' className='bg-[#254147] rounded-lg w-56 h-48 text-white'>voir tous les articles </Link></div>
+<Button href='/blog'
+ variant={'buttonNoir'}
+ onClick={handleLink}
+className=''>voir tous les articles </Button> </div>
 </div>
       <div className="grid gap-6 px-16 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
         {latestPosts.map((post) => (
@@ -66,11 +74,11 @@ export default function BlogSection() {
                 </span>
               ))}
               <h3 className="text-xl font-semibold mb-2">
-                <Link href={`/blog/${post.slug}`}  dangerouslySetInnerHTML={{ __html: post.title }} >
+                <Link href={`/blog/${post.slug}`}  dangerouslySetInnerHTML={{ __html: post.title.rendered }} >
                  
                 </Link>
               </h3>
-              <div dangerouslySetInnerHTML={{ __html: post.content}} className="mt-4 text-gray-700 line-clamp-3"/>
+              <div dangerouslySetInnerHTML={{ __html: post.content.rendered}} className="mt-4 text-gray-700 line-clamp-3"/>
               <p className="text-black font-semibold mt-4 mb-1">{post.authorName}</p>
               <p className="text-gray-500">{new Date(post.date).toLocaleDateString('fr-FR',
                 { day: '2-digit', 
