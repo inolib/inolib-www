@@ -62,7 +62,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({ query  }) => {
                     </Link>
                   </h2>
                 </div>
-                <div dangerouslySetInnerHTML={{ __html: article.content }} className="text-gray-700 line-clamp-3 mt-2"/>
+                <div dangerouslySetInnerHTML={{ __html: article.content}} className="text-gray-700 line-clamp-3 mt-2"/>
                 <div className="flex items-center mt-4">
                   <p className="text-gray-600">{article.authorName}</p>
                   <span className="mx-2">•</span>

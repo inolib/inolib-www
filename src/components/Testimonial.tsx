@@ -41,14 +41,14 @@ export default function Testimonials() {
       </div>
       <button
         onClick={prevTestimonial}
-        aria-label="Previous testimonial"
+        aria-label="temoignage precedent"
         className="absolute left-4 top-1/2 transform -translate-y-1/2 ml-7 text-white border-[1px] border-white rounded-full p-2 shadow-lg"
       >
         ←
       </button>
       <button
         onClick={nextTestimonial}
-        aria-label="Next testimonial"
+        aria-label="prochain temoignage"
         className="absolute right-2 top-1/2 transform -translate-y-1/2 mr-8 text-white border-[1px] border-white rounded-full p-2"
       >
         →

@@ -8,7 +8,7 @@ const MainTest = () => {
     <main className="container mx-auto py-8 px-4 lg:px-0 mt-28">
       {/* Breadcrumb */}
       <Breadcrumb>
-        <BreadcrumbList className="mb-10 flex items-center w-5/12 ml-11 lg:ml-10 sm:w-128 xxs:w-80 xxs:ml-0 xxs:mr-0">
+        <BreadcrumbList className="mb-10 flex items-center lg:w-80  ml-11 lg:ml-10 sm:w-128 xxs:w-80 xxs:ml-0 xxs:mr-0">
           <BreadcrumbItem>
             <BreadcrumbLink href="/">
               <Image src='/Icons/BreadcrumIcon.svg' alt='Home' width={20} height={20} />
@@ -20,7 +20,7 @@ const MainTest = () => {
           </BreadcrumbItem> 
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href="/formation">Nos formations</BreadcrumbLink>
+            <BreadcrumbLink href="/formation">Formations</BreadcrumbLink>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>

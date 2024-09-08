@@ -66,12 +66,17 @@ export default function BlogSection() {
                 </span>
               ))}
               <h3 className="text-xl font-semibold mb-2">
-                <Link href={`/blog/${post.slug}`}  dangerouslySetInnerHTML={{ __html: post.title.rendered }} >
+                <Link href={`/blog/${post.slug}`}  dangerouslySetInnerHTML={{ __html: post.title }} >
                  
                 </Link>
               </h3>
-              <p className="text-gray-600 mb-4">{post.authorName}</p>
-              <p className="text-gray-500">{new Date(post.date).toLocaleDateString()}</p>
+              <div dangerouslySetInnerHTML={{ __html: post.content}} className="mt-4 text-gray-700 line-clamp-3"/>
+              <p className="text-black font-semibold mt-4 mb-1">{post.authorName}</p>
+              <p className="text-gray-500">{new Date(post.date).toLocaleDateString('fr-FR',
+                { day: '2-digit', 
+                  month: 'short', 
+                  year: 'numeric' }
+              )}</p>
             </div>
           </article>
         ))}

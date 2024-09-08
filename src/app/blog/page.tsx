@@ -15,7 +15,8 @@ export default function Blog(){
     <HeaderHat 
     bgColor="bg-[#F5F9FA]"
     textColor="text-black"
-    buttonVariant="buttonNoir"/>
+    buttonVariant="buttonNoir"
+    link="/#services "/>
        <Header 
    textColor="text-black"
    logosrc="/Logo/LogoNoir.svg"

@@ -5,12 +5,12 @@ import { RxArrowRight} from "react-icons/rx";
 
 export default function MainForm() {
   return (
-    <main className="container mx-auto  lg:px-0 mt-0">
+    <main className="container mx-auto  lg:px-0  xs:ml-0 ">
       {/* Breadcrumb */}
       <div className="flex flex-col lg:flex-row justify-between items-center">
         <section>
       <Breadcrumb>
-        <BreadcrumbList className="ml-24 flex items-center space-x-2 mb-6 mt-16">
+        <BreadcrumbList className="lg:ml-24 flex items-center space-x-2 mb-6 mt-16 md:ml-10 xs:ml-6">
           <BreadcrumbItem>
             <BreadcrumbLink href="/">
               <Image src='/Icons/BreadcrumIcon.svg' alt='Home' width={20} height={20} />
@@ -22,7 +22,7 @@ export default function MainForm() {
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
-      <header className="lg:ml-24">
+      <header className="lg:ml-24 xs:ml-6">
           <h1 className="text-4xl font-bold text-gray-900">Audit d'accessibilité numérique</h1>
         </header>
         </section>
@@ -40,7 +40,7 @@ export default function MainForm() {
         </section>
       </div>
 
-      <section className="lg:flex lg:space-x-16 mt-6 lg:mt-12 px-4 lg:px-10 ml-14 pb-4">
+      <section className="lg:flex lg:space-x-16 mt-6 lg:mt-12 px-4 lg:px-10 ml-14 pb-4 xs:ml-6">
         <div className="flex flex-col lg:w-1/2">
           <p className="text-gray-600 mb-6">
             INOLIB vous accompagne dans la création d'expériences numériques accessibles et conviviales pour tous, conformément aux normes RGAA et WCAG. Nos formations et sessions de sensibilisation, interactives et pratiques, sont conçues pour répondre aux besoins de tout public, tels que les managers, chefs de projet, développeurs, designers et webmasters.
@@ -65,8 +65,8 @@ export default function MainForm() {
           </Link>
         </div>
 
-        <aside className="lg:w-1/2 space-y-6 mt-10 lg:mt-0">
-          <div className="bg-[#F5F9FA] p-6 rounded-lg shadow flex flex-row space-x-4">
+        <aside className="lg:w-1/2 space-y-6 mt-10 lg:mt-0 xs:mr-7">
+          <div className="bg-[#F5F9FA] p-6 rounded-lg shadow flex flex-row space-x-4 ">
             <div className=' '>
             <Image src='Icons/appli.svg' alt='' width={80} height={80}></Image>
             </div>

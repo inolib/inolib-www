@@ -13,13 +13,15 @@ export default function PageSearchResults(){
     <HeaderHat 
     bgColor="bg-[#F5F9FA]"
     textColor="text-black"
-    buttonVariant="buttonNoir"/>
+    buttonVariant="buttonNoir"
+    link="/search-results/#result "/>
        <Header 
    textColor="text-black"
    logosrc="/Logo/LogoNoir.svg"
    burgerMenu='/Icons/menuBlack.svg'/>
-
+<section id='result'>
    < SearchResultsPage/>
+   </section>
   
    <Footer />
    </div>

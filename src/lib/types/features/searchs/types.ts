@@ -1,12 +1,11 @@
 // types.ts
 export interface SearchResult {
     id: number;
-    title: {
-      rendered: string;
-    };
-    content:{
-      rendred:string;
-    }
+    title:  string;
+    
+    content: 
+    string;
+    
     img:string;
     slug: string;
    

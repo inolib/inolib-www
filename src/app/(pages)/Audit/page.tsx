@@ -14,12 +14,15 @@ export default function Audit(){
       <HeaderHat 
       bgColor="bg-[#F5F9FA]"
       textColor="text-black"
-      buttonVariant="buttonNoir"/>
+      buttonVariant="buttonNoir"
+      link="/Audit/#audit"/>
       <Header 
       textColor="text-black"
       logosrc="/Logo/LogoNoir.svg"
       burgerMenu='/Icons/menuBlack.svg'/>
+      <section id='audit'>
       <MainAudit />
+      </section>
       <SerciceSection />
       <Faqs />
       <ContactBanner/>

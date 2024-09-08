@@ -11,12 +11,15 @@ export default function ContactPage(){
 <HeaderHat 
    bgColor="bg-[#F5F9FA]"
    textColor="text-black"
-   buttonVariant="buttonNoir"/>
+   buttonVariant="buttonNoir"
+   link='/Contact/#contact'/>
 <Header 
   textColor="text-black"
   logosrc="/Logo/LogoNoir.svg"
   burgerMenu='/Icons/menuBlack.svg'/>
+  <section id='contact'>
 <MainContact />
+</section>
 <Footer />
 
 

@@ -4,22 +4,25 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Button } from "~/components/UI/Button";
 import SearchBar from "~/components/UI/Searchbar";
+import {useState } from 'react'
 
 type HeaderHatProps = {
   bgColor: string;
   textColor: string;
   buttonVariant: "ButtonJaune" | "buttonNoir" | "outline" | "secondary" | "ghost" | "link" | "buttonNoirOutline";
+  link:string
 };
 
-export default function HeaderHat({ bgColor, textColor, buttonVariant,  }: HeaderHatProps) {
+export default function HeaderHat({ bgColor, textColor, buttonVariant,link  }: HeaderHatProps) {
 const router = useRouter();
 const handleLink = () => {
   router.push('/Contact');
 };
-
+const [isSearchOpen, setIsSearchOpen] = useState(false);
   return (
-    <header className={`relative ${bgColor} ${textColor} p-4 flex items-center justify-between`}>
-      <Link href="/#services" className={`${textColor} hover:text-gray-400 ml-28 flex flex-row font-semibold`} aria-label="Accéder au contenu">
+    <header className={`relative ${bgColor} ${textColor} p-4 lg:flex lg:items-center lg:justify-between xs:space-x-8`}>
+      {! isSearchOpen  && ( 
+      <Link href={link} className={`${textColor} hover:text-gray-400 lg:ml-28 xs:ml-10 flex flex-row font-semibold`} aria-label="Accéder au contenu">
         Accéder au contenu
         <svg
       className="w-4 h-4 ml-2 mt-[5px] " 
@@ -37,16 +40,17 @@ const handleLink = () => {
     </svg>
 
       </Link>
-      <div className="flex-1 flex justify-center">
+      )}
+      <div className="  ">
 
-        <SearchBar />
+        <SearchBar isSearchOpen={isSearchOpen} setIsSearchOpen={setIsSearchOpen}/>
        
       </div>
       <Button 
        variant={buttonVariant} 
        aria-label="Nous contacter" 
        onClick={handleLink}
-       className="hidden md:block mr-6"> Nous contacter </Button>
+       className="hidden md:block lg:mr-60 "> Nous contacter </Button>
 
     </header>
   );

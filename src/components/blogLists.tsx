@@ -7,9 +7,9 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbS
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from './UI/Pagination';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "./UI/DropDownMenu";
 import { ChevronDown } from 'lucide-react';
-import { PropsPost, Category  } from '~/lib/types/features/componentTypes/types';
+import { Post, Category  } from '~/lib/types/features/componentTypes/types';
 // Fonction pour récupérer tous les articles
-async function fetchAllPosts(): Promise<PropsPost[]> {
+async function fetchAllPosts(): Promise<Post[]> {
   const res = await fetch('http://localhost/WORDPRESS/wp-json/wp/v2/posts?per_page=100&_embed');
   if (!res.ok) {
     throw new Error('Network response was not ok');
@@ -30,8 +30,8 @@ async function fetchAllPosts(): Promise<PropsPost[]> {
 }
 // Composant BlogList
 export default function BlogList() {
-  const [posts, setPosts] = useState<PropsPost[]>([]);
-  const [allPosts, setAllPosts] = useState<PropsPost[]>([]);
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [allPosts, setAllPosts] = useState<Post[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -61,7 +61,7 @@ export default function BlogList() {
   
     fetchData();
   }, [currentPage, categoryParam , searchTerm]);
-  const filterAndPaginatePosts = (allPosts: PropsPost[], category: string, searchTerm: string, page: number) => {
+  const filterAndPaginatePosts = (allPosts: Post[], category: string, searchTerm: string, page: number) => {
     let filteredPosts = category === 'Tous les articles'
       ? allPosts
       : allPosts.filter(post => post.categoryNames.includes(category));
@@ -208,8 +208,11 @@ export default function BlogList() {
                  
                 </div>
                 <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} className="mt-4 text-gray-700 line-clamp-3"/>
-                <p className="mt-4 text-gray-600">{post.authorName}</p>
-                <p className="text-gray-500">{new Date(post.date).toLocaleDateString()}</p>
+                <p className="mt-4 text-black font-semibold">{post.authorName}</p>
+                <p className="text-gray-500">{new Date(post.date).toLocaleDateString('fr-FR',{
+                  day: '2-digit', 
+                  month: 'short', 
+                  year: 'numeric' })}</p>
               </div>
             </div>
           ))}

@@ -7,6 +7,7 @@ import OurStory from '~/components/OurStory';
 import Faqs from '~/components/Faqs';
 import ServiceSection from '~/components/ServiceSection';
 import ContactBanner from '~/components/ContactBanner';
+import Statistique from '~/components/Statistique'
 
 
 export default function FormationPage(){
@@ -16,15 +17,17 @@ export default function FormationPage(){
 <HeaderHat 
    bgColor="bg-[#F5F9FA]"
    textColor="text-black"
-   buttonVariant="buttonNoir"/>
+   buttonVariant="buttonNoir"
+   link="/#services "/>
 <Header 
   textColor="text-black"
   logosrc="/Logo/LogoNoir.svg"
   burgerMenu='/Icons/menuBlack.svg'/>
 <Main />
 <OurStory />
-<Faqs />
+<Statistique />
 <ServiceSection />
+<Faqs />
 <ContactBanner />
 <Footer />
 

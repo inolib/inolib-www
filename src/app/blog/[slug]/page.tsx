@@ -66,7 +66,7 @@ export default function Single({ params }: Props) {
 
   return (
     <div>
-      <HeaderHat bgColor="bg-[#F5F9FA]" textColor="text-black" buttonVariant="buttonNoir" />
+      <HeaderHat bgColor="bg-[#F5F9FA]" textColor="text-black" buttonVariant="buttonNoir" link="/#services " />
       <Header textColor="text-black" logosrc="/Logo/LogoNoir.svg" burgerMenu="" />
       <Breadcrumb>
         <BreadcrumbList className="mb-6 mt-10 w-96 ml-20">
@@ -93,12 +93,16 @@ export default function Single({ params }: Props) {
                   <span key={index} className="inline-block bg-[#CBE0E4] text-gray-800 text-xs px-2 py-1 rounded-full uppercase font-semibold tracking-wide mb-2">
                     {category}
                   </span> ))}
-          <h1 className="font-semibold">{post.title.rendered}</h1>
-          <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} className="mt-4 text-gray-700 line-clamp-3"/>
-        <p className="font-manrope">
-            {post.authorName} {new Date(post.date).toLocaleDateString()}
+          <h1 className="font-semibold text-3xl mt-2">{post.title.rendered}</h1>
+          <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} className="mt-4 text-gray-700 line-clamp-3 mb-4"/>
+        <p className="font-manrope mb-6">
+            {post.authorName} {new Date(post.date).toLocaleDateString('fr-FR', {
+              day:'2-digit',
+              month:'short',
+              year:'numeric'
+            })}
           </p>
-          <article className="font-bold" dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+          <article className="" dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
         </div>
         <div>
           <Image src="/HomePage/article.svg" alt="" width={500} height={500} />

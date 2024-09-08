@@ -15,7 +15,8 @@ export default function Home() {
       <HearderHat 
       bgColor="bg-[#111F22]"
       textColor='text-white' 
-      buttonVariant='ButtonJaune'  
+      buttonVariant='ButtonJaune' 
+      link="/#services " 
        />
       <Header 
       textColor='text-white'
