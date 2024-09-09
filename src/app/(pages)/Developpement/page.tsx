@@ -1,6 +1,6 @@
 import HeaderHat from'~/components/HeaderHat';
 import Header from '~/components/Header';
-import Footer from '~/components/Footer';
+import Footer from '~/components/Footer_';
 import MainDeveloppement from '~/app/(pages)/Developpement/main';
 
 

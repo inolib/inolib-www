@@ -2,7 +2,7 @@
 import { Accordion,
    AccordionItem,
     AccordionTrigger, 
-    AccordionContent } from '~/components/UI/Accordion';
+    AccordionContent } from '~/components/UI/Accordion_';
     import { faqs } from '~/DATA/data';
 
     

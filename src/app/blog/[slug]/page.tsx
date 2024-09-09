@@ -3,7 +3,7 @@
 import DOMPurify from "dompurify";
 import { useEffect, useState } from "react";
 import { CommentForm } from "~/components/Comment";
-import Footer from "~/components/Footer";
+import Footer from "~/components/Footer_";
 import HeaderHat from "~/components/HeaderHat";
 import Header from "~/components/Header";
 import Image from "next/image";

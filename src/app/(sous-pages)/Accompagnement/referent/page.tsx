@@ -1,11 +1,11 @@
 import HeaderHat from'~/components/HeaderHat';
 import Header from '~/components/Header';
-import Footer from '~/components/Footer';
+import Footer from '~/components/Footer_';
 import Confo from '~/app/(sous-pages)/Audit/Conform/main';
-import ServiceSection from '~/components/ServiceSection';
-import ContactBanner from '~/components/ContactBanner';
+import ServiceSection from '~/components/ServiceSection_';
+import ContactBanner from '~/components/ContactBanner_';
 import Faqs from '~/components/Faqs';
-import Statis from '~/components/Statistique';
+import Statis from '~/components/Statistique_';
 
 
 

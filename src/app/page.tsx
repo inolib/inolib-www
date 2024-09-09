@@ -1,12 +1,12 @@
 import Header from '../components/Header';
 import HearderHat from '../components/HeaderHat';
-import Main from '~/components/main';
-import Footer from'~/components/Footer';
-import Services from '~/components/Service';
+import Main from '~/components/Main_';
+import Footer from'~/components/Footer_';
+import Services from '~/components/Service_';
 import SocialProof from '~/components/SocialProof';
 import Testimonials from '~/components/Testimonial';
-import Newsletter from '~/components/Newsletter';
-import News from '~/components/BlogSection';
+import Newsletter from '~/components/Newsletter_';
+import News from '~/components/BlogSection_';
 import Line from "~/components/UI/Line";
 
 export default function Home() {

@@ -1,10 +1,10 @@
 import HeaderHat from "~/components/HeaderHat";
 import MainAudit from "~/app/(pages)/Audit/mainAudit";
 import Header from '~/components/Header';
-import Footer from '~/components/Footer';
-import ContactBanner from "~/components/ContactBanner";
+import Footer from '~/components/Footer_';
+import ContactBanner from "~/components/ContactBanner_";
 import Faqs from "~/components/Faqs";
-import SerciceSection from "~/components/ServiceSection";
+import SerciceSection from "~/components/ServiceSection_";
 
 export default function Audit(){
 

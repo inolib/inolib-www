@@ -1,13 +1,13 @@
 
 import HeaderHat from '~/components/HeaderHat';
 import Header from '~/components/Header';
-import Footer from '~/components/Footer';
+import Footer from '~/components/Footer_';
 import Main from '~/app/(sous-pages)/Formation/main';
 import OurStory from '~/components/OurStory';
 import Faqs from '~/components/Faqs';
-import ServiceSection from '~/components/ServiceSection';
-import ContactBanner from '~/components/ContactBanner';
-import Statistique from '~/components/Statistique'
+import ServiceSection from '~/components/ServiceSection_';
+import ContactBanner from '~/components/ContactBanner_';
+import Statistique from '~/components/Statistique_'
 
 
 export default function FormationPage(){
