@@ -1,7 +1,7 @@
 
 import HeaderHat from '~/components/HeaderHat';
 import Header from '~/components/Header';
-import Footer from '~/components/Footer_';
+import Footer from '~/components/Footer';
 import MainContact from '~/app/(pages)/Contact/main';
 
 export default function ContactPage(){

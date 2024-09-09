@@ -1,7 +1,7 @@
 import HeaderHat from "~/components/HeaderHat";
 import MainAccompagnement from "~/app/(pages)/Accompagner/main";
 import Header from'~/components/Header';
-import Footer from'~/components/Footer_';
+import Footer from'~/components/Footer';
 
 export default function PageAccoumpagner(){
   return(

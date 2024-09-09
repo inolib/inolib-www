@@ -1,8 +1,8 @@
 'use client';
 import Header from '~/components/Header';
 import HeaderHat from '~/components/HeaderHat';
-import BlogList from '~/components/BlogLists_';
-import Footer from '~/components/Footer_';
+import BlogList from '~/components/BlogLists';
+import Footer from '~/components/Footer';
 import { Suspense } from 'react';
 
 

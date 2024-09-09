@@ -1,11 +1,11 @@
 import HeaderHat from'~/components/HeaderHat';
 import Header from '~/components/Header';
-import Footer from '~/components/Footer_';
+import Footer from '~/components/Footer';
 import MainTest from '~/app/(sous-pages)/Audit/TestUser/main';
-import ServiceSection from '~/components/ServiceSection_';
-import ContactBanner from '~/components/ContactBanner_';
+import ServiceSection from '~/components/ServiceSection';
+import ContactBanner from '~/components/ContactBanner';
 import Faqs from '~/components/Faqs';
-import Statis from '~/components/Statistique_';
+import Statis from '~/components/Statistique';
 
 
 

@@ -3,7 +3,7 @@ import ValuesSection from '~/app/(pages)/About/value';
 import TeamSection from '~/app/(pages)/About/team';
 import HeaderHat from '~/components/HeaderHat';
 import Header from '~/components/Header';
-import Footer from '~/components/Footer_';
+import Footer from '~/components/Footer';
 import { CarrerSection } from '~/components/CarrerSection';
 
 
