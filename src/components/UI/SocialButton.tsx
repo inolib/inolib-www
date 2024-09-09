@@ -16,14 +16,14 @@ export const SocialButton = ({
 }: JSX.IntrinsicElements["button"] & SocialButtonProps) => {
   return (
     <TooltipProvider>
-      <div className={cn("social-share-buttons  flex justify-center gap-2", className)}>
+      <div className={cn("social-share-buttons flex justify-center gap-2", className)}>
         <Tooltip>
           <TooltipTrigger asChild>
             <a
-              href='https://www.linkedin.com/company/inolib/'
+              href="https://www.linkedin.com/company/inolib/"
               target="_blank"
               rel="noopener noreferrer"
-              className={cn("text-2xl cursor-pointer border-none bg-transparent hover:opacity-70", buttonClassName)}
+              className={cn("cursor-pointer border-none bg-transparent text-2xl hover:opacity-70", buttonClassName)}
             >
               <FaLinkedin aria-label="Nous contacter sur LinkedIn" className="text-[#0077b5]" />
             </a>
@@ -35,10 +35,10 @@ export const SocialButton = ({
         <Tooltip>
           <TooltipTrigger asChild>
             <a
-              href='https://www.facebook.com/people/Inolib/100075572787282/'
+              href="https://www.facebook.com/people/Inolib/100075572787282/"
               target="_blank"
               rel="noopener noreferrer"
-              className={cn("text-2xl cursor-pointer border-none bg-transparent hover:opacity-70", buttonClassName)}
+              className={cn("cursor-pointer border-none bg-transparent text-2xl hover:opacity-70", buttonClassName)}
             >
               <FaFacebook aria-label="Nous contacter sur Facebook" className="text-[#3b5998]" />
             </a>
@@ -50,10 +50,10 @@ export const SocialButton = ({
         <Tooltip>
           <TooltipTrigger asChild>
             <a
-              href='https://www.youtube.com/channel/UC9yPUJFvQkKsxGeAJ3CJOTg'
+              href="https://www.youtube.com/channel/UC9yPUJFvQkKsxGeAJ3CJOTg"
               target="_blank"
               rel="noopener noreferrer"
-              className={cn("text-2xl cursor-pointer border-none bg-transparent hover:opacity-70", buttonClassName)}
+              className={cn("cursor-pointer border-none bg-transparent text-2xl hover:opacity-70", buttonClassName)}
             >
               <FaXTwitter aria-label="Partager via Twitter" />
             </a>
@@ -68,7 +68,7 @@ export const SocialButton = ({
               href={`https://www.instagram.com/inolib/`}
               target="_blank"
               rel="noopener noreferrer"
-              className={cn("text-2xl cursor-pointer border-none bg-transparent hover:opacity-70", buttonClassName)}
+              className={cn("cursor-pointer border-none bg-transparent text-2xl hover:opacity-70", buttonClassName)}
             >
               <FaInstagram aria-label="Partager via Instagram" className="text-[#bc2a8d]" />
             </a>
@@ -80,10 +80,10 @@ export const SocialButton = ({
         <Tooltip>
           <TooltipTrigger asChild>
             <a
-              href=''
+              href=""
               target="_blank"
               rel="noopener noreferrer"
-              className={cn("text-2xl cursor-pointer border-none bg-transparent hover:opacity-70", buttonClassName)}
+              className={cn("cursor-pointer border-none bg-transparent text-2xl hover:opacity-70", buttonClassName)}
             >
               <FaWhatsapp aria-label="Partager via WhatsApp" className="text-[#075e54]" />
             </a>

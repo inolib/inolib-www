@@ -11,9 +11,7 @@ const app = next({ dev, hostname, port });
 await app.prepare();
 
 createServer((req, res) => {
-  (app.getRequestHandler())(req, res, parse(req.url, true));
+  app.getRequestHandler()(req, res, parse(req.url, true));
 }).listen(port);
 
-console.log(
-  `Server listening on http://${hostname}:${port} (${dev ? "development" : process.env.NODE_ENV})`
-);
+console.log(`Server listening on http://${hostname}:${port} (${dev ? "development" : process.env.NODE_ENV})`);

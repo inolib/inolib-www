@@ -1,7 +1,7 @@
 export const staticPagesData = [
   {
-    title: 'Audit',
-    url: '/Audit',
+    title: "Audit",
+    url: "/Audit",
     content: `
       Notre service d'audit vous permet d'évaluer votre infrastructure existante,
       de déterminer les points faibles et de proposer des solutions pour améliorer
@@ -9,8 +9,8 @@ export const staticPagesData = [
     `,
   },
   {
-    title: 'Accompagnement',
-    url: '/Accompagner',
+    title: "Accompagnement",
+    url: "/Accompagner",
     content: `
       Nous offrons un accompagnement personnalisé pour vos projets technologiques. 
       Que vous soyez une startup ou une grande entreprise, nous avons les ressources
@@ -18,8 +18,8 @@ export const staticPagesData = [
     `,
   },
   {
-    title: 'Développement',
-    url: '/Developpement',
+    title: "Développement",
+    url: "/Developpement",
     content: `
       Nos services de développement incluent la création d'applications sur mesure,
       l'intégration de systèmes, et le développement web. Nous utilisons les dernières
@@ -27,8 +27,8 @@ export const staticPagesData = [
     `,
   },
   {
-    title: 'Formations',
-    url: '/Formations',
+    title: "Formations",
+    url: "/Formations",
     content: `
       Nous proposons des formations sur divers sujets, y compris la cybersécurité,
       le développement web, et la gestion de projet. Nos formateurs sont des experts
@@ -36,8 +36,8 @@ export const staticPagesData = [
     `,
   },
   {
-    title: 'Former',
-    url: '/Former',
+    title: "Former",
+    url: "/Former",
     content: `
       Nous proposons des formations sur divers sujets, y compris la cybersécurité,
       le développement web, et la gestion de projet. Nos formateurs sont des experts
@@ -45,8 +45,8 @@ export const staticPagesData = [
     `,
   },
   {
-    title: 'À propos',
-    url: '/About',
+    title: "À propos",
+    url: "/About",
     content: `
       Nous sommes une entreprise dédiée à l'innovation et à l'excellence. 
       Depuis notre création, nous avons aidé des centaines d'entreprises à atteindre 
@@ -54,8 +54,8 @@ export const staticPagesData = [
     `,
   },
   {
-    title: 'Contact',
-    url: '/Contact',
+    title: "Contact",
+    url: "/Contact",
     content: `
       Vous pouvez nous contacter via notre formulaire en ligne ou par téléphone.
       Notre équipe est disponible pour répondre à toutes vos questions et vous aider
@@ -63,8 +63,8 @@ export const staticPagesData = [
     `,
   },
   {
-    title: 'Test utilisateurs',
-    url: '/Test utilisateurs',
+    title: "Test utilisateurs",
+    url: "/Test utilisateurs",
     content: `
       Vous pouvez nous contacter via notre formulaire en ligne ou par téléphone.
       Notre équipe est disponible pour répondre à toutes vos questions et vous aider
@@ -72,8 +72,8 @@ export const staticPagesData = [
     `,
   },
   {
-    title: 'referent en accessibilité',
-    url: '/referent',
+    title: "referent en accessibilité",
+    url: "/referent",
     content: `
       Vous pouvez nous contacter via notre formulaire en ligne ou par téléphone.
       Notre équipe est disponible pour répondre à toutes vos questions et vous aider
@@ -81,8 +81,8 @@ export const staticPagesData = [
     `,
   },
   {
-    title: 'Assistance',
-    url: '/assistance',
+    title: "Assistance",
+    url: "/assistance",
     content: `
       Vous pouvez nous contacter via notre formulaire en ligne ou par téléphone.
       Notre équipe est disponible pour répondre à toutes vos questions et vous aider
@@ -90,8 +90,8 @@ export const staticPagesData = [
     `,
   },
   {
-    title: 'Application mobile',
-    url: '/appliMobile',
+    title: "Application mobile",
+    url: "/appliMobile",
     content: `
       Vous pouvez nous contacter via notre formulaire en ligne ou par téléphone.
       Notre équipe est disponible pour répondre à toutes vos questions et vous aider
@@ -99,21 +99,21 @@ export const staticPagesData = [
     `,
   },
   {
-    title: 'SAAS',
-    url: '/saas',
-    content: `
-      Vous pouvez nous contacter via notre formulaire en ligne ou par téléphone.
-      Notre équipe est disponible pour répondre à toutes vos questions et vous aider
-      à trouver la solution adaptée à vos besoins.
-    `,
-  },{
-    title: 'Site web',
-    url: '/siteWeb',
+    title: "SAAS",
+    url: "/saas",
     content: `
       Vous pouvez nous contacter via notre formulaire en ligne ou par téléphone.
       Notre équipe est disponible pour répondre à toutes vos questions et vous aider
       à trouver la solution adaptée à vos besoins.
     `,
   },
-  
+  {
+    title: "Site web",
+    url: "/siteWeb",
+    content: `
+      Vous pouvez nous contacter via notre formulaire en ligne ou par téléphone.
+      Notre équipe est disponible pour répondre à toutes vos questions et vous aider
+      à trouver la solution adaptée à vos besoins.
+    `,
+  },
 ];

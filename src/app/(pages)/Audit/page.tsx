@@ -1,33 +1,24 @@
 import HeaderHat from "~/components/HeaderHat";
 import MainAudit from "~/app/(pages)/Audit/mainAudit";
-import Header from '~/components/Header';
-import Footer from '~/components/Footer';
+import Header from "~/components/Header";
+import Footer from "~/components/Footer";
 import ContactBanner from "~/components/ContactBanner";
 import Faqs from "~/components/Faqs";
 import SerciceSection from "~/components/ServiceSection";
 
-export default function Audit(){
-
-  return(
+export default function Audit() {
+  return (
     <div>
-
-      <HeaderHat 
-      bgColor="bg-[#F5F9FA]"
-      textColor="text-black"
-      buttonVariant="buttonNoir"
-      link="/Audit/#audit"/>
-      <Header 
-      textColor="text-black"
-      logosrc="/Logo/LogoNoir.svg"
-      burgerMenu='/Icons/menuBlack.svg'/>
-      <section id='audit'>
-      <MainAudit />
+      <HeaderHat bgColor="bg-[#F5F9FA]" textColor="text-black" buttonVariant="buttonNoir" link="/Audit/#audit" />
+      <Header textColor="text-black" logosrc="/Logo/LogoNoir.svg" burgerMenu="/Icons/menuBlack.svg" />
+      <section id="audit">
+        <MainAudit />
       </section>
       <SerciceSection />
       <Faqs />
-      <ContactBanner/>
-      
+      <ContactBanner />
+
       <Footer />
     </div>
-  )
+  );
 }

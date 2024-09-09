@@ -1,6 +1,6 @@
-'use client';
-import { useState, useEffect } from 'react';
-import { Results, SearchContent } from '~/lib/types/features/searchs/types';
+"use client";
+import { useState, useEffect } from "react";
+import { Results, SearchContent } from "~/lib/types/features/searchs/types";
 
 const useSearchContent = (query: string, searchContent: SearchContent) => {
   const [results, setResults] = useState<Results>({ articles: [], staticPages: [] });
@@ -10,11 +10,11 @@ const useSearchContent = (query: string, searchContent: SearchContent) => {
       const timeoutId = setTimeout(async () => {
         const searchResults = await searchContent(query);
         setResults(searchResults);
-      }, 200); 
+      }, 200);
 
       return () => clearTimeout(timeoutId);
     } else {
-      setResults({ articles: [],  staticPages: [] });
+      setResults({ articles: [], staticPages: [] });
     }
   }, [query, searchContent]);
 

@@ -1,5 +1,6 @@
-/** @type {import("next").NextConfig} */
-export default {
+import type {NextConfig} from 'next'
+
+const config: NextConfig = {
   experimental: {
     cpus: 4,
     workerThreads: false,
@@ -8,3 +9,5 @@ export default {
     domains: ["localhost"],
   },
 };
+
+export default config

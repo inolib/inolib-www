@@ -8,12 +8,10 @@ Lors d'une mise à jour de WordPress, plusieurs dysfonctionnements sont survenus
 Le fichier functions.php du thème actif (Twenty Twenty-One) ne s'exécutait plus, même après avoir ajouté du code simple ou des erreurs volontaires pour déclencher des logs.
 Aucun fichier debug.log n'a été généré dans le répertoire wp-content malgré l'activation du mode débogage dans wp-config.php.
 Le fichier .maintenance, qui est censé apparaître lors des mises à jour en cours, n'était pas présent.
-Tentative de réinstallation de WordPress empêchée par un message indiquant qu'une autre mise à jour était en cours.
-2. Diagnostic :
+Tentative de réinstallation de WordPress empêchée par un message indiquant qu'une autre mise à jour était en cours. 2. Diagnostic :
 
 Plusieurs tentatives de modification et de suppression de code dans le fichier functions.php n'ont pas réussi à déclencher l'exécution de ce fichier ou à générer des logs d'erreurs, suggérant un problème plus profond lié à la mise à jour de WordPress.
-Le problème semblait être lié à un verrouillage de mise à jour resté actif dans la base de données, empêchant toute nouvelle action sur WordPress.
-3. Étapes de Résolution :
+Le problème semblait être lié à un verrouillage de mise à jour resté actif dans la base de données, empêchant toute nouvelle action sur WordPress. 3. Étapes de Résolution :
 
 3.1 Suppression du Verrouillage de Mise à Jour :
 
@@ -41,8 +39,7 @@ Téléversement des fichiers racine de WordPress (sauf wp-content et wp-config-s
 Finalisation :
 
 Vérification que le site fonctionne correctement après la réinstallation.
-Réinitialisation des permaliens via l'interface WordPress pour s'assurer que tout est configuré correctement.
-4. Conclusion :
+Réinitialisation des permaliens via l'interface WordPress pour s'assurer que tout est configuré correctement. 4. Conclusion :
 Cette documentation décrit le processus de diagnostic et de résolution d'un dysfonctionnement de WordPress lié à une mise à jour incomplète. Le problème a été résolu en supprimant manuellement le verrouillage de mise à jour dans la base de données et en réinstallant manuellement WordPress, tout en préservant les contenus du dossier wp-content.
 
 Recommandations :

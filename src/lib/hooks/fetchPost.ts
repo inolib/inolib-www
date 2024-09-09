@@ -1,6 +1,6 @@
 import { Post, OneComment } from "~/lib/types/features/componentTypes/types";
 // fetch les posts et les commentaires d'un post depuis l'API REST de WordPress.
-// fetch les posts 
+// fetch les posts
 export async function fetchPost(slug: string): Promise<Post | null> {
   try {
     const res = await fetch(`http://localhost/WORDPRESS/wp-json/wp/v2/posts?slug=${slug}&_embed`);
@@ -20,8 +20,8 @@ export async function fetchPost(slug: string): Promise<Post | null> {
     const author = await authorRes.json();
     post.authorName = author.name;
 
-    const categories = post._embedded['wp:term']?.[0]?.map((term: any) => term.name) || [];
-    post.categoryNames = categories; 
+    const categories = post._embedded["wp:term"]?.[0]?.map((term: any) => term.name) || [];
+    post.categoryNames = categories;
     return post;
   } catch (error) {
     console.error("Error fetching post:", error);

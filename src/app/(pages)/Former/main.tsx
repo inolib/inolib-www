@@ -1,104 +1,130 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbLink, BreadcrumbSeparator } from "~/components/UI/Breadcrumb";
-import { RxArrowRight} from "react-icons/rx";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbList,
+  BreadcrumbLink,
+  BreadcrumbSeparator,
+} from "~/components/UI/Breadcrumb";
+import { RxArrowRight } from "react-icons/rx";
 
 export default function MainForm() {
   return (
-    <main className="container mx-auto  lg:px-0 mt-0">
+    <main className="container mx-auto mt-0 lg:px-0">
       {/* Breadcrumb */}
-      <div className="flex flex-col lg:flex-row justify-between items-center">
+      <div className="flex flex-col items-center justify-between lg:flex-row">
         <section>
-      <Breadcrumb>
-        <BreadcrumbList className="ml-24 flex items-center space-x-2 mb-6 mt-0">
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/">
-              <Image src='/Icons/BreadcrumIcon.svg' alt="" width={20} height={20} />
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/former" className="text-gray-600">Formations</BreadcrumbLink>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
-      <header className="lg:ml-24">
-          <h1 className="text-4xl font-bold text-gray-900">Formations</h1>
-        </header>
+          <Breadcrumb>
+            <BreadcrumbList className="mb-6 ml-24 mt-0 flex items-center space-x-2">
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/">
+                  <Image src="/Icons/BreadcrumIcon.svg" alt="" width={20} height={20} />
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/former" className="text-gray-600">
+                  Formations
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+          <header className="lg:ml-24">
+            <h1 className="text-4xl font-bold text-gray-900">Formations</h1>
+          </header>
         </section>
 
-    
-       
-        <section className=" mt-10 mr-10">
-          <Image
-            src="/Homepage/newFor.svg"
-            alt=""
-            width={450}
-            height={450}
-            className="object-cover"
-          />
+        <section className="mr-10 mt-10">
+          <Image src="/Homepage/newFor.svg" alt="" width={450} height={450} className="object-cover" />
         </section>
       </div>
 
-      <section className="lg:flex lg:space-x-16 mt-6 lg:mt-12 px-4 lg:px-10 ml-14 pb-4">
+      <section className="ml-14 mt-6 px-4 pb-4 lg:mt-12 lg:flex lg:space-x-16 lg:px-10">
         <div className="flex flex-col lg:w-1/2">
-          <p className="text-gray-600 mb-6">
-            INOLIB vous accompagne dans la création d'expériences numériques accessibles et conviviales pour tous, conformément aux normes RGAA et WCAG. Nos formations et sessions de sensibilisation, interactives et pratiques, sont conçues pour répondre aux besoins de tout public, tels que les managers, chefs de projet, développeurs, designers et webmasters.
+          <p className="mb-6 text-gray-600">
+            INOLIB vous accompagne dans la création d'expériences numériques accessibles et conviviales pour tous,
+            conformément aux normes RGAA et WCAG. Nos formations et sessions de sensibilisation, interactives et
+            pratiques, sont conçues pour répondre aux besoins de tout public, tels que les managers, chefs de projet,
+            développeurs, designers et webmasters.
           </p>
-          <ul className="list-none text-gray-600 mb-6 space-y-3 ml-2">
+          <ul className="mb-6 ml-2 list-none space-y-3 text-gray-600">
             <li className="flex items-start">
-              <Image src="/Icons/CheckIcon.svg" alt='' width={20} height={20} className="mr-2" />
+              <Image src="/Icons/CheckIcon.svg" alt="" width={20} height={20} className="mr-2" />
               Élargir votre audience en incluant tous les utilisateurs
             </li>
             <li className="flex items-start">
-              <Image src="/Icons/CheckIcon.svg" alt='' width={20} height={20} className="mr-2" />
+              <Image src="/Icons/CheckIcon.svg" alt="" width={20} height={20} className="mr-2" />
               Améliorer l'expérience utilisateur pour tous
             </li>
             <li className="flex items-start">
-              <Image src="/Icons/CheckIcon.svg" alt='' width={20} height={20} className="mr-2" />
+              <Image src="/Icons/CheckIcon.svg" alt="" width={20} height={20} className="mr-2" />
               Respecter les obligations en matière d'accessibilité numérique
             </li>
           </ul>
-          <Link href="/Contact" className="bg-[#254147] text-white flex items-center justify-between hover:bg-primary/90 py-2.5 px-4 rounded-lg w-44">
+          <Link
+            href="/Contact"
+            className="hover:bg-primary/90 flex w-44 items-center justify-between rounded-lg bg-[#254147] px-4 py-2.5 text-white"
+          >
             Nous contacter
-            <RxArrowRight className="w-6 h-6" />
+            <RxArrowRight className="h-6 w-6" />
           </Link>
         </div>
 
-        <aside className="lg:w-1/2 space-y-6 mt-10 lg:mt-0 mb-14">
-          <div className="bg-[#F5F9FA] p-6 rounded-2xl shadow flex flex-row space-x-4">
-            <div className=' '>
-            <Image src='Icons/appli.svg' alt='' width={80} height={80}></Image>
+        <aside className="mb-14 mt-10 space-y-6 lg:mt-0 lg:w-1/2">
+          <div className="flex flex-row space-x-4 rounded-2xl bg-[#F5F9FA] p-6 shadow">
+            <div className=" ">
+              <Image src="Icons/appli.svg" alt="" width={80} height={80}></Image>
             </div>
             <div>
-            <h2 className="text-lg font-semibold text-gray-900 mb-2">Site web</h2>
-            
-            <p className="text-gray-700 mb-4">
-              Give your team the autonomy they need with access to as many cards as they need. Authorise purchases with a click. Simple.
-            </p>
-            <Link href="#" className="inline-flex items-center px-4 py-2 border border-black text-gray-800 font-semibold rounded-full hover:bg-gray-200 transition">
-              En savoir plus
-              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </Link>
+              <h2 className="mb-2 text-lg font-semibold text-gray-900">Site web</h2>
+
+              <p className="mb-4 text-gray-700">
+                Give your team the autonomy they need with access to as many cards as they need. Authorise purchases
+                with a click. Simple.
+              </p>
+              <Link
+                href="#"
+                className="inline-flex items-center rounded-full border border-black px-4 py-2 font-semibold text-gray-800 transition hover:bg-gray-200"
+              >
+                En savoir plus
+                <svg
+                  className="ml-2 h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </Link>
+            </div>
           </div>
-          </div>
-          <div className="bg-[#F5F9FA] p-6 rounded-2xl shadow  flex flex-row space-x-4">
-          <div className=' '>
-            <Image src='Icons/siteWeb.svg' alt='' width={80} height={80}></Image>
+          <div className="flex flex-row space-x-4 rounded-2xl bg-[#F5F9FA] p-6 shadow">
+            <div className=" ">
+              <Image src="Icons/siteWeb.svg" alt="" width={80} height={80}></Image>
             </div>
             <section>
-            <h2 className="text-lg font-semibold text-gray-900 mb-2">Application mobile</h2>
-            <p className="text-gray-700 mb-4">
-              Every card comes with configurable spending limits, purchase restrictions, and cancellations for each employee and team.
-            </p>
-            <Link href="#" className="inline-flex items-center px-4 py-2 border border-black text-gray-800 font-semibold rounded-full hover:bg-gray-200 transition">
-              En savoir plus
-              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </Link>
+              <h2 className="mb-2 text-lg font-semibold text-gray-900">Application mobile</h2>
+              <p className="mb-4 text-gray-700">
+                Every card comes with configurable spending limits, purchase restrictions, and cancellations for each
+                employee and team.
+              </p>
+              <Link
+                href="#"
+                className="inline-flex items-center rounded-full border border-black px-4 py-2 font-semibold text-gray-800 transition hover:bg-gray-200"
+              >
+                En savoir plus
+                <svg
+                  className="ml-2 h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </Link>
             </section>
           </div>
         </aside>

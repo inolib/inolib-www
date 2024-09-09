@@ -1,12 +1,11 @@
-'use client'
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import Image from 'next/image';
-import Link from 'next/link';
-import {Button} from '~/components/UI/Button'
-import { fetchLatestPosts } from '~/lib/hooks/fetchLatestPosts';
-import { PropsPost } from '~/lib/types/features/componentTypes/types';
-
+"use client";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "~/components/UI/Button";
+import { fetchLatestPosts } from "~/lib/hooks/fetchLatestPosts";
+import { PropsPost } from "~/lib/types/features/componentTypes/types";
 
 export default function BlogSection() {
   const [latestPosts, setLatestPosts] = useState<PropsPost[]>([]);
@@ -14,7 +13,7 @@ export default function BlogSection() {
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
   const handleLink = () => {
-    router.push('/blog');
+    router.push("/blog");
   };
   useEffect(() => {
     async function fetchData() {
@@ -22,7 +21,7 @@ export default function BlogSection() {
         const posts = await fetchLatestPosts();
         setLatestPosts(posts);
       } catch (error) {
-        ((error as Error).message);
+        (error as Error).message;
       } finally {
         setLoading(false);
       }
@@ -40,51 +39,52 @@ export default function BlogSection() {
   }
 
   return (
-    <section className="py-8 bg-white">
-      <div className='flex flex-rows justify-between px-16'>
-      <div>
-      <span className="inline-block bg-[#CBE0E4] text-sm text-black-500 px-3 py-[1px]  mb-2 h-6 rounded-full" aria-label="articles recents">Actualité</span>
-      <h2 className="text-3xl font-bold mb-4 pb-4">Nos dernières actualités</h2>
-      <p className="text-gray-700 mb-8">Tool and strategies modern teams need to help their companies grow.</p>
+    <section className="bg-white py-8">
+      <div className="flex-rows flex justify-between px-16">
+        <div>
+          <span
+            className="text-black-500 mb-2 inline-block h-6 rounded-full bg-[#CBE0E4] px-3 py-[1px] text-sm"
+            aria-label="articles recents"
+          >
+            Actualité
+          </span>
+          <h2 className="mb-4 pb-4 text-3xl font-bold">Nos dernières actualités</h2>
+          <p className="mb-8 text-gray-700">Tool and strategies modern teams need to help their companies grow.</p>
+        </div>
+        <div>
+          <Button href="/blog" variant={"buttonNoir"} onClick={handleLink} className="">
+            voir tous les articles{" "}
+          </Button>{" "}
+        </div>
       </div>
-      <div>
-<Button href='/blog'
- variant={'buttonNoir'}
- onClick={handleLink}
-className=''>voir tous les articles </Button> </div>
-</div>
-      <div className="grid gap-6 px-16 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+      <div className="grid gap-6 px-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {latestPosts.map((post) => (
-          <article key={post.id}  className=''>
+          <article key={post.id} className="">
             {post.img && (
-              <div className="w-full h-48 overflow-hidden rounded-xl mb-4">
-                <Image
-                  src={post.img}
-                  alt=""
-                  width={200}
-                  height={200}
-                  className="w-full h-full object-cover"
-                />
+              <div className="mb-4 h-48 w-full overflow-hidden rounded-xl">
+                <Image src={post.img} alt="" width={200} height={200} className="h-full w-full object-cover" />
               </div>
             )}
             <div>
               {post.categoryNames.map((category, index) => (
-                <span key={index} className="inline-block bg-[#CBE0E4] text-gray-800 text-xs px-2 py-1 rounded-full uppercase font-semibold tracking-wide mb-2">
+                <span
+                  key={index}
+                  className="mb-2 inline-block rounded-full bg-[#CBE0E4] px-2 py-1 text-xs font-semibold uppercase tracking-wide text-gray-800"
+                >
                   {category}
                 </span>
               ))}
-              <h3 className="text-xl font-semibold mb-2">
-                <Link href={`/blog/${post.slug}`}  dangerouslySetInnerHTML={{ __html: post.title.rendered }} >
-                 
-                </Link>
+              <h3 className="mb-2 text-xl font-semibold">
+                <Link href={`/blog/${post.slug}`} dangerouslySetInnerHTML={{ __html: post.title.rendered }}></Link>
               </h3>
-              <div dangerouslySetInnerHTML={{ __html: post.content.rendered}} className="mt-4 text-gray-700 line-clamp-3"/>
-              <p className="text-black font-semibold mt-4 mb-1">{post.authorName}</p>
-              <p className="text-gray-500">{new Date(post.date).toLocaleDateString('fr-FR',
-                { day: '2-digit', 
-                  month: 'short', 
-                  year: 'numeric' }
-              )}</p>
+              <div
+                dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+                className="mt-4 line-clamp-3 text-gray-700"
+              />
+              <p className="mb-1 mt-4 font-semibold text-black">{post.authorName}</p>
+              <p className="text-gray-500">
+                {new Date(post.date).toLocaleDateString("fr-FR", { day: "2-digit", month: "short", year: "numeric" })}
+              </p>
             </div>
           </article>
         ))}

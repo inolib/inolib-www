@@ -8,15 +8,7 @@ import DOMPurify from "dompurify";
 import { v4 as uuidv4 } from "uuid";
 
 import { Button } from "~/components/UI/Button";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "~/components/UI/Form";
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "~/components/UI/Form";
 import { Input } from "~/components/UI/Input";
 import { Textarea } from "~/components/UI/TextArea";
 import { PostComment, OneComment } from "~/lib/types/features/componentTypes/types";
@@ -34,10 +26,13 @@ const formSchema = z.object({
   }),
 });
 
-
-
 // Fonction pour soumettre le commentaire à WordPress
-async function submitComment(postId: number, username: string, email: string, comment: string): Promise<PostComment | null> {
+async function submitComment(
+  postId: number,
+  username: string,
+  email: string,
+  comment: string,
+): Promise<PostComment | null> {
   const token = uuidv4(); // Génère un token temporaire unique
 
   try {
@@ -45,12 +40,12 @@ async function submitComment(postId: number, username: string, email: string, co
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`, 
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
         post: postId,
         author_name: username,
-        author_email: email, 
+        author_email: email,
         content: comment,
       }),
     });
@@ -68,13 +63,19 @@ async function submitComment(postId: number, username: string, email: string, co
 }
 
 // Composant de formulaire de commentaire
-export function CommentForm({ postId, onCommentAdded }: { postId: number; onCommentAdded: (comment: OneComment) => void }) {
+export function CommentForm({
+  postId,
+  onCommentAdded,
+}: {
+  postId: number;
+  onCommentAdded: (comment: OneComment) => void;
+}) {
   const methods = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: '', 
-      email: '',
-      comment: ''
+      username: "",
+      email: "",
+      comment: "",
     },
   });
 
@@ -92,7 +93,7 @@ export function CommentForm({ postId, onCommentAdded }: { postId: number; onComm
 
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)} className="space-y-8 w-1/3 m-auto  pb-4 justify-between ">
+      <form onSubmit={methods.handleSubmit(onSubmit)} className="m-auto w-1/3 justify-between space-y-8 pb-4">
         <FormField
           control={methods.control}
           name="username"

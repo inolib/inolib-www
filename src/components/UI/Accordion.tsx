@@ -1,5 +1,5 @@
 "use client";
-//composant accordion de shadcn 
+//composant accordion de shadcn
 import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import Image from "next/image";
@@ -11,11 +11,7 @@ const AccordionItem = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
 >(({ className = "", ...props }, ref) => (
-  <AccordionPrimitive.Item
-    ref={ref}
-    className={cn("border-b", className)}
-    {...props}
-  />
+  <AccordionPrimitive.Item ref={ref} className={cn("border-b", className)} {...props} />
 ));
 AccordionItem.displayName = "AccordionItem";
 
@@ -31,15 +27,15 @@ const AccordionTrigger = React.forwardRef<
         ref={ref}
         className={cn(
           "flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline",
-          isOpen ? "bg-blue-50" : "",//utilisation de l'etat de l'accordeon et modifier le style si il est ouvert on change la couleur de fond de l'accordeon 
-          className
+          isOpen ? "bg-blue-50" : "", //utilisation de l'etat de l'accordeon et modifier le style si il est ouvert on change la couleur de fond de l'accordeon
+          className,
         )}
         onClick={() => setIsOpen(!isOpen)}
         {...props}
       >
         {children}
         <div className="ml-2">
-          {isOpen ? (  //utilisation de l'etat de l'accordeon et modifier l'icone en fonction de l'etat de l'accordeon
+          {isOpen ? ( //utilisation de l'etat de l'accordeon et modifier l'icone en fonction de l'etat de l'accordeon
             <Image src="/FAQs/Icon1.svg" alt="Minus icon" width={24} height={24} />
           ) : (
             <Image src="/FAQs/Icon2.svg" alt="Plus icon" width={24} height={24} />
