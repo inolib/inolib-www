@@ -1,12 +1,10 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  images: {
-    domains: ['localhost'],
-   
+/** @type {import("next").NextConfig} */
+export default {
+  experimental: {
+    cpus: 12,
+    workerThreads: false,
   },
-  
- 
+  images: {
+    domains: ["localhost"],
+  },
 };
-
-export default nextConfig;
-
