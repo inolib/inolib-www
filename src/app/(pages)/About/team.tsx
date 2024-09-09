@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { teamMembers } from "~/DATA/data";
-import type { TeamMember } from "~/lib/types/features/componentTypes/types";
+import { TeamMember } from "~/lib/types/features/componentTypes/types";
 
 const TeamSection = () => {
   return (
