@@ -1,0 +1,5 @@
+services:
+  devcontainer:
+    build: "./devcontainer"
+    volumes:
+      - "../../..:/@inolib"
