@@ -128,7 +128,7 @@ const Services = () => {
               </a>
             </div>
             <div className="mb-6 flex-shrink-0 px-36 md:mb-0 md:mr-6">
-              <Image src="/Homepage/maçon.svg" alt="" width={400} height={400} />
+              <Image src="/Homepage/macon.svg" alt="" width={400} height={400} />
             </div>
           </div>
 
