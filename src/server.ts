@@ -15,5 +15,5 @@ import next from "next";
     app.getRequestHandler()(req, res, parse(req.url as string, true));
   }).listen(port);
 
-  console.log(`Server listening on http://${hostname}:${port} (${dev ? "development" : process.env.NODE_ENV})`);
+  console.log(`Server listening on http://${hostname}:${port} (${dev ? "development" : "production"})`);
 })();
