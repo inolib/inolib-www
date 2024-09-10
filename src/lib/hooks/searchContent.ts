@@ -1,8 +1,9 @@
 "use client";
-import { Results } from "~/lib/types/features/searchs/types";
-import { staticPagesData } from "~/DATA/staticDataPages";
 
-export async function searchContent(query: string): Promise<Results> {
+import { staticPagesData } from "~/DATA/staticDataPages";
+import type { Results } from "~/lib/types/features/searchs/types";
+
+export const searchContent = async (query: string): Promise<Results> => {
   const apiBaseUrl = "http://localhost/WORDPRESS/wp-json/wp/v2";
 
   // Recherche d'articles
@@ -10,12 +11,12 @@ export async function searchContent(query: string): Promise<Results> {
   const articles = await articlesRes.json();
 
   // Pages statiques
-
   const staticPages = staticPagesData.filter(
     (page) =>
       page.title.toLowerCase().includes(query.toLowerCase()) ||
       page.content.toLowerCase().includes(query.toLowerCase()),
   );
+
   return {
     articles: articles.map((article: any) => ({
       id: article.id,
@@ -35,7 +36,7 @@ export async function searchContent(query: string): Promise<Results> {
       content: page.content,
     })),
   };
-}
+};
 
 /*export async function searchContent(query: string): Promise<Results> {
   const apiBaseUrl = 'http://localhost/WORDPRESS/wp-json/wp/v2';
@@ -58,7 +59,7 @@ export async function searchContent(query: string): Promise<Results> {
     'Contact',
   ];
 
-  const staticPages = staticPagesData 
+  const staticPages = staticPagesData
     .map(title => ({ title, url: `/pages/${title.toLowerCase().replace(/ /g, '')}` }))
     .filter(page => page.title.toLowerCase().includes(query.toLowerCase()));
 

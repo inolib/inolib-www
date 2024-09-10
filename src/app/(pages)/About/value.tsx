@@ -1,8 +1,9 @@
 import Image from "next/image";
-import { valuesData } from "~/DATA/data";
-import { ValueItem } from "~/lib/types/features/componentTypes/types";
 
-const ValuesSection: React.FC = () => {
+import { valuesData } from "~/DATA/data";
+import type { ValueItem } from "~/lib/types/features/componentTypes/types";
+
+const ValuesSection = () => {
   return (
     <section className="bg-white px-4 py-16 text-center" aria-labelledby="values-heading">
       <div className="mx-auto max-w-6xl">

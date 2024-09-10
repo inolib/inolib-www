@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function Footer() {
+const Footer = () => {
   return (
     <footer className="overflow-hidden bg-[#122023] py-10 text-white xxs:space-x-3 xxs:px-8">
       <div className="container mx-auto px-4">
@@ -225,4 +225,6 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

@@ -1,9 +1,10 @@
 import Image from "next/image";
-import { Button } from "~/components/UI/Button";
 import Link from "next/link";
 import { RxArrowRight } from "react-icons/rx";
 
-export default function Main() {
+import { Button } from "~/components/UI/Button";
+
+const Main = () => {
   return (
     <div className="min-h-screen rounded-tr-customm-tr bg-gradient-to-b from-[#122023] via-[#254147] to-black text-white xxs:rounded-tr-customx-tr xs:rounded-tr-customx-tr sm:rounded-tr-customx-tr md:rounded-tr-customs-tr lg:rounded-tr-customm-tr">
       <main className="flex flex-col items-center justify-between px-4 py-10 text-center sm:px-8 sm:py-20 md:flex-row md:text-left">
@@ -49,4 +50,6 @@ export default function Main() {
       </main>
     </div>
   );
-}
+};
+
+export default Main;

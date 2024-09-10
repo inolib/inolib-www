@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
+
 import { texts } from "~/DATA/data";
 
-export default function Line() {
+const Line = () => {
   const [isAnimating, setIsAnimating] = useState(true);
 
   const toggleAnimation = () => {
@@ -23,4 +24,6 @@ export default function Line() {
       </div>
     </div>
   );
-}
+};
+
+export default Line;

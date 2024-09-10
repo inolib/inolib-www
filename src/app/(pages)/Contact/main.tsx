@@ -1,7 +1,9 @@
 "use client";
-import { useState } from "react";
+
 import DOMPurify from "dompurify";
 import Image from "next/image";
+import { useState } from "react";
+
 import { Button } from "~/components/UI/Button";
 import { SocialButton } from "~/components/UI/SocialButton";
 
@@ -27,7 +29,7 @@ type Errors = {
   budget?: string;
 };
 
-export default function MainContact() {
+const MainContact = () => {
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",
@@ -367,4 +369,6 @@ export default function MainContact() {
       )}
     </main>
   );
-}
+};
+
+export default MainContact;

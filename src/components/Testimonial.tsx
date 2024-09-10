@@ -1,9 +1,11 @@
 "use client";
-import { useState } from "react";
+
 import Image from "next/image";
+import { useState } from "react";
+
 import { testimonials } from "~/DATA/data";
 
-export default function Testimonials() {
+const Testimonials = () => {
   const [current, setCurrent] = useState(0);
 
   const nextTestimonial = () => {
@@ -55,4 +57,6 @@ export default function Testimonials() {
       </button>
     </div>
   );
-}
+};
+
+export default Testimonials;

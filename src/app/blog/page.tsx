@@ -1,11 +1,13 @@
 "use client";
-import Header from "~/components/Header";
-import HeaderHat from "~/components/HeaderHat";
-import BlogList from "~/components/BlogLists";
-import Footer from "~/components/Footer";
+
 import { Suspense } from "react";
 
-export default function Blog() {
+import BlogList from "~/components/BlogLists";
+import Footer from "~/components/Footer";
+import Header from "~/components/Header";
+import HeaderHat from "~/components/HeaderHat";
+
+const Blog = () => {
   return (
     <div className="overflow-hidden">
       <HeaderHat bgColor="bg-[#F5F9FA]" textColor="text-black" buttonVariant="buttonNoir" link="/#services " />
@@ -17,4 +19,6 @@ export default function Blog() {
       <Footer />
     </div>
   );
-}
+};
+
+export default Blog;

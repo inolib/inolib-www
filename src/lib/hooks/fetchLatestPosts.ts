@@ -1,7 +1,7 @@
-import { PropsPost } from "~/lib/types/features/componentTypes/types";
+import type { PropsPost } from "~/lib/types/features/componentTypes/types";
 
 // Fonction pour afficher les 3 derniers articles
-export async function fetchLatestPosts(): Promise<PropsPost[]> {
+export const fetchLatestPosts = async (): Promise<PropsPost[]> => {
   const res = await fetch("http://localhost/WORDPRESS/wp-json/wp/v2/posts?per_page=3&orderby=date&order=desc&_embed");
 
   if (!res.ok) {
@@ -28,4 +28,4 @@ export async function fetchLatestPosts(): Promise<PropsPost[]> {
       categoryNames: categories,
     };
   });
-}
+};

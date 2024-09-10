@@ -1,7 +1,9 @@
 "use client";
+
 import type { JSX } from "react";
 import { FaFacebook, FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+
 import { cn } from "~/components/helpers/cn";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "~/components/UI/Tooltip";
 

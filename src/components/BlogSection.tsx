@@ -1,13 +1,15 @@
 "use client";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+
 import { Button } from "~/components/UI/Button";
 import { fetchLatestPosts } from "~/lib/hooks/fetchLatestPosts";
-import { PropsPost } from "~/lib/types/features/componentTypes/types";
+import type { PropsPost } from "~/lib/types/features/componentTypes/types";
 
-export default function BlogSection() {
+const BlogSection = () => {
   const [latestPosts, setLatestPosts] = useState<PropsPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -91,4 +93,6 @@ export default function BlogSection() {
       </div>
     </section>
   );
-}
+};
+
+export default BlogSection;

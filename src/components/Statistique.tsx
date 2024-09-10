@@ -1,6 +1,4 @@
-import Head from "next/head";
-
-export default function Statis() {
+const Statis = () => {
   return (
     <>
       <div className="flex min-h-screen flex-col items-center justify-center bg-white py-6 sm:py-12">
@@ -32,4 +30,6 @@ export default function Statis() {
       </div>
     </>
   );
-}
+};
+
+export default Statis;

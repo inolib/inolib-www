@@ -10,7 +10,7 @@ const formSchema = z.object({
   }),
 });
 
-export function ProfileForm() {
+export const ProfileForm = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -21,4 +21,4 @@ export function ProfileForm() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
   }
-}
+};

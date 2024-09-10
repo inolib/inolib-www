@@ -1,9 +1,9 @@
-import HeaderHat from "~/components/HeaderHat";
-import Header from "~/components/Header";
-import Footer from "~/components/Footer";
 import MainDeveloppement from "~/app/(pages)/Developpement/main";
+import Footer from "~/components/Footer";
+import Header from "~/components/Header";
+import HeaderHat from "~/components/HeaderHat";
 
-export default function Developpement() {
+const Developpement = () => {
   return (
     <>
       <HeaderHat
@@ -19,4 +19,6 @@ export default function Developpement() {
       <Footer />
     </>
   );
-}
+};
+
+export default Developpement;

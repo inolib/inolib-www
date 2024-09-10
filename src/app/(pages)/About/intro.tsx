@@ -1,14 +1,14 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+
 import {
   Breadcrumb,
-  BreadcrumbEllipsis,
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
-  BreadcrumbPage,
   BreadcrumbSeparator,
 } from "~/components/UI/Breadcrumb";
+
 const Intro = () => {
   return (
     <section className="bg-white px-4 py-16 text-center" aria-labelledby="about-heading">

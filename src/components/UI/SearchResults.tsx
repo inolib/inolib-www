@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
-import { Results } from "~/lib/types/features/searchs/types";
-import { searchContent } from "~/lib/hooks/searchContent";
 import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+
+import { searchContent } from "~/lib/hooks/searchContent";
+import type { Results } from "~/lib/types/features/searchs/types";
 
 interface SearchResultsProps {
   query: string;
   results: Results;
 }
 
-const SearchResults: React.FC<SearchResultsProps> = ({ query }) => {
+const SearchResults = ({ query }: SearchResultsProps) => {
   const [results, setResults] = useState<Results>({ articles: [], staticPages: [] });
   const [loading, setLoading] = useState(false);
 

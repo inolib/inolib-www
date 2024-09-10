@@ -1,9 +1,9 @@
-import HeaderHat from "~/components/HeaderHat";
-import Header from "~/components/Header";
-import Footer from "~/components/Footer";
 import MainForm from "~/app/(pages)/Former/main";
+import Footer from "~/components/Footer";
+import Header from "~/components/Header";
+import HeaderHat from "~/components/HeaderHat";
 
-export default function Developpement() {
+const Developpement = () => {
   return (
     <>
       <HeaderHat bgColor="bg-[#F5F9FA]" textColor="text-black" buttonVariant="buttonNoir" link="/Former/#form " />
@@ -14,4 +14,6 @@ export default function Developpement() {
       <Footer />
     </>
   );
-}
+};
+
+export default Developpement;

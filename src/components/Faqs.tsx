@@ -1,4 +1,4 @@
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "~/components/UI/Accordion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "~/components/UI/Accordion";
 import { faqs } from "~/DATA/data";
 
 const Faqs = () => {

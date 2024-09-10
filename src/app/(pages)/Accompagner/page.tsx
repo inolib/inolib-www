@@ -1,9 +1,9 @@
-import HeaderHat from "~/components/HeaderHat";
 import MainAccompagnement from "~/app/(pages)/Accompagner/main";
-import Header from "~/components/Header";
 import Footer from "~/components/Footer";
+import Header from "~/components/Header";
+import HeaderHat from "~/components/HeaderHat";
 
-export default function PageAccoumpagner() {
+const PageAccoumpagner = () => {
   return (
     <>
       <HeaderHat bgColor="bg-[#F5F9FA]" textColor="text-black" buttonVariant="buttonNoir" link="/#services " />
@@ -12,4 +12,6 @@ export default function PageAccoumpagner() {
       <Footer />
     </>
   );
-}
+};
+
+export default PageAccoumpagner;

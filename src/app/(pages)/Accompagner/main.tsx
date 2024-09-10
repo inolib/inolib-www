@@ -1,15 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
+import { RxArrowRight } from "react-icons/rx";
+
 import {
   Breadcrumb,
   BreadcrumbItem,
-  BreadcrumbList,
   BreadcrumbLink,
+  BreadcrumbList,
   BreadcrumbSeparator,
 } from "~/components/UI/Breadcrumb";
-import { RxArrowRight } from "react-icons/rx";
 
-export default function MainForm() {
+const MainForm = () => {
   return (
     <main className="container mx-auto mt-0 lg:px-0">
       {/* Breadcrumb */}
@@ -131,4 +132,6 @@ export default function MainForm() {
       </section>
     </main>
   );
-}
+};
+
+export default MainForm;

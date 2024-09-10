@@ -1,5 +1,11 @@
-// types.ts
-export interface SearchResult {
+export type Results = {
+  articles: SearchResult[];
+  staticPages: StaticPage[];
+};
+
+export type SearchContent = (query: string) => Promise<Results>;
+
+export type SearchResult = {
   id: number;
   title: string;
 
@@ -11,17 +17,9 @@ export interface SearchResult {
   categoryNames: [];
   authorName: string;
   date: string;
-}
+};
 
-export interface StaticPage {
+export type StaticPage = {
   title: string;
   url: string;
-}
-
-export interface Results {
-  articles: SearchResult[];
-
-  staticPages: StaticPage[];
-}
-
-export type SearchContent = (query: string) => Promise<Results>;
+};

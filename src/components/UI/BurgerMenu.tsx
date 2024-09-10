@@ -1,4 +1,8 @@
+import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
+
+import { Button } from "~/components/UI/Button";
 import {
   DropdownMenu,
   DropdownMenuLabel,
@@ -7,16 +11,13 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "~/components/UI/DropDownMenu";
-import Link from "next/link";
-import { Button } from "~/components/UI/Button";
-import Image from "next/image";
 import { menuItems } from "~/DATA/links";
 
 type MenuProps = {
   navMenu: string;
 };
 
-export default function BurgerMenu({ navMenu }: MenuProps) {
+const BurgerMenu = ({ navMenu }: MenuProps) => {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
 
   const handleClick = (menu: string) => {
@@ -84,4 +85,6 @@ export default function BurgerMenu({ navMenu }: MenuProps) {
       </DropdownMenu>
     </main>
   );
-}
+};
+
+export default BurgerMenu;

@@ -1,13 +1,13 @@
-import HeaderHat from "~/components/HeaderHat";
-import Header from "~/components/Header";
-import Footer from "~/components/Footer";
 import Confo from "~/app/(sous-pages)/Audit/Conform/main";
-import ServiceSection from "~/components/ServiceSection";
 import ContactBanner from "~/components/ContactBanner";
 import Faqs from "~/components/Faqs";
+import Footer from "~/components/Footer";
+import Header from "~/components/Header";
+import HeaderHat from "~/components/HeaderHat";
+import ServiceSection from "~/components/ServiceSection";
 import Statis from "~/components/Statistique";
 
-export default function pageConfo() {
+const PageConfo = () => {
   return (
     <div className="overflow-hidden">
       <HeaderHat bgColor="bg-[#F5F9FA]" textColor="text-black" buttonVariant="buttonNoir" link="/#services " />
@@ -20,4 +20,6 @@ export default function pageConfo() {
       <Footer />
     </div>
   );
-}
+};
+
+export default PageConfo;

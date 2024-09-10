@@ -1,15 +1,15 @@
 "use client";
-import { useState, useCallback } from "react";
-import { useRouter } from "next/navigation";
-import debounce from "lodash/debounce";
-import { boolean } from "zod";
 
-type searchProps = {
+import debounce from "lodash/debounce";
+import { useRouter } from "next/navigation";
+import { useCallback, useState } from "react";
+
+type SearchProps = {
   isSearchOpen: boolean;
   setIsSearchOpen: (open: boolean) => void;
 };
 
-export default function SearchBar({ isSearchOpen, setIsSearchOpen }: searchProps) {
+const SearchBar = ({ isSearchOpen, setIsSearchOpen }: SearchProps) => {
   const [query, setQuery] = useState("");
   const router = useRouter();
 
@@ -99,4 +99,6 @@ export default function SearchBar({ isSearchOpen, setIsSearchOpen }: searchProps
       )}
     </div>
   );
-}
+};
+
+export default SearchBar;

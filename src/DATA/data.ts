@@ -1,8 +1,6 @@
 // Données pour la section "Notre équipe"
-import { TeamMember } from "~/lib/types/features/componentTypes/types";
-import { JobOffer } from "~/lib/types/features/componentTypes/types";
-import { ValueItem } from "~/lib/types/features/componentTypes/types";
-import { Service } from "~/lib/types/features/componentTypes/types";
+import type { JobOffer, Service, TeamMember, ValueItem } from "~/lib/types/features/componentTypes/types";
+
 export const teamMembers: TeamMember[] = [
   {
     name: "Amélie Laurent",
@@ -125,6 +123,7 @@ export const faqs = [
       "You can cancel your subscription at any time. Your subscription will remain active until the end of the current billing period.",
   },
 ];
+
 // données sur les services proposées par inolib
 export const services: Service[] = [
   {
@@ -149,6 +148,7 @@ export const services: Service[] = [
     alt: "Icone de coaching",
   },
 ];
+
 // données pour le composant Testimonial
 export const testimonials = [
   {
@@ -195,6 +195,7 @@ export const Logos = [
 
   { src: "/ParLogo/3lurryAds.svg", width: 150, height: 200, alt: "logo de nos clients : 3lurryAds" },
 ];
+
 // données pour le composant CarrerSection
 export const jobOffers: JobOffer[] = [
   {

@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
+import Image from "next/image";
 
-export default function Services() {
+const Services = () => {
   return (
     <section className="bg-[#FCFBF9] py-20" aria-labelledby="services-heading">
       <div className="container mx-auto px-4">
@@ -170,4 +170,6 @@ export default function Services() {
       </div>
     </section>
   );
-}
+};
+
+export default Services;

@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import { Logos } from "~/DATA/data";
 
-export default function SocialProof() {
+const SocialProof = () => {
   return (
     <main className="flex w-full flex-col items-center bg-[#F5F4EE] p-6 pb-10">
       <h1 className="mb-4 pt-6 text-lg font-bold">Rejoignez nos clients satisfaits</h1>
@@ -17,4 +17,6 @@ export default function SocialProof() {
       </div>
     </main>
   );
-}
+};
+
+export default SocialProof;

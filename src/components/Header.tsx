@@ -3,10 +3,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import BurgerMenu from "~/components/UI/BurgerMenu";
-import MainNav from "~/components/MainNav";
 
-import { Button } from "~/components/UI/Button";
+import MainNav from "~/components/MainNav";
+import BurgerMenu from "~/components/UI/BurgerMenu";
 
 type HeaderProps = {
   textColor: string;
@@ -14,7 +13,7 @@ type HeaderProps = {
   burgerMenu: string;
 };
 
-export default function Header({ textColor, logosrc, burgerMenu }: HeaderProps) {
+const Header = ({ textColor, logosrc, burgerMenu }: HeaderProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -37,4 +36,6 @@ export default function Header({ textColor, logosrc, burgerMenu }: HeaderProps) 
       </div>
     </header>
   );
-}
+};
+
+export default Header;

@@ -1,9 +1,11 @@
 "use client";
+
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+
 import { menuItems } from "~/DATA/links";
 
-export default function MainNav() {
+const MainNav = () => {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
 
   const handleMouseEnter = (menu: string) => {
@@ -108,4 +110,6 @@ export default function MainNav() {
       </nav>
     </>
   );
-}
+};
+
+export default MainNav;

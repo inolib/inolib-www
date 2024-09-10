@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import type { PropsWithChildren } from "react";
 
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,7 +11,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: PropsWithChildren) {
+const RootLayout = ({ children }: PropsWithChildren) => {
   return (
     <html lang="fr">
       <body className="font-manrope text-base font-medium leading-normal">
@@ -23,4 +20,6 @@ export default function RootLayout({ children }: PropsWithChildren) {
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;

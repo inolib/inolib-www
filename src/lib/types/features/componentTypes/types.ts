@@ -1,3 +1,26 @@
+export type Category = {
+  id: number;
+  name: string;
+};
+
+export type Faq = {
+  question: string;
+  answer: string;
+};
+
+export type JobOffer = {
+  title: string;
+  location: string;
+  type: string;
+  salaryRange: string;
+};
+
+export type MenuItemProps = {
+  href: string;
+  label: string;
+  subItems?: { href: string; label: string }[];
+};
+
 export type OneComment = {
   id: number;
   author_name: string;
@@ -22,12 +45,6 @@ export type Post = {
   date: string;
 };
 
-export type Props = {
-  params: {
-    slug: string;
-  };
-};
-
 export type PostComment = {
   id: number;
   post: number;
@@ -37,49 +54,13 @@ export type PostComment = {
     rendered: string;
   };
 };
-// typeage pour les données de composant Faqs
-export type Faq = {
-  question: string;
-  answer: string;
+
+export type Props = {
+  params: {
+    slug: string;
+  };
 };
-// typeage pour les données de composant faq
-export interface Service {
-  title: string;
-  description: string;
-  icon: string;
-  alt: string;
-}
 
-// typage pour les données de composant team
-export interface TeamMember {
-  name: string;
-  position: string;
-  description: string;
-  image: string;
-  alt: string;
-}
-
-// type des liens
-
-export interface MenuItemProps {
-  href: string;
-  label: string;
-  subItems?: { href: string; label: string }[];
-}
-
-export type JobOffer = {
-  title: string;
-  location: string;
-  type: string;
-  salaryRange: string;
-};
-export interface ValueItem {
-  title: string;
-  description: string;
-  icon: string;
-  alt: string;
-}
-// TypeScript types
 export type PropsPost = {
   id: string;
   title: {
@@ -95,7 +76,24 @@ export type PropsPost = {
   categoryNames: string[];
 };
 
-export type Category = {
-  id: number;
+export type Service = {
+  title: string;
+  description: string;
+  icon: string;
+  alt: string;
+};
+
+export type TeamMember = {
   name: string;
+  position: string;
+  description: string;
+  image: string;
+  alt: string;
+};
+
+export type ValueItem = {
+  title: string;
+  description: string;
+  icon: string;
+  alt: string;
 };

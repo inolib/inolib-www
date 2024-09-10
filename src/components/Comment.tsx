@@ -1,17 +1,16 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm, FormProvider } from "react-hook-form";
-import { z } from "zod";
-import { useState } from "react";
 import DOMPurify from "dompurify";
+import { FormProvider, useForm } from "react-hook-form";
 import { v4 as uuidv4 } from "uuid";
+import { z } from "zod";
 
 import { Button } from "~/components/UI/Button";
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "~/components/UI/Form";
+import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "~/components/UI/Form";
 import { Input } from "~/components/UI/Input";
 import { Textarea } from "~/components/UI/TextArea";
-import { PostComment, OneComment } from "~/lib/types/features/componentTypes/types";
+import type { OneComment, PostComment } from "~/lib/types/features/componentTypes/types";
 
 // Schéma de validation pour le formulaire, incluant l'email
 const formSchema = z.object({
@@ -27,12 +26,12 @@ const formSchema = z.object({
 });
 
 // Fonction pour soumettre le commentaire à WordPress
-async function submitComment(
+const submitComment = async (
   postId: number,
   username: string,
   email: string,
   comment: string,
-): Promise<PostComment | null> {
+): Promise<PostComment | null> => {
   const token = uuidv4(); // Génère un token temporaire unique
 
   try {
@@ -60,16 +59,16 @@ async function submitComment(
     console.error("Error submitting comment:", error);
     return null;
   }
-}
+};
 
 // Composant de formulaire de commentaire
-export function CommentForm({
+export const CommentForm = ({
   postId,
   onCommentAdded,
 }: {
   postId: number;
   onCommentAdded: (comment: OneComment) => void;
-}) {
+}) => {
   const methods = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -139,4 +138,4 @@ export function CommentForm({
       </form>
     </FormProvider>
   );
-}
+};

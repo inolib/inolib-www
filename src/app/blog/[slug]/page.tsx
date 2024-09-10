@@ -1,24 +1,24 @@
 "use client";
 
 import DOMPurify from "dompurify";
+import Image from "next/image";
 import { useEffect, useState } from "react";
+
 import { CommentForm } from "~/components/Comment";
 import Footer from "~/components/Footer";
-import HeaderHat from "~/components/HeaderHat";
 import Header from "~/components/Header";
-import Image from "next/image";
-import { fetchComments, fetchPost } from "~/lib/hooks/fetchPost";
+import HeaderHat from "~/components/HeaderHat";
 import {
   Breadcrumb,
   BreadcrumbList,
-  BreadcrumbItem,
   BreadcrumbLink,
+  BreadcrumbItem,
   BreadcrumbSeparator,
 } from "~/components/UI/Breadcrumb";
+import { fetchComments, fetchPost } from "~/lib/hooks/fetchPost";
+import type { OneComment, Post, Props } from "~/lib/types/features/componentTypes/types";
 
-import { Post, OneComment, Props } from "~/lib/types/features/componentTypes/types";
-
-export default function Single({ params }: Props) {
+const Single = ({ params }: Props) => {
   const [post, setPost] = useState<Post | null>(null);
   const [comments, setComments] = useState<OneComment[]>([]);
   const [loading, setLoading] = useState(true);
@@ -139,4 +139,6 @@ export default function Single({ params }: Props) {
       <Footer />
     </div>
   );
-}
+};
+
+export default Single;

@@ -1,6 +1,4 @@
-import React from "react";
-
-const OurStory: React.FC = () => {
+const OurStory = () => {
   return (
     <section className="container bg-[#FAFAFA] px-4 py-16 xxs:min-w-full xs:min-w-full lg:px-0">
       <div className="mx-4 my-10 grid grid-cols-1 gap-8 md:mx-10 md:grid-cols-2">

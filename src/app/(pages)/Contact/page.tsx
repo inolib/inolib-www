@@ -1,9 +1,9 @@
-import HeaderHat from "~/components/HeaderHat";
-import Header from "~/components/Header";
-import Footer from "~/components/Footer";
 import MainContact from "~/app/(pages)/Contact/main";
+import Footer from "~/components/Footer";
+import Header from "~/components/Header";
+import HeaderHat from "~/components/HeaderHat";
 
-export default function ContactPage() {
+const ContactPage = () => {
   return (
     <>
       <HeaderHat bgColor="bg-[#F5F9FA]" textColor="text-black" buttonVariant="buttonNoir" link="/Contact/#contact" />
@@ -14,4 +14,6 @@ export default function ContactPage() {
       <Footer />
     </>
   );
-}
+};
+
+export default ContactPage;

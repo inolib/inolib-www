@@ -1,7 +1,8 @@
 import Link from "next/link";
+
 import { jobOffers } from "~/DATA/data";
 
-export const CarrerSection: React.FC = () => {
+export const CarrerSection = () => {
   return (
     <section className="bg-[#F5F4EE] py-16">
       <div className="container mx-auto px-6">

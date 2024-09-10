@@ -1,7 +1,8 @@
-import { Button } from "~/components/UI/Button";
 import Image from "next/image";
 
-export default function Newsletter() {
+import { Button } from "~/components/UI/Button";
+
+const Newsletter = () => {
   return (
     <div className="flex flex-col items-center bg-[#F5F4EE] px-4 text-center">
       <h1 className="mb-4 pt-20 text-center text-2xl font-semibold text-[##111F22]">
@@ -18,4 +19,6 @@ export default function Newsletter() {
       </div>
     </div>
   );
-}
+};
+
+export default Newsletter;

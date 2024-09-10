@@ -1,11 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
-import { RxArrowRight } from "react-icons/rx";
+
 import {
   Breadcrumb,
   BreadcrumbItem,
-  BreadcrumbList,
   BreadcrumbLink,
+  BreadcrumbList,
   BreadcrumbSeparator,
 } from "~/components/UI/Breadcrumb";
 

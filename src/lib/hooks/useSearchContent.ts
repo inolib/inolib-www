@@ -1,6 +1,7 @@
 "use client";
-import { useState, useEffect } from "react";
-import { Results, SearchContent } from "~/lib/types/features/searchs/types";
+
+import { useEffect, useState } from "react";
+import type { Results, SearchContent } from "~/lib/types/features/searchs/types";
 
 const useSearchContent = (query: string, searchContent: SearchContent) => {
   const [results, setResults] = useState<Results>({ articles: [], staticPages: [] });

@@ -1,10 +1,11 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+
 import { Button } from "~/components/UI/Button";
 import SearchBar from "~/components/UI/Searchbar";
-import { useState } from "react";
 
 type HeaderHatProps = {
   bgColor: string;
@@ -13,7 +14,7 @@ type HeaderHatProps = {
   link: string;
 };
 
-export default function HeaderHat({ bgColor, textColor, buttonVariant, link }: HeaderHatProps) {
+const HeaderHat = ({ bgColor, textColor, buttonVariant, link }: HeaderHatProps) => {
   const router = useRouter();
   const handleLink = () => {
     router.push("/Contact");
@@ -53,4 +54,6 @@ export default function HeaderHat({ bgColor, textColor, buttonVariant, link }: H
       </Button>
     </header>
   );
-}
+};
+
+export default HeaderHat;

@@ -1,8 +1,11 @@
 "use client";
-import { useEffect, useState } from "react";
+
+import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -10,14 +13,8 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "~/components/UI/Breadcrumb";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "./UI/Pagination";
+import type { Post, Category } from "~/lib/types/features/componentTypes/types";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -26,10 +23,17 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "./UI/DropDownMenu";
-import { ChevronDown } from "lucide-react";
-import { Post, Category } from "~/lib/types/features/componentTypes/types";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "./UI/Pagination";
+
 // Fonction pour récupérer tous les articles
-async function fetchAllPosts(): Promise<Post[]> {
+const fetchAllPosts = async (): Promise<Post[]> => {
   const res = await fetch("http://localhost/WORDPRESS/wp-json/wp/v2/posts?per_page=100&_embed");
   if (!res.ok) {
     throw new Error("Network response was not ok");
@@ -47,9 +51,10 @@ async function fetchAllPosts(): Promise<Post[]> {
     date: post.date,
     categoryNames: post._embedded?.["wp:term"]?.[0]?.map((term: any) => term.name) || [],
   }));
-}
+};
+
 // Composant BlogList
-export default function BlogList() {
+const BlogList = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [allPosts, setAllPosts] = useState<Post[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
@@ -274,4 +279,6 @@ export default function BlogList() {
       </div>
     </div>
   );
-}
+};
+
+export default BlogList;

@@ -1,8 +1,10 @@
 "use client";
+
 //composant accordion de shadcn
-import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
+import * as React from "react";
 import Image from "next/image";
+
 import { cn } from "~/components/helpers/cn";
 
 const Accordion = AccordionPrimitive.Root;

@@ -1,7 +1,8 @@
 import Image from "next/image";
+
 import { services } from "~/DATA/data";
 
-export default function ServiceSection() {
+const ServiceSection = () => {
   return (
     <section className="bg-[#FAFAFA] px-4 py-16" aria-labelledby="services-heading">
       <div className="mx-auto max-w-5xl text-center">
@@ -26,4 +27,6 @@ export default function ServiceSection() {
       </div>
     </section>
   );
-}
+};
+
+export default ServiceSection;

@@ -1,4 +1,4 @@
-import { MenuItemProps } from "~/lib/types/features/componentTypes/types";
+import type { MenuItemProps } from "~/lib/types/features/componentTypes/types";
 
 export const menuItems: MenuItemProps[] = [
   {

@@ -1,16 +1,18 @@
 "use client";
-import { useSearchParams } from "next/navigation";
-import useSearchContent from "~/lib/hooks/useSearchContent";
-import SearchResults from "~/components/UI/SearchResults";
-import { searchContent } from "~/lib/hooks/searchContent";
+
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
+
 import {
   Breadcrumb,
-  BreadcrumbList,
   BreadcrumbItem,
   BreadcrumbLink,
+  BreadcrumbList,
   BreadcrumbSeparator,
 } from "~/components/UI/Breadcrumb";
+import SearchResults from "~/components/UI/SearchResults";
+import { searchContent } from "~/lib/hooks/searchContent";
+import useSearchContent from "~/lib/hooks/useSearchContent";
 
 const SearchResultsPage = () => {
   const searchParams = useSearchParams();
