@@ -4,11 +4,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "next build",
-    "dev": "node ./server.js",
+    "build": "pnpm run build:app && pnpm run build:server",
+    "build:app": "next build",
+    "build:server": "tsup",
     "format": "prettier --write .",
     "lint": "next lint",
-    "start": "NODE_ENV=production node ./server.js"
+    "serve:development": "NODE_ENV=development tsx ./src/server.ts",
+    "serve:production": "NODE_ENV=production node ./dist/server.cjs"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.5",
@@ -61,6 +63,8 @@
     "prettier-plugin-packagejson": "^2.5.2",
     "prettier-plugin-tailwindcss": "^0.6.6",
     "tailwindcss": "^3.4.10",
+    "tsup": "^8.2.4",
+    "tsx": "^4.19.0",
     "typescript": "^5.6.2"
   },
   "packageManager": "pnpm@9.10.0+sha512.73a29afa36a0d092ece5271de5177ecbf8318d454ecd701343131b8ebc0c1a91c487da46ab77c8e596d6acf1461e3594ced4becedf8921b074fbd8653ed7051c"
