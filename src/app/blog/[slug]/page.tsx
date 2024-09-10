@@ -119,7 +119,7 @@ const Single = ({ params }: Props) => {
           <article className="" dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
         </div>
         <div>
-          <Image src="/HomePage/article.svg" alt="" width={500} height={500} />
+          <Image src="/Homepage/article.svg" alt="" width={500} height={500} />
         </div>
       </div>
       <div className="flex flex-row justify-between">

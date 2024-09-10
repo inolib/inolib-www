@@ -45,7 +45,7 @@ const Main = () => {
         </div>
 
         <div className="mt-8 flex items-center justify-center md:mt-0 md:pr-24">
-          <Image src="/HomePage/main.svg" alt="image decorative" width={567} height={640} />
+          <Image src="/Homepage/main.svg" alt="image decorative" width={567} height={640} />
         </div>
       </main>
     </div>

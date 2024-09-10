@@ -58,13 +58,13 @@ const Services = () => {
             </div>
 
             <div className="mb-6 ml-24 flex-shrink-0 md:mb-0 md:mr-6">
-              <Image src="/HomePage/image1.svg" alt="" width={550} height={550} />
+              <Image src="/Homepage/image1.svg" alt="" width={550} height={550} />
             </div>
           </div>
 
           <div className="flex flex-col items-center justify-center md:flex-row">
             <div className="mb-6 flex-shrink-0 md:mb-0 md:mr-6 lg:mr-60">
-              <Image src="/HomePage/sommet.svg" alt="" width={400} height={400} />
+              <Image src="/Homepage/sommet.svg" alt="" width={400} height={400} />
             </div>
             <div className="mr-8 max-w-128 flex-col">
               <Image src="/Icons/flag.svg" alt="" width={40} height={40}></Image>
