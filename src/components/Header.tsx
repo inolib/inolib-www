@@ -38,6 +38,7 @@ const Header = ({ textColor, logosrc, burgerMenu, MainNavProps }: HeaderProps) =
           <MainNav {...MainNavProps} />
         </section>
       </div>
+
     </header>
   );
 };
