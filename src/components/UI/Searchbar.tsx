@@ -36,8 +36,8 @@ const SearchBar = ({ isSearchOpen, setIsSearchOpen, color }: SearchProps) => {
 
   return (
     <div className="relative">
-      <div className={`relative ${isSearchOpen ? "block" : "hidden"} lg:block`}>
-        <svg
+      <div className={`relative ${isSearchOpen ? "block" : "hidden"} md:block`}>
+         <svg
           className="absolute left-3 top-2.5 h-6 w-6 text-gray-500"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -55,7 +55,7 @@ const SearchBar = ({ isSearchOpen, setIsSearchOpen, color }: SearchProps) => {
           type="text"
           placeholder="Rechercher"
           className="w-72 rounded-full border-2 px-4 py-2 pl-10 text-black focus:outline-none"
-          aria-label="barre de recherche"
+          aria-label="barre de recherche articles ou pages"
           value={query}
           onChange={handleInputChange}
           onFocus={() => query.trim() && handleSearch(query)} // Exécute seulement si le champ n'est pas vide
