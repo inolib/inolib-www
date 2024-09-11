@@ -36,7 +36,7 @@ const SearchBar = ({ isSearchOpen, setIsSearchOpen, color }: SearchProps) => {
 
   return (
     <div className="relative">
-      <div className={`relative ${isSearchOpen ? "block" : "hidden"} lg:block`}>
+      <div className={`relative ${isSearchOpen ? "block" : "hidden"} md:block`}>
         <svg
           className="absolute left-3 top-2.5 h-6 w-6 text-gray-500"
           xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +55,6 @@ const SearchBar = ({ isSearchOpen, setIsSearchOpen, color }: SearchProps) => {
           type="text"
           placeholder="Rechercher"
           className="w-72 rounded-full border-2 px-4 py-2 pl-10 text-black focus:outline-none"
-          aria-label="barre de recherche articles ou pages"
           aria-label="barre de recherche articles ou pages"
           value={query}
           onChange={handleInputChange}
@@ -79,13 +78,9 @@ const SearchBar = ({ isSearchOpen, setIsSearchOpen, color }: SearchProps) => {
         </button>
       </div>
       {!isSearchOpen && (
-        <button
-          className="mr-6 lg:hidden"
-          aria-label="Ouvrir la recherche"
-          onClick={() => setIsSearchOpen(!isSearchOpen)}
-        >
+        <button className="md:hidden" aria-label="Ouvrir la recherche" onClick={() => setIsSearchOpen(!isSearchOpen)}>
           <svg
-            className={`h-8 w-8 ${color}`}
+            className="h-8 w-8 text-white"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
