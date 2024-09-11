@@ -36,7 +36,7 @@ const SearchBar = ({ isSearchOpen, setIsSearchOpen, color }: SearchProps) => {
 
   return (
     <div className="relative">
-      <div className={`relative ${isSearchOpen ? "block" : "hidden"} md:block`}>
+      <div className={`relative ${isSearchOpen ? "block" : "hidden"} lg:block`}>
         <svg
           className="absolute left-3 top-2.5 h-6 w-6 text-gray-500"
           xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +78,7 @@ const SearchBar = ({ isSearchOpen, setIsSearchOpen, color }: SearchProps) => {
         </button>
       </div>
       {!isSearchOpen && (
-        <button className="md:hidden" aria-label="Ouvrir la recherche" onClick={() => setIsSearchOpen(!isSearchOpen)}>
+        <button className="lg:hidden" aria-label="Ouvrir la recherche" onClick={() => setIsSearchOpen(!isSearchOpen)}>
           <svg
             className="h-8 w-8 text-white"
             xmlns="http://www.w3.org/2000/svg"
