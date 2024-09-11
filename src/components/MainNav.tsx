@@ -59,7 +59,7 @@ const MainNav = () => {
 
   return (
     <>
-      <nav className="hidden px-2 py-6 lg:block">
+      <nav className="hidden px-2 py-6 lg:block ml-16">
         <ul className="flex space-x-12 font-sans">
           {menuItems.map((item) => (
             <li
