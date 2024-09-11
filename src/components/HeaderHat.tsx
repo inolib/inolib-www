@@ -28,9 +28,7 @@ const HeaderHat = ({ bgColor, textColor, buttonVariant, link }: HeaderHatProps) 
   };
 
   return (
-    <header
-      className={`relative ${bgColor} ${textColor} flex items-center justify-between p-6 lg:justify-around lg:space-x-56`}
-    >
+    <header className={`relative ${bgColor} ${textColor} flex items-center justify-between p-6`}>
       {!isSearchOpen && (
         <Link
           href={link}
