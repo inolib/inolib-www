@@ -21,11 +21,11 @@ const HeaderHat = ({ bgColor, textColor, buttonVariant, link }: HeaderHatProps) 
   };
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   return (
-    <header className={`relative ${bgColor} ${textColor} p-4 xs:space-x-8 lg:flex lg:items-center lg:space-x-56`}>
+    <header className={`relative ${bgColor} ${textColor} p-6  flex justify-between lg:justify-around items-center lg:space-x-56`}>
       {!isSearchOpen && (
         <Link
           href={link}
-          className={`${textColor} flex flex-row font-semibold hover:text-gray-400 xs:ml-10 lg:ml-28`}
+          className={`${textColor} flex flex-row font-semibold hover:text-gray-400 `}
           aria-label="Accéder au contenu"
         >
           Accéder au contenu
@@ -47,7 +47,7 @@ const HeaderHat = ({ bgColor, textColor, buttonVariant, link }: HeaderHatProps) 
         variant={buttonVariant}
         aria-label="Nous contacter"
         onClick={handleLink}
-        className="mr-20 hidden md:block"
+        className="mr-20 hidden lg:block"
       >
         {" "}
         Nous contacter{" "}
