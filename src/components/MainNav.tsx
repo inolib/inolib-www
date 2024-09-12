@@ -2,33 +2,36 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
 import { menuItems } from "~/DATA/links";
+interface MainNavProps {
+  hoverClass: string;
+  hoverBorder: string;
+}
 
-const MainNav = () => {
+const MainNav = ({ hoverClass, hoverBorder }: MainNavProps) => {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
 
   const handleMouseEnter = (menu: string) => {
-    if (!openMenu) {
-      setOpenMenu(menu);
-    }
+    setHoveredMenu(menu);
   };
 
-  const handleMouseLeave = (menu: string) => {
-    if (!openMenu) {
-      setOpenMenu(null);
-    }
+  const handleMouseLeave = () => {
+    setHoveredMenu(null);
   };
 
-  const handleClick = (menu: string) => {
-    setOpenMenu(openMenu === menu ? null : menu);
+  const handleClick = (menu: string, hasSubItems: boolean, e: React.MouseEvent) => {
+    if (hasSubItems) {
+      e.preventDefault();
+      setOpenMenu(openMenu === menu ? null : menu); // Toggle entre ouvert et fermé
+    }
   };
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement | null;
       if (target && !target.closest(".menu-item")) {
-        setOpenMenu(null);
+        setOpenMenu(null); // Ferme le menu si on clique en dehors
       }
     };
 
@@ -38,9 +41,22 @@ const MainNav = () => {
     };
   }, []);
 
+  // Fonction pour afficher le chevron à droite des sous-items
+  const renderSubItemArrow = () => (
+    <svg
+      className="ml-auto h-4 w-4"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+    </svg>
+  );
+
   const renderArrow = (menu: string) => (
     <svg
-      className={`ml-1 h-4 w-4 transition-transform duration-300 ${openMenu === menu ? "rotate-180 transform" : ""}`}
+      className={`ml-2 h-4 w-4 transition-transform duration-300 ${openMenu === menu ? "rotate-180 transform" : ""}`}
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -50,65 +66,58 @@ const MainNav = () => {
     </svg>
   );
 
-  const handleKeyDown = (event: React.KeyboardEvent, menu: string) => {
-    if (event.key === "Enter" || event.key === " ") {
-      handleClick(menu);
-      event.preventDefault();
-    }
-  };
-
   return (
-    <>
-      <nav className="hidden px-2 py-6 lg:block">
-        <ul className="flex space-x-12 font-sans">
-          {menuItems.map((item) => (
-            <li
-              key={item.label}
-              className="menu-item group relative"
-              onMouseEnter={() => handleMouseEnter(item.label)}
-              onMouseLeave={() => handleMouseLeave(item.label)}
+    <nav className="ml-16 hidden px-2 py-6 lg:block">
+      <ul className="flex space-x-12 font-sans">
+        {menuItems.map((item) => (
+          <li
+            key={item.label}
+            className="menu-item group relative"
+            onMouseEnter={() => handleMouseEnter(item.label)}
+            onMouseLeave={handleMouseLeave}
+          >
+            <div
+              className={`flex cursor-pointer items-center pb-2 ${hoverClass}`}
+              aria-haspopup={item.subItems ? "true" : "false"}
+              aria-expanded={openMenu === item.label ? "true" : "false"}
+              onClick={(e) => handleClick(item.label, !!item.subItems, e)}
+              role={item.subItems ? "button" : undefined}
+              aria-label={item.subItems ? `${item.label} menu, expandable` : `${item.label} link`}
             >
-              <div className="flex cursor-pointer items-center" aria-haspopup={item.subItems ? "true" : "false"}>
-                <Link href={item.href} className="hover:" aria-label={`Lien vers ${item.label}`}>
-                  {item.label}
-                </Link>
-                {item.subItems && (
-                  <div
-                    onClick={() => handleClick(item.label)}
-                    onKeyDown={(event) => handleKeyDown(event, item.label)}
-                    role="button"
-                    tabIndex={0}
-                    aria-expanded={openMenu === item.label}
-                    aria-label={` ${item.label} menu`}
+              {/* L'élément principal et le chevron sont regroupés pour un seul clic */}
+              <Link href={""} className={`flex items-center ${hoverBorder} hover:border-b-[1.5px]`}>
+                {item.label}
+                {item.subItems && renderArrow(item.label)}
+              </Link>
+            </div>
+
+            {/* Affichage du sous-menu */}
+            {openMenu === item.label && item.subItems && (
+              <div
+                className="absolute left-0 mt-2 w-48 rounded-lg bg-white text-black opacity-100 shadow-lg transition-opacity duration-300"
+                onMouseEnter={() => handleMouseEnter(item.label)}
+                onMouseLeave={handleMouseLeave}
+                role="menu"
+              >
+                {item.subItems.map((subItem, idx) => (
+                  <Link
+                    key={subItem.label}
+                    href={subItem.href}
+                    className={`flex items-center px-4 py-2 hover:bg-gray-200 ${
+                      idx < item.subItems.length - 1 ? "border-b border-gray-300" : ""
+                    }`}
+                    role="menuitem"
                   >
-                    {renderArrow(item.label)}
-                  </div>
-                )}
+                    <span>{subItem.label}</span>
+                    {renderSubItemArrow()}
+                  </Link>
+                ))}
               </div>
-              {openMenu === item.label && item.subItems && (
-                <div
-                  className="absolute left-0 mt-2 w-48 rounded-lg bg-white text-black opacity-100 shadow-lg transition-opacity duration-300"
-                  onMouseEnter={() => handleMouseEnter(item.label)}
-                  onMouseLeave={() => handleMouseLeave(item.label)}
-                  role="menu"
-                >
-                  {item.subItems.map((subItem) => (
-                    <Link
-                      key={subItem.label}
-                      href={subItem.href}
-                      className="block px-4 py-2 hover:bg-gray-200"
-                      role="menuitem"
-                    >
-                      {subItem.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 };
 

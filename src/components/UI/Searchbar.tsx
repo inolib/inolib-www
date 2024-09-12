@@ -5,11 +5,12 @@ import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 
 type SearchProps = {
+  color: string;
   isSearchOpen: boolean;
   setIsSearchOpen: (open: boolean) => void;
 };
 
-const SearchBar = ({ isSearchOpen, setIsSearchOpen }: SearchProps) => {
+const SearchBar = ({ isSearchOpen, setIsSearchOpen, color }: SearchProps) => {
   const [query, setQuery] = useState("");
   const router = useRouter();
 
@@ -35,18 +36,9 @@ const SearchBar = ({ isSearchOpen, setIsSearchOpen }: SearchProps) => {
 
   return (
     <div className="relative">
-      <div className={`relative ${isSearchOpen ? "block" : "hidden"} md:block`}>
-        <input
-          type="text"
-          placeholder="Rechercher"
-          className="w-64 rounded-full border-2 px-4 py-2 pl-10 text-black focus:outline-none"
-          aria-label="barre de recherche articles ou pages"
-          value={query}
-          onChange={handleInputChange}
-          onFocus={() => query.trim() && handleSearch(query)} // Exécute seulement si le champ n'est pas vide
-        />
+      <div className={`relative ${isSearchOpen ? "block" : "hidden"} lg:block`}>
         <svg
-          className="absolute left-3 top-2.5 h-5 w-5 text-gray-500"
+          className="absolute left-3 top-2.5 h-6 w-6 text-gray-500"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -59,6 +51,16 @@ const SearchBar = ({ isSearchOpen, setIsSearchOpen }: SearchProps) => {
             d="M21 21l-4.35-4.35m1.65-5.65a7 7 0 11-14 0 7 7 0 0114 0z"
           />
         </svg>
+        <input
+          type="text"
+          placeholder="Rechercher"
+          className="w-72 rounded-full border-2 px-4 py-2 pl-10 text-black focus:outline-none"
+          aria-label="barre de recherche"
+          value={query}
+          onChange={handleInputChange}
+          onFocus={() => query.trim() && handleSearch(query)} // Exécute seulement si le champ n'est pas vide
+        />
+
         <button
           className="absolute right-3 top-2.5 h-5 w-5 text-gray-500 md:hidden"
           aria-label="Fermer la recherche"
@@ -77,12 +79,12 @@ const SearchBar = ({ isSearchOpen, setIsSearchOpen }: SearchProps) => {
       </div>
       {!isSearchOpen && (
         <button
-          className="absolute left-14 mb-16 ml-20 mr-2 md:hidden"
+          className="mr-6 lg:hidden"
           aria-label="Ouvrir la recherche"
           onClick={() => setIsSearchOpen(!isSearchOpen)}
         >
           <svg
-            className="h-5 w-5 text-gray-500"
+            className={`h-8 w-8 ${color}`}
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"

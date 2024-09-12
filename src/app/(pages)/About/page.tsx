@@ -12,7 +12,9 @@ const About = () => {
       <HeaderHat bgColor="bg-[#F5F9FA]" textColor="text-black" buttonVariant="buttonNoir" link="/#services " />
       <Header textColor="text-black" logosrc="/Logo/LogoNoir.svg" burgerMenu="/Icons/menuBlack.svg" />
       <Intro />
-      <TeamSection />
+      <section id="team">
+        <TeamSection />
+      </section>
       <ValuesSection />
       <section id="Carrer">
         <CarrerSection />

@@ -42,6 +42,7 @@ const MainContact = () => {
 
   const [errors, setErrors] = useState<Errors>({});
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const resetForm = () => {
     setFormData({
@@ -79,26 +80,21 @@ const MainContact = () => {
   };
 
   const handleInterestSelect = (interest: string) => {
-    setFormData({
-      ...formData,
-      interest,
-      message: `${formData.message} Intérêt: ${interest}.`,
-    });
-  };
-
-  const handleBudgetSelect = (budget: string) => {
-    setFormData({
-      ...formData,
-      budget,
-      message: `${formData.message} Budget: ${budget}.`,
-    });
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      interest: prevFormData.interest === interest ? "" : interest,
+      message: `${formData.message} Intérêt: ${prevFormData.interest === interest ? "Aucun" : interest}.`,
+    }));
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Formulaire soumis");
 
+    setSubmitError("");
+
     if (!validate()) {
+      setSubmitError("Veuillez remplir tous les champs obligatoires.");
       return;
     }
 
@@ -128,8 +124,8 @@ const MainContact = () => {
         <aside className="sm:w-50 mb-8 ml-12 md:w-64 lg:mb-0 lg:w-64">
           <div className="mb-4 rounded-lg bg-[#F5F9FA] p-4 shadow">
             <Image src="/Icons/contactC.svg" alt="" width={40} height={40}></Image>
-            <h2 className="mb-2 mt-4 text-lg font-semibold text-gray-900">Chat to sales</h2>
-            <p className="mb-2 text-gray-700">Speak to our friendly team.</p>
+            <h2 className="mb-2 mt-4 text-lg font-semibold text-gray-900">Discuter avec les ventes</h2>
+            <p className="mb-2 text-gray-700">Parlez à notre équipe sympathique.</p>
             <a
               href="mailto:sales@untitledui.com"
               className="text-[#133348]"
@@ -140,16 +136,16 @@ const MainContact = () => {
           </div>
           <div className="mb-4 rounded-lg bg-[#F5F9FA] p-4 shadow">
             <Image src="/Icons/phone.svg" alt="" width={40} height={40}></Image>
-            <h2 className="mb-2 mt-4 text-lg font-semibold text-gray-900">Call us</h2>
-            <p className="mb-2 text-gray-700">Mon-Fri from 8am to 5pm.</p>
+            <h2 className="mb-2 mt-4 text-lg font-semibold text-gray-900">Appelez-nous</h2>
+            <p className="mb-2 text-gray-700">Du lundi au vendredi de 8h à 17h.</p>
             <p className="text-[#3E6D77]" aria-label="numéro pour nous contacter">
               +1 (555) 000-0000
             </p>
           </div>
           <div className="rounded-lg bg-[#F5F9FA] p-4 shadow">
             <Image src="/Icons/position.svg" alt="" width={40} height={40}></Image>
-            <h2 className="mb-2 mt-4 text-lg font-semibold text-gray-900">Visit us</h2>
-            <p className="mb-2 text-gray-700">Visit our office HQ.</p>
+            <h2 className="mb-2 mt-4 text-lg font-semibold text-gray-900">Visitez-nous</h2>
+            <p className="mb-2 text-gray-700">Visitez notre siège social.</p>
             <address className="not-italic text-gray-700">
               100 Smith Street
               <br />
@@ -167,92 +163,45 @@ const MainContact = () => {
               <legend className="mb-2 w-96 border-b-2 border-b-gray-200 text-lg font-semibold text-gray-900">
                 Vous êtes intéressé par :
               </legend>
-              <div className="flex flex-wrap gap-2">
-                <button
-                  type="button"
-                  onClick={() => handleInterestSelect("Audit")}
-                  className="rounded-full border bg-[#F5F9FA] px-4 py-2 hover:bg-green-100 focus:outline-none"
-                >
-                  Audit
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleInterestSelect("Accompagnement")}
-                  className="rounded-full border bg-[#F5F9FA] px-4 py-2 hover:bg-green-100 focus:outline-none"
-                >
-                  Accompagnement
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleInterestSelect("Développement")}
-                  className="rounded-full border bg-[#F5F9FA] px-4 py-2 hover:bg-green-100 focus:outline-none"
-                >
-                  Développement
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleInterestSelect("Formation")}
-                  className="rounded-full border bg-[#F5F9FA] px-4 py-2 hover:bg-green-100 focus:outline-none"
-                >
-                  Formation
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleInterestSelect("Autre")}
-                  className="rounded-full border bg-[#F5F9FA] px-4 py-2 hover:bg-green-100 focus:outline-none"
-                >
-                  Autre
-                </button>
+              <div className="mb-6 flex flex-wrap gap-2 space-x-[1.5px]">
+                {["Audit", "Accompagnement", "Développement", "Formation", "Autre"].map((interest) => (
+                  <button
+                    role="radio"
+                    aria-checked={formData.interest === interest}
+                    key={interest}
+                    type="button"
+                    onClick={() => handleInterestSelect(interest)}
+                    className={`flex items-center gap-2 rounded-full border-[1px] border-[#8EBBC5] px-4 py-2 ${
+                      formData.interest === interest ? "bg-[#254147] text-white" : "bg-[#EEF5F6] text-black"
+                    } focus:outline-none`}
+                    aria-live="polite"
+                  >
+                    {formData.interest === interest && (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586l-3.293-3.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    )}
+                    {interest}
+                  </button>
+                ))}
               </div>
             </fieldset>
-
-            <fieldset className="mb-4">
-              <legend className="mb-2 w-96 border-b-2 border-b-gray-200 text-lg font-semibold text-gray-900">
-                Votre budget
-              </legend>
-              <div className="flex flex-wrap gap-2">
-                <button
-                  type="button"
-                  onClick={() => handleBudgetSelect("1000€")}
-                  className="rounded-full border bg-[#F5F9FA] px-4 py-2 hover:bg-green-100 focus:outline-none"
-                >
-                  1000€
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleBudgetSelect("5k - 10k€")}
-                  className="rounded-full border bg-[#F5F9FA] px-4 py-2 hover:bg-green-100 focus:outline-none"
-                >
-                  5k - 10k€
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleBudgetSelect("10k-20k€")}
-                  className="rounded-full border bg-[#F5F9FA] px-4 py-2 hover:bg-green-100 focus:outline-none"
-                >
-                  10k-20k€
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleBudgetSelect("20k-50k€")}
-                  className="rounded-full border bg-[#F5F9FA] px-4 py-2 hover:bg-green-100 focus:outline-none"
-                >
-                  20k-50k€
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleBudgetSelect("Autre")}
-                  className="rounded-full border bg-[#F5F9FA] px-4 py-2 hover:bg-green-100 focus:outline-none"
-                >
-                  Autre
-                </button>
-              </div>
-            </fieldset>
-
+            <legend className="mb-2 w-96 border-b-2 border-b-gray-200 text-lg font-semibold text-gray-900">
+              Dites-nous un peu plus sur vous :
+            </legend>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               <div>
                 <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">
-                  First name
+                  Prénom <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -260,13 +209,15 @@ const MainContact = () => {
                   value={formData.firstName}
                   onChange={handleChange}
                   className="mt-1 block w-full rounded-md border shadow-sm focus:ring focus:ring-opacity-50"
-                  placeholder="First name"
+                  placeholder="Prénom"
+                  aria-required="true"
+                  aria-invalid={!!errors.firstName}
                 />
                 {errors.firstName && <p className="mt-1 text-sm text-red-500">{errors.firstName}</p>}
               </div>
               <div>
                 <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">
-                  Last name
+                  Nom
                 </label>
                 <input
                   type="text"
@@ -274,15 +225,14 @@ const MainContact = () => {
                   value={formData.lastName}
                   onChange={handleChange}
                   className="mt-1 block w-full rounded-md border shadow-sm focus:ring focus:ring-opacity-50"
-                  placeholder="Last name"
+                  placeholder="Nom"
                 />
-                {errors.lastName && <p className="mt-1 text-sm text-red-500">{errors.lastName}</p>}
               </div>
             </div>
 
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                Email
+                Email <span className="text-red-500">*</span>
               </label>
               <input
                 type="email"
@@ -290,29 +240,16 @@ const MainContact = () => {
                 value={formData.email}
                 onChange={handleChange}
                 className="mt-1 block w-full rounded-md border shadow-sm focus:ring focus:ring-opacity-50"
-                placeholder="you@company.com"
+                placeholder="vous@exemple.com"
+                aria-required="true"
+                aria-invalid={!!errors.email}
               />
               {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email}</p>}
             </div>
 
             <div>
-              <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700">
-                Phone number
-              </label>
-              <input
-                type="tel"
-                id="phoneNumber"
-                value={formData.phoneNumber}
-                onChange={handleChange}
-                className="mt-1 block w-full rounded-md border shadow-sm focus:ring focus:ring-opacity-50"
-                placeholder="+1 (555) 000-0000"
-              />
-              {errors.phoneNumber && <p className="mt-1 text-sm text-red-500">{errors.phoneNumber}</p>}
-            </div>
-
-            <div>
               <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-                Message
+                Message <span className="text-red-500">*</span>
               </label>
               <textarea
                 id="message"
@@ -320,7 +257,7 @@ const MainContact = () => {
                 onChange={handleChange}
                 rows={4}
                 className="mt-1 block w-full rounded-md border shadow-sm focus:ring focus:ring-opacity-50"
-                placeholder="Leave us a message..."
+                placeholder="Laissez-nous un message..."
               ></textarea>
               {errors.message && <p className="mt-1 text-sm text-red-500">{errors.message}</p>}
             </div>
@@ -332,9 +269,9 @@ const MainContact = () => {
                 className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring focus:ring-opacity-50"
               />
               <label htmlFor="privacyPolicy" className="ml-2 block text-sm text-gray-900">
-                You agree to our friendly{" "}
+                Vous acceptez notre{" "}
                 <a href="#" className="border-b border-[#1e6d30] text-[#1e6d30]">
-                  privacy policy
+                  politique de confidentialité
                 </a>
                 .
               </label>
@@ -345,6 +282,13 @@ const MainContact = () => {
                 Prendre rendez-vous
               </Button>
             </div>
+
+            {/* Message d'erreur affiché au niveau du bouton d'envoi */}
+            {submitError && (
+              <div className="mt-4 text-red-500" aria-live="assertive">
+                {submitError}
+              </div>
+            )}
           </form>
         </div>
       </section>
