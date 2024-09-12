@@ -241,7 +241,7 @@ const Conf = () => {
         </div>
 
         {/* Méthodologie */}
-        <section className="ml-2 mt-8">
+        <section className="ml-2 mt-8 w-1/2">
           <div className="mb-4 flex items-center">
             <Image src="/Icons/eclaire.svg" alt="" width={40} height={40} className="mr-2" />
             <h2 className="text-2xl font-bold">Notre Méthodologie</h2>

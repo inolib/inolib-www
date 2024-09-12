@@ -15,7 +15,15 @@ const PageSearchResults = () => {
         buttonVariant="buttonNoir"
         link="/search-results/#result "
       />
-      <Header textColor="text-black" logosrc="/Logo/LogoNoir.svg" burgerMenu="/Icons/menuBlack.svg" />
+      <Header
+        textColor="text-black"
+        logosrc="/Logo/LogoNoir.svg"
+        burgerMenu="/Icons/menuBlack.svg"
+        MainNavProps={{
+          hoverClass: "hover:text-green-800",
+          hoverBorder: "hover:border-green-800",
+        }}
+      />
       <section id="result">
         <SearchResultsPage />
       </section>

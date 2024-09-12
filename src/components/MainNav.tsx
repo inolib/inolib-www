@@ -104,7 +104,7 @@ const MainNav = ({ hoverClass, hoverBorder }: MainNavProps) => {
                     key={subItem.label}
                     href={subItem.href}
                     className={`flex items-center px-4 py-2 hover:bg-gray-200 ${
-                      idx < item.subItems.length - 1 ? "border-b border-gray-300" : ""
+                      idx < (item.subItems ?? []).length - 1 ? "border-b border-gray-300" : ""
                     }`}
                     role="menuitem"
                   >

@@ -32,6 +32,7 @@ const Main = () => {
             </p>
             <div className="flex flex-col justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0 md:justify-start">
               <Button
+                href="/#services"
                 variant="ghost"
                 className="rounded-md border-2 bg-[#254147] px-4 py-2 font-semibold text-white transition hover:bg-yellow-600"
               >
