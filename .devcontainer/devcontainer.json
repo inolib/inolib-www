@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
   "dockerComposeFile": "./docker/compose.yaml",
-  "name": "INOLIB",
+  "name": "@inolib/www",
   "postCreateCommand": ["fish", "./.devcontainer/hooks/postCreate.fish"],
   "service": "devcontainer",
   "shutdownAction": "stopCompose",
