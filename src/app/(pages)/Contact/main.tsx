@@ -2,7 +2,7 @@
 
 import DOMPurify from "dompurify";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { Button } from "~/components/UI/Button";
 import { SocialButton } from "~/components/UI/SocialButton";
@@ -16,6 +16,7 @@ type FormData = {
   message: string;
   interest: string;
   budget: string;
+  privacyPolicy: boolean;
 };
 
 // Définir le type de errors
@@ -25,8 +26,7 @@ type Errors = {
   email?: string;
   phoneNumber?: string;
   message?: string;
-  interest?: string;
-  budget?: string;
+  privacyPolicy?: string;
 };
 
 const MainContact = () => {
@@ -38,11 +38,14 @@ const MainContact = () => {
     message: "",
     interest: "",
     budget: "",
+    privacyPolicy: false,
   });
 
   const [errors, setErrors] = useState<Errors>({});
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [submitError, setSubmitError] = useState("");
+  const [submissionMessage, setSubmissionMessage] = useState("");
+  const [isCalendarVisible, setIsCalendarVisible] = useState(false); // Gère l'affichage du calendrier
 
   const resetForm = () => {
     setFormData({
@@ -53,11 +56,16 @@ const MainContact = () => {
       message: "",
       interest: "",
       budget: "",
+      privacyPolicy: false,
     });
   };
 
   const validate = () => {
     const newErrors: Errors = {};
+
+    if (!formData.firstName) {
+      newErrors.firstName = "Veuillez entrer votre prénom.";
+    }
 
     if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = "Veuillez entrer un email valide.";
@@ -71,12 +79,20 @@ const MainContact = () => {
       newErrors.message = "Le message ne peut pas être vide.";
     }
 
+    if (!formData.privacyPolicy) {
+      newErrors.privacyPolicy = "Vous devez accepter la politique de confidentialité.";
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value });
+    const { id, value, type, checked } = e.target as HTMLInputElement;
+    setFormData({
+      ...formData,
+      [id]: type === "checkbox" ? checked : value,
+    });
   };
 
   const handleInterestSelect = (interest: string) => {
@@ -87,11 +103,30 @@ const MainContact = () => {
     }));
   };
 
+  // Gérer l'affichage du calendrier HubSpot via un bouton
+  const handleShowCalendar = () => {
+    setIsCalendarVisible(true);
+  };
+
+  // Ajouter le script HubSpot quand le calendrier est visible
+  useEffect(() => {
+    if (isCalendarVisible) {
+      const script = document.createElement("script");
+      script.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
+      script.type = "text/javascript";
+      document.body.appendChild(script);
+    }
+  }, [isCalendarVisible]);
+
+  const handleCloseCalendar = () => {
+    setIsCalendarVisible(false);
+  };
+  
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Formulaire soumis");
-
     setSubmitError("");
+    setSubmissionMessage("");
 
     if (!validate()) {
       setSubmitError("Veuillez remplir tous les champs obligatoires.");
@@ -100,21 +135,31 @@ const MainContact = () => {
 
     const sanitizedMessage = DOMPurify.sanitize(formData.message);
 
-    fetch("http://localhost/WORDPRESS/wp-json/custom-api/v2/contact", {
+    // Soumission à l'API via fetch
+    fetch("http://localhost/wp-json/custom-api/v1/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ ...formData, message: sanitizedMessage }),
+      body: JSON.stringify({
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        phoneNumber: formData.phoneNumber,
+        message: sanitizedMessage,
+        interest: formData.interest || "",
+      }),
     })
       .then((response) => response.json())
       .then((data) => {
         console.log("Success:", data);
-        resetForm();
+        setSubmissionMessage("Votre formulaire a bien été soumis !");
+        resetForm(); // Réinitialise le formulaire
         setIsModalOpen(true);
       })
       .catch((error) => {
         console.error("Error:", error);
+        setSubmitError("Une erreur est survenue lors de l'envoi.");
       });
   };
 
@@ -152,19 +197,17 @@ const MainContact = () => {
               Collingwood VIC 3066 AU
             </address>
           </div>
-          <div className="flex flex-col justify-end">
-            <SocialButton className="" />
-          </div>
+         
         </aside>
 
         <div className="lg:w-96">
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4" noValidate>
             <fieldset className="mb-4">
               <legend className="mb-2 w-96 border-b-2 border-b-gray-200 text-lg font-semibold text-gray-900">
                 Vous êtes intéressé par :
               </legend>
               <div className="mb-6 flex flex-wrap gap-2 space-x-[1.5px]">
-                {["Audit", "Accompagnement", "Développement", "Formation", "Autre"].map((interest) => (
+                {["Audit", "Accompagnement", "Développement", "Formation","Partenariat" ,"Autre"].map((interest) => (
                   <button
                     role="radio"
                     aria-checked={formData.interest === interest}
@@ -195,9 +238,11 @@ const MainContact = () => {
                 ))}
               </div>
             </fieldset>
+
             <legend className="mb-2 w-96 border-b-2 border-b-gray-200 text-lg font-semibold text-gray-900">
               Dites-nous un peu plus sur vous :
             </legend>
+
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               <div>
                 <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">
@@ -213,8 +258,13 @@ const MainContact = () => {
                   aria-required="true"
                   aria-invalid={!!errors.firstName}
                 />
-                {errors.firstName && <p className="mt-1 text-sm text-red-500">{errors.firstName}</p>}
+                {errors.firstName && (
+                  <p className="mt-1 text-sm text-red-500" role="alert" aria-live="assertive">
+                    {errors.firstName}
+                  </p>
+                )}
               </div>
+
               <div>
                 <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">
                   Nom
@@ -244,7 +294,11 @@ const MainContact = () => {
                 aria-required="true"
                 aria-invalid={!!errors.email}
               />
-              {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email}</p>}
+              {errors.email && (
+                <p className="mt-1 text-sm text-red-500" role="alert" aria-live="assertive">
+                  {errors.email}
+                </p>
+              )}
             </div>
 
             <div>
@@ -258,8 +312,14 @@ const MainContact = () => {
                 rows={4}
                 className="mt-1 block w-full rounded-md border shadow-sm focus:ring focus:ring-opacity-50"
                 placeholder="Laissez-nous un message..."
+                aria-required="true"
+                aria-invalid={!!errors.message}
               ></textarea>
-              {errors.message && <p className="mt-1 text-sm text-red-500">{errors.message}</p>}
+              {errors.message && (
+                <p className="mt-1 text-sm text-red-500" role="alert" aria-live="assertive">
+                  {errors.message}
+                </p>
+              )}
             </div>
 
             <div className="flex items-start">
@@ -267,6 +327,8 @@ const MainContact = () => {
                 id="privacyPolicy"
                 type="checkbox"
                 className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring focus:ring-opacity-50"
+                checked={formData.privacyPolicy}
+                onChange={handleChange}
               />
               <label htmlFor="privacyPolicy" className="ml-2 block text-sm text-gray-900">
                 Vous acceptez notre{" "}
@@ -275,26 +337,65 @@ const MainContact = () => {
                 </a>
                 .
               </label>
+              {errors.privacyPolicy && (
+                <p className="mt-1 text-sm text-red-500" role="alert" aria-live="assertive">
+                  {errors.privacyPolicy}
+                </p>
+              )}
             </div>
 
             <div>
               <Button variant="buttonNoir" type="submit" className="w-96">
-                Prendre rendez-vous
+                Nous contacter
               </Button>
             </div>
 
-            {/* Message d'erreur affiché au niveau du bouton d'envoi */}
+            {/* Message d'erreur global */}
             {submitError && (
-              <div className="mt-4 text-red-500" aria-live="assertive">
+              <div className="mt-4 text-red-500" role="alert" aria-live="assertive">
                 {submitError}
               </div>
             )}
           </form>
+
+          {/* Confirmation de soumission */}
+          {submissionMessage && (
+            <div className="mt-4 text-green-500" role="status" aria-live="polite">
+              {submissionMessage}
+            </div>
+          )}
+
+          {/* Bouton pour afficher le calendrier HubSpot */}
+          <div className="mt-4">
+  <Button variant="buttonNoir" onClick={handleShowCalendar}>
+    Prendre rendez-vous
+  </Button>
+</div>
+
+{/* Afficher le calendrier HubSpot après clic sur le bouton */}
+{isCalendarVisible && (
+  <div className="calendar-container">
+    {/* Bouton pour fermer le calendrier */}
+    <button 
+      onClick={handleCloseCalendar} 
+      className="close-button" 
+      aria-label="Fermer le calendrier"
+    >
+      &times; {/* Utilisation du symbole de la croix "×" */}
+    </button>
+
+    <div
+      className="meetings-iframe-container"
+      data-src="https://meetings-eu1.hubspot.com/djeberine?embed=true"
+    ></div>
+  </div>
+)}
+
         </div>
       </section>
 
       <section className="ml-80 justify-center">
-        <Image src="/Homepage/contact.svg" alt="Illustration contact" width={800} height={500} />
+        <Image src="/Homepage/contact.svg" alt="" width={800} height={500} />
       </section>
 
       {isModalOpen && (

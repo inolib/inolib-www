@@ -60,7 +60,7 @@ const PaginationPrevious = ({ className = "", ...props }: React.ComponentProps<t
     {...props}
   >
     <ChevronLeft className="mr-2 h-4 w-4" />
-    <span>Previous</span>
+    <span>Precédent</span>
   </PaginationLink>
 );
 PaginationPrevious.displayName = "PaginationPrevious";
@@ -72,7 +72,7 @@ const PaginationNext = ({ className = "", ...props }: React.ComponentProps<typeo
     className={cn("flex items-center gap-1 rounded-md border px-4 py-2", className)}
     {...props}
   >
-    <span>Next</span>
+    <span>suivant</span>
     <ChevronRight className="ml-2 h-4 w-4" />
   </PaginationLink>
 );

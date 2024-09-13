@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { menuItemsFooter } from "~/DATA/links"; // Assurez-vous que le bon chemin est utilisé
+import { menuItemsFooter } from "~/DATA/links";
+import{ SocialButton }from "~/components/UI/SocialButton"
 
 const Footer = () => {
   return (
@@ -29,6 +30,9 @@ const Footer = () => {
                   </li>
                 )}
               </ul>
+              <div className="flex flex-col justify-end">
+            <SocialButton className="" />
+          </div>
             </div>
           ))}
         </div>
