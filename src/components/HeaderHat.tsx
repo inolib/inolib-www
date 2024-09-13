@@ -21,11 +21,12 @@ const HeaderHat = ({ bgColor, textColor, buttonVariant, link }: HeaderHatProps) 
   };
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   return (
-    <header className={`relative ${bgColor} ${textColor} p-6  flex justify-between items-center`}>
-      {!isSearchOpen && (
+    <header className={`relative ${bgColor} ${textColor} h-20 flex justify-center `}>
+      <div className="w-full h-full items-center flex justify-between lg:mx-[3%] xl:w-[1200px]">
+         {!isSearchOpen && (
         <Link
           href={link}
-          className={`${textColor} flex flex-row font-semibold hover:text-gray-400 `}
+          className={`${textColor} ml-10 flex flex-row font-semibold hover:text-gray-400`}
           aria-label="Accéder au contenu"
         >
           Accéder au contenu
@@ -40,18 +41,20 @@ const HeaderHat = ({ bgColor, textColor, buttonVariant, link }: HeaderHatProps) 
           </svg>
         </Link>
       )}
-      <div className=" ">
-        <SearchBar isSearchOpen={isSearchOpen} setIsSearchOpen={setIsSearchOpen} />
+      <div className="">
+        <SearchBar color={textColor} isSearchOpen={isSearchOpen} setIsSearchOpen={setIsSearchOpen} />
       </div>
       <Button
         variant={buttonVariant}
         aria-label="Nous contacter"
         onClick={handleLink}
-        className="mr-20 hidden lg:block"
+        className="mr-8 hidden lg:block h-[4s6px] w-[156px]"
       >
         {" "}
         Nous contacter{" "}
       </Button>
+      </div>
+
     </header>
   );
 };

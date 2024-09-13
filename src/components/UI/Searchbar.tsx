@@ -5,11 +5,12 @@ import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 
 type SearchProps = {
+  color : string;
   isSearchOpen: boolean;
   setIsSearchOpen: (open: boolean) => void;
 };
 
-const SearchBar = ({ isSearchOpen, setIsSearchOpen }: SearchProps) => {
+const SearchBar = ({ isSearchOpen, setIsSearchOpen, color }: SearchProps) => {
   const [query, setQuery] = useState("");
   const router = useRouter();
 
@@ -78,12 +79,12 @@ const SearchBar = ({ isSearchOpen, setIsSearchOpen }: SearchProps) => {
       </div>
       {!isSearchOpen && (
         <button
-          className="lg:hidden"
+          className="lg:hidden mr-6"
           aria-label="Ouvrir la recherche"
           onClick={() => setIsSearchOpen(!isSearchOpen)}
         >
           <svg
-            className="h-8 w-8 text-white"
+            className={`h-8 w-8 ${color}`}
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
