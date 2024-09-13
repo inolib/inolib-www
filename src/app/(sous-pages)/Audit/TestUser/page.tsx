@@ -11,7 +11,15 @@ const PageTest = () => {
   return (
     <div className="overflow-hidden">
       <HeaderHat bgColor="bg-[#F5F9FA]" textColor="text-black" buttonVariant="buttonNoir" link="/#services " />
-      <Header textColor="text-black" logosrc="/Logo/LogoNoir.svg" burgerMenu="/Icons/menuBlack.svg" />
+      <Header
+        textColor="text-black"
+        logosrc="/Logo/LogoNoir.svg"
+        burgerMenu="/Icons/menuBlack.svg"
+        MainNavProps={{
+          hoverClass: "hover:text-green-800",
+          hoverBorder: "hover:border-green-800",
+        }}
+      />
       <MainTest />
       <Statis />
       <ServiceSection />

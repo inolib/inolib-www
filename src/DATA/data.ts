@@ -7,56 +7,56 @@ export const teamMembers: TeamMember[] = [
     position: "Founder & CEO",
     description: "Former co-founder of Opendoor. Early staff at Spotify and Clearbit.",
     image: "/Avatar/Avatar -1.svg",
-    alt: "Amélie Laurent",
+    alt: "",
   },
   {
     name: "Nikolas Gibbons",
     position: "Engineering Manager",
     description: "Lead engineering teams at Figma, Pitch, and Protocol Labs.",
     image: "/Avatar/Avatar -2.svg",
-    alt: "Nikolas Gibbons",
+    alt: "",
   },
   {
     name: "Sienna Hewitt",
     position: "Product Manager",
     description: "Former PM for Linear, Lambda School, and On Deck.",
     image: "/Avatar/Avatar -3.svg",
-    alt: "Sienna Hewitt",
+    alt: "",
   },
   {
     name: "Lily-Rose Chedjou",
     position: "Frontend Developer",
     description: "Former frontend dev for Linear, Coinbase, and Postscript.",
     image: "/Avatar/Avatar -4.svg",
-    alt: "Lily-Rose Chedjou",
+    alt: "",
   },
   {
     name: "Zahra Christensen",
     position: "Backend Developer",
     description: "Lead backend dev at Clearbit. Former Clearlist and Loom.",
     image: "/Avatar/Avatar -3.svg",
-    alt: "Zahra Christensen",
+    alt: "",
   },
   {
     name: "Caitlyn King",
     position: "Product Designer",
     description: "Founding design team at Figma. Former Plio, Stripe, and Tile.",
     image: "/Avatar/Avatar -4.svg",
-    alt: "Caitlyn King",
+    alt: "",
   },
   {
     name: "Zaid Schwartz",
     position: "UX Researcher",
     description: "Lead user research for Slack. Contractor for Netflix and Udacity.",
     image: "/Avatar/Avatar -1.svg",
-    alt: "Zaid Schwartz",
+    alt: "",
   },
   {
     name: "Marco Kelly",
     position: "Customer Success",
     description: "Lead CX at Wealthsimple. Former PagerDuty and Screen.",
     image: "/Avatar/Avatar -1.svg",
-    alt: "Marco Kelly",
+    alt: "",
   },
 ];
 
@@ -67,60 +67,65 @@ export const valuesData: ValueItem[] = [
     description:
       "Whether you have a team of 2 or 200, our shared team inboxes keep everyone on the same page and in the loop.",
     icon: "/Icons/coeur.svg",
-    alt: "Share team inboxes icon",
+    alt: "",
   },
   {
     title: "Deliver instant answers",
     description:
       "An all-in-one customer service platform that helps you balance everything your customers need to be happy.",
     icon: "/Icons/fleche.svg",
-    alt: "Deliver instant answers icon",
+    alt: "",
   },
   {
     title: "Manage your team with reports",
     description:
       "Measure what matters with Untitled’s easy-to-use reports. You can filter, export, and drill down on the data in a couple clicks.",
     icon: "/Icons/fichier.svg",
-    alt: "Manage your team with reports icon",
+    alt: "",
   },
   {
     title: "Connect with customers",
     description:
       "Solve a problem or close a sale in real-time with chat. If no one is available, customers are seamlessly routed to email without confusion.",
     icon: "/Icons/coeur.svg",
-    alt: "Connect with customers icon",
+    alt: "",
   },
   {
     title: "Connect the tools you already use",
     description:
       "Explore 100+ integrations that make your day-to-day workflow more efficient and familiar. Plus, our extensive developer tools.",
     icon: "/Icons/fleche.svg",
-    alt: "Connect the tools you already use icon",
+    alt: "",
   },
   {
     title: "Our people make the difference",
     description:
       "We’re an extension of your customer service team, and all of our resources are free. Chat to our friendly team 24/7 when you need help.",
     icon: "/Icons/fichier.svg",
-    alt: "Our people make the difference icon",
+    alt: "",
   },
 ];
 
 //Questions et réponses pour la sections FAQ
 export const faqs = [
   {
-    question: "Is there a free trial available?",
+    question: "Combien coûte un audit de conformité RGAA ?",
     answer:
-      "Yes, you can try us for free for 30 days. If you want, we'll provide you with a free, personalized 30-minute onboarding call to get you up and running as soon as possible.",
+      "Le coût dépend de la complexité et du nombre de pages à auditer. Contactez-nous pour un devis personnalisé.",
   },
   {
-    question: "Can I change my plan later?",
-    answer: "Yes, you can upgrade or downgrade your plan at any time. Changes will take effect immediately.",
+    question: "Quelle est la durée de réalisation de l’audit ?",
+    answer: "Un audit prend généralement entre 3 et 15 jours.",
   },
   {
-    question: "What is your cancellation policy?",
+    question: "Pourquoi réaliser un audit de conformité ?",
     answer:
-      "You can cancel your subscription at any time. Your subscription will remain active until the end of the current billing period.",
+      "<p>L'accessibilité numérique est une exigence légale, avec des pénalités pouvant atteindre <strong>20 000 euros</strong> par an et par application en cas de non-respect. Depuis le 1er janvier, cette amende a été portée à <strong>50 000 euros</strong> pour les services publics en cas de non-conformité. En utilisant nos services, vous minimisez le risque juridique en France et à l'international, tout en promouvant l'inclusion des personnes en situation de handicap.</p>" +
+      "<p>La loi de 2005 sur l'accessibilité numérique s'applique aux entités suivantes :</p>" +
+      "<ul> <li>Les <strong>personnes morales de droit public</strong>.</li>" +
+      "<li>Les <strong>personnes morales de droit privé</strong> exerçant une mission de service public ou d'intérêt général.</li>" +
+      "<li>Depuis 2019, les <strong>entreprises réalisant un chiffre d'affaires supérieur à 250 millions d'euros</strong> en France.</li> </ul>" +
+      " <p>À partir de 2025, la réglementation européenne sur l'accessibilité numérique sera renforcée et s'appliquera à <strong>toutes les entreprises ayant un chiffre d'affaires supérieur à 2 millions d'euros</strong> et employant au moins <strong>10 collaborateurs</strong>.</p>",
   },
 ];
 
@@ -130,22 +135,22 @@ export const services: Service[] = [
     title: "Accompagnement",
     description:
       "Intégration de nos conseils dans votre stratégie de développement et la mise en œuvre des corrections.",
-    icon: "/icons/coeur.svg",
-    alt: "Icone d'accompagnement",
+    icon: "/Icons/coeur.svg",
+    alt: "",
   },
   {
     title: "Coordination",
     description:
       "Création et suivi des tickets d'anomalies dans votre outil de gestion de projets (Redmine, Jira, Trello, Asana, etc.) pour une conformité optimale.",
-    icon: "/icons/fleche.svg",
-    alt: "Icone de coordination",
+    icon: "/Icons/fleche.svg",
+    alt: "",
   },
   {
     title: "Coaching",
     description:
       "Profitez pour chaque réalisation d'audit de trois heures de coaching en accessibilité numérique pour sensibiliser et booster vos équipes.",
-    icon: "/icons/fichier.svg",
-    alt: "Icone de coaching",
+    icon: "/Icons/fichier.svg",
+    alt: "",
   },
 ];
 

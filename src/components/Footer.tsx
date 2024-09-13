@@ -1,220 +1,36 @@
 import Image from "next/image";
+import Link from "next/link";
+import { menuItemsFooter } from "~/DATA/links"; // Assurez-vous que le bon chemin est utilisé
 
 const Footer = () => {
   return (
     <footer className="overflow-hidden bg-[#122023] py-10 text-white xxs:space-x-3 xxs:px-8">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-6">
-          <div>
-            <h2 className="mb-4 text-xl font-semibold text-[#8EBBC5]">Auditer</h2>
-            <ul>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Solutions <span className="ml-1 rounded px-2 py-1 text-xs text-white">New</span>
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h2 className="mb-4 text-xl font-semibold text-[#8EBBC5]">Accompagner</h2>
-            <ul>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h2 className="mb-4 text-xl font-semibold text-[#8EBBC5]">Développer</h2>
-            <ul>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h2 className="mb-4 text-xl font-semibold text-[#8EBBC5]">Former</h2>
-            <ul>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h2 className="mb-4 text-xl font-semibold text-[#8EBBC5]">À propos</h2>
-            <ul>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h2 className="mb-4 text-xl font-semibold text-[#8EBBC5]">Blog</h2>
-            <ul className="">
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Overview
-                </a>
-              </li>
-            </ul>
-          </div>
+          {menuItemsFooter.map((menuItem) => (
+            <div key={menuItem.label}>
+              <h2 className="mb-4 text-xl text-[#8EBBC5]">{menuItem.label}</h2>
+              <ul>
+                {/* Affichage des sous-items si présents */}
+                {menuItem.subItems ? (
+                  menuItem.subItems.map((subItem) => (
+                    <li key={subItem.label}>
+                      <Link href={subItem.href} className="hover:underline">
+                        {subItem.label}
+                      </Link>
+                    </li>
+                  ))
+                ) : (
+                  <li key={menuItem.label}>
+                    {/* Si pas de sous-items, affichage du lien principal */}
+                    <Link href={menuItem.href} className="hover:underline">
+                      {menuItem.label}
+                    </Link>
+                  </li>
+                )}
+              </ul>
+            </div>
+          ))}
         </div>
         <div className="mt-10 flex flex-col items-center justify-between md:flex-row">
           <div className="flex items-center space-x-2">

@@ -11,6 +11,7 @@ type SearchProps = {
 };
 
 const SearchBar = ({ isSearchOpen, setIsSearchOpen, color }: SearchProps) => {
+const SearchBar = ({ isSearchOpen, setIsSearchOpen, color }: SearchProps) => {
   const [query, setQuery] = useState("");
   const router = useRouter();
 
@@ -84,6 +85,7 @@ const SearchBar = ({ isSearchOpen, setIsSearchOpen, color }: SearchProps) => {
           onClick={() => setIsSearchOpen(!isSearchOpen)}
         >
           <svg
+            className={`h-8 w-8 ${color}`}
             className={`h-8 w-8 ${color}`}
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

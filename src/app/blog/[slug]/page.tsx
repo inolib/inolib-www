@@ -73,7 +73,15 @@ const Single = ({ params }: Props) => {
   return (
     <div>
       <HeaderHat bgColor="bg-[#F5F9FA]" textColor="text-black" buttonVariant="buttonNoir" link="/#services " />
-      <Header textColor="text-black" logosrc="/Logo/LogoNoir.svg" burgerMenu="" />
+      <Header
+        textColor="text-black"
+        logosrc="/Logo/LogoNoir.svg"
+        burgerMenu=""
+        MainNavProps={{
+          hoverClass: "hover:text-green-800",
+          hoverBorder: "hover:border-green-800",
+        }}
+      />
       <Breadcrumb>
         <BreadcrumbList className="mb-6 ml-20 mt-10 w-96">
           <BreadcrumbItem>

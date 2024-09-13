@@ -13,7 +13,15 @@ const Home = () => {
   return (
     <div className="overflow-hidden bg-[#233f41]">
       <HearderHat bgColor="bg-[#111F22]" textColor="text-white" buttonVariant="ButtonJaune" link="/#services " />
-      <Header textColor="text-white" logosrc={"/Logo/LogoJaune.svg"} burgerMenu="/Icons/Navmenu.svg" />
+      <Header
+        textColor="text-white"
+        logosrc={"/Logo/LogoJaune.svg"}
+        burgerMenu="/Icons/Navmenu.svg"
+        MainNavProps={{
+          hoverClass: "hover:text-[#e6ff58]",
+          hoverBorder: "hover:border-[#e6ff58]",
+        }}
+      />
 
       <Main />
       <SocialProof />

@@ -26,14 +26,17 @@ export const SocialButton = ({
               target="_blank"
               rel="noopener noreferrer"
               className={cn("cursor-pointer border-none bg-transparent text-2xl hover:opacity-70", buttonClassName)}
+              aria-label="Nous contacter sur LinkedIn" // Aria-label sur le lien
             >
-              <FaLinkedin aria-label="Nous contacter sur LinkedIn" className="text-[#0077b5]" />
+              <FaLinkedin className="text-[#0077b5]" aria-hidden="true" />{" "}
+              {/* Icône masquée pour les lecteurs d'écran */}
             </a>
           </TooltipTrigger>
           <TooltipContent>
             <p>Nous contacter sur LinkedIn</p>
           </TooltipContent>
         </Tooltip>
+
         <Tooltip>
           <TooltipTrigger asChild>
             <a
@@ -41,14 +44,17 @@ export const SocialButton = ({
               target="_blank"
               rel="noopener noreferrer"
               className={cn("cursor-pointer border-none bg-transparent text-2xl hover:opacity-70", buttonClassName)}
+              aria-label="Nous contacter sur Facebook"
             >
-              <FaFacebook aria-label="Nous contacter sur Facebook" className="text-[#3b5998]" />
+              <FaFacebook className="text-[#3b5998]" aria-hidden="true" />{" "}
+              {/* Icône masquée pour les lecteurs d'écran */}
             </a>
           </TooltipTrigger>
           <TooltipContent>
             <p>Nous contacter sur Facebook</p>
           </TooltipContent>
         </Tooltip>
+
         <Tooltip>
           <TooltipTrigger asChild>
             <a
@@ -56,14 +62,16 @@ export const SocialButton = ({
               target="_blank"
               rel="noopener noreferrer"
               className={cn("cursor-pointer border-none bg-transparent text-2xl hover:opacity-70", buttonClassName)}
+              aria-label="Partager via Twitter"
             >
-              <FaXTwitter aria-label="Partager via Twitter" />
+              <FaXTwitter aria-hidden="true" /> {/* Icône masquée pour les lecteurs d'écran */}
             </a>
           </TooltipTrigger>
           <TooltipContent>
             <p>Partager via Twitter</p>
           </TooltipContent>
         </Tooltip>
+
         <Tooltip>
           <TooltipTrigger asChild>
             <a
@@ -71,23 +79,28 @@ export const SocialButton = ({
               target="_blank"
               rel="noopener noreferrer"
               className={cn("cursor-pointer border-none bg-transparent text-2xl hover:opacity-70", buttonClassName)}
+              aria-label="Partager via Instagram"
             >
-              <FaInstagram aria-label="Partager via Instagram" className="text-[#bc2a8d]" />
+              <FaInstagram className="text-[#bc2a8d]" aria-hidden="true" />{" "}
+              {/* Icône masquée pour les lecteurs d'écran */}
             </a>
           </TooltipTrigger>
           <TooltipContent>
             <p>Partager via Instagram</p>
           </TooltipContent>
         </Tooltip>
+
         <Tooltip>
           <TooltipTrigger asChild>
             <a
-              href=""
+              href="https://wa.me/15550000000"
               target="_blank"
               rel="noopener noreferrer"
               className={cn("cursor-pointer border-none bg-transparent text-2xl hover:opacity-70", buttonClassName)}
+              aria-label="Partager via WhatsApp"
             >
-              <FaWhatsapp aria-label="Partager via WhatsApp" className="text-[#075e54]" />
+              <FaWhatsapp className="text-[#075e54]" aria-hidden="true" />{" "}
+              {/* Icône masquée pour les lecteurs d'écran */}
             </a>
           </TooltipTrigger>
           <TooltipContent>

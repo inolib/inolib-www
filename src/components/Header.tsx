@@ -1,5 +1,4 @@
 "use client";
-
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
@@ -11,9 +10,13 @@ type HeaderProps = {
   textColor: string;
   logosrc: string;
   burgerMenu: string;
+  MainNavProps: {
+    hoverClass: string;
+    hoverBorder: string;
+  };
 };
 
-const Header = ({ textColor, logosrc, burgerMenu }: HeaderProps) => {
+const Header = ({ textColor, logosrc, burgerMenu, MainNavProps }: HeaderProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -26,13 +29,14 @@ const Header = ({ textColor, logosrc, burgerMenu }: HeaderProps) => {
         <div className="logo py-2 ">
           <Link href="/">
             <Image src={logosrc} alt="Accueil" width={120} height={40} className="object-contain" />
+            <Image src={logosrc} alt="Accueil" width={120} height={40} className="object-contain" />
           </Link>
         </div>
         <div>
           <BurgerMenu navMenu={burgerMenu} />
         </div>
 
-        <MainNav />
+        <MainNav {...MainNavProps} />
 
       </div>
 

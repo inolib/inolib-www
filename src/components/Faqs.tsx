@@ -16,7 +16,7 @@ const Faqs = () => {
                 <span className="text-lg font-semibold">{faq.question}</span>
               </AccordionTrigger>
               <AccordionContent className="rounded-bl-3xl rounded-br-3xl bg-blue-50 p-4 text-gray-700">
-                {faq.answer}
+                <div dangerouslySetInnerHTML={{ __html: faq.answer }} />
               </AccordionContent>
             </AccordionItem>
           ))}
