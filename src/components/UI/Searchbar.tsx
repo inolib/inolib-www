@@ -11,7 +11,6 @@ type SearchProps = {
 };
 
 const SearchBar = ({ isSearchOpen, setIsSearchOpen, color }: SearchProps) => {
-const SearchBar = ({ isSearchOpen, setIsSearchOpen, color }: SearchProps) => {
   const [query, setQuery] = useState("");
   const router = useRouter();
 

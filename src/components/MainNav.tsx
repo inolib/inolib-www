@@ -67,21 +67,28 @@ const MainNav = ({ hoverClass, hoverBorder }: MainNavProps) => {
   );
 
   return (
-    <>
-      <nav className="hidden px-2 py-6 lg:block ml-12">
-        <ul className="flex space-x-12 font-sans 2xl:space-x-16">
-          {menuItems.map((item) => (
-            <li
-              key={item.label}
-              className="menu-item group relative"
-              onMouseEnter={() => handleMouseEnter(item.label)}
-              onMouseLeave={() => handleMouseLeave(item.label)}
+    <nav className=" hidden px-2 py-6 lg:block ml-12">
+      <ul className="flex space-x-12 font-sans 2xl:space-x-16">
+        {menuItems.map((item) => (
+          <li
+            key={item.label}
+            className="menu-item group relative"
+            onMouseEnter={() => handleMouseEnter(item.label)}
+            onMouseLeave={handleMouseLeave}
+          >
+            <div
+              className={`flex cursor-pointer items-center pb-2 ${hoverClass}`}
+              aria-haspopup={item.subItems ? "true" : "false"}
+              aria-expanded={openMenu === item.label ? "true" : "false"}
+              onClick={(e) => handleClick(item.label, !!item.subItems, e)}
+              role={item.subItems ? "button" : undefined}
+              aria-label={item.subItems ? `${item.label} menu, expandable` : `${item.label} link`}
             >
-              <div className="flex cursor-pointer items-center" aria-haspopup={item.subItems ? "true" : "false"}>
-                <Link href={item.href} className="hover:" aria-label={`Lien vers ${item.label}`}>
-                  {item.label}
-                </Link>
-              )}
+              {/* L'élément principal et le chevron sont regroupés pour un seul clic */}
+              <Link href={""} className={`flex items-center ${hoverBorder} hover:border-b-[1.5px]`}>
+                {item.label}
+                {item.subItems && renderArrow(item.label)}
+              </Link>
             </div>
 
             {/* Affichage du sous-menu */}
