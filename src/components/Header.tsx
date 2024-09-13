@@ -29,7 +29,6 @@ const Header = ({ textColor, logosrc, burgerMenu, MainNavProps }: HeaderProps) =
         <div className="logo py-2">
           <Link href="/">
             <Image src={logosrc} alt="Accueil" width={120} height={40} className="object-contain" />
-            <Image src={logosrc} alt="Accueil" width={120} height={40} className="object-contain" />
           </Link>
         </div>
         <div>
