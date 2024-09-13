@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 
 type SearchProps = {
-  color: string;
+  color : string;
   isSearchOpen: boolean;
   setIsSearchOpen: (open: boolean) => void;
 };
@@ -79,7 +79,7 @@ const SearchBar = ({ isSearchOpen, setIsSearchOpen, color }: SearchProps) => {
       </div>
       {!isSearchOpen && (
         <button
-          className="mr-6 lg:hidden"
+          className="lg:hidden mr-6"
           aria-label="Ouvrir la recherche"
           onClick={() => setIsSearchOpen(!isSearchOpen)}
         >

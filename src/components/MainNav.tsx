@@ -67,8 +67,8 @@ const MainNav = ({ hoverClass, hoverBorder }: MainNavProps) => {
   );
 
   return (
-    <nav className="ml-16 hidden px-2 py-6 lg:block">
-      <ul className="flex space-x-12 font-sans">
+    <nav className=" hidden px-2 py-6 lg:block ml-12">
+      <ul className="flex space-x-12 font-sans 2xl:space-x-16">
         {menuItems.map((item) => (
           <li
             key={item.label}

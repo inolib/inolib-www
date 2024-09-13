@@ -24,25 +24,25 @@ const Main = () => {
                   </Link>
                 </p>
 
-            <h1 className="mb-4 max-w-160 text-2xl sm:mb-6 sm:text-4xl md:text-6xl">
-              Ensemble, rendons le numérique accessible à tous
-            </h1>
-            <p className="font-manorop mb-4 max-w-96 text-sm text-[#E0DBC7] sm:mb-8 sm:text-base">
-              Untitled is a next-gen financial technology company in the process of reinventing banking.
-            </p>
-            <div className="flex flex-col justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0 md:justify-start">
-              <Button
-                href="/#services"
-                variant="ghost"
-                className="rounded-md border-2 bg-[#254147] px-4 py-2 font-semibold text-white transition hover:bg-yellow-600"
-              >
-                Decouvrir nos services
-              </Button>
-              <Button href="/contact" variant="ButtonJaune">
-                Nous contacter
-              </Button>
-            </div>
-          </div>
+                <h1 className="mb-4 max-w-160 text-4xl leading-tight md:leading-snug lg:text-5xl lg:leading-snug xl:text-6xl xl:leading-snug  ">
+                  Ensemble, rendons le numérique accessible à tous
+                </h1>
+                <p className="font-manorop mb-4 mt-8 max-w-96 text-lg xl:text-xl text-[#E0DBC7] md:mt-4">
+                  Untitled is a next-gen financial technology company in the process of reinventing banking.
+                </p>
+                <div className="flex flex-col justify-center mt-14 space-y-4 md:flex-row md:space-x-4 md:space-y-0 md:mt-8 md:justify-start">
+
+
+                  <Button
+                    variant="ghost"
+                    className="rounded-md border-2 bg-[#122023] px-4 py-2 font-semibold text-white transition hover:bg-yellow-600 md:w-[180px] md:h-[51px] lg:h-[61px] lg:w-[280px]"
+                  >
+                    Decouvrir nos services
+                  </Button>  <Button href="/contact" variant="ButtonJaune" className="md:h-[51px] md:w-[120px] lg:h-[61px] lg:w-[180px]">
+                    Nous contacter
+                  </Button>
+                </div>
+              </div>
         </div>
 
         <div className="mt-8 flex items-center justify-center md:mt-0">
