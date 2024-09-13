@@ -5,7 +5,10 @@ import { useState } from "react";
 
 import { testimonials } from "~/DATA/data";
 
-const Testimonials = () => {
+type TestimonialProps = {
+  aligned : boolean
+}
+const Testimonials = (aligned : TestimonialProps) => {
   const [current, setCurrent] = useState(0);
 
   const nextTestimonial = () => {
