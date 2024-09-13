@@ -30,7 +30,7 @@ const Home = () => {
       <section id="services">
         <Services />
       </section>
-      <Testimonials />
+      <Testimonials aligned={true}/>
       <News />
       <Newsletter />
       <Footer />
