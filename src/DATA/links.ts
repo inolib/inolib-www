@@ -63,10 +63,6 @@ export const menuItemsFooter: MenuItemProps[] = [
   {
     href: "/About",
     label: "À propos",
-    subItems: [
-      { href: "/blog", label: "Blog" },
-      { href: "/About/#team", label: "Notre équipe" },
-    ],
   },
   {
     href: "/LegalNotice",
