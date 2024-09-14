@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 
 import { Button } from "~/components/UI/Button";
 import { SocialButton } from "~/components/UI/SocialButton";
+import { Dialog, DialogClose, DialogContent, DialogHeader, DialogTrigger, DialogTitle } from "~/components/UI/Dialog";
 
 // Définir le type de formData
 type FormData = {
@@ -121,7 +122,6 @@ const MainContact = () => {
   const handleCloseCalendar = () => {
     setIsCalendarVisible(false);
   };
-  
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -169,14 +169,14 @@ const MainContact = () => {
         <aside className="sm:w-50 mb-8 ml-12 md:w-64 lg:mb-0 lg:w-64">
           <div className="mb-4 rounded-lg bg-[#F5F9FA] p-4 shadow">
             <Image src="/Icons/contactC.svg" alt="" width={40} height={40}></Image>
-            <h2 className="mb-2 mt-4 text-lg font-semibold text-gray-900">Discuter avec les ventes</h2>
+            <h2 className="mb-2 mt-4 text-lg font-semibold text-gray-900">Discuter avec le service client</h2>
             <p className="mb-2 text-gray-700">Parlez à notre équipe sympathique.</p>
             <a
               href="mailto:sales@untitledui.com"
               className="text-[#133348]"
               aria-label="adresse email pour nous contacter"
             >
-              sales@untitledui.com
+              contact@inolib.com
             </a>
           </div>
           <div className="mb-4 rounded-lg bg-[#F5F9FA] p-4 shadow">
@@ -184,7 +184,7 @@ const MainContact = () => {
             <h2 className="mb-2 mt-4 text-lg font-semibold text-gray-900">Appelez-nous</h2>
             <p className="mb-2 text-gray-700">Du lundi au vendredi de 8h à 17h.</p>
             <p className="text-[#3E6D77]" aria-label="numéro pour nous contacter">
-              +1 (555) 000-0000
+              +33 6 47 21 86 69
             </p>
           </div>
           <div className="rounded-lg bg-[#F5F9FA] p-4 shadow">
@@ -192,12 +192,11 @@ const MainContact = () => {
             <h2 className="mb-2 mt-4 text-lg font-semibold text-gray-900">Visitez-nous</h2>
             <p className="mb-2 text-gray-700">Visitez notre siège social.</p>
             <address className="not-italic text-gray-700">
-              100 Smith Street
+              254 rue Vendôme
               <br />
-              Collingwood VIC 3066 AU
+              69003 Lyon
             </address>
           </div>
-         
         </aside>
 
         <div className="lg:w-96">
@@ -207,7 +206,7 @@ const MainContact = () => {
                 Vous êtes intéressé par :
               </legend>
               <div className="mb-6 flex flex-wrap gap-2 space-x-[1.5px]">
-                {["Audit", "Accompagnement", "Développement", "Formation","Partenariat" ,"Autre"].map((interest) => (
+                {["Audit", "Accompagnement", "Développement", "Formation", "Partenariat", "Autre"].map((interest) => (
                   <button
                     role="radio"
                     aria-checked={formData.interest === interest}
@@ -365,32 +364,29 @@ const MainContact = () => {
             </div>
           )}
 
-          {/* Bouton pour afficher le calendrier HubSpot */}
-          <div className="mt-4">
-  <Button variant="buttonNoir" onClick={handleShowCalendar}>
-    Prendre rendez-vous
-  </Button>
-</div>
+          {/* Bouton pour afficher le calendrier dans une modale */}
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button variant="buttonNoir" className="mt-2 w-96">
+                Prendre rendez-vous
+              </Button>
+            </DialogTrigger>
 
-{/* Afficher le calendrier HubSpot après clic sur le bouton */}
-{isCalendarVisible && (
-  <div className="calendar-container">
-    {/* Bouton pour fermer le calendrier */}
-    <button 
-      onClick={handleCloseCalendar} 
-      className="close-button" 
-      aria-label="Fermer le calendrier"
-    >
-      &times; {/* Utilisation du symbole de la croix "×" */}
-    </button>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Prendre un rendez-vous</DialogTitle>
+              </DialogHeader>
 
-    <div
-      className="meetings-iframe-container"
-      data-src="https://meetings-eu1.hubspot.com/djeberine?embed=true"
-    ></div>
-  </div>
-)}
-
+              {/* Intégration du calendrier HubSpot */}
+              <div className="mt-4">
+                <iframe
+                  src="https://meetings-eu1.hubspot.com/djeberine?embed=true"
+                  className="h-96 w-full"
+                  title="Calendrier HubSpot"
+                ></iframe>
+              </div>
+            </DialogContent>
+          </Dialog>
         </div>
       </section>
 

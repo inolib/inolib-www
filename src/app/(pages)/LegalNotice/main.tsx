@@ -26,7 +26,7 @@ export default function MainLegal(): JSX.Element {
         {/* Breadcrumb */}
         <section aria-label="Breadcrumb navigation" className="mb-8">
           <Breadcrumb>
-            <BreadcrumbList className="flex items-center space-x-2 text-sm">
+            <BreadcrumbList className="flex w-56 items-center space-x-2 text-sm">
               <BreadcrumbItem>
                 <BreadcrumbLink href="/" aria-label="Homepage">
                   <Image src="/Icons/BreadcrumIcon.svg" alt="Home" width={20} height={20} />
@@ -34,7 +34,7 @@ export default function MainLegal(): JSX.Element {
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbLink href="/mentions-legales" className="text-gray-600" aria-current="page">
+                <BreadcrumbLink href="/LeagalNotice" className="text-gray-600" aria-current="page">
                   Mentions légales
                 </BreadcrumbLink>
               </BreadcrumbItem>
@@ -45,7 +45,18 @@ export default function MainLegal(): JSX.Element {
         {/* Main Legal Content */}
         <article className="prose lg:prose-lg mx-auto leading-7 text-gray-700">
           <h1 className="mb-6 text-center text-4xl font-bold text-gray-900">Mentions Légales</h1>
-
+          <section className="mb-2">
+            <p>
+              Merci de lire attentivement les modalités d'utilisation du site avant de parcourir ses pages. En vous
+              connectant sur ce site, vous acceptez sans réserve les présentes conditions. Conformément à l'article n°6
+              de la Loi n°2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, les responsables du site
+              internet{" "}
+              <Link href="/" className="font-semibold text-cyan-700">
+                www.inolib.com{" "}
+              </Link>{" "}
+              sont:
+            </p>
+          </section>
           <section className="mb-10">
             <h2 className="mb-4 text-2xl font-semibold">Éditeur du site</h2>
             <ul className="list-none space-y-2">
