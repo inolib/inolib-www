@@ -34,15 +34,17 @@ const Conf = () => {
 
       <div className="mx-auto">
         <header className="mb-8">
-          <h1 className="ml-11 text-3xl font-bold text-gray-900">Audit de conformité</h1>
+          <h1 className="ml-11 text-3xl font-bold text-gray-900">
+            Audit de Conformité en Accessibilité Numérique RGAA WCAG
+          </h1>
         </header>
 
         {/* Main content */}
         <section className="mb-16 grid gap-8 lg:grid-cols-2">
           <div className="flex flex-col justify-center lg:ml-11">
             <div className="mb-4 flex flex-col">
-              <div>
-                <Image src="/Icons/eclaire.svg" alt="" width={40} height={40} className="mr-2" />
+              <div className="mb-5 mr-2">
+                <Image src="/Icons/eclaire.svg" alt="" width={40} height={40} />
               </div>
               <h2 className="mt-2 text-2xl font-bold">Qu'est-ce qu'un audit d'accessibilité numérique ?</h2>
             </div>
@@ -85,7 +87,7 @@ const Conf = () => {
         </h2>
 
         {/* Première offre */}
-        <div className="md: mb-8 flex flex-row items-center xxs:flex-col xs:flex-col lg:flex-row">
+        <div className="md: mb-14 flex flex-row items-center xxs:flex-col xs:flex-col lg:flex-row">
           <div className="mb-6 lg:mb-0 lg:ml-24 xl:ml-36">
             <Image src="/Homepage/meufBD.svg" alt="" width={300} height={350} className="mx-auto" />
           </div>
@@ -140,7 +142,7 @@ const Conf = () => {
         </div>
 
         {/* Deuxième offre */}
-        <div className="mb-8 flex flex-col items-center lg:flex-row">
+        <div className="mb-20 flex flex-col items-center lg:flex-row">
           <div className="lg:order-2 lg:w-1/2 lg:pl-16">
             <Image src="/Homepage/med.svg" alt="" width={350} height={350} className="mx-auto" />
           </div>
@@ -271,6 +273,16 @@ const Conf = () => {
             </li>
           </ul>
         </section>
+
+        <aside>
+          <h2>Aller plus loin</h2>
+
+          <p>
+            Accompagnement dans votre démarche d'accessibilité Coordination : Suivi des anomalies via vos outils de
+            gestion de projet (Redmine, Jira, Trello, Asana). Développement sur-mesure : Conseils pour maintenir un
+            environnement numérique sécurisé et conforme.
+          </p>
+        </aside>
       </div>
     </main>
   );

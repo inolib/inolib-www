@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { menuItemsFooter } from "~/DATA/links"; // Assurez-vous que le bon chemin est utilisé
+import { menuItemsFooter } from "~/DATA/links";
+import { SocialButton } from "~/components/UI/SocialButton";
 
 const Footer = () => {
   return (
@@ -9,29 +10,37 @@ const Footer = () => {
         <div className="grid grid-cols-2 gap-8 md:grid-cols-6">
           {menuItemsFooter.map((menuItem) => (
             <div key={menuItem.label}>
-              <h2 className="mb-4 text-xl text-[#8EBBC5]">{menuItem.label}</h2>
-              <ul>
-                {/* Affichage des sous-items si présents */}
-                {menuItem.subItems ? (
-                  menuItem.subItems.map((subItem) => (
-                    <li key={subItem.label}>
-                      <Link href={subItem.href} className="hover:underline">
-                        {subItem.label}
-                      </Link>
-                    </li>
-                  ))
-                ) : (
-                  <li key={menuItem.label}>
-                    {/* Si pas de sous-items, affichage du lien principal */}
-                    <Link href={menuItem.href} className="hover:underline">
-                      {menuItem.label}
-                    </Link>
-                  </li>
-                )}
-              </ul>
+              {/* Si pas de sous-items, afficher le lien dans le h2 */}
+              {menuItem.subItems ? (
+                <>
+                  <h2 className="mb-4 text-xl text-[#8EBBC5]">{menuItem.label}</h2>
+                  <ul>
+                    {menuItem.subItems.map((subItem) => (
+                      <li key={subItem.label}>
+                        <Link href={subItem.href} className="hover:underline">
+                          {subItem.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              ) : (
+                <h2 className="mb-4 text-xl text-[#8EBBC5]">
+                  <Link href={menuItem.href} className="hover:underline">
+                    {menuItem.label}
+                  </Link>
+                </h2>
+              )}
             </div>
           ))}
+          <div className="ml-10 flex flex-col">
+            <h2 className="mb-4 text-xl text-[#8EBBC5]">suivez-nous!</h2>
+            <div className="flex flex-col justify-end">
+              <SocialButton className="" />
+            </div>
+          </div>
         </div>
+
         <div className="mt-10 flex flex-col items-center justify-between md:flex-row">
           <div className="flex items-center space-x-2">
             <Image src="/Logo/LogoJaune.svg" alt="Inolib logo" width={100} height={50} />

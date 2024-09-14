@@ -16,18 +16,26 @@ type HeaderHatProps = {
 
 const HeaderHat = ({ bgColor, textColor, buttonVariant, link }: HeaderHatProps) => {
   const router = useRouter();
-  const handleLink = () => {
-    router.push("/Contact");
-  };
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const handleLink = () => {
+    // Rediriger vers la page de contact
+    router.push("/Contact");
+
+    // Mettre à jour le message pour les lecteurs d'écran
+    setMessage("Redirection vers la page Contact.");
+  };
+
   return (
     <header className={`relative ${bgColor} ${textColor} flex h-20 justify-center 2xl:pl-6`}>
       <div className="flex h-full w-full items-center justify-between 2xl:w-[1536px]">
+        {/* Lien d'accès au contenu principal */}
         {!isSearchOpen && (
           <Link
             href={link}
             className={`${textColor} ml-8 flex flex-row font-semibold hover:text-gray-400`}
-            aria-label="Accéder au contenu"
+            aria-label="Accéder au contenu principal"
           >
             Accéder au contenu
             <svg
@@ -41,18 +49,26 @@ const HeaderHat = ({ bgColor, textColor, buttonVariant, link }: HeaderHatProps) 
             </svg>
           </Link>
         )}
-        <div className="">
+
+        {/* Barre de recherche */}
+        <div>
           <SearchBar color={textColor} isSearchOpen={isSearchOpen} setIsSearchOpen={setIsSearchOpen} />
         </div>
+
+        {/* Bouton "Nous contacter" */}
         <Button
           variant={buttonVariant}
           aria-label="Nous contacter"
           onClick={handleLink}
           className="mr-8 hidden lg:block"
         >
-          {" "}
-          Nous contacter{" "}
+          Nous contacter
         </Button>
+
+        {/* Élément pour informer les lecteurs d'écran après la redirection */}
+        <div aria-live="polite" className="sr-only">
+          {message}
+        </div>
       </div>
     </header>
   );

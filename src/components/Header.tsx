@@ -34,8 +34,9 @@ const Header = ({ textColor, logosrc, burgerMenu, MainNavProps }: HeaderProps) =
         <div>
           <BurgerMenu navMenu={burgerMenu} />
         </div>
-
-        <MainNav {...MainNavProps} />
+        <section id="nav">
+          <MainNav {...MainNavProps} />
+        </section>
       </div>
     </header>
   );

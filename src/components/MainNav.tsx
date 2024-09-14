@@ -82,13 +82,21 @@ const MainNav = ({ hoverClass, hoverBorder }: MainNavProps) => {
               aria-expanded={openMenu === item.label ? "true" : "false"}
               onClick={(e) => handleClick(item.label, !!item.subItems, e)}
               role={item.subItems ? "button" : undefined}
-              aria-label={item.subItems ? `${item.label} menu, expandable` : `${item.label} link`}
+              aria-label={item.subItems ? `${item.label} menu` : `${item.label} link`}
             >
-              {/* L'élément principal et le chevron sont regroupés pour un seul clic */}
-              <Link href={""} className={`flex items-center ${hoverBorder} hover:border-b-[1.5px]`}>
-                {item.label}
-                {item.subItems && renderArrow(item.label)}
-              </Link>
+              {/* Vérification s'il y a des subItems */}
+              {item.subItems ? (
+                // Si subItems existent, ne pas rendre le lien cliquable, juste afficher le label
+                <span className={`flex items-center ${hoverBorder} hover:border-b-[1.5px]`}>
+                  {item.label}
+                  {renderArrow(item.label)}
+                </span>
+              ) : (
+                // Si pas de subItems, rendre le lien cliquable
+                <Link href={item.href} className={`flex items-center ${hoverBorder} hover:border-b-[1.5px]`}>
+                  {item.label}
+                </Link>
+              )}
             </div>
 
             {/* Affichage du sous-menu */}

@@ -89,24 +89,6 @@ export const SocialButton = ({
             <p>Partager via Instagram</p>
           </TooltipContent>
         </Tooltip>
-
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <a
-              href="https://wa.me/15550000000"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cn("cursor-pointer border-none bg-transparent text-2xl hover:opacity-70", buttonClassName)}
-              aria-label="Partager via WhatsApp"
-            >
-              <FaWhatsapp className="text-[#075e54]" aria-hidden="true" />{" "}
-              {/* Icône masquée pour les lecteurs d'écran */}
-            </a>
-          </TooltipTrigger>
-          <TooltipContent>
-            <p>Partager via WhatsApp</p>
-          </TooltipContent>
-        </Tooltip>
       </div>
     </TooltipProvider>
   );
