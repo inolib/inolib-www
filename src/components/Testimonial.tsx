@@ -45,7 +45,7 @@ const Testimonials = () => {
       </div>
 
       {/* Navigation buttons */}
-      <div className="mt-8 flex items-center justify-between md:absolute md:left-8 md:right-8 md:top-1/3 md:-translate-y-1/2 md:transform border-[1px] border-[#E1FF01]">
+      <div className="mt-8 flex items-center justify-between md:absolute md:left-8 md:right-8 md:top-1/3 md:-translate-y-1/2 md:transform">
         <button
           onClick={prevTestimonial}
           aria-label="temoignage precedent"

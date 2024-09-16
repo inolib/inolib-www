@@ -31,7 +31,7 @@ const Home = () => {
         <Services />
       </section>
       <Testimonials />
-      <section id="news">
+      <section id="news" className="w-full bg-white flex justify-center">
         <News />
       </section>
       <Newsletter />
