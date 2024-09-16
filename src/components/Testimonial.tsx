@@ -18,14 +18,14 @@ const Testimonials = (aligned : TestimonialProps) => {
   const prevTestimonial = () => {
     setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
-
+ console.log("aligned",aligned.aligned)
   return (
     <>
 
 
-    {aligned ?
+    {aligned.aligned ?
       (
-        <div className="relative rounded-lg bg-[#111F22] px-6 pt-10 text-white flex items-center">
+        <div className="rounded-lg bg-[#111F22] px-4 pt-10 pb-10 text-white flex items-center justify-center border-[1px] border-[#d0322f]">
           <button
             onClick={prevTestimonial}
             aria-label="temoignage precedent"
@@ -35,7 +35,7 @@ const Testimonials = (aligned : TestimonialProps) => {
           </button>
 
         <div className=" border-[1px] border-[#E1FF01]">
-          <div className="mb-4 flex">
+          <div className=" flex">
             {[...Array(5)].map((_, i) => (
               <span key={i} className="text-xl" style={{ color: "#E1FF01" }}>
                 ★
@@ -56,6 +56,8 @@ const Testimonials = (aligned : TestimonialProps) => {
               <p className="text-sm">{testimonials[current].role}</p>
             </div>
           </div>
+
+
         </div>
 
 
@@ -69,7 +71,7 @@ const Testimonials = (aligned : TestimonialProps) => {
 
 </div>
       ):(
-    <div className="relative rounded-lg bg-[#111F22] px-6 pt-10 text-white flex flex-col">
+    <div className="relative rounded-lg bg-[#111F22] px-6 pt-10 text-white flex flex-col border-[1px] border-[#205f81]">
             <div className=" border-[1px] border-[#E1FF01]">
               <div className="mb-4 flex">
                 {[...Array(5)].map((_, i) => (
@@ -94,20 +96,20 @@ const Testimonials = (aligned : TestimonialProps) => {
               </div>
             </div>
       <div className="flex justify-between mt-12">
-         <button
-        onClick={prevTestimonial}
-        aria-label="temoignage precedent"
-        className=" left-4 w-11 top-1/2  -translate-y-1/2 transform rounded-full border-[1px] border-white p-2 text-white shadow-lg"
-      >
-        ←
-      </button>
-      <button
-        onClick={nextTestimonial}
-        aria-label="prochain temoignage"
-        className=" right-2 top-1/2 w-11 -translate-y-1/2 transform rounded-full border-[1px] border-white p-2 text-white"
-      >
-        →
-      </button>
+                  <button
+                  onClick={prevTestimonial}
+                  aria-label="temoignage precedent"
+                  className=" left-4 w-11 top-1/2  -translate-y-1/2 transform rounded-full border-[1px] border-white p-2 text-white shadow-lg"
+                >
+                  ←
+                </button>
+                <button
+                  onClick={nextTestimonial}
+                  aria-label="prochain temoignage"
+                  className=" right-2 top-1/2 w-11 -translate-y-1/2 transform rounded-full border-[1px] border-white p-2 text-white"
+                >
+                  →
+                </button>
       </div>
 
     </div>) }
