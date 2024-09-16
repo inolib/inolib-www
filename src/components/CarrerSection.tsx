@@ -4,7 +4,7 @@ import { jobOffers } from "~/DATA/data";
 
 export const CarrerSection = () => {
   return (
-    <section className="bg-[#F5F4EE] py-16">
+    <section className="w-full bg-[#F5F4EE] py-16">
       <div className="container mx-auto px-6">
         <header className="mb-12 text-center">
           <span className="inline-block rounded-full bg-[#CBE0E4] px-4 py-1 text-sm font-semibold text-gray-800">
@@ -14,7 +14,7 @@ export const CarrerSection = () => {
           <p className="mt-2 text-gray-600">We&apos;re a 100% remote team spread all across the world. Join us!</p>
         </header>
 
-        <div className="mx-auto w-160 space-y-6">
+        <div className="mx-auto md:w-160 space-y-6  ">
           {jobOffers.map((offer, index) => (
             <div key={index} className="flex items-center justify-between rounded-lg bg-white p-6 shadow">
               <div>
@@ -29,9 +29,9 @@ export const CarrerSection = () => {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
+        <div className="mt-16 flex flex-col items-center text-center">
           <h2 className="mb-4 text-2xl font-bold text-gray-900">Candidater spontanément</h2>
-          <p className="mx-auto mb-8 w-80 text-gray-600">
+          <p className="mx-auto mb-8 md-w-80 text-gray-600">
             Aucune offre ne correspond à votre profil ? Envoyez-nous votre candidature spontanée
             <a href="mailto:carriere@inolib.com" className="border-b border-[#3E6D77] text-[#3E6D77]">
               {" "}
@@ -40,7 +40,7 @@ export const CarrerSection = () => {
           </p>
           <Link
             href="/"
-            className="rounded-lg bg-[#254147] px-6 py-3 text-white shadow hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-300"
+            className="xxs:w-[80%] sm:w-[350px] rounded-lg bg-[#254147] px-6 py-3 text-white shadow hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-300 border-[1px] border-[#e15118] "
           >
             Envoyer ma candidature spontanée
           </Link>
