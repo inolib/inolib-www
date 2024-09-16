@@ -5,7 +5,6 @@ import HearderHat from "~/components/HeaderHat";
 import Main from "~/components/Main";
 import Newsletter from "~/components/Newsletter";
 import {Services} from "~/components/Service";
-import {Services} from "~/components/Service";
 import SocialProof from "~/components/SocialProof";
 import Testimonials from "~/components/Testimonial";
 import Line from "~/components/UI/Line";
