@@ -3,32 +3,10 @@
 import DOMPurify from "dompurify";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-
+import type { FormData, Errors } from "~/lib/types/features/contactType/type";
 import { Button } from "~/components/UI/Button";
 import { SocialButton } from "~/components/UI/SocialButton";
 import { Dialog, DialogClose, DialogContent, DialogHeader, DialogTrigger, DialogTitle } from "~/components/UI/Dialog";
-
-// Définir le type de formData
-type FormData = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phoneNumber: string;
-  message: string;
-  interest: string;
-  budget: string;
-  privacyPolicy: boolean;
-};
-
-// Définir le type de errors
-type Errors = {
-  firstName?: string;
-  lastName?: string;
-  email?: string;
-  phoneNumber?: string;
-  message?: string;
-  privacyPolicy?: string;
-};
 
 const MainContact = () => {
   const [formData, setFormData] = useState<FormData>({
@@ -46,7 +24,7 @@ const MainContact = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const [submissionMessage, setSubmissionMessage] = useState("");
-  const [isCalendarVisible, setIsCalendarVisible] = useState(false); // Gère l'affichage du calendrier
+  const [isCalendarVisible, setIsCalendarVisible] = useState(false);
 
   const resetForm = () => {
     setFormData({
@@ -63,6 +41,8 @@ const MainContact = () => {
 
   const validate = () => {
     const newErrors: Errors = {};
+
+    console.log("FormData during validation:", formData);
 
     if (!formData.firstName) {
       newErrors.firstName = "Veuillez entrer votre prénom.";
@@ -85,6 +65,9 @@ const MainContact = () => {
     }
 
     setErrors(newErrors);
+
+    console.log("Validation Errors:", newErrors);
+
     return Object.keys(newErrors).length === 0;
   };
 
@@ -97,7 +80,7 @@ const MainContact = () => {
   };
 
   const handleInterestSelect = (interest: string) => {
-    setFormData((prevFormData) => ({
+    setFormData((prevFormData: FormData) => ({
       ...prevFormData,
       interest: prevFormData.interest === interest ? "" : interest,
       message: `${formData.message} Intérêt: ${prevFormData.interest === interest ? "Aucun" : interest}.`,
@@ -127,7 +110,7 @@ const MainContact = () => {
     e.preventDefault();
     setSubmitError("");
     setSubmissionMessage("");
-
+    console.log("test");
     if (!validate()) {
       setSubmitError("Veuillez remplir tous les champs obligatoires.");
       return;
@@ -136,7 +119,7 @@ const MainContact = () => {
     const sanitizedMessage = DOMPurify.sanitize(formData.message);
 
     // Soumission à l'API via fetch
-    fetch("http://localhost/wp-json/custom-api/v1/contact", {
+    fetch("http://localhost/WORDPRESS/wp-json/custom-api/v2/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -277,6 +260,27 @@ const MainContact = () => {
                   placeholder="Nom"
                 />
               </div>
+            </div>
+            <div>
+              <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700">
+                Numéro de téléphone <span className="text-red-500">*</span>
+              </label>
+              <input
+                type="tel"
+                id="phoneNumber"
+                name="phoneNumber"
+                value={formData.phoneNumber}
+                onChange={handleChange}
+                className="mt-1 block w-full rounded-md border shadow-sm focus:ring focus:ring-opacity-50"
+                placeholder="Votre numéro de téléphone"
+                aria-required="true"
+                aria-invalid={!!errors.phoneNumber}
+              />
+              {errors.phoneNumber && (
+                <p className="mt-1 text-sm text-red-500" role="alert" aria-live="assertive">
+                  {errors.phoneNumber}
+                </p>
+              )}
             </div>
 
             <div>

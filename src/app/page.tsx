@@ -31,7 +31,9 @@ const Home = () => {
         <Services />
       </section>
       <Testimonials />
-      <News />
+      <section id="news">
+        <News />
+      </section>
       <Newsletter />
       <Footer />
     </div>
