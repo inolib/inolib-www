@@ -5,14 +5,8 @@ import { useState } from "react";
 
 import { testimonials } from "~/DATA/data";
 
-type TestimonialProps = {
-  aligned : boolean
-}
-const Testimonials = (aligned : TestimonialProps) => {
-type TestimonialProps = {
-  aligned : boolean
-}
-const Testimonials = (aligned : TestimonialProps) => {
+
+const Testimonials = () => {
   const [current, setCurrent] = useState(0);
 
   const nextTestimonial = () => {
@@ -22,8 +16,7 @@ const Testimonials = (aligned : TestimonialProps) => {
   const prevTestimonial = () => {
     setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
- console.log("aligned",aligned.aligned)
- console.log("aligned",aligned.aligned)
+
   return (
     <div className="relative rounded-lg bg-[#111F22] p-8 text-white md:p-16">
       <div className="md:ml-20">
