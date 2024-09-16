@@ -63,44 +63,44 @@ export const teamMembers: TeamMember[] = [
 // Données pour la section "Nos valeurs"
 export const valuesData: ValueItem[] = [
   {
-    title: "Share team inboxes",
+    title: "Accessibilité en priorité",
     description:
-      "Whether you have a team of 2 or 200, our shared team inboxes keep everyone on the same page and in the loop.",
+      "Nous créons des sites à la fois élégants et accessibles, permettant à tous de naviguer sans obstacle.",
     icon: "/Icons/coeur.svg",
     alt: "",
   },
   {
-    title: "Deliver instant answers",
+    title: "Rigueur et passion",
     description:
-      "An all-in-one customer service platform that helps you balance everything your customers need to be happy.",
+      "Une équipe jeune, experte et dévouée qui place la qualité et l'innovation au cœur de chaque projet numérique.",
     icon: "/Icons/fleche.svg",
     alt: "",
   },
   {
-    title: "Manage your team with reports",
+    title: "Esthétique et inclusion",
     description:
-      "Measure what matters with Untitled’s easy-to-use reports. You can filter, export, and drill down on the data in a couple clicks.",
+      "Nos designs allient beauté et accessibilité, garantissant une expérience optimale pour tous les utilisateurs.",
     icon: "/Icons/fichier.svg",
     alt: "",
   },
   {
-    title: "Connect with customers",
+    title: "Audit d'accessibilité",
     description:
-      "Solve a problem or close a sale in real-time with chat. If no one is available, customers are seamlessly routed to email without confusion.",
+      "Nous réalisons des audits complets pour identifier les barrières et fournir des solutions sur mesure, conformes aux normes.",
     icon: "/Icons/coeur.svg",
     alt: "",
   },
   {
-    title: "Connect the tools you already use",
+    title: "Formations spécialisées",
     description:
-      "Explore 100+ integrations that make your day-to-day workflow more efficient and familiar. Plus, our extensive developer tools.",
+      "Nous proposons des formations adaptées pour sensibiliser vos équipes aux meilleures pratiques en accessibilité numérique.",
     icon: "/Icons/fleche.svg",
     alt: "",
   },
   {
-    title: "Our people make the difference",
+    title: "Expertise inclusive",
     description:
-      "We’re an extension of your customer service team, and all of our resources are free. Chat to our friendly team 24/7 when you need help.",
+      "Grâce à notre savoir-faire, nous vous accompagnons dans la création de solutions digitales accessibles et inclusives.",
     icon: "/Icons/fichier.svg",
     alt: "",
   },

@@ -5,11 +5,11 @@ import { SocialButton } from "~/components/UI/SocialButton";
 
 const Footer = () => {
   return (
-    <footer className="overflow-hidden bg-[#122023] py-10 text-white xxs:space-x-3 xxs:px-8">
+    <footer className="bg-[#122023] py-10 text-white">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-6">
           {menuItemsFooter.map((menuItem) => (
-            <div key={menuItem.label}>
+            <div key={menuItem.label} className="col-span-1 md:col-span-1">
               {/* Si pas de sous-items, afficher le lien dans le h2 */}
               {menuItem.subItems ? (
                 <>
@@ -33,14 +33,17 @@ const Footer = () => {
               )}
             </div>
           ))}
-          <div className="ml-10 flex flex-col">
-            <h2 className="mb-4 text-xl text-[#8EBBC5]">suivez-nous!</h2>
-            <div className="flex flex-col justify-end">
+
+          {/* Suivez-nous section */}
+          <div className="col-span-2 flex flex-col items-center md:col-span-1 md:items-start">
+            <h2 className="mb-4 text-xl text-[#8EBBC5]">Suivez-nous!</h2>
+            <div className="flex space-x-4">
               <SocialButton className="" />
             </div>
           </div>
         </div>
 
+        {/* Logo et droits réservés */}
         <div className="mt-10 flex flex-col items-center justify-between md:flex-row">
           <div className="flex items-center space-x-2">
             <Image src="/Logo/LogoJaune.svg" alt="Inolib logo" width={100} height={50} />

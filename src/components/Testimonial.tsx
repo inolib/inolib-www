@@ -17,16 +17,16 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="relative rounded-lg bg-[#111F22] p-16 text-white">
-      <div className="ml-20">
+    <div className="relative rounded-lg bg-[#111F22] p-8 text-white md:p-16">
+      <div className="md:ml-20">
         <div className="mb-4 flex">
           {[...Array(5)].map((_, i) => (
-            <span key={i} className="text-xl text-green-500">
+            <span key={i} className="text-lg text-[#E1FF01] md:text-xl">
               ★
             </span>
           ))}
         </div>
-        <p className="mb-4 mt-6 w-192 text-4xl">{testimonials[current].text}</p>
+        <p className="mb-4 mt-6 text-2xl md:text-4xl">{testimonials[current].text}</p>
         <div className="flex items-center gap-4">
           <Image
             src={testimonials[current].image}
@@ -41,20 +41,24 @@ const Testimonials = () => {
           </div>
         </div>
       </div>
-      <button
-        onClick={prevTestimonial}
-        aria-label="temoignage precedent"
-        className="absolute left-4 top-1/2 ml-7 -translate-y-1/2 transform rounded-full border-[1px] border-white p-2 text-white shadow-lg"
-      >
-        ←
-      </button>
-      <button
-        onClick={nextTestimonial}
-        aria-label="prochain temoignage"
-        className="absolute right-2 top-1/2 mr-8 -translate-y-1/2 transform rounded-full border-[1px] border-white p-2 text-white"
-      >
-        →
-      </button>
+
+      {/* Navigation buttons */}
+      <div className="mt-8 flex items-center justify-between md:absolute md:left-8 md:right-8 md:top-1/2 md:-translate-y-1/2 md:transform">
+        <button
+          onClick={prevTestimonial}
+          aria-label="temoignage precedent"
+          className="w-11 rounded-full border-[1px] border-white p-2 text-white shadow-lg md:ml-4"
+        >
+          ←
+        </button>
+        <button
+          onClick={nextTestimonial}
+          aria-label="prochain temoignage"
+          className="w-11 rounded-full border-[1px] border-white p-2 text-white shadow-lg md:mr-4"
+        >
+          →
+        </button>
+      </div>
     </div>
   );
 };
