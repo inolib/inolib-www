@@ -26,7 +26,7 @@ export const SocialButton = ({
               target="_blank"
               rel="noopener noreferrer"
               className={cn("cursor-pointer border-none bg-transparent text-2xl hover:opacity-70", buttonClassName)}
-              aria-label="Nous contacter sur LinkedIn" // Aria-label sur le lien
+              aria-label="LinkedIn" // Aria-label sur le lien
             >
               <FaLinkedin className="text-[#0077b5]" aria-hidden="true" />{" "}
               {/* Icône masquée pour les lecteurs d'écran */}
@@ -51,7 +51,7 @@ export const SocialButton = ({
             </a>
           </TooltipTrigger>
           <TooltipContent>
-            <p>Nous contacter sur Facebook</p>
+            <p>Facebook</p>
           </TooltipContent>
         </Tooltip>
 
@@ -62,13 +62,13 @@ export const SocialButton = ({
               target="_blank"
               rel="noopener noreferrer"
               className={cn("cursor-pointer border-none bg-transparent text-2xl hover:opacity-70", buttonClassName)}
-              aria-label="Partager via Twitter"
+              aria-label=" Twitter"
             >
               <FaXTwitter aria-hidden="true" /> {/* Icône masquée pour les lecteurs d'écran */}
             </a>
           </TooltipTrigger>
           <TooltipContent>
-            <p>Partager via Twitter</p>
+            <p> X </p>
           </TooltipContent>
         </Tooltip>
 
@@ -79,14 +79,14 @@ export const SocialButton = ({
               target="_blank"
               rel="noopener noreferrer"
               className={cn("cursor-pointer border-none bg-transparent text-2xl hover:opacity-70", buttonClassName)}
-              aria-label="Partager via Instagram"
+              aria-label="Instagram"
             >
               <FaInstagram className="text-[#bc2a8d]" aria-hidden="true" />{" "}
               {/* Icône masquée pour les lecteurs d'écran */}
             </a>
           </TooltipTrigger>
           <TooltipContent>
-            <p>Partager via Instagram</p>
+            <p> Instagram</p>
           </TooltipContent>
         </Tooltip>
       </div>

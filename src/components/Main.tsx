@@ -7,10 +7,10 @@ import { Button } from "~/components/UI/Button";
 const Main = () => {
   return (
     <div className="min-h-screen rounded-tr-customm-tr bg-gradient-to-b from-[#122023] via-[#0e2f08] to-[#323909] text-white xxs:rounded-tr-customx-tr xs:rounded-tr-customx-tr sm:rounded-tr-customx-tr md:rounded-tr-customs-tr lg:rounded-tr-customm-tr">
-      <main className="flex flex-col items-center justify-between px-4 py-10 text-center sm:px-8 sm:py-20 md:flex-row md:text-left">
-        <div className="mx-auto max-w-4xl rounded-br-full pb-10 text-left md:pb-0">
-          <div className="rounded-lg bg-opacity-75 p-6 sm:p-10">
-            <p className="mb-4 flex h-9 flex-row rounded-full border-[1px] border-[#E1FF01] bg-[#3B3A33] xxs:w-[265px] xs:w-[265px] sm:mb-8 sm:w-64 md:w-64">
+     <main className="flex flex-col items-center px-4 py-10 md:flex-row md:items-centers md:justify-center md:ml-[20px] lg:ml-[30px]">
+        <div className="max-w-xl md:max-w-[50%] lg:max-w-xl text-left xl:pt-[40px] 2xl:mr-[40px]">
+          <div className="rounded-lg bg-opacity-75 flex flex-col justify-between">
+          <p className="mb-4 flex h-9 flex-row rounded-full border-[1px] border-[#E1FF01] bg-[#3B3A33] xxs:w-[265px] xs:w-[265px] sm:mb-8 sm:w-64 md:w-64">
               <span className="xs:w-30 mx-1 my-[2px] w-36 rounded-full border-[1px] border-[#E1FF01] bg-[#122023] px-2 py-[1px] xxs:w-[125px] xxs:pt-1 xxs:text-sm xs:pt-1 xs:text-sm sm:w-28 sm:pt-2 sm:text-xs">
                 Restez à jour !
               </span>
@@ -24,29 +24,37 @@ const Main = () => {
               </Link>
             </p>
 
-            <h1 className="mb-4 max-w-160 text-2xl sm:mb-6 sm:text-4xl md:text-6xl">
+            <h1 className="mb-4 max-w-160 text-4xl leading-tight md:leading-snug lg:text-5xl lg:leading-snug xl:text-6xl xl:leading-snug">
               Ensemble, rendons le numérique accessible à tous
             </h1>
-            <p className="font-manorop mb-4 max-w-96 text-sm text-[#E0DBC7] sm:mb-8 sm:text-base">
-              Untitled is a next-gen financial technology company in the process of reinventing banking.
+            <p className="font-manorop mb-4 mt-8 max-w-96 text-lg xl:text-xl text-[#E0DBC7] md:mt-4">
+              Untitled is a next-gen financial technology company in the process
+              of reinventing banking.
             </p>
-            <div className="flex flex-col justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0 md:justify-start">
+            <div className="flex flex-col justify-center mt-14 space-y-4 md:flex-row md:space-x-4 md:space-y-0 md:mt-8 md:justify-start">
               <Button
-                href="/#services"
                 variant="ghost"
-                className="rounded-md border-2 bg-[#254147] px-4 py-2 font-semibold text-white transition hover:bg-yellow-600"
+                className="rounded-md border-2 bg-[#122023] px-4 py-2 font-semibold text-white transition hover:bg-yellow-600 md:w-[180px] md:h-[51px] lg:h-[61px] lg:w-[280px]"
               >
                 Decouvrir nos services
               </Button>
-              <Button href="/contact" variant="ButtonJaune">
+              <Button
+                href="/contact"
+                variant="ButtonJaune"
+                className="md:h-[51px] md:w-[120px] lg:h-[61px] lg:w-[180px]"
+              >
                 Nous contacter
               </Button>
             </div>
           </div>
         </div>
-
-        <div className="mt-8 flex items-center justify-center md:mt-0 md:pr-24">
-          <Image src="/Homepage/main.svg" alt="image decorative" width={567} height={640} />
+        <div className="mt-8 flex items-center justify-center md:mt-0">
+          <Image
+            src="/Homepage/main.svg"
+            alt="image decorative"
+            width={650}
+            height={0}
+          />
         </div>
       </main>
     </div>

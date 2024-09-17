@@ -3,17 +3,17 @@ import type { JobOffer, Service, TeamMember, ValueItem } from "~/lib/types/featu
 
 export const teamMembers: TeamMember[] = [
   {
-    name: "Amélie Laurent",
-    position: "Founder & CEO",
-    description: "Former co-founder of Opendoor. Early staff at Spotify and Clearbit.",
-    image: "/Avatar/Avatar -1.svg",
+    name: "Djebrine Aloui",
+    position: "Dirigeant & Fondateur d'Inolib",
+    description: "Offrir des Solutions d'Accessibilité Numérique Web & Mobile sur Mesure.",
+    image: "/Team/Djebrine.jpg",
     alt: "",
   },
   {
-    name: "Nikolas Gibbons",
+    name: "Lorena Aguiar",
     position: "Engineering Manager",
     description: "Lead engineering teams at Figma, Pitch, and Protocol Labs.",
-    image: "/Avatar/Avatar -2.svg",
+    image: "/Team/Lorena.svg",
     alt: "",
   },
   {
@@ -220,5 +220,107 @@ export const jobOffers: JobOffer[] = [
     location: "Lyon, France",
     type: "Full-time",
     salaryRange: "$80k - $100k",
+  },
+];
+
+
+export const data = [{
+  title:"Audits d'accessibilité numérique",
+  description : "Bénéficiez d'audits d'accessibilité réalisés par nos experts, mettant en évidence les points forts et les zones d\'amélioration de votre site ou application. Nous proposons des audits de qualité pour vous assurer de respecter les normes d'accessibilité.",
+  skills :["Corriger les erreurs en incluant tous les utilisateurs", "Améliorer l'expérience utilisateur pour tous", "Respecter les obligations en matière d'accessibilité numérique"],
+  link :"/Audit",
+  leftDirection : true,
+  image :
+  {
+    src1: "/Icons/fichier.svg",
+    src2 : "/Homepage/image1.svg",
+    width : 550,
+    heigth : 550,
+  }
+  },
+  {
+    title:"Accompagnement dans vos projets",
+    description : " Nos experts vous assistent techniquement et vous accompagnent dans vos projets, avec des services sur-mesure.",
+    skills :["Rendez-vous et séances d'accompagnement via le chat", "Envoi de briefings et rapports", "Conseils sur les bonnes pratiques et les normes"],
+    link :"/Accoumpagner",
+    leftDirection : false,
+    image :
+    {
+      src1: "/Icons/fichier.svg",
+      src2: "/Homepage/sommet.svg",
+      width : 400,
+      heigth : 400,
+    }
+    },
+    {
+      title:"Développement web et mobile",
+      description : "Optez pour des sites web et applications conformes aux normes d'accessibilité grâce à notre équipe de développeurs qualifiés.",
+      skills :["Projets sur-mesure, de la conception à la mise en ligne", "Tests, audits, et améliorations en continue", "Intégration avec plus de 100 services et outils"],
+      link :"/Developpement",
+      leftDirection : true,
+      image :
+      {
+        src1: "/Icons/mobile.svg",
+        src2 : "/Homepage/macon.svg",
+        width : 400,
+        heigth : 400,
+      }
+      },
+      {
+        title:"Formation en accessibilité numérique",
+        description : "Participez à des formations spécialisées sur les normes et techniques d'accessibilité numérique, animées par nos experts.",
+        skills :["Sessions de formation en direct et à distance", "Accès à des ressources exclusives", "Support continu et sessions de questions-réponses"],
+        link :"/Former",
+        leftDirection : false,
+        image :
+        {
+          src1: "/Icons/hat.svg",
+          src2 : "/Homepage/seated 2.svg",
+          width : 400,
+          heigth : 400,
+        }
+        }
+]
+export const Method: Service[] = [
+  {
+    title: "Co-construction",
+    description:
+      "Sélection d’un échantillon représentatif avec vous.",
+    icon: "/Icons/coeur.svg",
+    alt: "",
+  },
+  {
+    title: "Échange",
+    description:
+      "Restitution des résultats en visioconférence, avec explication des non-conformités, dessolutions et des priorités d’action.",
+    icon: "/Icons/fleche.svg",
+    alt: "",
+  },
+  {
+    title: "Livrables",
+    description:
+      "Grille technique, rapport détaillé, déclaration d’accessibilité.",
+    icon: "/Icons/fichier.svg",
+    alt: "",
+  },
+  {
+    title: "Synthèse",
+    description:
+      "Rédaction d’un rapport détaillé avec recommandations.",
+    icon: "/Icons/fichier.svg",
+    alt: "",
+  },{
+    title: "Investigation",
+    description:
+      "Analyse de l’échantillon au regard du référentiel choisi.",
+    icon: "/Icons/fichier.svg",
+    alt: "",
+  },
+  {
+    title: "Coaching",
+    description:
+      "Profitez pour chaque réalisation d'audit de trois heures de coaching en accessibilité numérique pour sensibiliser et booster vos équipes.",
+    icon: "/Icons/fichier.svg",
+    alt: "",
   },
 ];
