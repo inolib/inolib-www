@@ -4,7 +4,7 @@ import { staticPagesData } from "~/DATA/staticDataPages";
 import type { Results } from "~/lib/types/features/searchs/types";
 
 export const searchContent = async (query: string): Promise<Results> => {
-  const apiBaseUrl = "http://backend.inolib.fr/wp-json/wp/v2";
+  const apiBaseUrl = "https://backend.inolib.fr/wp-json/wp/v2";
 
   // Recherche d'articles
   const articlesRes = await fetch(`${apiBaseUrl}/posts?search=${query}&_embed`);
