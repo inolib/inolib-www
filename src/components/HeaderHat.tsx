@@ -24,7 +24,7 @@ const HeaderHat = ({ bgColor, textColor, buttonVariant, link }: HeaderHatProps) 
     router.push("/Contact");
 
     // Mettre à jour le message pour les lecteurs d'écran
-    setMessage("Redirection vers la page Contact.");
+    setMessage("Aller vers la page Contact.");
   };
 
   return (

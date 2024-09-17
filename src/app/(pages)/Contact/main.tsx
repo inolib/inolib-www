@@ -2,10 +2,10 @@
 
 import DOMPurify from "dompurify";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect , useRef } from "react";
 import type { FormData, Errors } from "~/lib/types/features/contactType/type";
 import { Button } from "~/components/UI/Button";
-import { SocialButton } from "~/components/UI/SocialButton";
+
 import { Dialog, DialogClose, DialogContent, DialogHeader, DialogTrigger, DialogTitle } from "~/components/UI/Dialog";
 
 const MainContact = () => {
@@ -38,7 +38,7 @@ const MainContact = () => {
       privacyPolicy: false,
     });
   };
-
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
   const validate = () => {
     const newErrors: Errors = {};
 
@@ -91,7 +91,11 @@ const MainContact = () => {
   const handleShowCalendar = () => {
     setIsCalendarVisible(true);
   };
-
+  useEffect(() => {
+    if (isModalOpen && closeButtonRef.current) {
+      closeButtonRef.current.focus();
+    }
+  }, [isModalOpen]);
   // Ajouter le script HubSpot quand le calendrier est visible
   useEffect(() => {
     if (isCalendarVisible) {
@@ -363,7 +367,7 @@ const MainContact = () => {
 
           {/* Confirmation de soumission */}
           {submissionMessage && (
-            <div className="mt-4 text-green-500" role="status" aria-live="polite">
+            <div className="mt-4 text-green-500" role="status" aria-live="polite" aria-atomic='true'>
               {submissionMessage}
             </div>
           )}
@@ -404,6 +408,7 @@ const MainContact = () => {
             <h2 className="mb-4 text-lg font-semibold text-gray-900">Formulaire envoyé avec succès</h2>
             <p className="mb-4 text-gray-700">Merci de nous avoir contactés ! Nous reviendrons vers vous rapidement.</p>
             <button
+            ref={closeButtonRef}
               onClick={() => setIsModalOpen(false)}
               className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
             >
