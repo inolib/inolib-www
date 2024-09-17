@@ -35,7 +35,7 @@ const submitComment = async (
   const token = uuidv4(); // Génère un token temporaire unique
 
   try {
-    const response = await fetch(`http://localhost/WORDPRESS/wp-json/wp/v2/comments`, {
+    const response = await fetch(`https://backend.inolib.fr/wp-json/wp/v2/comments`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
