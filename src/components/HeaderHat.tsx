@@ -24,7 +24,7 @@ const HeaderHat = ({ bgColor, textColor, buttonVariant, link }: HeaderHatProps) 
     router.push("/Contact");
 
     // Mettre à jour le message pour les lecteurs d'écran
-    setMessage("Aller vers la page Contact.");
+    setMessage("");
   };
 
   return (
@@ -67,7 +67,7 @@ const HeaderHat = ({ bgColor, textColor, buttonVariant, link }: HeaderHatProps) 
 
         {/* Élément pour informer les lecteurs d'écran après la redirection */}
         <div aria-live="polite" className="sr-only">
-          {message}
+
         </div>
       </div>
     </header>

@@ -109,7 +109,7 @@ const MainContact = () => {
   const handleCloseCalendar = () => {
     setIsCalendarVisible(false);
   };
-
+// pourquoi le hubSpot et le bouton fermer
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitError("");
@@ -151,48 +151,16 @@ const MainContact = () => {
   };
 
   return (
-    <main className="container mx-auto px-4 py-8 lg:px-0">
-      <section className="lg:flex lg:space-x-64">
-        <aside className="sm:w-50 mb-8 ml-12 md:w-64 lg:mb-0 lg:w-64">
-          <div className="mb-4 rounded-lg bg-[#F5F9FA] p-4 shadow">
-            <Image src="/Icons/contactC.svg" alt="" width={40} height={40}></Image>
-            <h2 className="mb-2 mt-4 text-lg font-semibold text-gray-900">Discuter avec le service client</h2>
-            <p className="mb-2 text-gray-700">Parlez à notre équipe sympathique.</p>
-            <a
-              href="mailto:sales@untitledui.com"
-              className="text-[#133348]"
-              aria-label="adresse email pour nous contacter"
-            >
-              contact@inolib.com
-            </a>
-          </div>
-          <div className="mb-4 rounded-lg bg-[#F5F9FA] p-4 shadow">
-            <Image src="/Icons/phone.svg" alt="" width={40} height={40}></Image>
-            <h2 className="mb-2 mt-4 text-lg font-semibold text-gray-900">Appelez-nous</h2>
-            <p className="mb-2 text-gray-700">Du lundi au vendredi de 8h à 17h.</p>
-            <p className="text-[#3E6D77]" aria-label="numéro pour nous contacter">
-              +33 6 47 21 86 69
-            </p>
-          </div>
-          <div className="rounded-lg bg-[#F5F9FA] p-4 shadow">
-            <Image src="/Icons/position.svg" alt="" width={40} height={40}></Image>
-            <h2 className="mb-2 mt-4 text-lg font-semibold text-gray-900">Visitez-nous</h2>
-            <p className="mb-2 text-gray-700">Visitez notre siège social.</p>
-            <address className="not-italic text-gray-700">
-              254 rue Vendôme
-              <br />
-              69003 Lyon
-            </address>
-          </div>
-        </aside>
+    <main className="w-full flex flex-col px-4 py-8  items-center">
+      <section className="w-full flex flex-col items-center md:flex-row-reverse md:justify-center md:items-start  xl:w-[1240px] 2xl:w-[1300px]">
 
-        <div className="lg:w-96">
-          <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+        <div className="md:w-[50%] px-2 flex flex-col">
+          <form onSubmit={handleSubmit} className="space-y-4 max-w-[520px]" noValidate>
             <fieldset className="mb-4">
-              <legend className="mb-2 w-96 border-b-2 border-b-gray-200 text-lg font-semibold text-gray-900">
+              <legend className="mb-2 w-full border-b-2 border-b-gray-200 text-lg font-semibold text-gray-900">
                 Vous êtes intéressé par :
               </legend>
-              <div className="mb-6 flex flex-wrap gap-2 space-x-[1.5px]">
+              <div className="mb-6 mt-2 flex flex-wrap gap-2 space-x-[1.5px]">
                 {["Audit", "Accompagnement", "Développement", "Formation", "Partenariat", "Autre"].map((interest) => (
                   <button
                     role="radio"
@@ -225,7 +193,7 @@ const MainContact = () => {
               </div>
             </fieldset>
 
-            <legend className="mb-2 w-96 border-b-2 border-b-gray-200 text-lg font-semibold text-gray-900">
+            <legend className="mb-2 w-full border-b-2 border-b-gray-200 text-lg font-semibold text-gray-900">
               Dites-nous un peu plus sur vous :
             </legend>
 
@@ -353,7 +321,7 @@ const MainContact = () => {
 
             <div>
               <Button variant="buttonNoir" type="submit" className="w-96">
-                Nous contacter
+                Envoyer le formulaire
               </Button>
             </div>
 
@@ -371,6 +339,10 @@ const MainContact = () => {
               {submissionMessage}
             </div>
           )}
+
+
+
+
 
           {/* Bouton pour afficher le calendrier dans une modale */}
           <Dialog>
@@ -396,6 +368,38 @@ const MainContact = () => {
             </DialogContent>
           </Dialog>
         </div>
+        <aside className="w-full mt-8 md:mt-0  flex flex-col items-center md:w-[50%] md:items-start md:lg:pl-[3%] px-2 ">
+          <div className=" w-full mb-4 max-w-96 rounded-lg bg-[#F5F9FA] p-4 shadow">
+            <Image src="/Icons/contactC.svg" alt="" width={40} height={40}></Image>
+            <h2 className="mb-2 mt-4 text-lg font-semibold text-gray-900">Discuter avec le service client</h2>
+            <p className="mb-2 text-gray-700">Parlez à notre équipe sympathique.</p>
+            <a
+              href="mailto:sales@untitledui.com"
+              className="text-[#133348]"
+              aria-label="adresse email pour nous contacter"
+            >
+              contact@inolib.com
+            </a>
+          </div>
+          <div className="w-full mb-4 max-w-96 rounded-lg bg-[#F5F9FA] p-4 shadow">
+            <Image src="/Icons/phone.svg" alt="" width={40} height={40}></Image>
+            <h2 className="mb-2 mt-4 text-lg font-semibold text-gray-900">Appelez-nous</h2>
+            <p className="mb-2 text-gray-700">Du lundi au vendredi de 8h à 17h.</p>
+            <p className="text-[#3E6D77]" aria-label="numéro pour nous contacter">
+              +33 6 47 21 86 69
+            </p>
+          </div>
+          <div className="w-full mb-4 max-w-96 rounded-lg bg-[#F5F9FA] p-4 shadow">
+            <Image src="/Icons/position.svg" alt="" width={40} height={40}></Image>
+            <h2 className="mb-2 mt-4 text-lg font-semibold text-gray-900">Visitez-nous</h2>
+            <p className="mb-2 text-gray-700">Visitez notre siège social.</p>
+            <address className="not-italic text-gray-700">
+              254 rue Vendôme
+              <br />
+              69003 Lyon
+            </address>
+          </div>
+        </aside>
       </section>
 
       <section className="ml-80 justify-center">

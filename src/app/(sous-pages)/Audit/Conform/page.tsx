@@ -4,8 +4,11 @@ import Faqs from "~/components/Faqs";
 import Footer from "~/components/Footer";
 import Header from "~/components/Header";
 import HeaderHat from "~/components/HeaderHat";
+import Methodologie from "~/components/Methodo";
 import ServiceSection from "~/components/ServiceSection";
 import Statis from "~/components/Statistique";
+import Go from "~/components/GoFarther"
+
 
 const PageConfo = () => {
   return (
@@ -21,8 +24,10 @@ const PageConfo = () => {
         }}
       />
       <Confo />
+      <Methodologie/>
+
       <Statis />
-      <ServiceSection />
+      <Go />
       <Faqs />
       <ContactBanner />
       <Footer />

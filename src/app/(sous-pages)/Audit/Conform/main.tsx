@@ -242,47 +242,8 @@ const Conf = () => {
           </div>
         </div>
 
-        {/* Méthodologie */}
-        <section className="ml-2 mt-8 w-1/2">
-          <div className="mb-4 flex items-center">
-            <Image src="/Icons/eclaire.svg" alt="" width={40} height={40} className="mr-2" />
-            <h2 className="text-2xl font-bold">Notre Méthodologie</h2>
-          </div>
 
-          <ul className="list-none space-y-4 text-gray-600">
-            <li className="flex items-start">
-              <Image src="/Icons/CheckIcon.svg" alt="" width={20} height={20} className="mr-2" />
-              Co-construction : Sélection d’un échantillon représentatif avec vous.
-            </li>
-            <li className="flex items-start">
-              <Image src="/Icons/CheckIcon.svg" alt="" width={20} height={20} className="mr-2" />
-              Investigation : Analyse de l’échantillon au regard du référentiel choisi.
-            </li>
-            <li className="flex items-start">
-              <Image src="/Icons/CheckIcon.svg" alt="" width={20} height={20} className="mr-2" />
-              Synthèse : Rédaction d’un rapport détaillé avec recommandations.
-            </li>
-            <li className="flex items-start">
-              <Image src="/Icons/CheckIcon.svg" alt="" width={20} height={20} className="mr-2" />
-              Échange : Restitution des résultats en visioconférence, avec explication des non-conformités, des
-              solutions et des priorités d’action.
-            </li>
-            <li className="flex items-start">
-              <Image src="/Icons/CheckIcon.svg" alt="" width={20} height={20} className="mr-2" />
-              Livrables : Grille technique, rapport détaillé, déclaration d’accessibilité.
-            </li>
-          </ul>
-        </section>
 
-        <aside>
-          <h2>Aller plus loin</h2>
-
-          <p>
-            Accompagnement dans votre démarche d'accessibilité Coordination : Suivi des anomalies via vos outils de
-            gestion de projet (Redmine, Jira, Trello, Asana). Développement sur-mesure : Conseils pour maintenir un
-            environnement numérique sécurisé et conforme.
-          </p>
-        </aside>
       </div>
     </main>
   );
