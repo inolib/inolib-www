@@ -83,29 +83,28 @@ const MainNav = ({ hoverClass, hoverBorder }: MainNavProps) => {
             role="none"
           >
             <div
-              className={`flex cursor-pointer items-center pb-2 ${hoverClass}`}
-              aria-haspopup={item.subItems ? "true" : "false"}
-              aria-expanded={openMenu === item.label ? "true" : "false"}
-              onClick={(e) => handleClick(item.label, !!item.subItems, e)}
-              onKeyDown={(e) => handleKeyDown(item.label, !!item.subItems, e)}
-              role={item.subItems ? "button" : "menuitem"}
+  className={`flex cursor-pointer items-center pb-2 ${hoverClass}`}
+  role="menuitem" // On évite le rôle "button" sauf si c'est un vrai bouton.
+  aria-haspopup={item.subItems ? undefined : undefined} // Ne pas spécifier si pas de sous-menu
+  aria-expanded={item.subItems && openMenu === item.label ? undefined : undefined} // Seulement quand le menu est ouvert
+  onClick={(e) => handleClick(item.label, !!item.subItems, e)}
+  onKeyDown={(e) => handleKeyDown(item.label, !!item.subItems, e)}
+  aria-label={item.subItems ? `${item.label},${openMenu === item.label ? "ouvert" : "fermé"}` : `${item.label}`}
+  tabIndex={item.subItems ? 0 :1 } // empeche la double tabulation
+>
+  {item.subItems ? (
+    <span className={`flex items-center ${hoverBorder} hover:border-b-[1.5px]`}>
+      {item.label}
+      {renderArrow(item.label)}
+    </span>
+  ) : (
+    <Link href={item.href} className={`flex items-center ${hoverBorder} hover:border-b-[1.5px]`} aria-hidden='true'>
+      {item.label}
+    </Link>
+  )}
+</div>
 
-              aria-label={item.subItems ? `${item.label} menu` : `${item.label}`}
 
-              tabIndex={item.subItems ? 0 : undefined}
-            >
-              {/* Vérification s'il y a des subItems */}
-              {item.subItems ? (
-                <span className={`flex items-center ${hoverBorder} hover:border-b-[1.5px]`}>
-                  {item.label}
-                  {renderArrow(item.label)}
-                </span>
-              ) : (
-                <Link href={item.href} className={`flex items-center ${hoverBorder} hover:border-b-[1.5px]`}>
-                  {item.label}
-                </Link>
-              )}
-            </div>
 
             {/* Affichage du sous-menu */}
             {openMenu === item.label && item.subItems && (
@@ -114,7 +113,7 @@ const MainNav = ({ hoverClass, hoverBorder }: MainNavProps) => {
                 onMouseEnter={() => handleMouseEnter(item.label)}
                 onMouseLeave={handleMouseLeave}
                 role="menu"
-                aria-label={`${item.label} sous-menu`}
+
               >
                 {item.subItems.map((subItem, idx) => (
                   <Link

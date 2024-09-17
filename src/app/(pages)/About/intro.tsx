@@ -11,9 +11,11 @@ import {
 
 const Intro = () => {
   return (
-    <section className="bg-white px-4 py-16 text-center" aria-labelledby="about-heading">
-      <Breadcrumb>
-        <BreadcrumbList className="mb-6 ml-16 mt-0 flex items-center space-x-2">
+    <section className="w-full bg-white " aria-labelledby="about-heading">
+      <div className="w-full px-4 py-16 flex flex-col items-center text-center ">
+
+      <Breadcrumb className="hidden xl:block mb-6 xl:pl-20 xl:w-[1280px]">
+        <BreadcrumbList className=" space-x-2 ">
           <BreadcrumbItem>
             <BreadcrumbLink href="/">
               <Image src="/Icons/BreadcrumIcon.svg" alt="Home" width={20} height={20} />
@@ -28,12 +30,13 @@ const Intro = () => {
         </BreadcrumbList>
       </Breadcrumb>
 
-      <div className="mx-auto max-w-3xl">
-        <span className="mb-4 inline-block rounded-full bg-[#CBE0E4] px-3 py-1 text-sm font-medium">À propos</span>
-        <h2 id="about-heading" className="m-auto mb-4 w-128 text-3xl font-bold text-gray-900">
+      <div className="w-full flex flex-col items-center max-w-3xl sm:w-[600px] ">
+
+        <span className="mb-4 w-40 inline-block rounded-full bg-[#CBE0E4] px-3 py-1 text-sm font-medium">À propos</span>
+        <h2 id="about-heading" className="m-auto mb-4 w-[100%] text-3xl font-bold text-gray-900">
           Nous faisons de l’inclusivité notre mot d’ordre.
         </h2>
-        <p className="m-auto mb-6 w-160 text-gray-600">
+        <p className="m-auto mb-6 w-[100%] text-gray-600">
           Untitled is a technology company that builds infrastructure for your startup, so you don’t have to. Businesses
           of every size—from new startups to public companies—use our software to manage their businesses.
         </p>
@@ -43,6 +46,8 @@ const Intro = () => {
         >
           Rejoindre notre equipe
         </Link>
+      </div>
+
       </div>
     </section>
   );

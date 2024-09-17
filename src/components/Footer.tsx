@@ -7,9 +7,9 @@ const Footer = () => {
   return (
     <footer className="bg-[#122023] py-10 text-white">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-6">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           {menuItemsFooter.map((menuItem) => (
-            <div key={menuItem.label} className="col-span-1 md:col-span-1">
+            <div key={menuItem.label} className="col-span-1 md:col-span-1 text-center">
               {/* Si pas de sous-items, afficher le lien dans le h2 */}
               {menuItem.subItems ? (
                 <>
@@ -34,21 +34,22 @@ const Footer = () => {
             </div>
           ))}
 
-          {/* Suivez-nous section */}
-          <div className="col-span-2 flex flex-col items-center md:col-span-1 md:items-start">
-            <h2 className="mb-4 text-xl text-[#8EBBC5]">Suivez-nous!</h2>
+        </div>
+        {/* Suivez-nous section */}
+        <div className="col-span-2 flex flex-col items-center lg:items-center">
+            <h2 className="mb-4 text-xl text-[#8EBBC5] text-center">Suivez-nous!</h2>
             <div className="flex space-x-4">
               <SocialButton className="" />
             </div>
           </div>
-        </div>
-
         {/* Logo et droits réservés */}
         <div className="mt-10 flex flex-col items-center justify-between md:flex-row">
           <div className="flex items-center space-x-2">
-            <Image src="/Logo/LogoJaune.svg" alt="Inolib logo" width={100} height={50} />
+            <Link href='/' aria-label="retourner a la page d'accueil">
+            <Image src="/Logo/LogoJaune.svg" alt="" width={100} height={50} />
+            </Link>
           </div>
-          <p className="mt-4 text-sm text-gray-400 md:mt-0">&copy; 2023 Untitled UI. All rights reserved.</p>
+          <p className="mt-4 text-sm text-gray-400 md:mt-0">&copy; 2024 Inolib. All rights reserved.</p>
         </div>
       </div>
     </footer>
