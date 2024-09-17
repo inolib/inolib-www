@@ -40,7 +40,7 @@ export const CarrerSection = () => {
           </p>
           <Link
             href="/"
-            className="rounded-lg border-[1px] border-[#e15118] bg-[#254147] px-6 py-3 text-white shadow hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-300 xxs:w-[80%] sm:w-[350px]"
+            className="rounded-lg bg-[#254147] px-6 py-3 text-white shadow hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-300 xxs:w-[80%] sm:w-[350px]"
           >
             Envoyer ma candidature spontanée
           </Link>
