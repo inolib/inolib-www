@@ -20,13 +20,18 @@ const MainNav = ({ hoverClass, hoverBorder }: MainNavProps) => {
     setHoveredMenu(null);
   };
 
-  const handleClick = (menu: string, hasSubItems: boolean, e: React.MouseEvent) => {
+  const handleClick = (menu: string, hasSubItems: boolean, e: React.MouseEvent | React.KeyboardEvent) => {
     if (hasSubItems) {
       e.preventDefault();
       setOpenMenu(openMenu === menu ? null : menu); // Toggle entre ouvert et fermé
     }
   };
-
+  const handleKeyDown = (menu: string, hasSubItems: boolean, e: React.KeyboardEvent) => {
+    if (hasSubItems && (e.key === "Enter" || e.key === " ")) {
+      e.preventDefault();
+      handleClick(menu, hasSubItems, e); // Gérer ouverture avec Entrée ou Espace
+    }
+  };
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement | null;
@@ -67,28 +72,39 @@ const MainNav = ({ hoverClass, hoverBorder }: MainNavProps) => {
   );
 
   return (
-    <nav className=" hidden px-2 py-6 lg:block ml-12">
-      <ul className="flex space-x-12 font-sans 2xl:space-x-16">
+    <nav className="ml-16 hidden px-2 py-6 lg:block">
+      <ul className="flex space-x-12 font-sans">
         {menuItems.map((item) => (
           <li
             key={item.label}
             className="menu-item group relative"
             onMouseEnter={() => handleMouseEnter(item.label)}
             onMouseLeave={handleMouseLeave}
+            role="none"
           >
             <div
               className={`flex cursor-pointer items-center pb-2 ${hoverClass}`}
               aria-haspopup={item.subItems ? "true" : "false"}
               aria-expanded={openMenu === item.label ? "true" : "false"}
               onClick={(e) => handleClick(item.label, !!item.subItems, e)}
-              role={item.subItems ? "button" : undefined}
-              aria-label={item.subItems ? `${item.label} menu, expandable` : `${item.label} link`}
+              onKeyDown={(e) => handleKeyDown(item.label, !!item.subItems, e)}
+              role={item.subItems ? "button" : "menuitem"}
+
+              aria-label={item.subItems ? `${item.label} menu` : `${item.label}`}
+
+              tabIndex={item.subItems ? 0 : undefined}
             >
-              {/* L'élément principal et le chevron sont regroupés pour un seul clic */}
-              <Link href={""} className={`flex items-center ${hoverBorder} hover:border-b-[1.5px]`}>
-                {item.label}
-                {item.subItems && renderArrow(item.label)}
-              </Link>
+              {/* Vérification s'il y a des subItems */}
+              {item.subItems ? (
+                <span className={`flex items-center ${hoverBorder} hover:border-b-[1.5px]`}>
+                  {item.label}
+                  {renderArrow(item.label)}
+                </span>
+              ) : (
+                <Link href={item.href} className={`flex items-center ${hoverBorder} hover:border-b-[1.5px]`}>
+                  {item.label}
+                </Link>
+              )}
             </div>
 
             {/* Affichage du sous-menu */}
@@ -98,6 +114,7 @@ const MainNav = ({ hoverClass, hoverBorder }: MainNavProps) => {
                 onMouseEnter={() => handleMouseEnter(item.label)}
                 onMouseLeave={handleMouseLeave}
                 role="menu"
+                aria-label={`${item.label} sous-menu`}
               >
                 {item.subItems.map((subItem, idx) => (
                   <Link
@@ -107,6 +124,7 @@ const MainNav = ({ hoverClass, hoverBorder }: MainNavProps) => {
                       idx < (item.subItems ?? []).length - 1 ? "border-b border-gray-300" : ""
                     }`}
                     role="menuitem"
+
                   >
                     <span>{subItem.label}</span>
                     {renderSubItemArrow()}
