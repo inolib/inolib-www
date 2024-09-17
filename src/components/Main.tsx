@@ -6,20 +6,20 @@ import { Button } from "~/components/UI/Button";
 
 const Main = () => {
   return (
-    <div className="min-h-screen rounded-tr-customm-tr bg-gradient-to-b from-[#122023] via-[#254147] to-black text-white xxs:rounded-tr-customx-tr xs:rounded-tr-customx-tr sm:rounded-tr-customx-tr md:rounded-tr-customs-tr lg:rounded-tr-customm-tr">
+    <div className="min-h-screen rounded-tr-customm-tr bg-gradient-to-b from-[#122023] via-[#0e2f08] to-[#323909] text-white xxs:rounded-tr-customx-tr xs:rounded-tr-customx-tr sm:rounded-tr-customx-tr md:rounded-tr-customs-tr lg:rounded-tr-customm-tr">
       <main className="flex flex-col items-center justify-between px-4 py-10 text-center sm:px-8 sm:py-20 md:flex-row md:text-left">
         <div className="mx-auto max-w-4xl rounded-br-full pb-10 text-left md:pb-0">
           <div className="rounded-lg bg-opacity-75 p-6 sm:p-10">
             <p className="mb-4 flex h-9 flex-row rounded-full border-[1px] border-[#E1FF01] bg-[#3B3A33] xxs:w-[265px] xs:w-[265px] sm:mb-8 sm:w-64 md:w-64">
               <span className="xs:w-30 mx-1 my-[2px] w-36 rounded-full border-[1px] border-[#E1FF01] bg-[#122023] px-2 py-[1px] xxs:w-[125px] xxs:pt-1 xxs:text-sm xs:pt-1 xs:text-sm sm:w-28 sm:pt-2 sm:text-xs">
-                Nous recrutons !
+                Restez à jour !
               </span>
 
               <Link
-                href="/About#Carrer"
+                href="/#news"
                 className="flex items-center px-4 pb-1 pt-1 xxs:px-0 xxs:pl-1 xxs:text-xs xs:pl-1 sm:ml-2 sm:text-xs"
               >
-                Voir les offres
+                Voir l'actualité
                 <RxArrowRight className="ml-1 h-3 w-3" />
               </Link>
             </p>
