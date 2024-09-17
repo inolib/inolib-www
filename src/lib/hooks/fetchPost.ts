@@ -4,7 +4,7 @@ import type { OneComment, Post } from "~/lib/types/features/componentTypes/types
 // fetch les posts
 export const fetchPost = async (slug: string): Promise<Post | null> => {
   try {
-    const res = await fetch(`https://backend.inolib.fr/wp-json/wp/v2/posts?slug=${slug}&_embed`);
+    const res = await fetch(`http://backend.inolib.fr/wp-json/wp/v2/posts?slug=${slug}&_embed`);
 
     if (!res.ok) {
       throw new Error("Failed to fetch post");
@@ -17,7 +17,7 @@ export const fetchPost = async (slug: string): Promise<Post | null> => {
     }
 
     const post = posts[0]; // On prend le premier post trouvé
-    const authorRes = await fetch(`https://backend.inolib.fr/wp-json/wp/v2/users/${post.author}`);
+    const authorRes = await fetch(`http://backend.inolib.fr/wp-json/wp/v2/users/${post.author}`);
 
     if (!authorRes.ok) {
       throw new Error("Failed to fetch author");
@@ -39,7 +39,7 @@ export const fetchPost = async (slug: string): Promise<Post | null> => {
 // fetch les commentaires d'un post depuis l'API REST de WordPress.
 export const fetchComments = async (postId: number): Promise<OneComment[]> => {
   try {
-    const res = await fetch(`https://backend.inolib.fr/wp-json/wp/v2/comments?post=${postId}`);
+    const res = await fetch(`http://backend.inolib.fr/wp-json/wp/v2/comments?post=${postId}`);
 
     if (!res.ok) {
       throw new Error("Failed to fetch comments");
