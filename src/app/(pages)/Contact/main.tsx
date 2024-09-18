@@ -123,7 +123,7 @@ const MainContact = () => {
     const sanitizedMessage = DOMPurify.sanitize(formData.message);
 
     // Soumission à l'API via fetch
-    fetch("http://localhost/WORDPRESS/wp-json/custom-api/v2/contact", {
+    fetch("https://backend.inolib.fr/wp-json/custom-api/v2/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
