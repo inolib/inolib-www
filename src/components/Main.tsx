@@ -33,13 +33,14 @@ const Main = () => {
             </p>
             <div className="flex flex-col justify-center mt-14 space-y-4 md:flex-row md:space-x-4 md:space-y-0 md:mt-8 md:justify-start">
               <Button
+              href="/#services"
                 variant="ghost"
                 className="rounded-md border-2 bg-[#122023] px-4 py-2 font-semibold text-white transition hover:bg-yellow-600 md:w-[180px] md:h-[51px] lg:h-[61px] lg:w-[280px]"
               >
                 Decouvrir nos services
               </Button>
               <Button
-                href="/contact"
+                href="/Contact"
                 variant="ButtonJaune"
                 className="md:h-[51px] md:w-[120px] lg:h-[61px] lg:w-[180px]"
               >
@@ -51,7 +52,7 @@ const Main = () => {
         <div className="mt-8 flex items-center justify-center md:mt-0">
           <Image
             src="/Homepage/main.svg"
-            alt="image decorative"
+            alt=""
             width={650}
             height={0}
           />

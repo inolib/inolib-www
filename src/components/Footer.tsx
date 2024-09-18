@@ -45,7 +45,7 @@ const Footer = () => {
         {/* Logo et droits réservés */}
         <div className="mt-10 flex flex-col items-center justify-between md:flex-row">
           <div className="flex items-center space-x-2">
-            <Link href='/' aria-label="retourner a la page d'accueil">
+            <Link href='/' aria-label="accueil">
             <Image src="/Logo/LogoJaune.svg" alt="" width={100} height={50} />
             </Link>
           </div>
