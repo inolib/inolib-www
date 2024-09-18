@@ -62,7 +62,7 @@ export const SocialButton = ({
               target="_blank"
               rel="noopener noreferrer"
               className={cn("cursor-pointer border-none bg-transparent text-2xl hover:opacity-70", buttonClassName)}
-              aria-label=" Twitter"
+              aria-label=" x"
             >
               <FaXTwitter aria-hidden="true" /> {/* Icône masquée pour les lecteurs d'écran */}
             </a>

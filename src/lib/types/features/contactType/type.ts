@@ -4,8 +4,8 @@ export type FormData = {
   email: string;
   phoneNumber: string;
   message: string;
-  interest: string;
-  budget: string;
+  interest: string [];
+
   privacyPolicy: boolean;
 };
 
