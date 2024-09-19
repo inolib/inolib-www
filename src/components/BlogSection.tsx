@@ -41,8 +41,8 @@ const BlogSection = () => {
   }
 
   return (
-    <section className="bg-white py-8">
-      <div className="flex-rows flex justify-between px-16">
+    <section className="py-8 ">
+      <div className="flex-rows flex justify-between px-16 2xl:w-[1440px]">
         <div>
           <span
             className="text-black-500 mb-2 inline-block h-6 rounded-full bg-[#CBE0E4] px-3 py-[1px] text-sm"
@@ -59,7 +59,7 @@ const BlogSection = () => {
           </Button>{" "}
         </div>
       </div>
-      <div className="grid gap-6 px-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 px-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3  ">
         {latestPosts.map((post) => (
           <article key={post.id} className="">
             {post.img && (
