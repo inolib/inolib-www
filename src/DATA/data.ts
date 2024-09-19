@@ -6,14 +6,14 @@ export const teamMembers: TeamMember[] = [
     name: "Djebrine Aloui",
     position: "Dirigeant & Fondateur d'Inolib",
     description: "Offrir des Solutions d'Accessibilité Numérique Web & Mobile sur Mesure.",
-    image: "/Team/Djebrine.jpg",
+    image: "/Team/Djebrinem.png",
     alt: "",
   },
   {
-    name: "Lorena Aguiar",
-    position: "Engineering Manager",
+    name: "Aurore-Mauve Voeltzel",
+    position: "Développeuse économique",
     description: "Lead engineering teams at Figma, Pitch, and Protocol Labs.",
-    image: "/Team/Lorena.svg",
+    image: "/Team/Aurore.png",
     alt: "",
   },
   {
