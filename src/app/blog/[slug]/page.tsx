@@ -48,7 +48,7 @@ const Single = ({ params }: Props) => {
 
   const handleDeleteComment = async (commentId: number) => {
     try {
-      const response = await fetch(`http://localhost/WORDPRESS/wp-json/wp/v2/comments/${commentId}`, {
+      const response = await fetch(`https://backend.inolib.fr/wp-json/wp/v2/comments/${commentId}`, {
         method: "DELETE",
       });
 
