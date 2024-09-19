@@ -342,19 +342,6 @@ const MainContact = () => {
               </div>
             )}
           </form>
-
-          {/* Confirmation de soumission */}
-          {submissionMessage && (
-            <div className="mt-4 text-green-500" role="status">
-              {submissionMessage}
-            </div>
-          )}
-
-          <Link href="/Calendar">
-            <Button variant="buttonNoir" className="mt-2 w-96">
-              Prendre rendez-vous
-            </Button>
-          </Link>
         </div>
 
         <aside
