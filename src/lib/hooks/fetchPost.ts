@@ -17,15 +17,16 @@ export const fetchPost = async (slug: string): Promise<Post | null> => {
     }
 
     const post = posts[0]; // On prend le premier post trouvé
+    console.log("post trouvé", post);
     const authorRes = await fetch(`https://backend.inolib.fr/wp-json/wp/v2/users/${post.author}`);
-
-    if (!authorRes.ok) {
+    console.log("authorRes", authorRes);
+    /*if (!authorRes.ok) {
       throw new Error("Failed to fetch author");
     }
 
     const author = await authorRes.json();
     post.authorName = author.name;
-
+*/
     const categories = post._embedded["wp:term"]?.[0]?.map((term: any) => term.name) || [];
     post.categoryNames = categories;
 
