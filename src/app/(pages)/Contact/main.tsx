@@ -8,9 +8,6 @@ import { Button } from "~/components/UI/Button";
 import { Breadcrumb, BreadcrumbItem , BreadcrumbList , BreadcrumbSeparator ,BreadcrumbLink } from "~/components/UI/Breadcrumb";
 import Link from 'next/link'
 
-
-
-
 const MainContact = () => {
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
@@ -22,8 +19,6 @@ const MainContact = () => {
 
     privacyPolicy: false,
   });
-
-
 
   const [errors, setErrors] = useState<Errors>({});
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -99,10 +94,6 @@ const MainContact = () => {
     });
   };
 
-
-
-
-
   // Gérer l'affichage du calendrier HubSpot via un bouton
   const handleShowCalendar = () => {
     setIsCalendarVisible(true);
@@ -167,14 +158,11 @@ const MainContact = () => {
   };
 
   return (
-    <main className="w-full flex flex-col px-4 py-8  items-center ">
-      <section className="w-full flex flex-col items-center md:flex-row-reverse md:justify-center md:items-start  xl:w-[1240px] 2xl:w-[1300px]">
-
-
-        <div className="md:w-[50%] px-2 flex flex-col ">
-          <form onSubmit={handleSubmit} className="space-y-4 max-w-[520px]" noValidate>
-            <fieldset className="mb-4">
-              <legend className="mb-2 w-full border-b-2 border-b-gray-200 text-lg font-semibold text-gray-900">
+    <main className="flex w-full flex-col items-center px-4 py-8">
+      <section className="flex w-full flex-col items-center md:flex-row-reverse md:items-start md:justify-center xl:w-[1240px] 2xl:w-[1300px]">
+        <div className="flex w-full flex-col items-center px-2 md:w-[50%] md:items-start">
+          <form onSubmit={handleSubmit} className="w-full max-w-[520px] space-y-4" noValidate>
+            <fieldset className="mb-4 w-full">
               <legend className="mb-2 w-full border-b-2 border-b-gray-200 text-lg font-semibold text-gray-900">
                 Vous êtes intéressé par :
               </legend>
@@ -210,7 +198,6 @@ const MainContact = () => {
                 ))}
               </div>
             </fieldset>
-
 
             <legend className="mb-2 w-full border-b-2 border-b-gray-200 text-lg font-semibold text-gray-900">
               Dites-nous un peu plus sur vous :
@@ -349,13 +336,13 @@ const MainContact = () => {
             </div>
 
             {/* Message d'erreur global */}
-                      {submitError && (
-                        <div className="mt-4 text-red-500" role="alert" aria-live="assertive">
-                          {submitError}
-                        </div>
-                      )}
+            {submitError && (
+              <div className="mt-4 text-red-500" role="alert" aria-live="assertive">
+                {submitError}
+              </div>
+            )}
             <div className="w-full text-center">
-              <Button variant="buttonNoir" type="submit" className="w-96">
+              <Button variant="buttonNoir" type="submit" className="w-full max-w-96">
                 Nous contacter
               </Button>
             {submitError && (
@@ -370,7 +357,6 @@ const MainContact = () => {
             <div className="mt-4 text-green-500" role="status" aria-live="polite" aria-atomic='true'>
               {submissionMessage}
             </div>
-
 
 
 <Link href="/Calendar">
@@ -394,10 +380,9 @@ const MainContact = () => {
               {submissionMessage}
             </div>
           )}
-
         </div>
-        <aside className="w-full mt-8 md:mt-0  flex flex-col items-center md:w-[50%] md:items-start md:lg:pl-[3%] px-2 ">
-          <div className="w-full mb-4 max-w-96 rounded-lg bg-[#F5F9FA] p-4 shadow">
+        <aside className="mt-8 flex w-full flex-col items-center px-2 md:mt-0 md:w-[50%] md:items-start md:lg:pl-[3%]">
+          <div className="mb-4 w-full max-w-96 rounded-lg bg-[#F5F9FA] p-4 shadow">
             <Image src="/Icons/contactC.svg" alt="" width={40} height={40}></Image>
             <h2 className="mb-2 mt-4 text-lg font-semibold text-gray-900">Discuter avec le service client</h2>
             <p className="mb-2 text-gray-700">Parlez à notre équipe sympathique.</p>
@@ -409,7 +394,7 @@ const MainContact = () => {
               contact@inolib.com
             </a>
           </div>
-          <div className="w-full mb-4 max-w-96 rounded-lg bg-[#F5F9FA] p-4 shadow">
+          <div className="mb-4 w-full max-w-96 rounded-lg bg-[#F5F9FA] p-4 shadow">
             <Image src="/Icons/phone.svg" alt="" width={40} height={40}></Image>
             <h2 className="mb-2 mt-4 text-lg font-semibold text-gray-900">Appelez-nous</h2>
             <p className="mb-2 text-gray-700">Du lundi au vendredi de 8h à 17h.</p>
@@ -417,7 +402,7 @@ const MainContact = () => {
               +33 6 47 21 86 69
             </p>
           </div>
-          <div className="w-full mb-4 max-w-96 rounded-lg bg-[#F5F9FA] p-4 shadow">
+          <div className="mb-4 w-full max-w-96 rounded-lg bg-[#F5F9FA] p-4 shadow">
             <Image src="/Icons/position.svg" alt="" width={40} height={40}></Image>
             <h2 className="mb-2 mt-4 text-lg font-semibold text-gray-900">Visitez-nous</h2>
             <p className="mb-2 text-gray-700">Visitez notre siège social.</p>
@@ -461,8 +446,6 @@ const MainContact = () => {
           </div>
         </aside>
       </section>
-
-
 
       <section className="mt-8">
         <Image src="/Homepage/contact.svg" alt="" width={800} height={500} />

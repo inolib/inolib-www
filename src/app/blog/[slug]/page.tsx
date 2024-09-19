@@ -1,6 +1,7 @@
 "use client";
 
 import DOMPurify from "dompurify";
+import { indexOf } from "lodash";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -22,7 +23,8 @@ const Single = ({ params }: Props) => {
   const [post, setPost] = useState<Post | null>(null);
   const [comments, setComments] = useState<OneComment[]>([]);
   const [loading, setLoading] = useState(true);
-
+  console.log("params", params.slug);
+  console.log("post", post);
   useEffect(() => {
     async function fetchPostAndComments() {
       try {
@@ -70,20 +72,21 @@ const Single = ({ params }: Props) => {
     return <div>Post non trouvé</div>;
   }
 
+  console.log("Title sliced", post.title.rendered.indexOf("z"));
   return (
-    <div>
+    <div className="overflow-hidden">
       <HeaderHat bgColor="bg-[#F5F9FA]" textColor="text-black" buttonVariant="buttonNoir" link="/#services " />
       <Header
         textColor="text-black"
         logosrc="/Logo/LogoNoir.svg"
-        burgerMenu=""
+        burgerMenu="/Icons/menuBlack.svg"
         MainNavProps={{
           hoverClass: "hover:text-green-800",
           hoverBorder: "hover:border-green-800",
         }}
       />
       <Breadcrumb>
-        <BreadcrumbList className="mb-6 ml-20 mt-10 w-96">
+        <BreadcrumbList className="mb-6 mt-10 hidden min-w-[500px] text-center md:block">
           <BreadcrumbItem>
             <BreadcrumbLink href="/">
               <Image src="/Icons/BreadcrumIcon.svg" alt="Home" width={20} height={20} />
@@ -95,28 +98,26 @@ const Single = ({ params }: Props) => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href={`/blog/${post.slug}`}>{post.title.rendered}</BreadcrumbLink>
+            <BreadcrumbLink href={`/blog/${post.slug}`}>
+              {post.title.rendered.indexOf(":") === -1
+                ? `${post.title.rendered.slice(0, 30)}...`
+                : `${post.title.rendered.slice(0, post.title.rendered.indexOf(":"))}...`}
+            </BreadcrumbLink>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
-      <div className="ml-10 grid gap-8 md:grid-cols-2">
-        {/* Breadcrumb */}
-
-        <div className="px-10 py-14">
+      <div className="flex w-full flex-col-reverse border-[1px] border-[#f32525] px-6 py-16 md:flex-row">
+        <div className="flex flex-col items-start border-[1px] border-[#5c25f3] md:w-[50%]">
           {post.categoryNames.map((category, index) => (
             <span
               key={index}
-              className="mb-2 inline-block rounded-full bg-[#CBE0E4] px-2 py-1 text-xs font-semibold uppercase tracking-wide text-gray-800"
+              className="mb-2 mt-10 inline-block rounded-full bg-[#CBE0E4] px-2 py-1 text-xs font-semibold uppercase tracking-wide text-gray-800"
             >
               {category}
             </span>
           ))}
           <h1 className="mt-2 text-3xl font-semibold">{post.title.rendered}</h1>
-          <div
-            dangerouslySetInnerHTML={{ __html: post.content.rendered }}
-            className="mb-4 mt-4 line-clamp-3 text-gray-700"
-          />
-          <p className="mb-6 font-manrope">
+          <p className="mb-6 mt-4 font-manrope">
             {post.authorName}{" "}
             {new Date(post.date).toLocaleDateString("fr-FR", {
               day: "2-digit",
@@ -124,17 +125,25 @@ const Single = ({ params }: Props) => {
               year: "numeric",
             })}
           </p>
-          <article className="" dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
         </div>
-        <div>
+
+        <div className="flex items-center justify-center border-[1px] border-[#51bb1c] md:w-[50%]">
           <Image src="/Homepage/article.svg" alt="" width={500} height={500} />
         </div>
+      </div>{" "}
+      <div className="px-10 py-14">
+        <article className="" dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+        <div
+          dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+          className="mb-4 mt-4 line-clamp-3 text-gray-700"
+        />
       </div>
-      <div className="flex flex-row justify-between">
+      <div className="ml-10 grid gap-8 md:grid-cols-2">{/* Breadcrumb */}</div>
+      {/*  <div className="flex flex-row justify-between">
         <Image src="/Homepage/meufBD.svg" alt="" width={200} height={200} className="m-auto" />
         <CommentForm postId={post.id} onCommentAdded={handleCommentAdded} />
-      </div>
-      <div>
+      </div> */}
+      {/* <div>
         {comments.map((comment) => (
           <div key={comment.id} className="comment justify-end py-4" aria-label="lire le commentaire">
             <p>
@@ -143,7 +152,7 @@ const Single = ({ params }: Props) => {
             <p dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(comment.content.rendered) }} />
           </div>
         ))}
-      </div>
+      </div> */}
       <Footer />
     </div>
   );

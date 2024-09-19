@@ -29,7 +29,7 @@ const HeaderHat = ({ bgColor, textColor, buttonVariant, link }: HeaderHatProps) 
 
   return (
     <header className={`relative ${bgColor} ${textColor} flex h-20 justify-center`}>
-      <div className="flex h-full w-full items-center justify-between lg:mx-[3%] xl:w-[1200px]">
+      <div className="flex h-full w-full items-center justify-between md:mx-[3%] xl:w-[1250px]">
         {!isSearchOpen && (
           <Link
             href={link}

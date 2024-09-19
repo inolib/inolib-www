@@ -5,7 +5,7 @@ import HeaderHat from "~/components/HeaderHat";
 
 const ContactPage = () => {
   return (
-    <div>
+    <div className="overflow-hidden">
       <HeaderHat bgColor="bg-[#F5F9FA]" textColor="text-black" buttonVariant="buttonNoir" link="/Contact/#contact" />
       <Header
         textColor="text-black"
@@ -20,7 +20,7 @@ const ContactPage = () => {
         <MainContact />
       </section>
       <Footer />
-      </div>
+    </div>
   );
 };
 
