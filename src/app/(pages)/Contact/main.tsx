@@ -39,6 +39,7 @@ const MainContact = () => {
     });
   };
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const modalRef = useRef<HTMLDivElement>(null);
   const validate = () => {
     const newErrors: Errors = {};
 
@@ -93,33 +94,7 @@ const MainContact = () => {
       };
     });
   };
-
-
-
-  // Gérer l'affichage du calendrier HubSpot via un bouton
-  const handleShowCalendar = () => {
-    setIsCalendarVisible(true);
-  };
-  useEffect(() => {
-    if (isModalOpen && closeButtonRef.current) {
-      closeButtonRef.current.focus();
-    }
-  }, [isModalOpen]);
-  // Ajouter le script HubSpot quand le calendrier est visible
-  useEffect(() => {
-    if (isCalendarVisible) {
-      const script = document.createElement("script");
-      script.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
-      script.type = "text/javascript";
-      document.body.appendChild(script);
-    }
-  }, [isCalendarVisible]);
-
-  const handleCloseCalendar = () => {
-    setIsCalendarVisible(false);
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitError("");
     setSubmissionMessage("");
@@ -158,6 +133,12 @@ const MainContact = () => {
         setSubmitError("Une erreur est survenue lors de l'envoi.");
       });
   };
+  useEffect(() => {
+    if (isModalOpen && closeButtonRef.current) {
+      closeButtonRef.current.focus() ;
+    }
+  }, [isModalOpen]);
+
 
   return (
     <main className="mx-auto mt-28 px-4 py-8 lg:px-0">
@@ -380,7 +361,7 @@ const MainContact = () => {
 
           {/* Confirmation de soumission */}
           {submissionMessage && (
-            <div className="mt-4 text-green-500" role="status" aria-live="polite" aria-atomic='true'>
+            <div className="mt-4 text-green-500" role="status" >
               {submissionMessage}
             </div>
           )}
@@ -431,20 +412,28 @@ const MainContact = () => {
       </section>
 
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-75">
-          <div className="rounded-lg bg-white p-6 shadow-lg">
-            <h2 className="mb-4 text-lg font-semibold text-gray-900">Formulaire envoyé avec succès</h2>
-            <p className="mb-4 text-gray-700">Merci de nous avoir contactés ! Nous reviendrons vers vous rapidement.</p>
-            <button
-            ref={closeButtonRef}
-              onClick={() => setIsModalOpen(false)}
-              className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
-            >
-              Fermer
-            </button>
-          </div>
-        </div>
-      )}
+  <div
+    className="fixed inset-0 z-50 flex items-center justify-center bg-gray-800 bg-opacity-75"
+    role='alertdialog'
+
+    tabIndex={-1}
+   {/* ref={closeButtonRef}**/}
+
+  >
+    <div className="rounded-lg bg-white p-6 shadow-lg">
+      <h2 id="content" className="mb-4 text-lg font-semibold text-gray-900">Formulaire envoyé avec succès</h2>
+      <p id="modal-description" className="mb-4 text-gray-700">Merci de nous avoir contactés ! Nous reviendrons vers vous rapidement.</p>
+      <button
+
+        onClick={() => setIsModalOpen(false)}
+        className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+      >
+        Fermer
+      </button>
+    </div>
+  </div>
+)}
+
 
     </main>
   );
