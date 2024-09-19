@@ -31,8 +31,7 @@ const Home = () => {
         <Services />
       </section>
       <Testimonials />
-      <section id="news" className="w-full bg-white flex justify-center">
-      <section id="news" className="w-full bg-white flex justify-center">
+      <section id="news" className="flex w-full justify-center bg-white">
         <News />
       </section>
       <Newsletter />

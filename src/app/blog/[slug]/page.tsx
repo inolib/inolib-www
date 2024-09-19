@@ -105,7 +105,7 @@ const Single = ({ params }: Props) => {
             </BreadcrumbList>
           </Breadcrumb>
         </div>
-        <div className="flex-col-reversepy-16 flex w-full md:flex-row xl:w-[1200px]">
+        <div className="flex w-full flex-col-reverse py-16 md:flex-row xl:w-[1200px]">
           <div className="flex flex-col items-start md:w-[50%]">
             {post.categoryNames.map((category, index) => (
               <span

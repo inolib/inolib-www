@@ -22,7 +22,6 @@ const Main = () => {
             </p>
 
             <h1 className="mb-4 max-w-160 text-4xl leading-tight md:leading-snug lg:text-5xl lg:leading-snug xl:text-6xl xl:leading-snug">
-            <h1 className="mb-4 max-w-160 text-4xl leading-tight md:leading-snug lg:text-5xl lg:leading-snug xl:text-6xl xl:leading-snug">
               Ensemble, rendons le numérique accessible à tous
             </h1>
             <p className="font-manorop mb-4 mt-8 max-w-96 text-lg text-[#E0DBC7] md:mt-4 xl:text-xl">
