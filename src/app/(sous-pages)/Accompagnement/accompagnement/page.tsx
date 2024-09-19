@@ -1,4 +1,4 @@
-import Confo from "~/app/(sous-pages)/Audit/Conform/main";
+import Project from "~/app/(sous-pages)/Accompagnement/Accompagnement/main";
 import ContactBanner from "~/components/ContactBanner";
 import Faqs from "~/components/Faqs";
 import Footer from "~/components/Footer";
@@ -20,7 +20,7 @@ const PageConfo = () => {
           hoverBorder: "hover:border-green-800",
         }}
       />
-      <Confo />
+      <Project />
       <Statis />
       <ServiceSection />
       <Faqs />

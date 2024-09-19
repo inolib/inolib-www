@@ -24,11 +24,11 @@ const Project = () => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href="/Accompagnement">Audit d'accessibilité numérique</BreadcrumbLink>
+            <BreadcrumbLink href="/Accompagner">Accompagner</BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href="/Accompagnement/accompagnement">Accompagnement des projets </BreadcrumbLink>
+            <BreadcrumbLink href="/Accompagnement">Accompagnement des projets </BreadcrumbLink>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>

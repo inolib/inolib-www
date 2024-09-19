@@ -5,6 +5,6 @@ export default {
     workerThreads: false,
   },
   images: {
-    domains: ["localhost"],
+    domains: ["localhost", "www.inolib.fr", "inolib.fr", "www.backend.inolib.fr", "backend.inolib.fr"],
   },
 };

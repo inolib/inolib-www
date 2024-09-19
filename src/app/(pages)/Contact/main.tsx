@@ -38,7 +38,7 @@ const MainContact = () => {
       privacyPolicy: false,
     });
   };
-  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
   const modalRef = useRef<HTMLDivElement>(null);
   const validate = () => {
     const newErrors: Errors = {};
@@ -134,9 +134,46 @@ const MainContact = () => {
       });
   };
   useEffect(() => {
-    if (isModalOpen && closeButtonRef.current) {
-      closeButtonRef.current.focus() ;
+    if (isModalOpen && modalRef.current) {
+      modalRef.current.focus();
     }
+  }, [isModalOpen]);
+  useEffect(() => {
+    const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
+    const modal = modalRef.current; // Référence à la modale
+    const firstFocusableElement = modal?.querySelectorAll(focusableElements)[0]; // Premier élément focusable
+    const focusableContent = modal?.querySelectorAll(focusableElements);
+    const lastFocusableElement = focusableContent ? focusableContent[focusableContent.length - 1] : null; // Dernier élément focusable
+
+    function trapFocus(e: KeyboardEvent) {
+      if (e.key === 'Tab') {
+        if (e.shiftKey) {
+
+          if (document.activeElement === firstFocusableElement) {
+            e.preventDefault();
+            (lastFocusableElement as HTMLElement)?.focus();
+          }
+        } else {
+
+          if (document.activeElement === lastFocusableElement) {
+            e.preventDefault();
+            (firstFocusableElement as HTMLElement)?.focus();
+          }
+        }
+      }
+    }
+
+    if (isModalOpen) {
+      modal?.addEventListener('keydown', trapFocus); // Ajout de l'écoute de l'événement de tabulation
+
+      // On met automatiquement le focus sur le premier élément
+      firstFocusableElement?.focus();
+    }
+
+    return () => {
+      modal?.removeEventListener('keydown', trapFocus);
+    };
   }, [isModalOpen]);
 
 
@@ -417,7 +454,7 @@ const MainContact = () => {
     role='alertdialog'
 
     tabIndex={-1}
-   {/* ref={closeButtonRef}**/}
+    ref={modalRef}
 
   >
     <div className="rounded-lg bg-white p-6 shadow-lg">

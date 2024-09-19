@@ -15,8 +15,8 @@ export const menuItems: MenuItemProps[] = [
     href: "/Accompagner",
     label: "Accompagner",
     subItems: [
-      { href: "/Accompagnement", label: "Accompagnement" },
-      { href: "/Accompagnement/accompagnement", label: "Accompagnement de projet" },
+      { href: "/Accompagner", label: "Accompagnement" },
+      { href: "/Accompagnement/Accompagnement", label: "Accompagnement de projet" },
       { href: "/Accompagnement/assistance", label: "Assistance" },
       { href: "/Accompagnement/referent", label: "Référent en Accessibilité" },
       { href: "/Audit/TestUser", label: "Test utilisateur" },
