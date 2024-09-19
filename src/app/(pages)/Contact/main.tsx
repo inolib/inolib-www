@@ -165,10 +165,10 @@ const MainContact = () => {
     }
 
     if (isModalOpen) {
-      modal?.addEventListener('keydown', trapFocus); // Ajout de l'écoute de l'événement de tabulation
+      modal?.addEventListener('keydown', trapFocus);
 
-      // On met automatiquement le focus sur le premier élément
-      firstFocusableElement?.focus();
+
+      (firstFocusableElement as HTMLElement)?.focus();
     }
 
     return () => {
