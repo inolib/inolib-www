@@ -393,9 +393,8 @@ const MainContact = () => {
             </div>
           )}
 
-
-<Link href="/Calendar">
-<Button variant="buttonNoir" className="mt-2 w-96">
+              <Link href="/Calendar">
+            <Button variant="buttonNoir" className="mt-2 w-96">
                 Prendre rendez-vous
               </Button>
               </Link>
