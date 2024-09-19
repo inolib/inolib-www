@@ -5,8 +5,8 @@ import Image from "next/image";
 import { useState, useEffect , useRef } from "react";
 import type { FormData, Errors } from "~/lib/types/features/contactType/type";
 import { Button } from "~/components/UI/Button";
-
-import { Dialog, DialogClose, DialogContent, DialogHeader, DialogTrigger, DialogTitle } from "~/components/UI/Dialog";
+import { Breadcrumb, BreadcrumbItem , BreadcrumbList , BreadcrumbSeparator ,BreadcrumbLink } from "~/components/UI/Breadcrumb";
+import Link from 'next/link'
 
 const MainContact = () => {
   const [formData, setFormData] = useState<FormData>({
@@ -15,8 +15,8 @@ const MainContact = () => {
     email: "",
     phoneNumber: "",
     message: "",
-    interest: "",
-    budget: "",
+    interest: [],
+
     privacyPolicy: false,
   });
 
@@ -33,8 +33,8 @@ const MainContact = () => {
       email: "",
       phoneNumber: "",
       message: "",
-      interest: "",
-      budget: "",
+      interest: [],
+
       privacyPolicy: false,
     });
   };
@@ -79,13 +79,22 @@ const MainContact = () => {
     });
   };
 
-  const handleInterestSelect = (interest: string) => {
-    setFormData((prevFormData: FormData) => ({
-      ...prevFormData,
-      interest: prevFormData.interest === interest ? "" : interest,
-      message: `${formData.message} Intérêt: ${prevFormData.interest === interest ? "Aucun" : interest}.`,
-    }));
+  const handleInterestSelect = (interestItem: string) => {
+    setFormData((prevFormData: FormData) => {
+      const interest = prevFormData.interest || [];
+      const isInterestSelected = interest.includes(interestItem);
+
+      return {
+        ...prevFormData,
+        interest: isInterestSelected
+          ? interest.filter((i) => i !== interestItem)
+          : [...interest, interestItem],
+
+      };
+    });
   };
+
+
 
   // Gérer l'affichage du calendrier HubSpot via un bouton
   const handleShowCalendar = () => {
@@ -109,7 +118,7 @@ const MainContact = () => {
   const handleCloseCalendar = () => {
     setIsCalendarVisible(false);
   };
-// pourquoi le hubSpot et le bouton fermer
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitError("");
@@ -123,7 +132,11 @@ const MainContact = () => {
     const sanitizedMessage = DOMPurify.sanitize(formData.message);
 
     // Soumission à l'API via fetch
+<<<<<<< HEAD
     fetch("https://www.backend.inolib.fr/wp-json/custom-api/v2/contact", {
+=======
+    fetch("https://backend.inolib.fr/wp-json/custom-api/v2/contact", {
+>>>>>>> eb00680b8c93e611c4480e2ccb4006d531d3e33d
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -134,7 +147,7 @@ const MainContact = () => {
         email: formData.email,
         phoneNumber: formData.phoneNumber,
         message: sanitizedMessage,
-        interest: formData.interest || "",
+        interest: formData.interest || [],
       }),
     })
       .then((response) => response.json())
@@ -151,8 +164,39 @@ const MainContact = () => {
   };
 
   return (
-    <main className="w-full flex flex-col px-4 py-8  items-center">
-      <section className="w-full flex flex-col items-center md:flex-row-reverse md:justify-center md:items-start  xl:w-[1240px] 2xl:w-[1300px]">
+    <main className="mx-auto mt-28 px-4 py-8 lg:px-0">
+      <nav>
+      {/* Breadcrumb */}
+      <Breadcrumb>
+        <BreadcrumbList className="mb-10 ml-11 flex items-center w-64">
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/">
+              <Image src="/Icons/BreadcrumIcon.svg" alt="Home" width={20} height={20} />
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/Contact">Contact</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+
+        </BreadcrumbList>
+      </Breadcrumb>
+      </nav>
+      <div className="mx-auto mb-11 ml-11 w-96">
+      <header className="mb-8">
+    <h1 className=" text-3xl font-bold text-gray-900">
+       Nous contacter
+    </h1>
+  </header>
+
+  <p className='text-gray-600 border-b-2 border-b-gray-200 '>Il est possible de soumettre des suggestions, des remarques ou des demandes de devis à inolib en utilisant notre formulaire ou nos coordonnées. </p>
+
+   </div>
+
+    <section className="   px-4 py-8   w-full flex flex-col items-center md:flex-row-reverse md:justify-center md:items-start  xl:w-[1240px] 2xl:w-[1300px]">
+
+
 
         <div className="md:w-[50%] px-2 flex flex-col">
           <form onSubmit={handleSubmit} className="space-y-4 max-w-[520px]" noValidate>
@@ -161,35 +205,36 @@ const MainContact = () => {
                 Vous êtes intéressé par :
               </legend>
               <div className="mb-6 mt-2 flex flex-wrap gap-2 space-x-[1.5px]">
-                {["Audit", "Accompagnement", "Développement", "Formation", "Partenariat", "Autre"].map((interest) => (
-                  <button
-                    role="radio"
-                    aria-checked={formData.interest === interest}
-                    key={interest}
-                    type="button"
-                    onClick={() => handleInterestSelect(interest)}
-                    className={`flex items-center gap-2 rounded-full border-[1px] border-[#8EBBC5] px-4 py-2 ${
-                      formData.interest === interest ? "bg-[#254147] text-white" : "bg-[#EEF5F6] text-black"
-                    } focus:outline-none`}
-                    aria-live="polite"
-                  >
-                    {formData.interest === interest && (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586l-3.293-3.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    )}
-                    {interest}
-                  </button>
-                ))}
+              {["Audit", "Accompagnement", "Développement", "Formation", "Partenariat", "Autre"].map((interestItem) => (
+              <button
+            role="radio"
+             aria-checked={formData.interest && formData.interest.includes(interestItem)}
+            key={interestItem}
+            type="button"
+            onClick={() => handleInterestSelect(interestItem)}
+            className={`flex items-center gap-2 rounded-full border-[1px] border-[#8EBBC5] px-4 py-2 ${
+            formData.interest && formData.interest.includes(interestItem) ? "bg-[#254147] text-white" : "bg-[#EEF5F6] text-black"
+         } focus:outline-none`}
+           aria-live="polite"
+                >
+          {formData.interest && formData.interest.includes(interestItem) && (
+           <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-5 w-5"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+      >
+        <path
+          fillRule="evenodd"
+          d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586l-3.293-3.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+          clipRule="evenodd"
+        />
+        </svg>
+      )}
+           {interestItem}
+             </button>
+      ))}
+
               </div>
             </fieldset>
 
@@ -211,6 +256,7 @@ const MainContact = () => {
                   placeholder="Prénom"
                   aria-required="true"
                   aria-invalid={!!errors.firstName}
+                  aria-describedby="firstName-error"
                 />
                 {errors.firstName && (
                   <p className="mt-1 text-sm text-red-500" role="alert" aria-live="assertive">
@@ -247,6 +293,7 @@ const MainContact = () => {
                 placeholder="Votre numéro de téléphone"
                 aria-required="true"
                 aria-invalid={!!errors.phoneNumber}
+                aria-describedby="phoneNumber-error"
               />
               {errors.phoneNumber && (
                 <p className="mt-1 text-sm text-red-500" role="alert" aria-live="assertive">
@@ -268,6 +315,7 @@ const MainContact = () => {
                 placeholder="vous@exemple.com"
                 aria-required="true"
                 aria-invalid={!!errors.email}
+                 aria-describedby="email-error"
               />
               {errors.email && (
                 <p className="mt-1 text-sm text-red-500" role="alert" aria-live="assertive">
@@ -289,6 +337,7 @@ const MainContact = () => {
                 placeholder="Laissez-nous un message..."
                 aria-required="true"
                 aria-invalid={!!errors.message}
+                 aria-describedby="message-error"
               ></textarea>
               {errors.message && (
                 <p className="mt-1 text-sm text-red-500" role="alert" aria-live="assertive">
@@ -341,58 +390,38 @@ const MainContact = () => {
           )}
 
 
-
-
-
-          {/* Bouton pour afficher le calendrier dans une modale */}
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button variant="buttonNoir" className="mt-2 w-96">
+<Link href="/Calendar">
+<Button variant="buttonNoir" className="mt-2 w-96">
                 Prendre rendez-vous
               </Button>
-            </DialogTrigger>
+              </Link>
 
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>Prendre un rendez-vous</DialogTitle>
-              </DialogHeader>
-
-              {/* Intégration du calendrier HubSpot */}
-              <div className="mt-4">
-                <iframe
-                  src="https://meetings-eu1.hubspot.com/djeberine?embed=true"
-                  className="h-96 w-full"
-                  title="Calendrier HubSpot"
-                ></iframe>
-              </div>
-            </DialogContent>
-          </Dialog>
         </div>
-        <aside className="w-full mt-8 md:mt-0  flex flex-col items-center md:w-[50%] md:items-start md:lg:pl-[3%] px-2 ">
+        <aside className="w-full mt-8 md:mt-0  flex flex-col items-center md:w-[50%] md:items-start md:lg:pl-[3%] px-2 " tabIndex={0}>
           <div className=" w-full mb-4 max-w-96 rounded-lg bg-[#F5F9FA] p-4 shadow">
             <Image src="/Icons/contactC.svg" alt="" width={40} height={40}></Image>
             <h2 className="mb-2 mt-4 text-lg font-semibold text-gray-900">Discuter avec le service client</h2>
             <p className="mb-2 text-gray-700">Parlez à notre équipe sympathique.</p>
             <a
-              href="mailto:sales@untitledui.com"
+              href="mailto:contact@inolib.com"
               className="text-[#133348]"
-              aria-label="adresse email pour nous contacter"
+
             >
               contact@inolib.com
             </a>
           </div>
           <div className="w-full mb-4 max-w-96 rounded-lg bg-[#F5F9FA] p-4 shadow">
             <Image src="/Icons/phone.svg" alt="" width={40} height={40}></Image>
-            <h2 className="mb-2 mt-4 text-lg font-semibold text-gray-900">Appelez-nous</h2>
-            <p className="mb-2 text-gray-700">Du lundi au vendredi de 8h à 17h.</p>
+            <h2 className="mb-2 mt-4 text-lg font-semibold text-gray-900">Appelez-nous au </h2>
+            <p className="mb-2 text-gray-700"> +33 6 47 21 86 69</p>
             <p className="text-[#3E6D77]" aria-label="numéro pour nous contacter">
-              +33 6 47 21 86 69
+              Du lundi au vendredi de 8h à 17h.
             </p>
           </div>
           <div className="w-full mb-4 max-w-96 rounded-lg bg-[#F5F9FA] p-4 shadow">
             <Image src="/Icons/position.svg" alt="" width={40} height={40}></Image>
-            <h2 className="mb-2 mt-4 text-lg font-semibold text-gray-900">Visitez-nous</h2>
-            <p className="mb-2 text-gray-700">Visitez notre siège social.</p>
+            <h2 className="mb-2 mt-4 text-lg font-semibold text-gray-900">Adresse</h2>
+
             <address className="not-italic text-gray-700">
               254 rue Vendôme
               <br />
@@ -421,6 +450,7 @@ const MainContact = () => {
           </div>
         </div>
       )}
+
     </main>
   );
 };

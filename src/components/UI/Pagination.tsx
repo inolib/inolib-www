@@ -67,7 +67,7 @@ PaginationPrevious.displayName = "PaginationPrevious";
 
 const PaginationNext = ({ className = "", ...props }: React.ComponentProps<typeof PaginationLink>) => (
   <PaginationLink
-    aria-label="Go to next page"
+    aria-label="aller vers la page suivante"
     size="default"
     className={cn("flex items-center gap-1 rounded-md border px-4 py-2", className)}
     {...props}
@@ -81,7 +81,7 @@ PaginationNext.displayName = "PaginationNext";
 const PaginationEllipsis = ({ className = "", ...props }: React.ComponentProps<"span">) => (
   <span aria-hidden className={cn("flex h-9 w-9 items-center justify-center", className)} {...props}>
     <MoreHorizontal className="h-4 w-4" />
-    <span className="sr-only">More pages</span>
+    <span className="sr-only">plus de pages</span>
   </span>
 );
 PaginationEllipsis.displayName = "PaginationEllipsis";
