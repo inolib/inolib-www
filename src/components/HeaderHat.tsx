@@ -28,14 +28,13 @@ const HeaderHat = ({ bgColor, textColor, buttonVariant, link }: HeaderHatProps) 
   };
 
   return (
-    <header className={`relative ${bgColor} ${textColor} flex h-20 justify-center 2xl:pl-6`}>
-      <div className="flex h-full w-full items-center justify-between 2xl:w-[1536px]">
-        {/* Lien d'accès au contenu principal */}
+    <header className={`relative ${bgColor} ${textColor} flex h-20 justify-center`}>
+      <div className="flex h-full w-full items-center justify-between md:mx-[3%] xl:w-[1250px]">
         {!isSearchOpen && (
           <Link
             href={link}
-            className={`${textColor} ml-8 flex flex-row font-semibold hover:text-gray-400`}
-            aria-label="Accéder au contenu principal"
+            className={`${textColor} ml-10 flex flex-row font-semibold hover:text-gray-400`}
+            aria-label="Accéder au contenu"
           >
             Accéder au contenu
             <svg
@@ -49,26 +48,18 @@ const HeaderHat = ({ bgColor, textColor, buttonVariant, link }: HeaderHatProps) 
             </svg>
           </Link>
         )}
-
-        {/* Barre de recherche */}
-        <div>
+        <div className="">
           <SearchBar color={textColor} isSearchOpen={isSearchOpen} setIsSearchOpen={setIsSearchOpen} />
         </div>
-
-        {/* Bouton "Nous contacter" */}
         <Button
           variant={buttonVariant}
           aria-label="Nous contacter"
           onClick={handleLink}
-          className="mr-8 hidden lg:block"
+          className="mr-8 hidden h-[4s6px] w-[156px] lg:block"
         >
-          Nous contacter
+          {" "}
+          Nous contacter{" "}
         </Button>
-
-        {/* Élément pour informer les lecteurs d'écran après la redirection */}
-        <div aria-live="polite" className="sr-only">
-
-        </div>
       </div>
     </header>
   );

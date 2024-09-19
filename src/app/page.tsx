@@ -4,7 +4,7 @@ import Header from "~/components/Header";
 import HearderHat from "~/components/HeaderHat";
 import Main from "~/components/Main";
 import Newsletter from "~/components/Newsletter";
-import Services from "~/components/Service";
+import { Services } from "~/components/Service";
 import SocialProof from "~/components/SocialProof";
 import Testimonials from "~/components/Testimonial";
 import Line from "~/components/UI/Line";
@@ -31,7 +31,7 @@ const Home = () => {
         <Services />
       </section>
       <Testimonials />
-      <section id="news">
+      <section id="news" className="flex w-full justify-center bg-white">
         <News />
       </section>
       <Newsletter />

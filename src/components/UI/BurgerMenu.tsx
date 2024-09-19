@@ -37,9 +37,9 @@ const BurgerMenu = ({ navMenu }: MenuProps) => {
   );
 
   return (
-    <main className="  flex items-center">
-      <DropdownMenu >
-        <DropdownMenuTrigger className=" lg:hidden">
+    <main className="flex items-center">
+      <DropdownMenu>
+        <DropdownMenuTrigger className="mt-6 lg:hidden">
           <Image src={navMenu} alt="" width={40} height={40} />
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-80 bg-white" sideOffset={5} align="center">

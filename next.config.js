@@ -1,5 +1,5 @@
-/** @type {import("next").NextConfig} */
-export default {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   experimental: {
     cpus: 12,
     workerThreads: false,
@@ -8,3 +8,5 @@ export default {
     domains: ["localhost", "www.inolib.fr", "inolib.fr", "www.backend.inolib.fr", "backend.inolib.fr"],
   },
 };
+
+export default nextConfig;
