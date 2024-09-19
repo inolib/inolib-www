@@ -22,6 +22,7 @@ const Main = () => {
             </p>
 
             <h1 className="mb-4 max-w-160 text-4xl leading-tight md:leading-snug lg:text-5xl lg:leading-snug xl:text-6xl xl:leading-snug">
+            <h1 className="mb-4 max-w-160 text-4xl leading-tight md:leading-snug lg:text-5xl lg:leading-snug xl:text-6xl xl:leading-snug">
               Ensemble, rendons le numérique accessible à tous
             </h1>
             <p className="font-manorop mb-4 mt-8 max-w-96 text-lg text-[#E0DBC7] md:mt-4 xl:text-xl">
@@ -29,7 +30,6 @@ const Main = () => {
             </p>
             <div className="mt-14 flex flex-col justify-center space-y-4 md:mt-8 md:flex-row md:justify-start md:space-x-4 md:space-y-0">
               <Button
-                href="/#services"
                 variant="ghost"
                 className="rounded-md border-2 bg-[#122023] px-4 py-2 font-semibold text-white transition hover:bg-yellow-600 md:h-[51px] md:w-[180px] lg:h-[61px] lg:w-[280px]"
               >

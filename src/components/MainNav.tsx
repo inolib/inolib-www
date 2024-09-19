@@ -90,6 +90,7 @@ const MainNav = ({ hoverClass, hoverBorder }: MainNavProps) => {
             onMouseEnter={() => handleMouseEnter(item.label)}
             onMouseLeave={handleMouseLeave}
             role="none"
+            role="none"
           >
             <div
               className={`flex cursor-pointer items-center pb-2 ${hoverClass}`}

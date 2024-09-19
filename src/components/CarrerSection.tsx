@@ -5,6 +5,7 @@ import { jobOffers } from "~/DATA/data";
 export const CarrerSection = () => {
   return (
     <section className="w-full bg-[#F5F4EE] py-16">
+    <section className="w-full bg-[#F5F4EE] py-16">
       <div className="container mx-auto px-6">
         <header className="mb-12 text-center">
           <span className="inline-block rounded-full bg-[#CBE0E4] px-4 py-1 text-sm font-semibold text-gray-800">
@@ -29,6 +30,7 @@ export const CarrerSection = () => {
           ))}
         </div>
 
+        <div className="mt-16 flex flex-col items-center text-center">
         <div className="mt-16 flex flex-col items-center text-center">
           <h2 className="mb-4 text-2xl font-bold text-gray-900">Candidater spontanément</h2>
           <p className="md-w-80 mx-auto mb-8 text-gray-600">

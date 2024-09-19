@@ -49,6 +49,8 @@ const Intro = () => {
           </Link>
         </div>
       </div>
+
+      </div>
     </section>
   );
 };

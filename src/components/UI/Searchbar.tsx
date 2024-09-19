@@ -37,7 +37,7 @@ const SearchBar = ({ isSearchOpen, setIsSearchOpen, color }: SearchProps) => {
   return (
     <div className="relative">
       <div className={`relative ${isSearchOpen ? "block" : "hidden"} lg:block`}>
-        <svg
+         <svg
           className="absolute left-3 top-2.5 h-6 w-6 text-gray-500"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
