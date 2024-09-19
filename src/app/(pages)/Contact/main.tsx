@@ -2,11 +2,17 @@
 
 import DOMPurify from "dompurify";
 import Image from "next/image";
-import { useState, useEffect , useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import type { FormData, Errors } from "~/lib/types/features/contactType/type";
 import { Button } from "~/components/UI/Button";
-import { Breadcrumb, BreadcrumbItem , BreadcrumbList , BreadcrumbSeparator ,BreadcrumbLink } from "~/components/UI/Breadcrumb";
-import Link from 'next/link'
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbList,
+  BreadcrumbSeparator,
+  BreadcrumbLink,
+} from "~/components/UI/Breadcrumb";
+import Link from "next/link";
 
 const MainContact = () => {
   const [formData, setFormData] = useState<FormData>({
@@ -16,7 +22,6 @@ const MainContact = () => {
     phoneNumber: "",
     message: "",
     interest: [],
-
     privacyPolicy: false,
   });
 
@@ -86,10 +91,7 @@ const MainContact = () => {
 
       return {
         ...prevFormData,
-        interest: isInterestSelected
-          ? interest.filter((i) => i !== interestItem)
-          : [...interest, interestItem],
-
+        interest: isInterestSelected ? interest.filter((i) => i !== interestItem) : [...interest, interestItem],
       };
     });
   };
@@ -167,35 +169,39 @@ const MainContact = () => {
                 Vous êtes intéressé par :
               </legend>
               <div className="mb-6 mt-2 flex flex-wrap gap-2 space-x-[1.5px]">
-                {["Audit", "Accompagnement", "Développement", "Formation", "Partenariat", "Autre"].map((interest) => (
-                  <button
-                    role="radio"
-                    aria-checked={formData.interest === interest}
-                    key={interest}
-                    type="button"
-                    onClick={() => handleInterestSelect(interest)}
-                    className={`flex items-center gap-2 rounded-full border-[1px] border-[#8EBBC5] px-4 py-2 ${
-                      formData.interest === interest ? "bg-[#254147] text-white" : "bg-[#EEF5F6] text-black"
-                    } focus:outline-none`}
-                    aria-live="polite"
-                  >
-                    {formData.interest === interest && (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586l-3.293-3.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    )}
-                    {interest}
-                  </button>
-                ))}
+                {["Audit", "Accompagnement", "Développement", "Formation", "Partenariat", "Autre"].map(
+                  (interestItem) => (
+                    <button
+                      role="radio"
+                      aria-checked={formData.interest && formData.interest.includes(interestItem)}
+                      key={interestItem}
+                      type="button"
+                      onClick={() => handleInterestSelect(interestItem)}
+                      className={`flex items-center gap-2 rounded-full border-[1px] border-[#8EBBC5] px-4 py-2 ${
+                        formData.interest && formData.interest.includes(interestItem)
+                          ? "bg-[#254147] text-white"
+                          : "bg-[#EEF5F6] text-black"
+                      } focus:outline-none`}
+                      aria-live="polite"
+                    >
+                      {formData.interest && formData.interest.includes(interestItem) && (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586l-3.293-3.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      )}
+                      {interestItem}
+                    </button>
+                  ),
+                )}
               </div>
             </fieldset>
 
@@ -276,7 +282,7 @@ const MainContact = () => {
                 placeholder="vous@exemple.com"
                 aria-required="true"
                 aria-invalid={!!errors.email}
-                 aria-describedby="email-error"
+                aria-describedby="email-error"
               />
               {errors.email && (
                 <p className="mt-1 text-sm text-red-500" role="alert" aria-live="assertive">
@@ -298,7 +304,7 @@ const MainContact = () => {
                 placeholder="Laissez-nous un message..."
                 aria-required="true"
                 aria-invalid={!!errors.message}
-                 aria-describedby="message-error"
+                aria-describedby="message-error"
               ></textarea>
               {errors.message && (
                 <p className="mt-1 text-sm text-red-500" role="alert" aria-live="assertive">
@@ -330,103 +336,46 @@ const MainContact = () => {
             </div>
 
             <div>
-              <Button variant="buttonNoir" type="submit" className="w-96">
+              <Button variant="buttonNoir" type="submit" className="w-full max-w-96">
                 Envoyer le formulaire
               </Button>
             </div>
-
+            <Link href="/Calendar">
+              <Button variant="buttonNoir" className="mt-2 w-full max-w-96">
+                Prendre rendez-vous
+              </Button>
+            </Link>
             {/* Message d'erreur global */}
             {submitError && (
               <div className="mt-4 text-red-500" role="alert" aria-live="assertive">
                 {submitError}
               </div>
             )}
-            <div className="w-full text-center">
-              <Button variant="buttonNoir" type="submit" className="w-full max-w-96">
-                Nous contacter
-              </Button>
-            {submitError && (
-              <div className="mt-4 text-red-500" role="alert" aria-live="assertive">
-                {submitError}
+
+            {/* Confirmation de soumission */}
+            {submissionMessage && (
+              <div className="mt-4 text-green-500" role="status" aria-live="polite" aria-atomic="true">
+                {submissionMessage}
               </div>
             )}
           </form>
 
-          {/* Confirmation de soumission */}
-          {submissionMessage && (
-            <div className="mt-4 text-green-500" role="status" aria-live="polite" aria-atomic='true'>
-              {submissionMessage}
-            </div>
-
-
-<Link href="/Calendar">
-<Button variant="buttonNoir" className="mt-2 w-96">
-               {/* Bouton pour afficher le calendrier dans une modale */}
-          <div className="w-full flex flex-col items-center">
-            <Dialog >
-            <DialogTrigger asChild>
-              <Button variant="buttonNoir" className="mt-2 w-96">
-                Prendre rendez-vous
-              </Button>
-              </Link>
-
-          </div>
-
-          </form>
-
-          {/* Confirmation de soumission */}
-          {submissionMessage && (
-            <div className="mt-4 text-green-500" role="status" aria-live="polite">
-              {submissionMessage}
-            </div>
-          )}
+          {/* Bouton pour afficher le calendrier dans une modale */}
         </div>
-        <aside className="mt-8 flex w-full flex-col items-center px-2 md:mt-0 md:w-[50%] md:items-start md:lg:pl-[3%]">
-          <div className="mb-4 w-full max-w-96 rounded-lg bg-[#F5F9FA] p-4 shadow">
-            <Image src="/Icons/contactC.svg" alt="" width={40} height={40}></Image>
-            <h2 className="mb-2 mt-4 text-lg font-semibold text-gray-900">Discuter avec le service client</h2>
-            <p className="mb-2 text-gray-700">Parlez à notre équipe sympathique.</p>
-            <a
-              href="mailto:sales@untitledui.com"
-              className="text-[#133348]"
-              aria-label="adresse email pour nous contacter"
-            >
-              contact@inolib.com
-            </a>
-          </div>
-          <div className="mb-4 w-full max-w-96 rounded-lg bg-[#F5F9FA] p-4 shadow">
-            <Image src="/Icons/phone.svg" alt="" width={40} height={40}></Image>
-            <h2 className="mb-2 mt-4 text-lg font-semibold text-gray-900">Appelez-nous</h2>
-            <p className="mb-2 text-gray-700">Du lundi au vendredi de 8h à 17h.</p>
-            <p className="text-[#3E6D77]" aria-label="numéro pour nous contacter">
-              +33 6 47 21 86 69
-            </p>
-          </div>
-          <div className="mb-4 w-full max-w-96 rounded-lg bg-[#F5F9FA] p-4 shadow">
-            <Image src="/Icons/position.svg" alt="" width={40} height={40}></Image>
-            <h2 className="mb-2 mt-4 text-lg font-semibold text-gray-900">Visitez-nous</h2>
-            <p className="mb-2 text-gray-700">Visitez notre siège social.</p>
-            <address className="not-italic text-gray-700">
-              254 rue Vendôme
-              <br />
-              69003 Lyon
-            </address>
-          </div>
-        </aside>
-        <aside className="w-full mt-8 md:mt-0  flex flex-col items-center md:w-[50%] md:items-start md:lg:pl-[3%] px-2 " tabIndex={0}>
-          <div className=" w-full mb-4 max-w-96 rounded-lg bg-[#F5F9FA] p-4 shadow">
-            <Image src="/Icons/contactC.svg" alt="" width={40} height={40}></Image>
-            <h2 className="mb-2 mt-4 text-lg font-semibold text-gray-900">Discuter avec le service client</h2>
-            <p className="mb-2 text-gray-700">Parlez à notre équipe sympathique.</p>
-            <a
-              href="mailto:contact@inolib.com"
-              className="text-[#133348]"
 
-            >
+        <aside
+          className="mt-8 flex w-full flex-col items-center px-2 md:mt-0 md:w-[50%] md:items-start md:lg:pl-[3%]"
+          tabIndex={0}
+        >
+          <div className="mb-4 w-full max-w-[520px] rounded-lg bg-[#F5F9FA] p-4 shadow md:max-w-96">
+            <Image src="/Icons/contactC.svg" alt="" width={40} height={40}></Image>
+            <h2 className="mb-2 mt-4 text-lg font-semibold text-gray-900">Discuter avec le service client</h2>
+            <p className="mb-2 text-gray-700">Parlez à notre équipe sympathique.</p>
+            <a href="mailto:contact@inolib.com" className="text-[#133348]">
               contact@inolib.com
             </a>
           </div>
-          <div className="w-full mb-4 max-w-96 rounded-lg bg-[#F5F9FA] p-4 shadow">
+          <div className="mb-4 w-full max-w-[520px] rounded-lg bg-[#F5F9FA] p-4 shadow md:max-w-96">
             <Image src="/Icons/phone.svg" alt="" width={40} height={40}></Image>
             <h2 className="mb-2 mt-4 text-lg font-semibold text-gray-900">Appelez-nous au </h2>
             <p className="mb-2 text-gray-700"> +33 6 47 21 86 69</p>
@@ -434,7 +383,7 @@ const MainContact = () => {
               Du lundi au vendredi de 8h à 17h.
             </p>
           </div>
-          <div className="w-full mb-4 max-w-96 rounded-lg bg-[#F5F9FA] p-4 shadow">
+          <div className="mb-4 w-full max-w-[520px] rounded-lg bg-[#F5F9FA] p-4 shadow md:max-w-96">
             <Image src="/Icons/position.svg" alt="" width={40} height={40}></Image>
             <h2 className="mb-2 mt-4 text-lg font-semibold text-gray-900">Adresse</h2>
 
@@ -457,7 +406,7 @@ const MainContact = () => {
             <h2 className="mb-4 text-lg font-semibold text-gray-900">Formulaire envoyé avec succès</h2>
             <p className="mb-4 text-gray-700">Merci de nous avoir contactés ! Nous reviendrons vers vous rapidement.</p>
             <button
-            ref={closeButtonRef}
+              ref={closeButtonRef}
               onClick={() => setIsModalOpen(false)}
               className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
             >
@@ -466,7 +415,6 @@ const MainContact = () => {
           </div>
         </div>
       )}
-
     </main>
   );
 };

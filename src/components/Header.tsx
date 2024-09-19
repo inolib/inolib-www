@@ -25,7 +25,7 @@ const Header = ({ textColor, logosrc, burgerMenu, MainNavProps }: HeaderProps) =
 
   return (
     <header className={`relative ${textColor} flex h-20 sm:justify-center`}>
-      <div className="flex w-full flex-row items-center justify-between pl-6 pr-6 md:ml-[3%] lg:justify-start xl:w-[1200px] xl:p-0 2xl:mr-[60px]">
+      <div className="flex w-full flex-row items-center justify-between px-6 md:px-10 lg:justify-start xl:w-[1200px] xl:p-0">
         <div className="logo py-2">
           <Link href="/">
             <Image src={logosrc} alt="Accueil" width={120} height={40} className="object-contain" />

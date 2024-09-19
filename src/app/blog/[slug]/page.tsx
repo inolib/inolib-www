@@ -85,59 +85,60 @@ const Single = ({ params }: Props) => {
           hoverBorder: "hover:border-green-800",
         }}
       />
-      <Breadcrumb>
-        <BreadcrumbList className="mb-6 mt-10 hidden min-w-[500px] text-center md:block">
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/">
-              <Image src="/Icons/BreadcrumIcon.svg" alt="Home" width={20} height={20} />
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/blog">Blog</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink href={`/blog/${post.slug}`}>
-              {post.title.rendered.indexOf(":") === -1
-                ? `${post.title.rendered.slice(0, 30)}...`
-                : `${post.title.rendered.slice(0, post.title.rendered.indexOf(":"))}...`}
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
-      <div className="flex w-full flex-col-reverse border-[1px] border-[#f32525] px-6 py-16 md:flex-row">
-        <div className="flex flex-col items-start border-[1px] border-[#5c25f3] md:w-[50%]">
-          {post.categoryNames.map((category, index) => (
-            <span
-              key={index}
-              className="mb-2 mt-10 inline-block rounded-full bg-[#CBE0E4] px-2 py-1 text-xs font-semibold uppercase tracking-wide text-gray-800"
-            >
-              {category}
-            </span>
-          ))}
-          <h1 className="mt-2 text-3xl font-semibold">{post.title.rendered}</h1>
-          <p className="mb-6 mt-4 font-manrope">
-            {post.authorName}{" "}
-            {new Date(post.date).toLocaleDateString("fr-FR", {
-              day: "2-digit",
-              month: "short",
-              year: "numeric",
-            })}
-          </p>
+      <div className="flex w-full flex-col items-center px-6 md:px-10">
+        <div className="flex w-full justify-start xl:w-[1200px]">
+          <Breadcrumb className="flex w-full flex-row flex-nowrap items-center">
+            <BreadcrumbList className="mb-6 mt-10 hidden flex-row items-center space-x-2 md:flex md:w-[400px]">
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/">
+                  <Image src="/Icons/BreadcrumIcon.svg" alt="Home" width={20} height={20} />
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/blog">Blog</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink href={`/blog/${post.slug}`}>{post.title.rendered.slice(0, 30)}...</BreadcrumbLink>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
         </div>
+        <div className="flex-col-reversepy-16 flex w-full md:flex-row xl:w-[1200px]">
+          <div className="flex flex-col items-start md:w-[50%]">
+            {post.categoryNames.map((category, index) => (
+              <span
+                key={index}
+                className="mb-2 mt-10 inline-block rounded-full bg-[#CBE0E4] px-2 py-1 text-xs font-semibold uppercase tracking-wide text-gray-800"
+              >
+                {category}
+              </span>
+            ))}
+            <h1 className="mt-2 text-3xl font-semibold">{post.title.rendered}</h1>
+            <p className="mb-6 mt-4 font-manrope">
+              {post.authorName}{" "}
+              {new Date(post.date).toLocaleDateString("fr-FR", {
+                day: "2-digit",
+                month: "short",
+                year: "numeric",
+              })}
+            </p>
+          </div>
 
-        <div className="flex items-center justify-center border-[1px] border-[#51bb1c] md:w-[50%]">
-          <Image src="/Homepage/article.svg" alt="" width={500} height={500} />
+          <div className="flex items-center justify-center md:w-[50%]">
+            <Image src="/Homepage/article.svg" alt="" width={500} height={500} />
+          </div>
+        </div>{" "}
+        <div className="py-14 xl:w-[1200px]">
+          <article className="" dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+          <div
+            dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+            className="mb-4 mt-4 line-clamp-3 text-gray-700"
+          />
         </div>
-      </div>{" "}
-      <div className="px-10 py-14">
-        <article className="" dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
-        <div
-          dangerouslySetInnerHTML={{ __html: post.content.rendered }}
-          className="mb-4 mt-4 line-clamp-3 text-gray-700"
-        />
       </div>
+
       <div className="ml-10 grid gap-8 md:grid-cols-2">{/* Breadcrumb */}</div>
       {/*  <div className="flex flex-row justify-between">
         <Image src="/Homepage/meufBD.svg" alt="" width={200} height={200} className="m-auto" />
