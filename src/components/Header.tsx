@@ -32,12 +32,13 @@ const Header = ({ textColor, logosrc, burgerMenu, MainNavProps }: HeaderProps) =
           </Link>
         </div>
         <div>
-        <div>
-          <BurgerMenu navMenu={burgerMenu} />
+          <div>
+            <BurgerMenu navMenu={burgerMenu} />
+          </div>
+          <section id="nav" className="hidden lg:block">
+            <MainNav {...MainNavProps} />
+          </section>
         </div>
-        <section id="nav" className="hidden lg:block">
-          <MainNav {...MainNavProps} />
-        </section>
       </div>
     </header>
   );
