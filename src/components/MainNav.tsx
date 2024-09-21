@@ -77,17 +77,17 @@ const MainNav = ({ hoverClass, hoverBorder }: MainNavProps) => {
           >
             <div
               className={`flex cursor-pointer items-center pb-2 ${hoverClass}`}
-              role=''
+              role={item.subItems ? "button": "link"}
               aria-haspopup={item.subItems ? undefined: undefined}
               aria-expanded={item.subItems && openMenu === item.label ? undefined : undefined}
               onClick={(e) => handleClick(item.label, !!item.subItems, e)}
               onKeyDown={(e) => handleKeyDown(item.label, !!item.subItems, e)}
               aria-label={item.subItems ? `${item.label}, ${openMenu === item.label ? "ouvert" : "fermé"}` : `${item.label}`}
               tabIndex={item.subItems ?   0 : undefined}
-              aria-controls={`submenu-${item.label}`}
+
             >
               {item.subItems ? (
-                <span className={`flex items-center ${hoverBorder} hover:border-b-[1.5px]`}>
+                <span className={`flex items-center ${hoverBorder} hover:border-b-[1.5px]`} aria-hidden='true'>
                   {item.label}
                   {renderArrow(item.label)}
                 </span>
