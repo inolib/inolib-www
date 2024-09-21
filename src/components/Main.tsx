@@ -16,7 +16,7 @@ const Main = () => {
               </span>
 
               <Link href="/About#Carrer" className="flex w-36 items-center px-2 pb-1 pl-4 pt-1 text-sm">
-                Voir les offres
+                Voir l'actualité
                 <RxArrowRight className="ml-1 h-3 w-3" />
               </Link>
             </p>

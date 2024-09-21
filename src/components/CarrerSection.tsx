@@ -1,10 +1,8 @@
 import Link from "next/link";
-
 import { jobOffers } from "~/DATA/data";
 
 export const CarrerSection = () => {
   return (
-    <section className="w-full bg-[#F5F4EE] py-16">
     <section className="w-full bg-[#F5F4EE] py-16">
       <div className="container mx-auto px-6">
         <header className="mb-12 text-center">
@@ -31,14 +29,13 @@ export const CarrerSection = () => {
         </div>
 
         <div className="mt-16 flex flex-col items-center text-center">
-        <div className="mt-16 flex flex-col items-center text-center">
           <h2 className="mb-4 text-2xl font-bold text-gray-900">Candidater spontanément</h2>
-          <p className="md-w-80 mx-auto mb-8 text-gray-600">
-            Aucune offre ne correspond à votre profil ? Envoyez-nous votre candidature spontanée
+          <p className="md:w-80 mx-auto mb-8 text-gray-600">
+            Aucune offre ne correspond à votre profil ? Envoyez-nous votre candidature spontanée à{" "}
             <a href="mailto:carriere@inolib.com" className="border-b border-[#3E6D77] text-[#3E6D77]">
-              {" "}
               carriere@inolib.com
             </a>
+            .
           </p>
           <Link
             href="/"

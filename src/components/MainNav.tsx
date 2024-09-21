@@ -22,11 +22,7 @@ const MainNav = ({ hoverClass, hoverBorder }: MainNavProps) => {
     setHoveredMenu(null);
   };
 
-  const handleClick = (
-    menu: string,
-    hasSubItems: boolean,
-    e: React.MouseEvent | React.KeyboardEvent | React.KeyboardEvent,
-  ) => {
+  const handleClick = (menu: string, hasSubItems: boolean, e: React.MouseEvent | React.KeyboardEvent) => {
     if (hasSubItems) {
       e.preventDefault();
       setOpenMenu(openMenu === menu ? null : menu);
@@ -56,26 +52,14 @@ const MainNav = ({ hoverClass, hoverBorder }: MainNavProps) => {
 
   // Chevron icon for subitems
   const renderSubItemArrow = () => (
-    <svg
-      className="ml-auto h-4 w-4"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg className="ml-auto h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
     </svg>
   );
 
   // Arrow for main menu items
   const renderArrow = (menu: string) => (
-    <svg
-      className={`ml-2 h-4 w-4 transition-transform duration-300 ${openMenu === menu ? "rotate-180 transform" : ""}`}
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg className={`ml-2 h-4 w-4 transition-transform duration-300 ${openMenu === menu ? "rotate-180 transform" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
     </svg>
   );
@@ -90,19 +74,16 @@ const MainNav = ({ hoverClass, hoverBorder }: MainNavProps) => {
             onMouseEnter={() => handleMouseEnter(item.label)}
             onMouseLeave={handleMouseLeave}
             role="none"
-            role="none"
           >
             <div
               className={`flex cursor-pointer items-center pb-2 ${hoverClass}`}
-              role="menuitem"
-              aria-haspopup={item.subItems ? undefined : undefined}
+
+              aria-haspopup={item.subItems ? undefined: undefined}
               aria-expanded={item.subItems && openMenu === item.label ? undefined : undefined}
               onClick={(e) => handleClick(item.label, !!item.subItems, e)}
               onKeyDown={(e) => handleKeyDown(item.label, !!item.subItems, e)}
-              aria-label={
-                item.subItems ? `${item.label}, ${openMenu === item.label ? "ouvert" : "fermé"}` : `${item.label}`
-              }
-              tabIndex={item.subItems ? 0 : undefined}
+              aria-label={item.subItems ? `${item.label}, ${openMenu === item.label ? "ouvert" : "fermé"}` : `${item.label}`}
+              tabIndex={item.subItems ?   0 : undefined}
               aria-controls={`submenu-${item.label}`}
             >
               {item.subItems ? (
@@ -111,15 +92,14 @@ const MainNav = ({ hoverClass, hoverBorder }: MainNavProps) => {
                   {renderArrow(item.label)}
                 </span>
               ) : (
-                <Link
-                  href={item.href}
-                  className={`flex items-center ${hoverBorder} hover:border-b-[1.5px]`}
-                  aria-hidden="true"
-                >
+                <Link href={item.href} className={`flex items-center ${hoverBorder} hover:border-b-[1.5px]`}>
                   {item.label}
+
                 </Link>
               )}
             </div>
+
+
 
             {openMenu === item.label && item.subItems && (
               <ul
@@ -128,7 +108,6 @@ const MainNav = ({ hoverClass, hoverBorder }: MainNavProps) => {
                 role="menu"
                 onMouseEnter={() => handleMouseEnter(item.label)}
                 onMouseLeave={handleMouseLeave}
-                aria-label={`${item.label} sous-menu`}
               >
                 {item.subItems.map((subItem, idx) => (
                   <li key={subItem.label}>
@@ -137,6 +116,7 @@ const MainNav = ({ hoverClass, hoverBorder }: MainNavProps) => {
                       className={`flex items-center px-4 py-2 hover:bg-gray-200 ${
                         idx < (item.subItems ?? []).length - 1 ? "border-b border-gray-300" : ""
                       }`}
+
                     >
                       <span>{subItem.label}</span>
                       {renderSubItemArrow()}

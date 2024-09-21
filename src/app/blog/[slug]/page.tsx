@@ -140,11 +140,11 @@ const Single = ({ params }: Props) => {
       </div>
 
       <div className="ml-10 grid gap-8 md:grid-cols-2">{/* Breadcrumb */}</div>
-      {/*  <div className="flex flex-row justify-between">
+        <div className="flex flex-row justify-between">
         <Image src="/Homepage/meufBD.svg" alt="" width={200} height={200} className="m-auto" />
         <CommentForm postId={post.id} onCommentAdded={handleCommentAdded} />
-      </div> */}
-      {/* <div>
+      </div> 
+     <div>
         {comments.map((comment) => (
           <div key={comment.id} className="comment justify-end py-4" aria-label="lire le commentaire">
             <p>
@@ -153,7 +153,7 @@ const Single = ({ params }: Props) => {
             <p dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(comment.content.rendered) }} />
           </div>
         ))}
-      </div> */}
+      </div> 
       <Footer />
     </div>
   );

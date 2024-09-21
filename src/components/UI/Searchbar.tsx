@@ -55,7 +55,7 @@ const SearchBar = ({ isSearchOpen, setIsSearchOpen, color }: SearchProps) => {
           type="text"
           placeholder="Rechercher"
           className="w-72 rounded-full border-2 px-4 py-2 pl-10 text-black focus:outline-none"
-          aria-label="barre de recherche articles ou pages"
+          aria-label="barre de recherche"
           value={query}
           onChange={handleInputChange}
           onFocus={() => query.trim() && handleSearch(query)} // Exécute seulement si le champ n'est pas vide
