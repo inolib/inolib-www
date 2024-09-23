@@ -1,5 +1,4 @@
 import Link from "next/link";
-
 import { jobOffers } from "~/DATA/data";
 
 export const CarrerSection = () => {
