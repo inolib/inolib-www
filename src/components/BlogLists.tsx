@@ -34,7 +34,7 @@ import {
 
 // Fonction pour récupérer tous les articles
 const fetchAllPosts = async (): Promise<Post[]> => {
-  const res = await fetch("https://backend.inolib.fr/wp-json/wp/v2/posts?per_page=100&_embed");
+  const res = await fetch("https:///backend.inolib.fr/wp-json/wp/v2/posts?per_page=100&_embed");
   if (!res.ok) {
     throw new Error("Network response was not ok");
   }
@@ -128,6 +128,7 @@ const BlogList = () => {
       : allPosts.filter((post) => post.categoryNames.includes(categoryParam));
   const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
 
+  console.log("posts", posts);
   return (
     <div className="container mx-auto px-2 py-8 xs:px-0">
       {/* Breadcrumb */}

@@ -1,6 +1,7 @@
 "use client";
 
 import DOMPurify from "dompurify";
+import { indexOf } from "lodash";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -22,7 +23,8 @@ const Single = ({ params }: Props) => {
   const [post, setPost] = useState<Post | null>(null);
   const [comments, setComments] = useState<OneComment[]>([]);
   const [loading, setLoading] = useState(true);
-
+  console.log("params", params.slug);
+  console.log("post", post);
   useEffect(() => {
     async function fetchPostAndComments() {
       try {
@@ -70,86 +72,85 @@ const Single = ({ params }: Props) => {
     return <div>Post non trouvé</div>;
   }
 
+  console.log("Title sliced", post.title.rendered.indexOf("z"));
   return (
-    <div>
+    <div className="overflow-hidden">
       <HeaderHat bgColor="bg-[#F5F9FA]" textColor="text-black" buttonVariant="buttonNoir" link="/#services " />
       <Header
         textColor="text-black"
         logosrc="/Logo/LogoNoir.svg"
-        burgerMenu=""
+        burgerMenu="/Icons/menuBlack.svg"
         MainNavProps={{
           hoverClass: "hover:text-green-800",
           hoverBorder: "hover:border-green-800",
         }}
       />
-      <Breadcrumb>
-        <BreadcrumbList className="mb-6 ml-20 mt-10 w-96">
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/">
-              <Image src="/Icons/BreadcrumIcon.svg" alt="Home" width={20} height={20} />
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/blog">Blog</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink href={`/blog/${post.slug}`}>{post.title.rendered}</BreadcrumbLink>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
-      <div className="ml-10 grid gap-8 md:grid-cols-2">
-        {/* Breadcrumb */}
+      <div className="flex w-full flex-col items-center px-6 md:px-10">
+        <div className="flex w-full justify-start xl:w-[1200px]">
+          <Breadcrumb className="flex w-full flex-row flex-nowrap items-center">
+            <BreadcrumbList className="mb-6 mt-10 hidden flex-row items-center space-x-2 md:flex md:w-[400px]">
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/">
+                  <Image src="/Icons/BreadcrumIcon.svg" alt="Home" width={20} height={20} />
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/blog">Blog</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink href={`/blog/${post.slug}`}>{post.title.rendered.slice(0, 30)}...</BreadcrumbLink>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+        <div className="flex w-full flex-col-reverse py-16 md:flex-row xl:w-[1200px]">
+          <div className="flex flex-col items-start md:w-[50%]">
+            {post.categoryNames.map((category, index) => (
+              <span
+                key={index}
+                className="mb-2 mt-10 inline-block rounded-full bg-[#CBE0E4] px-2 py-1 text-xs font-semibold uppercase tracking-wide text-gray-800"
+              >
+                {category}
+              </span>
+            ))}
+            <h1 className="mt-2 text-3xl font-semibold">{post.title.rendered}</h1>
+            <p className="mb-6 mt-4 font-manrope">
+              {post.authorName}{" "}
+              {new Date(post.date).toLocaleDateString("fr-FR", {
+                day: "2-digit",
+                month: "short",
+                year: "numeric",
+              })}
+            </p>
+          </div>
 
-        <div className="px-10 py-14">
-          {post.categoryNames.map((category, index) => (
-            <span
-              key={index}
-              className="mb-2 inline-block rounded-full bg-[#CBE0E4] px-2 py-1 text-xs font-semibold uppercase tracking-wide text-gray-800"
-            >
-              {category}
-            </span>
-          ))}
-          <h1 className="mt-2 text-3xl font-semibold">{post.title.rendered}</h1>
+          <div className="flex items-center justify-center md:w-[50%]">
+            <Image src="/Homepage/article.svg" alt="" width={500} height={500} />
+          </div>
+        </div>{" "}
+        <div className="py-14 xl:w-[1200px]">
+          <article className="" dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
           <div
             dangerouslySetInnerHTML={{ __html: post.content.rendered }}
             className="mb-4 mt-4 line-clamp-3 text-gray-700"
           />
-          <p className="mb-6 font-manrope">
-            {post.authorName}{" "}
-            {new Date(post.date).toLocaleDateString("fr-FR", {
-              day: "2-digit",
-              month: "short",
-              year: "numeric",
-            })}
-          </p>
-          <article className="" dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
-        </div>
-        <div>
-          <Image src="/Homepage/article.svg" alt="" width={500} height={500} />
         </div>
       </div>
-      <div className="flex flex-row justify-between">
+
+      <div className="ml-10 grid gap-8 md:grid-cols-2">{/* Breadcrumb */}</div>
+      {/*  <div className="flex flex-row justify-between">
+        <Image src="/Homepage/meufBD.svg" alt="" width={200} height={200} className="m-auto" />
         <CommentForm postId={post.id} onCommentAdded={handleCommentAdded} />
       </div>
-      <div className="border-2 border-bleu-800 mx-auto w-[1140px] mb-12">
-       <div>
-        <Image src='/Icons/commentV.svg' alt="" width={30} height={30} className="mt-5"></Image>
-  <h2 className="text-2xl font-semibold text-[#22576B] mt-5">Commentaires</h2>
-  </div>
-  <div>
-    {comments.map((comment) => (
-      <div key={comment.id} className="flex items-start py-6 border-b border-gray-200">
-
-
-        {/* Détails du commentaire */}
-        <div className="flex flex-col">
-          <div className="mb-2">
-            <p className="font-semibold text-[#22576B] text-lg capitalize">{comment.author_name}</p>
-            <p className="text-sm text-gray-600">
-              {new Date(comment.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+      <div>
+        {comments.map((comment) => (
+          <div key={comment.id} className="comment justify-end py-4" aria-label="lire le commentaire">
+            <p>
+              <strong>{comment.author_name}</strong>
             </p>
+            <p dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(comment.content.rendered) }} />
           </div>
 
 
