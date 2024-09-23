@@ -19,11 +19,12 @@ const PaginationContent = React.forwardRef<HTMLUListElement, React.ComponentProp
   ({ className = "", ...props }, ref) => (
     <ul
       ref={ref}
-      className={cn("flex flex-row gap-1 space-x-[440px] border-t-2 border-gray-200", className)}
+      className={cn("flex justify-center gap-4 border-t-2 border-gray-200 pt-20 w-full mx-auto sm:w-4/5 lg:w-3/4", className)}
       {...props}
     />
   ),
 );
+
 PaginationContent.displayName = "PaginationContent";
 
 const PaginationItem = React.forwardRef<HTMLLIElement, React.ComponentProps<"li">>(

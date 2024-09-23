@@ -1,9 +1,30 @@
+'use client';
 import Image from "next/image";
 import Link from "next/link";
 import { RxArrowRight } from "react-icons/rx";
-
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "~/components/UI/Button";
 
+
+
+const Main = () => {
+  const router = useRouter();
+  const [message , setMessage]= useState("")
+const handleLinkContact = () => {
+
+  router.push("/Contact");
+
+
+  setMessage("");
+};
+
+const handleLinkService= () => {
+
+  router.push("/#services")
+
+  setMessage("");
+}
 const Main = () => {
   return (
     <div className="min-h-screen rounded-tr-customm-tr bg-gradient-to-b from-[#122023] via-[#0e2f08] to-[#323909] text-white xxs:rounded-tr-customx-tr xs:rounded-tr-customx-tr sm:rounded-tr-customx-tr md:rounded-tr-customs-tr lg:rounded-tr-customm-tr">
@@ -28,13 +49,15 @@ const Main = () => {
               Untitled is a next-gen financial technology company in the process of reinventing banking.
             </p>
             <div className="mt-14 flex flex-col justify-center space-y-4 md:mt-8 md:flex-row md:justify-start md:space-x-4 md:space-y-0">
-              <Button
+               <Button
+              onClick={handleLinkService}
                 variant="ghost"
                 className="rounded-md border-2 bg-[#122023] px-4 py-2 font-semibold text-white transition hover:bg-yellow-600 md:h-[51px] md:w-[180px] lg:h-[61px] lg:w-[280px]"
               >
                 Decouvrir nos services
               </Button>
               <Button
+                 onClick={handleLinkContact}
                 href="/Contact"
                 variant="ButtonJaune"
                 className="md:h-[51px] md:w-[120px] lg:h-[61px] lg:w-[180px]"

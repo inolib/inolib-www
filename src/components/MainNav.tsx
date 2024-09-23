@@ -75,29 +75,30 @@ const MainNav = ({ hoverClass, hoverBorder }: MainNavProps) => {
             onMouseLeave={handleMouseLeave}
             role="none"
           >
+             {item.subItems ? (
             <div
               className={`flex cursor-pointer items-center pb-2 ${hoverClass}`}
-              role={item.subItems ? "button": "link"}
+              role={"button"}
               aria-haspopup={item.subItems ? undefined: undefined}
               aria-expanded={item.subItems && openMenu === item.label ? undefined : undefined}
               onClick={(e) => handleClick(item.label, !!item.subItems, e)}
               onKeyDown={(e) => handleKeyDown(item.label, !!item.subItems, e)}
               aria-label={item.subItems ? `${item.label}, ${openMenu === item.label ? "ouvert" : "fermé"}` : `${item.label}`}
-              tabIndex={item.subItems ?   0 : undefined}
+              tabIndex={0}
 
             >
-              {item.subItems ? (
+
                 <span className={`flex items-center ${hoverBorder} hover:border-b-[1.5px]`} aria-hidden='true'>
                   {item.label}
                   {renderArrow(item.label)}
                 </span>
+                </div>
               ) : (
                 <Link href={item.href} className={`flex items-center ${hoverBorder} hover:border-b-[1.5px]`}>
                   {item.label}
 
                 </Link>
               )}
-            </div>
 
 
 
