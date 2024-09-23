@@ -4,6 +4,7 @@ import type { OneComment, Post } from "~/lib/types/features/componentTypes/types
 // fetch les posts
 export const fetchPost = async (slug: string): Promise<Post | null> => {
   try {
+    // On utilise `_embed` pour récupérer les données de l'auteur directement dans la réponse du post
     const res = await fetch(`https://backend.inolib.fr/wp-json/wp/v2/posts?slug=${slug}&_embed`);
 
     if (!res.ok) {
@@ -17,16 +18,12 @@ export const fetchPost = async (slug: string): Promise<Post | null> => {
     }
 
     const post = posts[0]; // On prend le premier post trouvé
-    console.log("post trouvé", post);
-    const authorRes = await fetch(`https://backend.inolib.fr/wp-json/wp/v2/users/${post.author}`);
-    console.log("authorRes", authorRes);
-    /*if (!authorRes.ok) {
-      throw new Error("Failed to fetch author");
-    }
 
-    const author = await authorRes.json();
-    post.authorName = author.name;
-*/
+    // Récupération du nom de l'auteur à partir de la réponse `_embedded`
+    const authorName = post._embedded?.['author']?.[0]?.name || "Auteur inconnu";
+    post.authorName = authorName;
+
+    // Récupération des catégories à partir de la réponse `_embedded`
     const categories = post._embedded["wp:term"]?.[0]?.map((term: any) => term.name) || [];
     post.categoryNames = categories;
 
@@ -54,3 +51,5 @@ export const fetchComments = async (postId: number): Promise<OneComment[]> => {
     return [];
   }
 };
+
+

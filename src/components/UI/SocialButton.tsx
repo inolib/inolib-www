@@ -64,7 +64,7 @@ export const SocialButton = ({
               className={cn("cursor-pointer border-none bg-transparent text-2xl hover:opacity-70", buttonClassName)}
               aria-label=" x"
             >
-              <FaXTwitter aria-hidden="true" /> {/* Icône masquée pour les lecteurs d'écran */}
+              <FaXTwitter aria-hidden="true" />
             </a>
           </TooltipTrigger>
           <TooltipContent>
@@ -82,7 +82,7 @@ export const SocialButton = ({
               aria-label="Instagram"
             >
               <FaInstagram className="text-[#bc2a8d]" aria-hidden="true" />{" "}
-              {/* Icône masquée pour les lecteurs d'écran */}
+
             </a>
           </TooltipTrigger>
           <TooltipContent>

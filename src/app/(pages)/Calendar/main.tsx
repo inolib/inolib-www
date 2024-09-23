@@ -6,7 +6,7 @@ const HubSpotCalendar: React.FC = () => {
       <iframe
         src="https://meetings-eu1.hubspot.com/djeberine?embed=true"
         className="w-full h-[700px] overflow-auto"
-            title="Prendre rendez-vous dans notre calendrier"
+        title="Prendre rendez-vous dans notre calendrier"
         style={{ border: 'none' }}
         allowFullScreen
       ></iframe>

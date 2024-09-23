@@ -74,6 +74,7 @@ const MainNav = ({ hoverClass, hoverBorder }: MainNavProps) => {
             onMouseEnter={() => handleMouseEnter(item.label)}
             onMouseLeave={handleMouseLeave}
             role="none"
+
           >
              {item.subItems ? (
             <div

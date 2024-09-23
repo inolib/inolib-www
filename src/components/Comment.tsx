@@ -1,27 +1,25 @@
-"use client";
-
 import { zodResolver } from "@hookform/resolvers/zod";
 import DOMPurify from "dompurify";
 import { FormProvider, useForm } from "react-hook-form";
 import { v4 as uuidv4 } from "uuid";
 import { z } from "zod";
-
+import Image from 'next/image'
 import { Button } from "~/components/UI/Button";
 import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "~/components/UI/Form";
 import { Input } from "~/components/UI/Input";
 import { Textarea } from "~/components/UI/TextArea";
 import type { OneComment, PostComment } from "~/lib/types/features/componentTypes/types";
 
-// Schéma de validation pour le formulaire, incluant l'email
+// Schéma de validation pour le formulaire
 const formSchema = z.object({
   username: z.string().min(2, {
-    message: "le pseudo doit contenir plus de 2 characters.",
+    message: "Le pseudo doit contenir plus de 2 caractères.",
   }),
   email: z.string().email({
     message: "Entrer une adresse email valide.",
   }),
   comment: z.string().min(1, {
-    message: "le commentaire ne doit pas etre vide.",
+    message: "Le commentaire ne doit pas être vide.",
   }),
 });
 
@@ -85,57 +83,98 @@ export const CommentForm = ({
     const newComment = await submitComment(postId, data.username, data.email, sanitizedComment);
 
     if (newComment) {
-      onCommentAdded(newComment);
+      const oneComment: OneComment = {
+        date: new Date().toISOString(),
+        id: newComment.id,
+        author_name: newComment.author_name,
+        content: {
+          rendered: newComment.content.rendered,
+        },
+      };
+      onCommentAdded(oneComment);
       methods.reset(); // Réinitialiser le formulaire après la soumission
     }
   };
 
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)} className="m-auto w-1/3 justify-between space-y-8 pb-4">
-        <FormField
-          control={methods.control}
-          name="username"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Pseudo</FormLabel>
-              <FormControl>
-                <Input placeholder="Votre Pseudo" {...field} />
-              </FormControl>
-              <FormDescription>Ceci est votre nom d'affichage public.</FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={methods.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email</FormLabel>
-              <FormControl>
-                <Input placeholder="Votre email" {...field} />
-              </FormControl>
-              <FormDescription>votre adresse email ne sera pas partagé publiquement.</FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={methods.control}
-          name="comment"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Commentaire</FormLabel>
-              <FormControl>
-                <Textarea placeholder="Rédigez votre commentaire ici..." {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit">Publier</Button>
-      </form>
+      <section aria-labelledby="comment-section" className="py-8 px-4 border-2 border-bleu-200 justify-center mx-auto xxs:w-[290px]  xs:w-[400px] sm:w-[650px] md:w-[880px] xl:w-[1140px] 2xl:w-[1570px]">
+        <div className="flex flex-col">
+        <Image src="/Icons/commentV.svg" alt="" width={30} height={30} className="mb-5"></Image>
+        <h2 id="comment-section" className="text-2xl  text-[#22576B] font-semibold mb-4">Laisser un commentaire</h2>
+
+
+        </div>
+        <p className="text-sm text-gray-600 mb-6">Les champs précédés d'un astérisque (*) sont obligatoires.</p>
+
+        <form onSubmit={methods.handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="col-span-1 border-2 border-red-800">
+            <FormField
+              control={methods.control}
+              name="comment"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Votre commentaire *</FormLabel>
+                  <FormControl>
+                    <Textarea
+                      placeholder="Rédigez votre commentaire ici..."
+                      {...field}
+                      className="mt-1 block w-full h-80 border text-gray-700 order-1 md:order-2 border-gray-300 rounded-md shadow-sm focus:ring focus:ring-opacity-50"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+
+          <div className="col-span-1 space-y-4 border-2 border-red-800">
+            <FormField
+              control={methods.control}
+              name="username"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Votre nom *</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="Votre Pseudo"
+                      {...field}
+                      className="mt-1 block w-full border border-gray-300 text-gray-700 rounded-md shadow-sm focus:ring focus:ring-opacity-50"
+                    />
+                  </FormControl>
+                  <FormDescription>Ceci est votre nom d'affichage public.</FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={methods.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Votre email (email@etc.com) *</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="Votre email"
+                      {...field}
+                      className="mt-1 block w-full border border-gray-300 text-gray-700 rounded-md shadow-sm focus:ring focus:ring-opacity-50"
+                    />
+                  </FormControl>
+                  <FormDescription>Votre adresse email ne sera pas partagée publiquement.</FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+               <div className="md:col-span-2 flex justify-center ml-0">
+            <Button type="submit" className="rounded-full  px-6 py-3 mt-20  text-white font-semibold bg-green-900 focus:outline-none focus:ring focus:ring-gray-300">
+              Envoyer votre commentaire
+            </Button>
+          </div>
+          </div>
+
+
+        </form>
+      </section>
     </FormProvider>
   );
 };

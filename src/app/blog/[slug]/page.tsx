@@ -143,7 +143,7 @@ const Single = ({ params }: Props) => {
         <div className="flex flex-row justify-between">
         <Image src="/Homepage/meufBD.svg" alt="" width={200} height={200} className="m-auto" />
         <CommentForm postId={post.id} onCommentAdded={handleCommentAdded} />
-      </div> 
+      </div>
      <div>
         {comments.map((comment) => (
           <div key={comment.id} className="comment justify-end py-4" aria-label="lire le commentaire">
@@ -153,7 +153,7 @@ const Single = ({ params }: Props) => {
             <p dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(comment.content.rendered) }} />
           </div>
         ))}
-      </div> 
+      </div>
       <Footer />
     </div>
   );

@@ -22,6 +22,7 @@ export type MenuItemProps = {
 };
 
 export type OneComment = {
+  date: string | number | Date;
   id: number;
   author_name: string;
   content: {

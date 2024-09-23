@@ -42,8 +42,8 @@ export default {
         normal: "26px",
       },
       screens: {
-        "3xl": "1536px",
-        "2xl": "1440px",
+
+        "2xl": "1536px",
         xl: "1280px",
         lg: "1024px",
         md: "768px",
