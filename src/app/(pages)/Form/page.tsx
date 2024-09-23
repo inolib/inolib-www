@@ -1,12 +1,12 @@
-import MainFormation from "~/app/(pages)/Former/main";
+import MainForm from "~/app/(pages)/Form/main";
 import Footer from "~/components/Footer";
 import Header from "~/components/Header";
 import HeaderHat from "~/components/HeaderHat";
 
-const Developpement = () => {
+const FormPage = () => {
   return (
     <>
-      <HeaderHat bgColor="bg-[#F5F9FA]" textColor="text-black" buttonVariant="buttonNoir" link="/Former/#formation " />
+      <HeaderHat bgColor="bg-[#F5F9FA]" textColor="text-black" buttonVariant="buttonNoir" link="/Form/#form " />
       <Header
         textColor="text-black"
         logosrc="\Logo\LogoNoir.svg"
@@ -16,12 +16,12 @@ const Developpement = () => {
           hoverBorder: "hover:border-green-800",
         }}
       />
-      <section id="formation">
-        <MainFormation />
+      <section id="form">
+        <MainForm />
       </section>
       <Footer />
     </>
   );
 };
 
-export default Developpement;
+export default FormPage;

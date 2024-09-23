@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import {
   Breadcrumb,
@@ -7,13 +8,14 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "~/components/UI/Breadcrumb";
+import { RxArrowRight } from 'react-icons/rx';
 
 const MainTest = () => {
   return (
-    <main className="container mx-auto mt-28 px-4 py-8 lg:px-0">
+    <main className="container mx-auto mt-8 px-2 py-8 lg:px-4 xl:px-10">
       {/* Breadcrumb */}
       <Breadcrumb>
-        <BreadcrumbList className="mb-10 ml-11 flex items-center xxs:ml-0 xxs:mr-0 xxs:w-80 sm:w-128 lg:ml-10 lg:w-80">
+        <BreadcrumbList className="mb-6 flex items-center space-x-2 text-sm w-64">
           <BreadcrumbItem>
             <BreadcrumbLink href="/">
               <Image src="/Icons/BreadcrumIcon.svg" alt="Home" width={20} height={20} />
@@ -30,59 +32,85 @@ const MainTest = () => {
         </BreadcrumbList>
       </Breadcrumb>
 
-      <div className="xxs:mx-1 xxs:w-80 xxs:items-start md:w-auto lg:mx-auto lg:w-auto">
-        <header className="xxs: mb-8 xxs:ml-0">
-          <h1 className="ml-11 text-3xl font-bold text-gray-900">Nos formations</h1>
+      <div className="max-w-7xl mx-auto">
+        <header className="mb-6 text-center md:text-left">
+          <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 text-left">Nos formations</h1>
         </header>
 
         {/* Main content */}
-        <article className="mb-16 grid gap-8 md:grid-cols-2">
-          <p className="px-10 text-gray-600 sm:w-128 md:w-160">
-            INOLIB vous accompagne dans la creation d'expériences numérique accessibleset conviviales pour
-            tous,conformément aux normes RGAA et WCAG. Nos formations et sessions de sensibilisation,interactives et
-            pratique , sont conçues pour repondre aux besoins de tout public, tels que les managers, chefs de
-            projet,developpeurs, designers et webmasters.
-          </p>
-        </article>
-        <div className="ml-10 border-t-2 xxs:w-60 sm:w-128 md:w-[600px] lg:w-[1160px]"></div>
-        <section className="grid gap-8 md:grid-cols-2">
-          <div className="mt-32 flex justify-center">
-            <Image src="/Homepage/seated 2.svg" alt="" width={500} height={500} />
+        <div className="flex flex-col space-y-8 lg:space-y-12">
+          <article className="text-gray-700">
+            <p className="text-gray-600 text-lg lg:text-xl lg:w-1/2">
+              INOLIB vous accompagne dans la création d'expériences numériques accessibles et conviviales pour tous, conformément aux normes RGAA et WCAG. Nos formations et sessions de sensibilisation, interactives et pratiques, sont conçues pour répondre aux besoins de tout public, tels que les managers, chefs de projet, développeurs, designers et webmasters.
+            </p>
+          </article>
+
+          {/* Link below the article */}
+          <Link
+            href="/Programme"
+            className="inline-flex lg:w-48 sm:w-auto items-center justify-between max-w-xs lg:max-w-sm rounded-lg bg-[#254147] px-4 py-2 text-white shadow hover:bg-primary/90 text-sm lg:text-base"
+          >
+            Voir le programme
+            <RxArrowRight className="h-6 w-6" />
+          </Link>
+        </div>
+
+        {/* Border divider */}
+        <div className="mt-16 border-t-2 w-full"></div>
+
+        {/* Section grid */}
+        <section className="grid gap-16 md:grid-cols-2 mt-16">
+          {/* Image */}
+          <div className="flex justify-center">
+            <Image
+              src="/Homepage/seated 2.svg"
+              alt="Seated Illustration"
+              width={500}
+              height={500}
+              className="max-w-full h-auto"
+            />
           </div>
+
+          {/* Text content */}
           <div>
-            <h2 id="main-test-heading" className="mb-4 mt-16 py-2 text-3xl font-bold">
+            <h2 id="main-test-heading" className="mb-6 text-3xl lg:text-4xl font-bold">
               Le processus d'audit Inolib en 4 étapes clés :
             </h2>
-            <p className="mb-4 text-gray-600">
+            <p className="mb-6 text-gray-600 text-lg lg:text-xl">
               An all-in-one customer service platform that helps you balance everything your customers need to be happy.
             </p>
-            <ol className="list-none space-y-6 text-gray-600">
-              <li className="mr-8 flex items-start space-x-3 rounded-xl bg-[#F5F9FA] p-4">
-                <Image src="/Icons/Aicon.svg" alt="" width={30} height={30} />
+
+            {/* Steps list */}
+            <ol className="space-y-8 text-gray-600">
+              <li className="flex items-start space-x-4 rounded-xl bg-[#F5F9FA] p-6">
+                <Image src="/Icons/Aicon.svg" alt="Co-construction" width={40} height={40} />
                 <div>
-                  <h3 className="font-semibold">1. Co-construction</h3>
-                  <p>Sélection d'un échantillon représentatif en collaboration avec vous.</p>
+                  <h3 className="font-semibold text-lg">1. Co-construction</h3>
+                  <p className="text-base">Sélection d'un échantillon représentatif en collaboration avec vous.</p>
                 </div>
               </li>
-              <li className="mr-8 flex items-start space-x-3 rounded-xl bg-[#F5F9FA] p-4">
-                <Image src="/Icons/loupe.svg" alt="" width={30} height={30} />
+
+              <li className="flex items-start space-x-4 rounded-xl bg-[#F5F9FA] p-6">
+                <Image src="/Icons/loupe.svg" alt="Investigation" width={40} height={40} />
                 <div>
-                  <h3 className="font-semibold">2. Investigation</h3>
-                  <p>Audit de conformité réalisé par nos experts, grâce à une grille de test spécifique.</p>
+                  <h3 className="font-semibold text-lg">2. Investigation</h3>
+                  <p className="text-base">Audit de conformité réalisé par nos experts, grâce à une grille de test spécifique.</p>
                 </div>
               </li>
-              <li className="mr-8 flex items-start space-x-3 rounded-xl bg-[#F5F9FA] p-4">
-                <Image src="/Icons/eg.svg" alt="" width={30} height={30} />
+
+              <li className="flex items-start space-x-4 rounded-xl bg-[#F5F9FA] p-6">
+                <Image src="/Icons/eg.svg" alt="Synthèse" width={40} height={40} />
                 <div>
-                  <h3 className="font-semibold">3. Synthèse</h3>
-                  <p>Rédaction d'un rapport d'audit détaillé, incluant nos recommandations d'accessibilité.</p>
+                  <h3 className="font-semibold text-lg">3. Synthèse</h3>
+                  <p className="text-base">Rédaction d'un rapport d'audit détaillé, incluant nos recommandations d'accessibilité.</p>
                 </div>
               </li>
-              <li className="mr-8 flex items-start space-x-3 rounded-xl bg-[#F5F9FA] p-4">
-                <Image src="/Icons/chat.svg" alt="" width={30} height={30} />
+
+              <li className="flex items-start space-x-4 rounded-xl bg-[#F5F9FA] p-6">
+                <Image src="/Icons/chat.svg" alt="Échange" width={40} height={40} />
                 <div>
-                  <h3 className="font-semibold">4. Échange</h3>
-                  <p>Restitution des résultats pour vous offrir une vue d'ensemble et répondre à vos questions.</p>
+                  <h3 className="font-semibold text-lg">4. Échange</h3>
+                  <p className="text-base">Restitution des résultats pour vous offrir une vue d'ensemble et répondre à vos questions.</p>
                 </div>
               </li>
             </ol>

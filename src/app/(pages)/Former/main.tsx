@@ -10,7 +10,7 @@ import {
   BreadcrumbSeparator,
 } from "~/components/UI/Breadcrumb";
 
-const MainForm = () => {
+const MainFormation = () => {
   return (
     <main className="container mx-auto mt-0 lg:px-0">
       {/* Breadcrumb */}
@@ -134,4 +134,4 @@ const MainForm = () => {
   );
 };
 
-export default MainForm;
+export default MainFormation;

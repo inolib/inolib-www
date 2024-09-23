@@ -50,14 +50,14 @@ const MainNav = ({ hoverClass, hoverBorder }: MainNavProps) => {
     };
   }, []);
 
-  // Chevron icon for subitems
+  // Chevron icon pour sou-menu
   const renderSubItemArrow = () => (
     <svg className="ml-auto h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
     </svg>
   );
 
-  // Arrow for main menu items
+
   const renderArrow = (menu: string) => (
     <svg className={`ml-2 h-4 w-4 transition-transform duration-300 ${openMenu === menu ? "rotate-180 transform" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
@@ -75,29 +75,30 @@ const MainNav = ({ hoverClass, hoverBorder }: MainNavProps) => {
             onMouseLeave={handleMouseLeave}
             role="none"
           >
+             {item.subItems ? (
             <div
               className={`flex cursor-pointer items-center pb-2 ${hoverClass}`}
-              role="menuitem"
+              role={"button"}
               aria-haspopup={item.subItems ? undefined: undefined}
               aria-expanded={item.subItems && openMenu === item.label ? undefined : undefined}
               onClick={(e) => handleClick(item.label, !!item.subItems, e)}
               onKeyDown={(e) => handleKeyDown(item.label, !!item.subItems, e)}
               aria-label={item.subItems ? `${item.label}, ${openMenu === item.label ? "ouvert" : "fermé"}` : `${item.label}`}
-              tabIndex={item.subItems ?   0 : undefined}
-              aria-controls={`submenu-${item.label}`}
+              tabIndex={0}
+
             >
-              {item.subItems ? (
-                <span className={`flex items-center ${hoverBorder} hover:border-b-[1.5px]`}>
+
+                <span className={`flex items-center ${hoverBorder} hover:border-b-[1.5px]`} aria-hidden='true'>
                   {item.label}
                   {renderArrow(item.label)}
                 </span>
+                </div>
               ) : (
-                <Link href={item.href} className={`flex items-center ${hoverBorder} hover:border-b-[1.5px]`} aria-hidden="true">
+                <Link href={item.href} className={`flex items-center ${hoverBorder} hover:border-b-[1.5px]`}>
                   {item.label}
 
                 </Link>
               )}
-            </div>
 
 
 

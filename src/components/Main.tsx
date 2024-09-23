@@ -1,10 +1,30 @@
+'use client';
 import Image from "next/image";
 import Link from "next/link";
 import { RxArrowRight } from "react-icons/rx";
-
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Button } from "~/components/UI/Button";
 
+
+
 const Main = () => {
+  const router = useRouter();
+  const [message , setMessage]= useState("")
+const handleLinkContact = () => {
+
+  router.push("/Contact");
+
+
+  setMessage("");
+};
+
+const handleLinkService= () => {
+
+  router.push("/#services")
+
+  setMessage("");
+}
   return (
     <div className="min-h-screen rounded-tr-customm-tr bg-gradient-to-b from-[#122023] via-[#0e2f08] to-[#323909] text-white xxs:rounded-tr-customx-tr xs:rounded-tr-customx-tr sm:rounded-tr-customx-tr md:rounded-tr-customs-tr lg:rounded-tr-customm-tr">
      <main className="flex flex-col items-center px-4 py-10 md:flex-row md:items-centers md:justify-center md:ml-[20px] lg:ml-[30px]">
@@ -33,6 +53,7 @@ const Main = () => {
             </p>
             <div className="flex flex-col justify-center mt-14 space-y-4 md:flex-row md:space-x-4 md:space-y-0 md:mt-8 md:justify-start">
               <Button
+              onClick={handleLinkService}
               href="/#services"
                 variant="ghost"
                 className="rounded-md border-2 bg-[#122023] px-4 py-2 font-semibold text-white transition hover:bg-yellow-600 md:w-[180px] md:h-[51px] lg:h-[61px] lg:w-[280px]"
@@ -40,7 +61,7 @@ const Main = () => {
                 Decouvrir nos services
               </Button>
               <Button
-                href="/Contact"
+                onClick={handleLinkContact}
                 variant="ButtonJaune"
                 className="md:h-[51px] md:w-[120px] lg:h-[61px] lg:w-[180px]"
               >

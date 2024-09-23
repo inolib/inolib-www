@@ -129,7 +129,7 @@ const BlogList = () => {
   const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
 
   return (
-    <div className="container ml-20 mt-10 px-4 py-20 lg:px-0">
+    <div className="container mx-auto px-2 py-8 xs:px-0">
       {/* Breadcrumb */}
       <Breadcrumb>
         <BreadcrumbList className="mb-6">
@@ -144,16 +144,16 @@ const BlogList = () => {
           </BreadcrumbItem>
         </BreadcrumbList>
 
-        <header className="mb-1">
-          <h1 className="text-3xl font-bold text-gray-900">Blog</h1>
+        <header className="mb-1  sm:text-left">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Blog</h1>
         </header>
-        <p className="mb-12 max-w-xl">
-          Décrypte l'actualité de l'accessibilité numérique, publie des articles techniques (design, développement) et
-          partage ses rétrospectives.
+        <p className="mb-6 max-w-lg  sm:text-left text-gray-700">
+          Décrypte l'actualité de l'accessibilité numérique, publie des articles techniques (design, développement) et partage ses rétrospectives.
         </p>
 
-        <div className="mb-6 flex space-x-4">
-          <div className="flex w-[875px] items-center space-x-2 border-b-2 border-gray-200">
+
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 space-y-4 sm:space-y-0 sm:space-x-4">
+          <div className="flex items-center space-x-2 border-b-2 border-gray-200 w-full sm:w-4/5 lg:w-[80%] mx-auto" >
             <button
               onClick={() => handleCategorySelect("Tous les articles")}
               className={`border-green-300 pb-4 hover:border-b-4 ${categoryParam === "Tous les articles" ? "text-gray-700" : "text-gray-800"}`}
@@ -182,7 +182,7 @@ const BlogList = () => {
             </DropdownMenu>
           </div>
           {/* Barre de recherche des articles en fonction de leurs titres et contenus */}
-          <div className="relative">
+          <div className="relative w-full sm:w-auto">
             <input
               id="search-input"
               type="text"
@@ -190,7 +190,7 @@ const BlogList = () => {
               aria-label="barre de recherche articles"
               value={searchTerm}
               onChange={handleSearchChange}
-              className="rounded-full border border-gray-300 px-4 py-2"
+              className="w-full sm:w-72 rounded-full border border-gray-300 px-4 py-2"
             />
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
               <svg className="h-5 w-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
@@ -206,55 +206,48 @@ const BlogList = () => {
 
         {/* Liste des articles */}
 
-        <div className="mr-36 grid gap-6 pt-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {posts.map((post) => (
-            <div key={post.id} className="rounded-3xl bg-white">
-              {post.img && (
-                <div className="h-48 w-full overflow-hidden rounded-xl">
-                  <Image src={post.img} alt="" width={200} height={200} className="h-full w-full object-cover" />
-                </div>
-              )}
-              {/* Afficher les catégories de chaque article */}
-              <div className="pt-6">
-                {post.categoryNames.map((category, index) => (
-                  <span
-                    key={index}
-                    className="mb-2 inline-block rounded-full bg-[#CBE0E4] px-2 py-1 text-xs font-semibold uppercase tracking-wide text-gray-800"
-                  >
-                    {category}
-                  </span>
-                ))}
-                {/* Titre, contenu, auteur et date de publication de chaque article */}
-                <div className="flex flex-row">
-                  <h2 className="mb-2 flex items-center text-xl font-semibold">
-                    <Link href={`/blog/${post.slug}`}>
-                      <span dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-                      <Image src="/Icons/iconA.svg" alt="" width={20} height={20} className="" />
-                    </Link>
-                  </h2>
-                </div>
-                <div
-                  dangerouslySetInnerHTML={{ __html: post.content.rendered }}
-                  className="mt-4 line-clamp-3 text-gray-700"
-                />
-                <p className="mt-4 font-semibold text-black">{post.authorName}</p>
-                <p className="text-gray-500">
-                  {new Date(post.date).toLocaleDateString("fr-FR", {
-                    day: "2-digit",
-                    month: "short",
-                    year: "numeric",
-                  })}
-                </p>
-              </div>
-            </div>
-          ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  {posts.map((post) => (
+    <div key={post.id} className="rounded-3xl bg-white">
+      {/* Affichage des images */}
+      {post.img && (
+        <div className="h-48 w-full overflow-hidden rounded-xl">
+          <Image src={post.img} alt="" width={200} height={200} className="h-full w-full object-cover" />
         </div>
+      )}
+      <div className="pt-6">
+        {post.categoryNames.map((category, index) => (
+          <span
+            key={index}
+            className="mb-2 inline-block rounded-full bg-[#CBE0E4] px-2 py-1 text-xs font-semibold uppercase tracking-wide text-gray-800"
+          >
+            {category}
+          </span>
+        ))}
+        <h2 className="mb-2 text-xl font-semibold">
+          <Link href={`/blog/${post.slug}`}>
+            <span dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+          </Link>
+        </h2>
+        <p className="mt-4 font-semibold text-black">{post.authorName}</p>
+        <p className="text-gray-500">
+          {new Date(post.date).toLocaleDateString("fr-FR", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+          })}
+        </p>
+      </div>
+    </div>
+  ))}
+</div>
+
       </Breadcrumb>
-      <div className="w-[1130px]">
+      <div className="flex justify-center mt-8">
         {/* Pagination */}
         <Pagination>
           <PaginationContent>
-            <PaginationItem className="space-x-28">
+            <PaginationItem className="flex justify-center space-x-2 ">
               <PaginationPrevious
                 href={`?page=${currentPage - 1}`}
                 className={currentPage === 1 ? "cursor-not-allowed opacity-75" : ""}
