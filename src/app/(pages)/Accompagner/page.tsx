@@ -6,7 +6,7 @@ import HeaderHat from "~/components/HeaderHat";
 const PageAccoumpagner = () => {
   return (
     <>
-      <HeaderHat bgColor="bg-[#F5F9FA]" textColor="text-black" buttonVariant="buttonNoir" link="/#services " />
+      <HeaderHat bgColor="bg-[#F5F9FA]" textColor="text-black" buttonVariant="buttonNoir" link="/Accompagner/#mainA " />
       <Header
         textColor="text-black"
         logosrc="/Logo/LogoNoir.svg"
@@ -16,7 +16,9 @@ const PageAccoumpagner = () => {
           hoverBorder: "hover:border-green-800",
         }}
       />
+      <section id="mainA">
       <MainAccompagnement />
+      </section>
       <Footer />
     </>
   );

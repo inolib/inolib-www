@@ -14,7 +14,7 @@ import HubSpotCalendar from "./main";
 const Apointment = () => {
   return (
     <div className="overflow-hidden">
-      <HeaderHat bgColor="bg-[#F5F9FA]" textColor="text-black" buttonVariant="buttonNoir" link="/#services " />
+      <HeaderHat bgColor="bg-[#F5F9FA]" textColor="text-black" buttonVariant="buttonNoir" link="/Calendar/#calendar " />
       <Header
         textColor="text-black"
         logosrc="/Logo/LogoNoir.svg"
@@ -24,8 +24,9 @@ const Apointment = () => {
           hoverBorder: "hover:border-green-800",
         }}
       />
-
+<section id="calendar">
         <HubSpotCalendar />
+        </section>
 
 <Footer/>
     </div>

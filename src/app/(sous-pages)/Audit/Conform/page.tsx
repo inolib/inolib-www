@@ -13,7 +13,7 @@ import Go from "~/components/GoFarther"
 const PageConfo = () => {
   return (
     <div className="overflow-hidden">
-      <HeaderHat bgColor="bg-[#F5F9FA]" textColor="text-black" buttonVariant="buttonNoir" link="/#services " />
+      <HeaderHat bgColor="bg-[#F5F9FA]" textColor="text-black" buttonVariant="buttonNoir" link="/Audit/Conform/#conformité" />
       <Header
         textColor="text-black"
         logosrc="/Logo/LogoNoir.svg"
@@ -23,7 +23,9 @@ const PageConfo = () => {
           hoverBorder: "hover:border-green-800",
         }}
       />
+      <section id="conformité">
       <Confo />
+      </section>
       <Methodologie/>
 
       <Statis />

@@ -72,10 +72,10 @@ const Single = ({ params }: Props) => {
     return <div>Post non trouvé</div>;
   }
 
-  console.log("Title sliced", post.title.rendered.indexOf("z"));
+
   return (
     <div className="overflow-hidden">
-      <HeaderHat bgColor="bg-[#F5F9FA]" textColor="text-black" buttonVariant="buttonNoir" link="/#services " />
+      <HeaderHat bgColor="bg-[#F5F9FA]" textColor="text-black" buttonVariant="buttonNoir" link="/blog/slug/#slug " />
       <Header
         textColor="text-black"
         logosrc="/Logo/LogoNoir.svg"
@@ -85,6 +85,7 @@ const Single = ({ params }: Props) => {
           hoverBorder: "hover:border-green-800",
         }}
       />
+      <section id="slug">
       <div className="flex w-full flex-col items-center px-6 md:px-10">
         <div className="flex w-full justify-start xl:w-[1200px]">
           <Breadcrumb className="flex  flex-row flex-nowrap items-center">
@@ -117,7 +118,7 @@ const Single = ({ params }: Props) => {
             ))}
             <h1 className="mt-2 text-3xl font-semibold">{post.title.rendered}</h1>
             <div className="mt-4 text-gray-700 line-clamp-2">
-          <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+          <p dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
         </div>
             <p className="mb-6 mt-4 font-manrope">
               {post.authorName}{" "}
@@ -143,8 +144,8 @@ const Single = ({ params }: Props) => {
       </div>
 
       <div className="ml-10 grid gap-8 md:grid-cols-2">{/* Breadcrumb */}</div>
-        <div className="flex flex-row justify-between">
-        <Image src="/Homepage/meufBD.svg" alt="" width={200} height={200} className="m-auto" />
+        <div className="flex mx-auto ">
+
         <CommentForm postId={post.id} onCommentAdded={handleCommentAdded} />
       </div>
      <div>
@@ -157,6 +158,7 @@ const Single = ({ params }: Props) => {
           </div>
         ))}
       </div>
+      </section>
       <Footer />
     </div>
   );

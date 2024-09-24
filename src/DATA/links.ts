@@ -35,7 +35,7 @@ export const menuItems: MenuItemProps[] = [
   },
   {
     href: "/Former",
-    label: "Former",
+    label: "Inolib Académie",
     subItems: [
       { href: "/Former", label: "Former" },
       { href: "/Formation", label: "Nos formations" },

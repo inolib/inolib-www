@@ -34,7 +34,22 @@ const MainNav = ({ hoverClass, hoverBorder }: MainNavProps) => {
       e.preventDefault();
       handleClick(menu, hasSubItems, e);
     }
+
   };
+  useEffect(() => {
+    const handleEscKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpenMenu(null); // Fermer le menu quand "Échap" est pressé
+      }
+    };
+
+    // Ajout de l'écoute de l'événement 'keydown'
+    document.addEventListener("keydown", handleEscKey);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscKey);
+    };
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
