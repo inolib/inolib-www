@@ -18,9 +18,9 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="bg-[#111F22] flex justify-center">
-    <div className="w-full relative rounded-lg  p-8 text-white md:p-16 2xl:w-[1440px]">
-      <div className="md:mx-20 text-justify">
+
+    <div className="relative rounded-lg bg-[#111F22] p-8 text-white md:p-16">
+      <div className="md:ml-20">
         <div className="mb-4 flex">
           {[...Array(5)].map((_, i) => (
             <span key={i} className="text-lg text-[#E1FF01] md:text-xl">
@@ -43,9 +43,8 @@ const Testimonials = () => {
           </div>
         </div>
       </div>
-
-      {/* Navigation buttons */}
-      <div className="mt-8 flex items-center justify-between md:absolute md:left-8 md:right-8 md:top-1/3 md:-translate-y-1/2 md:transform">
+  {/* Navigation buttons */}
+  <div className="mt-8 flex items-center justify-between md:absolute md:left-8 md:right-8 md:top-1/2 md:-translate-y-1/2 md:transform">
         <button
           onClick={prevTestimonial}
           aria-label="temoignage precedent"
@@ -62,7 +61,6 @@ const Testimonials = () => {
         </button>
       </div>
     </div>
-  </div>
   );
 };
 
