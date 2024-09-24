@@ -12,10 +12,10 @@ import {
 const Intro = () => {
   return (
     <section className="w-full bg-white " aria-labelledby="about-heading">
-    <div className="w-full px-4 py-16 flex flex-col items-center text-center ">
 
-    <Breadcrumb className="hidden xl:block mb-6 xl:pl-20 xl:w-[1280px]">
-      <BreadcrumbList className=" space-x-2 ">
+
+    <Breadcrumb>
+      <BreadcrumbList className="mb-6 mt-0 lg:ml-14 flex items-center space-x-2 flex-row">
         <BreadcrumbItem>
           <BreadcrumbLink href="/">
             <Image src="/Icons/BreadcrumIcon.svg" alt="Home" width={20} height={20} />
@@ -29,7 +29,7 @@ const Intro = () => {
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>
-
+    <div className="w-full px-4 py-16 flex flex-col items-center text-center">
     <div className="w-full flex flex-col items-center max-w-3xl sm:w-[600px] ">
 
       <span className="mb-4 w-40 inline-block rounded-full bg-[#CBE0E4] px-3 py-1 text-sm font-medium">À propos</span>

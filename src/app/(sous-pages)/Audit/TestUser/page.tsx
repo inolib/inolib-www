@@ -10,7 +10,7 @@ import Statis from "~/components/Statistique";
 const PageTest = () => {
   return (
     <div className="overflow-hidden">
-      <HeaderHat bgColor="bg-[#F5F9FA]" textColor="text-black" buttonVariant="buttonNoir" link="/#services " />
+      <HeaderHat bgColor="bg-[#F5F9FA]" textColor="text-black" buttonVariant="buttonNoir" link="/Audit/TestUser/#test " />
       <Header
         textColor="text-black"
         logosrc="/Logo/LogoNoir.svg"
@@ -20,7 +20,9 @@ const PageTest = () => {
           hoverBorder: "hover:border-green-800",
         }}
       />
+      <section id="test">
       <MainTest />
+      </section>
       <Statis />
       <ServiceSection />
       <Faqs />

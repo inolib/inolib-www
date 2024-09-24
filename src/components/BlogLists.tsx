@@ -143,7 +143,7 @@ const BlogList = () => {
             <BreadcrumbLink href="/blog">Blog</BreadcrumbLink>
           </BreadcrumbItem>
         </BreadcrumbList>
-
+        </Breadcrumb>
         <header className="mb-1  sm:text-left">
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Blog</h1>
         </header>
@@ -245,7 +245,7 @@ const BlogList = () => {
   ))}
 </div>
 
-      </Breadcrumb>
+
       <div className="flex justify-center mt-8">
         {/* Pagination */}
         <Pagination>

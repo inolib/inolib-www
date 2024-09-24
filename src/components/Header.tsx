@@ -31,7 +31,7 @@ const Header = ({ textColor, logosrc, burgerMenu, MainNavProps }: HeaderProps) =
           <Image src={logosrc} alt="" width={120} height={40} className="object-contain" />
         </Link>
       </div>
-      <div >
+      <div>
         <BurgerMenu navMenu={burgerMenu} />
       </div>
       <section id="nav" className="hidden lg:block">

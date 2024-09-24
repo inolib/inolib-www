@@ -13,10 +13,11 @@ import {
 
 const Project = () => {
   return (
-    <main className="container mx-auto mt-28 px-4 py-8 lg:px-0">
+    <main className="container mx-auto mt-10 lg:px-0">
       {/* Breadcrumb */}
+      <div className="flex flex-col items-center justify-between lg:flex-row">
       <Breadcrumb>
-        <BreadcrumbList className="mb-10 ml-11 flex w-5/12 items-center">
+        <BreadcrumbList className="mb-6 mt-0 flex items-center space-x-2 lg:ml-10">
           <BreadcrumbItem>
             <BreadcrumbLink href="/">
               <Image src="/Icons/BreadcrumIcon.svg" alt="Home" width={20} height={20} />
@@ -28,26 +29,26 @@ const Project = () => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href="/Accompagnement"> {`Accompagnement des projets`.slice(0,15)}... </BreadcrumbLink>
+            <BreadcrumbLink href="/Accompagnement"> {`Accompagnement des projets`.slice(0,20)}... </BreadcrumbLink>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
-
-      <div className="mx-auto">
+      </div>
+      <div className="mx-auto text-center">
         <header className="mb-8">
-          <h1 className="ml-11 text-4xl font-bold text-gray-900 text-start">Accompagnement projet</h1>
+          <h1 className="text-4xl font-bold text-gray-900 text-center lg:text-start lg:ml-10">Accompagnement de projet</h1>
         </header>
 
         {/* Main content */}
-        <section className="mb-16 grid gap-8 md:grid-cols-2">
-          <div className="ml-11 flex flex-col justify-center">
+        <section className="mt-6 px-4 pb-4 lg:mt-12 lg:flex lg:space-x-16 lg:px-10">
+          <div className=" flex flex-col justify-center">
             <div className="mb-4 flex items-center">
 
-              <p className="mb-4 text-gray-600">
+              <p className="mb-4 text-gray-600 text-center">
             Inolib vous accompagne dans vos projets numériques, en intégrant l'accessibilité à chaque étape. Notre expertise en gestion de projet et en accessibilité numérique garantit des solutions inclusives et performantes, adaptées aux besoins de vos équipes de projets, design, développement et éditoriales.
             </p>
             </div>
-            <div className="flex w-[500px] items-center space-x-2 border-b-2 border-gray-200 m-4"/>
+            <div className="flex w-auto items-center text-center space-x-2 border-b-2 border-gray-200 m-4"/>
           </div>
           <div className="flex items-center justify-center">
             <Image src="/Homepage/image.svg" alt="" width={700} height={600} className="w-full rounded-lg" />
@@ -64,20 +65,20 @@ const Project = () => {
             </h2>
 
             <ol className="list-none space-y-6 text-gray-600">
-            <li className="mr-8 flex items-start space-x-3 rounded-xl bg-[#F5F9FA] p-4">
+            <li className="flex items-start space-x-3 rounded-xl bg-[#F5F9FA] p-4">
                 <Image src="/Icons/eg.svg" alt="" width={30} height={30} />
                 <div>
                   <p>Inolib propose des ateliers collaboratifs pour définir vos objectifs fonctionnels et techniques, tout en intégrant les normes d'accessibilité. Nous vous fournissons des outils d’aide à la décision afin de prioriser les grandes orientations de votre transformation numérique.</p>
                 </div>
               </li>
-              <li className="mr-8 flex items-start space-x-3 rounded-xl bg-[#F5F9FA] p-4">
+              <li className="flex items-start space-x-3 rounded-xl bg-[#F5F9FA] p-4">
                 <Image src="/Icons/Aicon.svg" alt="" width={30} height={30} />
                 <div>
                   <p>Nous réalisons également un audit des logiciels utilisés et recommandons des solutions adaptées à vos futurs projets. Grâce à une cartographie des parties prenantes, nous identifions les responsables clés au sein de votre organisation pour assurer une gestion claire et une gouvernance efficace.
                   </p>
                 </div>
               </li>
-              <li className="mr-8 flex items-start space-x-3 rounded-xl bg-[#F5F9FA] p-4">
+              <li className="flex items-start space-x-3 rounded-xl bg-[#F5F9FA] p-4">
                 <Image src="/Icons/loupe.svg" alt="" width={30} height={30} />
                 <div>
                   <p>Inolib aide à prioriser vos initiatives en fonction de l'effort et de la valeur générée. Nous garantissons une approche équilibrée avec une analyse tripartite (business, technique, accessibilité). En outre, nous élaborons un tableau d’impact des risques pour visualiser leurs répercussions sur l’expérience utilisateur, notamment pour les personnes en situation de handicap.
@@ -102,14 +103,14 @@ const Project = () => {
                   </p>
                 </div>
               </li>
-              <li className="mr-8 flex items-start space-x-3 rounded-xl bg-[#F5F9FA] p-4">
+              <li className="flex items-start space-x-3 rounded-xl bg-[#F5F9FA] p-4">
                 <Image src="/Icons/Aicon.svg" alt="" width={30} height={30} />
                 <div>
                   <p>La roadmap produit est construite de manière flexible, ajustée à chaque sprint pour répondre aux retours des parties prenantes. Nous adoptons une gestion agile des ressources en adaptant les équipes selon les priorités du projet.
                   </p>
                 </div>
               </li>
-              <li className="mr-8 flex items-start space-x-3 rounded-xl bg-[#F5F9FA] p-4">
+              <li className="flex items-start space-x-3 rounded-xl bg-[#F5F9FA] p-4">
                 <Image src="/Icons/loupe.svg" alt="" width={30} height={30} />
                 <div>
                   <p>Le suivi est effectué par sprints, avec des ajustements réguliers basés sur les retours utilisateurs. À la fin du projet, nous organisons une rétrospective pour évaluer les performances et optimiser les pratiques futures. Le transfert progressif vers l’équipe de maintenance se fait avec une documentation complète et une transition fluide.

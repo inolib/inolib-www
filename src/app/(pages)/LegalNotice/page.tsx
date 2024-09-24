@@ -6,7 +6,7 @@ import HeaderHat from "~/components/HeaderHat";
 const Developpement = () => {
   return (
     <>
-      <HeaderHat bgColor="bg-[#F5F9FA]" textColor="text-black" buttonVariant="buttonNoir" link="/Former/#form " />
+      <HeaderHat bgColor="bg-[#F5F9FA]" textColor="text-black" buttonVariant="buttonNoir" link="/LegalNotice/#mention" />
       <Header
         textColor="text-black"
         logosrc="\Logo\LogoNoir.svg"
@@ -16,7 +16,7 @@ const Developpement = () => {
           hoverBorder: "hover:border-green-800",
         }}
       />
-      <section id="form">
+      <section id="mention">
         <MainLagal />
       </section>
       <Footer />

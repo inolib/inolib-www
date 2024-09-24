@@ -35,6 +35,7 @@ return (
    <main className="flex flex-col items-center px-4 py-10 md:flex-row md:items-centers md:justify-center md:ml-[20px] lg:ml-[30px]">
       <div className="max-w-xl md:max-w-[50%] lg:max-w-xl text-left xl:pt-[40px] 2xl:mr-[40px]">
         <div className="rounded-lg bg-opacity-75 flex flex-col justify-between">
+          <p> Inolib de l'idée au projet: pour un numérique accessible</p>
         <p className="mb-4 flex h-9 flex-row rounded-full border-[1px] border-[#E1FF01] bg-[#3B3A33] xxs:w-[265px] xs:w-[265px] sm:mb-8 sm:w-64 md:w-64">
             <span className="xs:w-30 mx-1 my-[2px] w-36 rounded-full border-[1px] border-[#E1FF01] bg-[#122023] px-2 py-[1px] xxs:w-[125px] xxs:pt-1 xxs:text-sm xs:pt-1 xs:text-sm sm:w-28 sm:pt-2 sm:text-xs">
               Restez à jour !

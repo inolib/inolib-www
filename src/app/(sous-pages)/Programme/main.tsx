@@ -8,8 +8,8 @@ export default function MainForm() {
         {/* Image sur la gauche pour grands écrans */}
         <div className="md:w-1/2 w-full h-[300px] lg:h-full relative lg:ml-16 lg:mt-20">
           <Image
-            src="/Homepage/formation.jpg" // Mets le chemin correct ici
-            alt="Formation sur l'accessibilité numérique"
+            src="/Homepage/formation.jpg"
+            alt=""
             layout="fill"
             objectFit="cover"
             className="rounded-lg md:rounded-none"
