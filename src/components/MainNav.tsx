@@ -107,7 +107,7 @@ const MainNav = ({ hoverClass, hoverBorder }: MainNavProps) => {
               <ul
                 id={`submenu-${item.label}`}
                 className="absolute left-0 mt-2 w-48 rounded-lg bg-white text-black opacity-100 shadow-lg transition-opacity duration-300"
-                role="menu"
+                role="none"
                 onMouseEnter={() => handleMouseEnter(item.label)}
                 onMouseLeave={handleMouseLeave}
               >
