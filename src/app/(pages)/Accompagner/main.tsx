@@ -17,7 +17,7 @@ const MainForm = () => {
       <div className="flex flex-col items-center justify-between lg:flex-row">
         <section>
           <Breadcrumb>
-            <BreadcrumbList className="mb-6 ml-24 mt-0 flex items-center space-x-2">
+            <BreadcrumbList className="mb-6 lg:ml-24 mt-0 flex items-center space-x-2 flex-row">
               <BreadcrumbItem>
                 <BreadcrumbLink href="/">
                   <Image src="/Icons/BreadcrumIcon.svg" alt="Home" width={20} height={20} />
@@ -26,7 +26,7 @@ const MainForm = () => {
               <BreadcrumbSeparator />
               <BreadcrumbItem>
                 <BreadcrumbLink href="/Accompagner" className="text-gray-600">
-                  Accompgner
+                  Accompagner
                 </BreadcrumbLink>
               </BreadcrumbItem>
             </BreadcrumbList>

@@ -108,7 +108,7 @@ export const CommentForm = ({
         <p className="text-sm text-gray-600 mb-6">Les champs précédés d'un astérisque (*) sont obligatoires.</p>
 
         <form onSubmit={methods.handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="col-span-1 border-2 border-red-800">
+          <div className="col-span-1 ">
             <FormField
               control={methods.control}
               name="comment"
@@ -128,7 +128,7 @@ export const CommentForm = ({
             />
           </div>
 
-          <div className="col-span-1 space-y-4 border-2 border-red-800">
+          <div className="col-span-1 space-y-4 border-2 ">
             <FormField
               control={methods.control}
               name="username"
@@ -139,7 +139,7 @@ export const CommentForm = ({
                     <Input
                       placeholder="Votre Pseudo"
                       {...field}
-                      className="mt-1 block w-full border border-gray-300 text-gray-700 rounded-md shadow-sm focus:ring focus:ring-opacity-50"
+                      className="mt-1 block w-full  text-gray-700 rounded-md shadow-sm focus:ring focus:ring-opacity-50"
                     />
                   </FormControl>
                   <FormDescription>Ceci est votre nom d'affichage public.</FormDescription>

@@ -222,13 +222,13 @@ const MainContact = () => {
               {["Audit", "Accompagnement", "Développement", "Formation", "Partenariat", "Autre"].map((interestItem) => (
               <button
             role="radio"
-             aria-checked={formData.interest && formData.interest.includes(interestItem)}
+            aria-checked={formData.interest && formData.interest.includes(interestItem)}
             key={interestItem}
             type="button"
             onClick={() => handleInterestSelect(interestItem)}
             className={`flex items-center gap-2 rounded-full border-[1px] border-[#8EBBC5] px-4 py-2 ${
             formData.interest && formData.interest.includes(interestItem) ? "bg-[#254147] text-white" : "bg-[#EEF5F6] text-black"
-         } focus:outline-none`}
+         }`}
            aria-live="polite"
                 >
           {formData.interest && formData.interest.includes(interestItem) && (

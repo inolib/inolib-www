@@ -143,7 +143,7 @@ const BlogList = () => {
             <BreadcrumbLink href="/blog">Blog</BreadcrumbLink>
           </BreadcrumbItem>
         </BreadcrumbList>
-
+        </Breadcrumb>
         <header className="mb-1  sm:text-left">
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Blog</h1>
         </header>
@@ -229,6 +229,9 @@ const BlogList = () => {
             <span dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
           </Link>
         </h2>
+        <div className="mt-4 text-gray-700 line-clamp-3">
+          <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+        </div>
         <p className="mt-4 font-semibold text-black">{post.authorName}</p>
         <p className="text-gray-500">
           {new Date(post.date).toLocaleDateString("fr-FR", {
@@ -242,7 +245,7 @@ const BlogList = () => {
   ))}
 </div>
 
-      </Breadcrumb>
+
       <div className="flex justify-center mt-8">
         {/* Pagination */}
         <Pagination>
