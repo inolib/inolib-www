@@ -229,6 +229,9 @@ const BlogList = () => {
             <span dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
           </Link>
         </h2>
+        <div className="mt-4 text-gray-700 line-clamp-3">
+          <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+        </div>
         <p className="mt-4 font-semibold text-black">{post.authorName}</p>
         <p className="text-gray-500">
           {new Date(post.date).toLocaleDateString("fr-FR", {

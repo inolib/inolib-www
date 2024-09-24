@@ -28,7 +28,7 @@ const Project = () => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href="/Accompagnement">Accompagnement des projets </BreadcrumbLink>
+            <BreadcrumbLink href="/Accompagnement"> {`Accompagnement des projets`.slice(0,15)}... </BreadcrumbLink>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
