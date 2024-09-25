@@ -98,83 +98,113 @@ export const CommentForm = ({
 
   return (
     <FormProvider {...methods}>
-      <section aria-labelledby="comment-section" className="py-8 px-4 border-2 border-bleu-200 justify-center mx-auto xxs:w-[290px]  xs:w-[400px] sm:w-[650px] md:w-[880px] xl:w-[1140px] 2xl:w-[1570px]">
+      <section
+        aria-labelledby="comment-section"
+        className="py-8 px-8 justify-center mx-auto w-full max-w-[1570px]"
+      >
         <div className="flex flex-col">
-        <Image src="/Icons/commentV.svg" alt="" width={30} height={30} className="mb-5"></Image>
-        <h2 id="comment-section" className="text-2xl  text-[#22576B] font-semibold mb-4">Laisser un commentaire</h2>
-
-
+          <Image
+            src="/Icons/commentV.svg"
+            alt="Icône de commentaire"
+            width={30}
+            height={30}
+            className="mb-5"
+          />
+          <h2
+            id="comment-section"
+            className="text-2xl text-[#22576B] font-semibold mb-4"
+          >
+            Laisser un commentaire
+          </h2>
         </div>
-        <p className="text-sm text-gray-600 mb-6">Les champs précédés d'un astérisque (*) sont obligatoires.</p>
 
-        <form onSubmit={methods.handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="col-span-1 ">
-            <FormField
-              control={methods.control}
-              name="comment"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Votre commentaire *</FormLabel>
-                  <FormControl>
-                    <Textarea
-                      placeholder="Rédigez votre commentaire ici..."
-                      {...field}
-                      className="mt-1 block w-full h-80 border text-gray-700 order-1 md:order-2 border-gray-300 rounded-md shadow-sm focus:ring focus:ring-opacity-50"
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+        <p className="text-sm text-gray-600 mb-6">
+          Les champs précédés d'un astérisque (*) sont obligatoires.
+        </p>
+
+        <form
+          onSubmit={methods.handleSubmit(onSubmit)}
+          className="flex flex-col gap-6"
+        >
+          {/* Conteneur pour les champs */}
+          <div className="flex flex-col md:flex-row md:space-x-6">
+            {/* Coordonnées */}
+            <div className="flex-1 flex flex-col space-y-4 md:order-1 order-2">
+              <FormField
+                control={methods.control}
+                name="username"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Votre nom *</FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="Votre Pseudo"
+                        {...field}
+                        className="mt-1 block w-full border border-gray-300 text-gray-700 rounded-md shadow-sm focus:ring focus:ring-opacity-50"
+                      />
+                    </FormControl>
+                    <FormDescription>
+                      Ceci est votre nom d'affichage public.
+                    </FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={methods.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Votre email (email@etc.com) *</FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="Votre email"
+                        {...field}
+                        className="mt-1 block w-full border border-gray-300 text-gray-700 rounded-md shadow-sm focus:ring focus:ring-opacity-50"
+                      />
+                    </FormControl>
+                    <FormDescription>
+                      Votre adresse email ne sera pas partagée publiquement.
+                    </FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {/* Bouton Envoyer aligné en bas */}
+              <div className="pt-16 flex justify-center md:justify-start">
+                <Button
+                  type="submit"
+                  className="rounded-full px-6 py-3 bg-green-900 text-white font-semibold hover:bg-green-700 focus:outline-none focus:ring focus:ring-gray-300"
+                >
+                  Envoyer votre commentaire
+                </Button>
+              </div>
+            </div>
+
+            {/* Champ de commentaire */}
+            <div className="flex-1 md:order-2 order-1">
+              <FormField
+                control={methods.control}
+                name="comment"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Votre commentaire *</FormLabel>
+                    <FormControl>
+                      <Textarea
+                        placeholder="Rédigez votre commentaire ici..."
+                        {...field}
+                        className="mt-1 block w-full h-80 border border-gray-300 text-gray-700 rounded-md shadow-sm focus:ring focus:ring-opacity-50"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
           </div>
-
-          <div className="col-span-1 space-y-4 border-2 ">
-            <FormField
-              control={methods.control}
-              name="username"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Votre nom *</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Votre Pseudo"
-                      {...field}
-                      className="mt-1 block w-full  text-gray-700 rounded-md shadow-sm focus:ring focus:ring-opacity-50"
-                    />
-                  </FormControl>
-                  <FormDescription>Ceci est votre nom d'affichage public.</FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={methods.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Votre email (email@etc.com) *</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Votre email"
-                      {...field}
-                      className="mt-1 block w-full border border-gray-300 text-gray-700 rounded-md shadow-sm focus:ring focus:ring-opacity-50"
-                    />
-                  </FormControl>
-                  <FormDescription>Votre adresse email ne sera pas partagée publiquement.</FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-               <div className="md:col-span-2 flex justify-center ml-0">
-            <Button type="submit" className="rounded-full  px-6 py-3 mt-20  text-white font-semibold bg-green-900 focus:outline-none focus:ring focus:ring-gray-300">
-              Envoyer votre commentaire
-            </Button>
-          </div>
-          </div>
-
-
         </form>
       </section>
     </FormProvider>
   );
-};
+}

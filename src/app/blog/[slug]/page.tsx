@@ -143,21 +143,35 @@ const Single = ({ params }: Props) => {
         </div>
       </div>
 
-      <div className="ml-10 grid gap-8 md:grid-cols-2">{/* Breadcrumb */}</div>
-        <div className="flex mx-auto ">
+
+
 
         <CommentForm postId={post.id} onCommentAdded={handleCommentAdded} />
-      </div>
-     <div>
-        {comments.map((comment) => (
-          <div key={comment.id} className="comment justify-end py-4" aria-label="lire le commentaire">
-            <p>
-              <strong>{comment.author_name}</strong>
+
+
+      <div className="flex flex-col mt-10 px-8 mx-auto">
+        <Image src="/Icons/commentV.svg" alt="" width={30} height={30} className="mb-5"></Image>
+  <h2 className="text-2xl font-semibold text-[#22576B]">Commentaires</h2>
+  <div>
+    {comments.map((comment) => (
+      <div key={comment.id} className="flex items-start py-6 border-b border-gray-200">
+       {/* Détails du commentaire */}
+        <div className="flex flex-col">
+          <div className="mb-2">
+            <p className="font-semibold text-[#22576B] text-lg capitalize">{comment.author_name}</p>
+            <p className="text-sm text-gray-600">
+              {new Date(comment.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
             </p>
-            <p dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(comment.content.rendered) }} />
           </div>
-        ))}
+
+          {/* Contenu du commentaire */}
+          <p className="text-gray-700" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(comment.content.rendered) }} />
+        </div>
       </div>
+    ))}
+  </div>
+</div>
+
       </section>
       <Footer />
     </div>
