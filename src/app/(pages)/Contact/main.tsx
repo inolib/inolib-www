@@ -200,7 +200,7 @@ const MainContact = () => {
       <div className="mx-auto mb-11 ml-11 w-96">
       <header className="mb-8">
     <h1 className=" text-3xl font-bold text-gray-900">
-       Nous contacter
+       Inolib contact
     </h1>
   </header>
 

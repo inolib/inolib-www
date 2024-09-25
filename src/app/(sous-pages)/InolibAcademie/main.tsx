@@ -30,10 +30,16 @@ export default function MainForm() {
       {/* Programme de formation */}
       <section className="mt-24 max-w-7xl mx-auto">
         {/* Titre du programme */}
-        <h2 className="text-3xl font-bold text-gray-900 mb-6">Sensibilisation aux fondamentaux de l’accessibilité numérique</h2>
+        <h2 className="text-3xl font-bold text-gray-900 mb-6">Initiation aux fondamentaux de l’accessibilité numérique</h2>
         <p className="text-gray-500 mb-8">Programme mis à jour le : <time dateTime="2024-05-02">02 mai 2024</time></p>
 
+
+        <h3 className="text-2xl font-semibold text-gray-900 mb-4">Intervenant à la formation :</h3>
+        <p className="text-gray-700 mb-6">Monsieur Djebrine ALOUI <span className="text-amber-500">Djebrine.aloui@inolib.com</span>Tél :
+
+<span className="text-amber-500">  06 47 21 90 69.</span></p>
         {/* Public visé */}
+
         <h3 className="text-2xl font-semibold text-gray-900 mb-4">Public visé</h3>
         <p className="text-gray-700 mb-6">Tout public, en particulier les professionnels du digital.</p>
 
@@ -60,7 +66,13 @@ export default function MainForm() {
           <strong>Durée :</strong> 7 heures
         </p>
         <p className="text-gray-700 mb-4">
-          <strong>Modalités d'inscription :</strong> Contacter l’organisme de formation par téléphone ou par courriel pour une analyse de votre besoin. Un contrat ou une convention de formation sera ensuite envoyé pour signature.
+          <strong>Tarif :</strong>
+
+         400 euros TTC
+        </p>
+
+        <p className="text-gray-700 mb-4">
+          <strong>Modalités d'inscription :</strong> Contacter l’organisme de formation par téléphone<span className="text-purple-700"> 06 47 21 86 69 </span>ou par courriel <span className="text-purple-700">contact@inolib.com</span> pour l’analyse de vos besoins. Ensuite l’organisme vous adressera pour signature un contrat ou une convention de formation.
         </p>
         <p className="text-gray-700 mb-4">
           <strong>Délais d'accès :</strong> 1 semaine
@@ -72,7 +84,7 @@ export default function MainForm() {
         {/* Accessibilité pour personnes en situation de handicap */}
         <h3 className="text-2xl font-semibold text-gray-900 mb-4">Accessibilité des personnes en situation de handicap</h3>
         <p className="text-gray-700 mb-8">
-          Toute personne en situation de handicap est invitée à prendre contact avec l’organisme afin de mettre en œuvre toute mesure utile au bon déroulement de la formation.
+        Accessibilité des personnes en situation de handicap : toute personne en situation de handicap est invitée à prendre contact avec l’organisme afin de mettre en œuvre toute mesure utile au bon déroulement de la formation.
         </p>
 
         {/* Programme détaillé */}
@@ -94,7 +106,7 @@ export default function MainForm() {
         <ul className="list-disc list-inside text-gray-700 mb-6">
           <li>Les normes internationales WCAG</li>
           <li>Les normes européennes, zoom sur le RGAA</li>
-          <li>Les 3 obligations d’accessibilité numérique (transparence, engagement, conformité)</li>
+          <li >Les 3 obligations d’accessibilité numérique <li className="list-none pl-5">o oblogation de transparence </li> <li className="list-none pl-5">o obligation d'engagement</li>  <li className="list-none pl-5">o obligation conformité </li>     </li>
           <li>Les sanctions applicables</li>
           <li>Activité : « Tester l’accessibilité numérique »</li>
         </ul>
@@ -112,6 +124,9 @@ export default function MainForm() {
           <li>Mise en situation d’un projet numérique</li>
           <li>QCM de fin de formation</li>
         </ul>
+        <h3 className="text-2xl font-semibold text-gray-900 mb-4"> Indicateurs de résultats :</h3>
+
+<p className="text-gray-700 mb-8">Nombre de stagiaires formés depuis la mise en œuvre de cette prestation et taux de satisfaction globale.</p>
       </section>
     </main>
   );

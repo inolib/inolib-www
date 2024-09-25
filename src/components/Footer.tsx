@@ -49,7 +49,7 @@ const Footer = () => {
             <Image src="/Logo/LogoJaune.svg" alt="" width={100} height={50} />
             </Link>
           </div>
-          <p className="mt-4 text-sm text-gray-400 md:mt-0">&copy; 2024 Inolib. All rights reserved.</p>
+          <p className="mt-4 text-sm text-gray-400 md:mt-0">&copy; 2024 Inolib. Tous droits reservés.</p>
         </div>
       </div>
     </footer>
