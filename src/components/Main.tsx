@@ -33,6 +33,7 @@ const handleLinkService= () => {
 return (
   <div className="min-h-screen rounded-tr-customm-tr bg-gradient-to-b from-[#122023] via-[#0e2f08] to-[#323909] text-white xxs:rounded-tr-customx-tr xs:rounded-tr-customx-tr sm:rounded-tr-customx-tr md:rounded-tr-customs-tr lg:rounded-tr-customm-tr">
    <main className="flex flex-col items-center px-4 py-10 md:flex-row md:items-centers md:justify-center md:ml-[20px] lg:ml-[30px]">
+
       <div className="max-w-xl md:max-w-[50%] lg:max-w-xl text-left xl:pt-[40px] 2xl:mr-[40px]">
         <div className="rounded-lg bg-opacity-75 flex flex-col justify-between">
 
@@ -51,7 +52,7 @@ return (
           </p>
 
           <h1 className="mb-4 max-w-160 text-4xl leading-tight md:leading-snug lg:text-5xl lg:leading-snug xl:text-6xl xl:leading-snug">
-            <span className="text-[#9cd494]">Inolib</span> de l'idée au projet, pour un numérique accessible
+            <span className="text-[#9cd494]">Inolib</span> de l'idée a la realité digital, pour un numérique accessible
           </h1>
           <p className="font-manorop mb-4 mt-8 max-w-96 text-lg xl:text-xl text-[#E0DBC7] md:mt-4">
           Ensemble, rendons le numérique accessible à tous

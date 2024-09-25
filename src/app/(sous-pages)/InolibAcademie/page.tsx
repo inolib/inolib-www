@@ -4,7 +4,7 @@ import Faqs from "~/components/Faqs";
 import Footer from "~/components/Footer";
 import Header from "~/components/Header";
 import HeaderHat from "~/components/HeaderHat";
-import MainForm from "~/app/(sous-pages)/Programme/main"
+import MainForm from "~/app/(sous-pages)/InolibAcademie/main"
 
 const FormationPage = () => {
   return (

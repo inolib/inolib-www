@@ -8,19 +8,19 @@ export const menuItems: MenuItemProps[] = [
       { href: "/Audit", label: "Audit" },
 
       { href: "/Audit/Conform", label: "Audit de conformité" },
-      { href: "/Audit/TestUser", label: "Test utilisateurs" },
+   // { href: "/Audit/TestUser", label: "Test utilisateurs" },
     ],
   },
   {
     href: "/Accompagner",
     label: "Accompagner",
     subItems: [
-      { href: "/Accompagner", label: "Accompagnement" },
+     // { href: "/Accompagner", label: "Accompagnement" },
       { href: "/Accompagnement/Accompagnement", label: "Accompagnement de projet" },
-      { href: "/Accompagnement/assistance", label: "Assistance" },
-      { href: "/Accompagnement/referent", label: "Référent en Accessibilité" },
-      { href: "/Audit/TestUser", label: "Test utilisateur" },
-      { href: "/Accompagnement/schema", label: "Schéma" },
+      //{ href: "/Accompagnement/assistance", label: "Assistance" },
+     // { href: "/Accompagnement/referent", label: "Référent en Accessibilité" },
+     // { href: "/Audit/TestUser", label: "Test utilisateur" },
+     // { href: "/Accompagnement/schema", label: "Schéma" },
     ],
   },
   {
@@ -28,9 +28,9 @@ export const menuItems: MenuItemProps[] = [
     label: "Développer",
     subItems: [
       { href: "/Developpement", label: "Développement" },
-      { href: "/Developpement/siteWeb", label: "Développement Web" },
-      { href: "/Developpement/appliMobile", label: "Développement mobile" },
-      { href: "/Developpement/saas", label: "Saas" },
+     // { href: "/Developpement/siteWeb", label: "Développement Web" },
+    //  { href: "/Developpement/appliMobile", label: "Développement mobile" },
+    //  { href: "/Developpement/saas", label: "Saas" },
     ],
   },
   {
@@ -38,7 +38,7 @@ export const menuItems: MenuItemProps[] = [
     label: "Inolib Académie",
     subItems: [
       { href: "/Former", label: "Former" },
-      { href: "/Formation", label: "Nos formations" },
+      // { href: "/Formation", label: "Nos formations" },
     ],
   },
   {
