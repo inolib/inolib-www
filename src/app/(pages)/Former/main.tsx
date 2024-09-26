@@ -67,7 +67,7 @@ const MainFormation = () => {
             href="/InolibAcademie"
             className="inline-flex lg:w-48 sm:w-auto items-center justify-between max-w-xs lg:max-w-sm rounded-lg bg-[#254147] px-4 py-2 text-white shadow hover:bg-primary/90 text-sm lg:text-base"
           >
-            Voir le programme
+            Ancien programme
             <RxArrowRight className="h-6 w-6" />
           </Link>
         </div>
