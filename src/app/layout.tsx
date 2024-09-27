@@ -6,8 +6,8 @@ import type { PropsWithChildren } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Inolib - De l'idée au projet: pour un numérique accessible",
-  description: "Découvrez les services, témoignages et actualités de notre entreprise.",
+
+
   robots: {
     index: false,
   },
