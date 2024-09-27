@@ -77,7 +77,7 @@ const BurgerMenu = ({ navMenu }: MenuProps) => {
           ))}
 
           <DropdownMenuItem asChild>
-            <Link href="/contact">
+            <Link href="/Contact">
               <Button variant="buttonNoir">Nous contacter</Button>
             </Link>
           </DropdownMenuItem>
