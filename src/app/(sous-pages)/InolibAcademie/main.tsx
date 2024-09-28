@@ -8,7 +8,7 @@ export default function MainForm() {
         {/* Image sur la gauche pour grands écrans */}
         <div className="md:w-1/2 w-full h-[300px] lg:h-full relative lg:ml-16 lg:mt-20">
           <Image
-            src="/Homepage/formation.jpg"
+            src="/Homepage/formation-lg.jpg"
             alt=""
             layout="fill"
             objectFit="cover"

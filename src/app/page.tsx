@@ -11,14 +11,20 @@ import Services from "~/components/Service";
 import SocialProof from "~/components/SocialProof";
 import Testimonials from "~/components/Testimonial";
 import Line from "~/components/UI/Line";
+import type { Metadata } from "next";
+import BurgerMenu from "~/components/UI/BurgerMenu";
 
+export const metadata: Metadata = {
+  title: "Inolib de l'idée a la realité digital, pour un numérique accessible",
+  description: "Découvrez les services, témoignages et actualités de notre entreprise.",
+
+
+
+};
 const Home = () => {
   return (
     <div className="overflow-hidden bg-[#233f41]">
-      <Head>
-        <title>Inolib de l'idée au projet: pour un numérique accessible</title>
-        <meta name="description" content="Découvrez les services, témoignages et actualités de notre entreprise." />
-      </Head>
+
 
       <HearderHat bgColor="bg-[#111F22]" textColor="text-white" buttonVariant="ButtonJaune" link="/#services " />
       <Header
@@ -30,6 +36,8 @@ const Home = () => {
           hoverBorder: "hover:border-[#e6ff58]",
         }}
       />
+
+
 
       <Main />
       <SocialProof />
