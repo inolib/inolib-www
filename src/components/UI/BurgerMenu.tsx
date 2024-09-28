@@ -2,15 +2,18 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { menuItems } from "~/DATA/links";
-
+import { useRouter } from "next/navigation";
+import{ Button}  from "~/components/UI/Button";
 type MenuProps = {
   navMenu: string;
+  buttonVariant: "ButtonJaune" | "buttonNoir" | "outline" | "secondary" | "ghost" | "link" | "buttonNoirOutline";
 };
 
-const BurgerMenu = ({ navMenu }: MenuProps) => {
+
+const BurgerMenu = ({ navMenu, buttonVariant }: MenuProps) => {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const router = useRouter();
   // Ouvre ou ferme un sous-menu
   const handleMenuClick = (menu: string) => {
     setOpenMenu(openMenu === menu ? null : menu);
@@ -44,6 +47,9 @@ const BurgerMenu = ({ navMenu }: MenuProps) => {
       closeMenu(); // Ferme le menu avec Échap
     }
   };
+  const handleLink = ()=> {
+    router.push('/Contact')
+  }
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -75,7 +81,7 @@ const BurgerMenu = ({ navMenu }: MenuProps) => {
       {isMenuOpen && (
         <div
           id="menu-content"
-          className="absolute top-full right-0 mt-2 w-80 bg-white p-4 shadow-lg z-10"
+          className="absolute top-full right-0 mt-2 w-80 bg-white rounded-lg p-4 shadow-lg z-10"
           role="none"
           aria-labelledby="menu-trigger"
         >
@@ -86,7 +92,7 @@ const BurgerMenu = ({ navMenu }: MenuProps) => {
           {menuItems.map((item) => (
             <div key={item.label}>
               {item.subItems ? (
-                // Pour les items avec sous-menus : on clique pour ouvrir/fermer
+
                 <div
                   className="flex w-full cursor-pointer items-center justify-between py-2 text-black"
                   onClick={() => handleMenuClick(item.label)}
@@ -132,11 +138,14 @@ const BurgerMenu = ({ navMenu }: MenuProps) => {
           ))}
 
           <div className="py-2">
-            <Link href="/Contact">
-              <button className="px-4 py-2 bg-black text-white rounded-lg">
-                Nous contacter
-              </button>
-            </Link>
+          <Button
+        variant={"buttonNoir"}
+
+        onClick={handleLink}
+        className="mr-8 w-72"
+      >
+        Nous contacter
+      </Button>
           </div>
         </div>
       )}

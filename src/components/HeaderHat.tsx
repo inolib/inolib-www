@@ -58,7 +58,7 @@ const HeaderHat = ({ bgColor, textColor, buttonVariant, link }: HeaderHatProps) 
       {/* Bouton "Nous contacter" */}
       <Button
         variant={buttonVariant}
-        aria-label="Nous contacter"
+
         onClick={handleLink}
         className="mr-8 hidden lg:block"
       >
