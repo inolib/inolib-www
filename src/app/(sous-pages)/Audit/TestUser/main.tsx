@@ -12,10 +12,10 @@ import {
 
 const MainTest = () => {
   return (
-    <main className="container mx-auto mt-28 px-4 py-8 lg:px-0">
+    <main className="mx-4 mt-16 px-4 py-8 lg:px-0">
       {/* Breadcrumb */}
       <Breadcrumb>
-        <BreadcrumbList className="mb-10 ml-11 flex w-5/12 items-center">
+        <BreadcrumbList className="mb-10 flex w-5/12 items-center">
           <BreadcrumbItem>
             <BreadcrumbLink href="/">
               <Image src="/Icons/BreadcrumIcon.svg" alt="" width={20} height={20} />
@@ -34,12 +34,12 @@ const MainTest = () => {
 
       <div className="mx-auto">
         <header className="mb-8">
-          <h1 className="ml-11 text-3xl font-bold text-gray-900">Test utilisateurs</h1>
+          <h1 className="text-3xl font-bold text-gray-900">Test utilisateurs</h1>
         </header>
 
         {/* Main content */}
         <section className="mb-16 grid gap-8 md:grid-cols-2">
-          <div className="ml-11 flex flex-col justify-center">
+          <div className=" flex flex-col justify-center">
             <div className="mb-4 flex items-center">
               <Image src="/Icons/eclaire.svg" alt="" width={40} height={40} className="mr-2" />
               <h2 className="text-2xl font-bold">Deliver instant answers</h2>

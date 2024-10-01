@@ -11,11 +11,11 @@ import {
 
 const Intro = () => {
   return (
-    <section className="w-full bg-white " aria-labelledby="about-heading">
+    <section className="w-auto bg-white mt-16" aria-labelledby="about-heading">
 
 
     <Breadcrumb>
-      <BreadcrumbList className="mb-6 mt-0 lg:ml-14 flex items-center space-x-2 flex-row">
+      <BreadcrumbList className="mb-6 w-3/12 flex text-center space-x-2 flex-row ml-4">
         <BreadcrumbItem>
           <BreadcrumbLink href="/">
             <Image src="/Icons/BreadcrumIcon.svg" alt="Home" width={20} height={20} />

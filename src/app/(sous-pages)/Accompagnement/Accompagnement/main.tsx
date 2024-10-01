@@ -13,11 +13,11 @@ import {
 
 const Project = () => {
   return (
-    <main className="container mx-auto mt-10 lg:px-0">
+    <main className="mx-4 mt-16 lg:px-10">
       {/* Breadcrumb */}
-      <div className="flex flex-col items-center justify-between lg:flex-row">
+      <div className="flex flex-col lg:flex-row">
       <Breadcrumb>
-        <BreadcrumbList className="mb-6 mt-0 flex items-center space-x-2 lg:ml-10">
+        <BreadcrumbList className="mb-6 mt-0 space-x-2 w-auto">
           <BreadcrumbItem>
             <BreadcrumbLink href="/">
               <Image src="/Icons/BreadcrumIcon.svg" alt="Home" width={20} height={20} />
@@ -34,17 +34,17 @@ const Project = () => {
         </BreadcrumbList>
       </Breadcrumb>
       </div>
-      <div className="mx-auto text-center">
+      <div className="">
         <header className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 text-center lg:text-start lg:ml-10">Accompagnement de projet</h1>
+          <h1 className="text-4xl font-bold text-gray-900 text-start lg:text-start">Accompagnement de projet</h1>
         </header>
 
         {/* Main content */}
-        <section className="mt-6 px-4 pb-4 lg:mt-12 lg:flex lg:space-x-16 lg:px-10">
-          <div className=" flex flex-col justify-center">
-            <div className="mb-4 flex items-center">
+        <section className="mt-6 pb-4 lg:mt-12 lg:flex lg:space-x-4">
+          <div className=" flex flex-col justify-center w-auto lg:w-7/12">
+            <div className="mb-4 flex items-start">
 
-              <p className="mb-4 text-gray-600 text-center">
+              <p className="mb-4 text-gray-600 text-start">
             Inolib vous accompagne dans vos projets numériques, en intégrant l'accessibilité à chaque étape. Notre expertise en gestion de projet et en accessibilité numérique garantit des solutions inclusives et performantes, adaptées aux besoins de vos équipes de projets, design, développement et éditoriales.
             </p>
             </div>

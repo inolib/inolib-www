@@ -12,10 +12,10 @@ import {
 
 const Conf = () => {
   return (
-    <main className="mx-auto mt-28 px-4 py-8 lg:px-0">
+    <main className="mx-4 mt-16 lg:px-0">
       {/* Breadcrumb */}
       <Breadcrumb>
-        <BreadcrumbList className="mb-10 ml-11 flex w-full items-center lg:w-5/12">
+        <BreadcrumbList className="mb-10 w-6/12 flex items-start">
           <BreadcrumbItem>
             <BreadcrumbLink href="/">
               <Image src="/Icons/BreadcrumIcon.svg" alt="Home" width={20} height={20} />
@@ -34,14 +34,14 @@ const Conf = () => {
 
       <div className="mx-auto">
         <header className="mb-8">
-          <h1 className="ml-11 text-3xl font-bold text-gray-900">
+          <h1 className="text-3xl font-bold text-gray-900">
             Audit de Conformité en Accessibilité Numérique RGAA WCAG
           </h1>
         </header>
 
         {/* Main content */}
         <section className="mb-16 grid gap-8 lg:grid-cols-2">
-          <div className="flex flex-col justify-center lg:ml-11">
+          <div className="flex flex-col justify-center">
             <div className="mb-4 flex flex-col">
               <div className="mb-5 mr-2">
                 <Image src="/Icons/eclaire.svg" alt="" width={40} height={40} />

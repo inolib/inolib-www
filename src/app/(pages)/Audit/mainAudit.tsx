@@ -12,12 +12,12 @@ import {
 
 const MainForm = () => {
   return (
-    <main className="container mx-auto xs:ml-0 lg:px-0">
+    <main className="mx-4 lg:px-0">
       {/* Breadcrumb */}
-      <div className="flex flex-col items-center justify-between lg:flex-row">
+      <div className="flex flex-col items-start justify-between lg:flex-row">
         <section>
           <Breadcrumb>
-            <BreadcrumbList className="mb-6 mt-16 flex items-center space-x-2 xs:ml-6 md:ml-10 lg:ml-24">
+            <BreadcrumbList className="mb-6 mt-16 flex items-center space-x-2">
               <BreadcrumbItem>
                 <BreadcrumbLink href="/">
                   <Image src="/Icons/BreadcrumIcon.svg" alt="Home" width={20} height={20} />
@@ -31,17 +31,17 @@ const MainForm = () => {
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
-          <header className="xs:ml-6 lg:ml-24">
+          <header className="">
             <h1 className="text-4xl font-bold text-gray-900">Audit d'accessibilité numérique</h1>
           </header>
         </section>
 
         <section className="mr-10 mt-10 w-1/3">
-          <Image src="/Homepage/med1.svg" alt="" width={650} height={450} className="object-cover" />
+          <Image src="/Homepage/med1.svg" alt="" width={650} height={450} className="object-cover max-lg:hidden"/>
         </section>
       </div>
 
-      <section className="mt-6 px-4 pb-4 xs:ml-6 lg:ml-14 lg:mt-12 lg:flex lg:space-x-16 lg:px-10">
+      <section className="mt-6  pb-4 lg:mt-12 lg:flex lg:space-x-16">
         <div className="flex flex-col lg:w-1/2">
           <p className="mb-6 text-gray-600">
             INOLIB vous accompagne dans la création d'expériences numériques accessibles et conviviales pour tous,

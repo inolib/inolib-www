@@ -129,10 +129,10 @@ const BlogList = () => {
   const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
 
   return (
-    <div className="container mx-auto px-2 py-8 xs:px-0">
+    <div className="mx-4 px-2 py-8 xs:px-0 mt-16">
       {/* Breadcrumb */}
       <Breadcrumb>
-        <BreadcrumbList className="mb-6">
+        <BreadcrumbList className="mb-6 w-3/12">
           <BreadcrumbItem>
             <BreadcrumbLink href="/ ">
               <Image src="/Icons/BreadcrumIcon.svg" alt=" page accueil" width={20} height={20}></Image>
@@ -144,7 +144,7 @@ const BlogList = () => {
           </BreadcrumbItem>
         </BreadcrumbList>
         </Breadcrumb>
-        <header className="mb-1  sm:text-left">
+        <header className="mb-1 mt-16 sm:text-left">
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Blog</h1>
         </header>
         <p className="mb-6 max-w-lg  sm:text-left text-gray-700">

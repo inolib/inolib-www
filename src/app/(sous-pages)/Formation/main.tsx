@@ -12,10 +12,10 @@ import { RxArrowRight } from 'react-icons/rx';
 
 const MainTest = () => {
   return (
-    <main className="container mx-auto mt-8 px-2 py-8 lg:px-4 xl:px-10">
+    <main className="mx-4 mt-8 px-2 py-8 lg:px-4 xl:px-10">
       {/* Breadcrumb */}
       <Breadcrumb>
-        <BreadcrumbList className="mb-6 flex items-center space-x-2 text-sm w-64">
+        <BreadcrumbList className="mb-6 flex items-center space-x-2 text-sm w-4/12">
           <BreadcrumbItem>
             <BreadcrumbLink href="/">
               <Image src="/Icons/BreadcrumIcon.svg" alt="Home" width={20} height={20} />
@@ -32,7 +32,7 @@ const MainTest = () => {
         </BreadcrumbList>
       </Breadcrumb>
 
-      <div className="max-w-7xl mx-auto">
+      <div className="mx-auto mt-16">
         <header className="mb-6 text-center md:text-left">
           <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 text-left">Nos formations</h1>
         </header>

@@ -12,12 +12,12 @@ import {
 
 const MainForm = () => {
   return (
-    <main className="container mx-auto mt-0 lg:px-0">
+    <main className="mx-4 mt-16">
       {/* Breadcrumb */}
-      <div className="flex flex-col items-center justify-between lg:flex-row">
+      <div className="flex flex-col items-start justify-between lg:flex-row">
         <section>
           <Breadcrumb>
-            <BreadcrumbList className="mb-6 ml-24 mt-0 flex items-center space-x-2">
+            <BreadcrumbList className="mb-6 mt-0 flex items-center space-x-2">
               <BreadcrumbItem>
                 <BreadcrumbLink href="/">
                   <Image src="/Icons/BreadcrumIcon.svg" alt="Home" width={20} height={20} />
@@ -31,17 +31,17 @@ const MainForm = () => {
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
-          <header className="lg:ml-24">
+          <header className="">
             <h1 className="text-4xl font-bold text-gray-900">Développement</h1>
           </header>
         </section>
 
-        <section className="mr-10 mt-10">
+        <section className="mt-10">
           <Image src="/Homepage/newDev.svg" alt="" width={550} height={550} className="object-cover" />
         </section>
       </div>
 
-      <section className="ml-14 mt-6 px-4 pb-4 lg:mt-12 lg:flex lg:space-x-16 lg:px-10">
+      <section className=" mt-6 pb-4 lg:mt-12 lg:flex lg:space-x-16">
         <div className="flex flex-col lg:w-1/2">
           <p className="mb-6 text-gray-600">
             INOLIB vous accompagne dans la création d'expériences numériques accessibles et conviviales pour tous,
