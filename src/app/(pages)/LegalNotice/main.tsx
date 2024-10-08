@@ -1,3 +1,7 @@
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -5,36 +9,33 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "~/components/UI/Breadcrumb";
-import Image from "next/image";
-import Link from "next/link";
-import Head from "next/head";
 
-export default function MainLegal(): JSX.Element {
+const MainLegal = () => {
   return (
     <>
       {/* SEO and Accessibility */}
       <Head>
         <title>Mentions Légales - INOLIB</title>
         <meta
-          name="description"
           content="Mentions légales du site INOLIB SAS, société au capital de 5 000 € et immatriculée au RCS de Lyon sous le numéro B 909 129 454."
+          name="description"
         />
-        <meta name="robots" content="index, follow" />
+        <meta content="index, follow" name="robots" />
       </Head>
 
-      <main className="mx-auto ml-6 mt-12 px-4">
+      <div className="mx-auto ml-6 mt-12 px-4">
         {/* Breadcrumb */}
         <section aria-label="Breadcrumb navigation" className="mb-8">
           <Breadcrumb>
             <BreadcrumbList className="flex w-56 items-center space-x-2 text-sm">
               <BreadcrumbItem>
-                <BreadcrumbLink href="/" aria-label="Homepage">
-                  <Image src="/Icons/BreadcrumIcon.svg" alt="Home" width={20} height={20} />
+                <BreadcrumbLink aria-label="Homepage" href="/">
+                  <Image alt="Home" height={20} src="/Icons/BreadcrumIcon.svg" width={20} />
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbLink href="/LeagalNotice" className="text-gray-600" aria-current="page">
+                <BreadcrumbLink aria-current="page" className="text-gray-600" href="/LeagalNotice">
                   Mentions légales
                 </BreadcrumbLink>
               </BreadcrumbItem>
@@ -51,7 +52,7 @@ export default function MainLegal(): JSX.Element {
               connectant sur ce site, vous acceptez sans réserve les présentes conditions. Conformément à l'article n°6
               de la Loi n°2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, les responsables du site
               internet{" "}
-              <Link href="/" className="font-semibold text-cyan-700">
+              <Link className="font-semibold text-cyan-700" href="/">
                 www.inolib.com{" "}
               </Link>{" "}
               sont:
@@ -86,7 +87,7 @@ export default function MainLegal(): JSX.Element {
               </li>
               <li>
                 <strong>Email :</strong>{" "}
-                <a href="mailto:contact@inolib.com" className="text-sky-600 underline">
+                <a className="text-sky-600 underline" href="mailto:contact@inolib.com">
                   contact@inolib.com
                 </a>
               </li>
@@ -109,10 +110,10 @@ export default function MainLegal(): JSX.Element {
               <li>
                 <strong>Site web :</strong>
                 <a
-                  href="https://www.o2switch.fr"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="text-sky-600 underline"
+                  href="https://www.o2switch.fr"
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
                   https://www.o2switch.fr
                 </a>
@@ -127,7 +128,7 @@ export default function MainLegal(): JSX.Element {
               <strong>Horaires :</strong> Du lundi au vendredi de 9h00 à 12h00 et de 14h00 à 18h00 <br />
               <strong>Adresse postale :</strong> 254 rue Vendôme - 69003 Lyon <br />
               <strong>Email :</strong>{" "}
-              <a href="mailto:contact@inolib.com" className="text-sky-600 underline">
+              <a className="text-sky-600 underline" href="mailto:contact@inolib.com">
                 contact@inolib.com
               </a>
             </p>
@@ -181,7 +182,9 @@ export default function MainLegal(): JSX.Element {
             </p>
           </section>
         </article>
-      </main>
+      </div>
     </>
   );
-}
+};
+
+export default MainLegal;

@@ -3,11 +3,10 @@ import { parse } from "node:url";
 import next from "next";
 
 (async () => {
-  const dev = process.env.NODE_ENV !== "production";
   const hostname = "localhost";
   const port = parseInt(process.env.PORT ?? "8080", 10);
 
-  const app = next({ dev, hostname, port });
+  const app = next({ dev: false, hostname, port });
 
   await app.prepare();
 
@@ -15,5 +14,5 @@ import next from "next";
     app.getRequestHandler()(req, res, parse(req.url as string, true));
   }).listen(port);
 
-  console.log(`Server listening on http://${hostname}:${port} (${dev ? "development" : "production"})`);
+  console.log(`Server listening on http://${hostname}:${port}`);
 })();

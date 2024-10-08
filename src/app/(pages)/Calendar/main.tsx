@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react";
 
 const HubSpotCalendar: React.FC = () => {
   return (
-    <div className="mt-4 mb-44 overflow-hidden">
+    <div className="mb-44 mt-4 overflow-hidden">
       <iframe
+        className="h-[700px] w-full overflow-auto"
         src="https://meetings-eu1.hubspot.com/djeberine?embed=true"
-        className="w-full h-[700px] overflow-auto"
+        style={{ border: "none" }}
         title="Prendre rendez-vous dans notre calendrier"
-        style={{ border: 'none' }}
         allowFullScreen
-      ></iframe>
+      />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 "use client";
-import Link from "next/link";
+
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 import MainNav from "~/components/MainNav";
@@ -24,22 +25,22 @@ const Header = ({ textColor, logosrc, burgerMenu, MainNavProps }: HeaderProps) =
   };
 
   return (
-    <header className={`relative ${textColor} h-20 flex  sm:justify-center`} >
-    <div className="w-full flex flex-row items-center justify-between pl-6 pr-6 md:ml-[20px] lg:justify-start lg:ml-[3%] xl:p-0 2xl:mr-[60px] xl:w-[1200px]">
-      <div className="logo py-2">
-        <Link href="/" aria-label='accueil'>
-          <Image src={logosrc} alt="" width={120} height={40} className="object-contain" />
-        </Link>
+    <header className={`relative ${textColor} flex h-20 sm:justify-center`}>
+      <div className="flex w-full flex-row items-center justify-between px-6 md:ml-[20px] lg:ml-[3%] lg:justify-start xl:w-[1200px] xl:p-0 2xl:mr-[60px]">
+        <div className="logo py-2">
+          <Link aria-label="accueil" href="/">
+            <Image alt="" className="object-contain" height={40} src={logosrc} width={120} />
+          </Link>
+        </div>
+        <div>
+          <BurgerMenu buttonVariant="buttonNoir" navMenu={burgerMenu} />
+        </div>
+        <section className="hidden lg:block" id="nav">
+          <MainNav {...MainNavProps} />
+        </section>
       </div>
-      <div>
-        <BurgerMenu navMenu={burgerMenu} buttonVariant="buttonNoir" />
-      </div>
-      <section id="nav" className="hidden lg:block">
-        <MainNav {...MainNavProps} />
-      </section>
-    </div>
-  </header>
-);
+    </header>
+  );
 };
 
 export default Header;

@@ -122,10 +122,10 @@ export const faqs = [
     answer:
       "<p>L'accessibilité numérique est une exigence légale, avec des pénalités pouvant atteindre <strong>20 000 euros</strong> par an et par application en cas de non-respect. Depuis le 1er janvier, cette amende a été portée à <strong>50 000 euros</strong> pour les services publics en cas de non-conformité. En utilisant nos services, vous minimisez le risque juridique en France et à l'international, tout en promouvant l'inclusion des personnes en situation de handicap.</p>" +
       "<p>La loi de 2005 sur l'accessibilité numérique s'applique aux entités suivantes :</p>" +
-      "<ul> <li>Les <strong>personnes morales de droit public</strong>.</li>" +
+      "<ul><li>Les <strong>personnes morales de droit public</strong>.</li>" +
       "<li>Les <strong>personnes morales de droit privé</strong> exerçant une mission de service public ou d'intérêt général.</li>" +
       "<li>Depuis 2019, les <strong>entreprises réalisant un chiffre d'affaires supérieur à 250 millions d'euros</strong> en France.</li> </ul>" +
-      " <p>À partir de 2025, la réglementation européenne sur l'accessibilité numérique sera renforcée et s'appliquera à <strong>toutes les entreprises ayant un chiffre d'affaires supérieur à 2 millions d'euros</strong> et employant au moins <strong>10 collaborateurs</strong>.</p>",
+      "<p>À partir de 2025, la réglementation européenne sur l'accessibilité numérique sera renforcée et s'appliquera à <strong>toutes les entreprises ayant un chiffre d'affaires supérieur à 2 millions d'euros</strong> et employant au moins <strong>10 collaborateurs</strong>.</p>",
   },
 ];
 
@@ -187,18 +187,30 @@ export const texts = [
 ];
 
 export const Logos = [
-  { src: "/ParLogo/laposte.svg", width: 500, height: 200, alt: "logo de nos clients : la poste" },
-
+  {
+    src: "/ParLogo/laposte.svg",
+    width: 500,
+    height: 200,
+    alt: "La Poste",
+  },
   {
     src: "/ParLogo/atomoto.svg",
     width: 200,
     height: 200,
-    alt: "logo de nos clients : atomoto",
+    alt: "atomota",
   },
-
-  { src: "/ParLogo/med.svg", width: 150, height: 100, alt: "logo de nos clients : " },
-
-  { src: "/ParLogo/3lurryAds.svg", width: 150, height: 200, alt: "logo de nos clients : 3lurryAds" },
+  {
+    src: "/ParLogo/med.svg",
+    width: 150,
+    height: 100,
+    alt: "MADI",
+  },
+  {
+    src: "/ParLogo/3lurryAds.svg",
+    width: 150,
+    height: 200,
+    alt: "BlurryAds",
+  },
 ];
 
 // données pour le composant CarrerSection
@@ -223,69 +235,84 @@ export const jobOffers: JobOffer[] = [
   },
 ];
 
-
-export const data = [{
-  title:"Audits d'accessibilité numérique",
-  description : "Bénéficiez d'audits d'accessibilité réalisés par nos experts, mettant en évidence les points forts et les zones d\'amélioration de votre site ou application. Nous proposons des audits de qualité pour vous assurer de respecter les normes d'accessibilité.",
-  skills :["Corriger les erreurs en incluant tous les utilisateurs", "Améliorer l'expérience utilisateur pour tous", "Respecter les obligations en matière d'accessibilité numérique"],
-  link :"/Audit",
-  leftDirection : true,
-  image :
+export const data = [
   {
-    src1: "/Icons/fichier.svg",
-    src2 : "/Homepage/image1.svg",
-    width : 550,
-    heigth : 550,
-  }
+    title: "Audits d'accessibilité numérique",
+    description:
+      "Bénéficiez d'audits d'accessibilité réalisés par nos experts, mettant en évidence les points forts et les zones d'amélioration de votre site ou application. Nous proposons des audits de qualité pour vous assurer de respecter les normes d'accessibilité.",
+    skills: [
+      "Corriger les erreurs en incluant tous les utilisateurs",
+      "Améliorer l'expérience utilisateur pour tous",
+      "Respecter les obligations en matière d'accessibilité numérique",
+    ],
+    link: "/Audit",
+    leftDirection: true,
+    image: {
+      src1: "/Icons/fichier.svg",
+      src2: "/Homepage/image1.svg",
+      width: 550,
+      heigth: 550,
+    },
   },
   {
-    title:"Accompagnement dans vos projets",
-    description : " Nos experts vous assistent techniquement et vous accompagnent dans vos projets, avec des services sur-mesure.",
-    skills :["Rendez-vous et séances d'accompagnement via le chat", "Envoi de briefings et rapports", "Conseils sur les bonnes pratiques et les normes"],
-    link :"/Accoumpagner",
-    leftDirection : false,
-    image :
-    {
+    title: "Accompagnement dans vos projets",
+    description:
+      " Nos experts vous assistent techniquement et vous accompagnent dans vos projets, avec des services sur-mesure.",
+    skills: [
+      "Rendez-vous et séances d'accompagnement via le chat",
+      "Envoi de briefings et rapports",
+      "Conseils sur les bonnes pratiques et les normes",
+    ],
+    link: "/Accoumpagner",
+    leftDirection: false,
+    image: {
       src1: "/Icons/fichier.svg",
       src2: "/Homepage/sommet.svg",
-      width : 400,
-      heigth : 400,
-    }
+      width: 400,
+      heigth: 400,
     },
-    {
-      title:"Développement web et mobile",
-      description : "Optez pour des sites web et applications conformes aux normes d'accessibilité grâce à notre équipe de développeurs qualifiés.",
-      skills :["Projets sur-mesure, de la conception à la mise en ligne", "Tests, audits, et améliorations en continue", "Intégration avec plus de 100 services et outils"],
-      link :"/Developpement",
-      leftDirection : true,
-      image :
-      {
-        src1: "/Icons/mobile.svg",
-        src2 : "/Homepage/macon.svg",
-        width : 400,
-        heigth : 400,
-      }
-      },
-      {
-        title:"Formation en accessibilité numérique",
-        description : "Participez à des formations spécialisées sur les normes et techniques d'accessibilité numérique, animées par nos experts.",
-        skills :["Sessions de formation en direct et à distance", "Accès à des ressources exclusives", "Support continu et sessions de questions-réponses"],
-        link :"/Former",
-        leftDirection : false,
-        image :
-        {
-          src1: "/Icons/hat.svg",
-          src2 : "/Homepage/seated 2.svg",
-          width : 400,
-          heigth : 400,
-        }
-        }
-]
+  },
+  {
+    title: "Développement web et mobile",
+    description:
+      "Optez pour des sites web et applications conformes aux normes d'accessibilité grâce à notre équipe de développeurs qualifiés.",
+    skills: [
+      "Projets sur-mesure, de la conception à la mise en ligne",
+      "Tests, audits, et améliorations en continue",
+      "Intégration avec plus de 100 services et outils",
+    ],
+    link: "/Developpement",
+    leftDirection: true,
+    image: {
+      src1: "/Icons/mobile.svg",
+      src2: "/Homepage/macon.svg",
+      width: 400,
+      heigth: 400,
+    },
+  },
+  {
+    title: "Formation en accessibilité numérique",
+    description:
+      "Participez à des formations spécialisées sur les normes et techniques d'accessibilité numérique, animées par nos experts.",
+    skills: [
+      "Sessions de formation en direct et à distance",
+      "Accès à des ressources exclusives",
+      "Support continu et sessions de questions-réponses",
+    ],
+    link: "/Former",
+    leftDirection: false,
+    image: {
+      src1: "/Icons/hat.svg",
+      src2: "/Homepage/seated 2.svg",
+      width: 400,
+      heigth: 400,
+    },
+  },
+];
 export const Method: Service[] = [
   {
     title: "Co-construction",
-    description:
-      "Sélection d’un échantillon représentatif avec vous.",
+    description: "Sélection d’un échantillon représentatif avec vous.",
     icon: "/Icons/coeur.svg",
     alt: "",
   },
@@ -298,21 +325,19 @@ export const Method: Service[] = [
   },
   {
     title: "Livrables",
-    description:
-      "Grille technique, rapport détaillé, déclaration d’accessibilité.",
+    description: "Grille technique, rapport détaillé, déclaration d’accessibilité.",
     icon: "/Icons/fichier.svg",
     alt: "",
   },
   {
     title: "Synthèse",
-    description:
-      "Rédaction d’un rapport détaillé avec recommandations.",
+    description: "Rédaction d’un rapport détaillé avec recommandations.",
     icon: "/Icons/fichier.svg",
     alt: "",
-  },{
+  },
+  {
     title: "Investigation",
-    description:
-      "Analyse de l’échantillon au regard du référentiel choisi.",
+    description: "Analyse de l’échantillon au regard du référentiel choisi.",
     icon: "/Icons/fichier.svg",
     alt: "",
   },

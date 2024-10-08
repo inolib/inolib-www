@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { Button } from "~/components/UI/Button";
+import { CallToActionButtonLink } from "./button-links";
 
 const Newsletter = () => {
   return (
@@ -8,14 +8,17 @@ const Newsletter = () => {
       <h2 className="mb-4 pt-20 text-center text-2xl font-semibold text-[##111F22]">
         Notre équipe est disponible pour vous conseiller
       </h2>
+
       <p className="mb-8 text-gray-700">
         No spam. Just the latest releases and tips, interesting articles, and exclusive interviews with great people.
       </p>
-      <Button variant="buttonNoir" aria-label="Contactez-nous" href="/Contact">
+
+      <CallToActionButtonLink className="ring-offset-secondary ring-primary bg-primary text-secondary" href="/Contact">
         Nous contacter
-      </Button>
+      </CallToActionButtonLink>
+
       <div className="relative mt-12 h-[400px] w-full py-0">
-        <Image src="/Homepage/contact.svg" alt="Contact Illustration" layout="fill" objectFit="contain" />
+        <Image alt="" layout="fill" objectFit="contain" src="/Homepage/contact.svg" />
       </div>
     </div>
   );

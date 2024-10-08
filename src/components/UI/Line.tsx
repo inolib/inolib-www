@@ -10,14 +10,16 @@ const Line = () => {
   const toggleAnimation = () => {
     setIsAnimating(!isAnimating);
   };
+
   return (
     <div
-      className={`relative mt-0 w-full overflow-hidden bg-[#111F22] p-0 py-4 text-center text-[#E1FF01]`}
       onClick={toggleAnimation}
+      className={`relative mt-0 w-full overflow-hidden bg-[#111F22] p-0 py-4 text-center text-yellow-neon`}
+      aria-hidden
     >
-      <div className={`flex text-2xl whitespace-nowrap ${isAnimating ? "animate-marquee" : ""}`}>
+      <div className={`flex whitespace-nowrap text-2xl ${isAnimating ? "animate-marquee" : ""}`}>
         {texts.map((text, i) => (
-          <p key={i} className="mx-4">
+          <p className="mx-4" key={i}>
             {text}
           </p>
         ))}

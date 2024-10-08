@@ -3,19 +3,21 @@ import { faqs } from "~/DATA/data";
 
 const Faqs = () => {
   return (
-    <section className="bg-white px-4 py-16" aria-labelledby="faq-heading">
+    <section aria-labelledby="faq-heading" className="bg-white px-4 py-16">
       <div className="mx-auto max-w-3xl">
-        <h2 id="faq-heading" className="mb-4 text-center text-3xl font-bold">
-          FAQs
-        </h2>
+        <h1 className="mb-4 text-center text-3xl font-bold" id="faq-heading">
+          Foire aux questions
+        </h1>
+
         <p className="mb-8 text-center text-gray-600">Nos réponses à vos questions les plus fréquentes</p>
-        <Accordion type="single" collapsible className="space-y-8">
+
+        <Accordion className="space-y-8" type="single" collapsible>
           {faqs.map((faq, index) => (
-            <AccordionItem key={index} value={`item-${index}`} className="rounded-lg">
-              <AccordionTrigger className="flex h-14 w-full items-center justify-between rounded-tl-3xl rounded-tr-3xl p-4">
+            <AccordionItem className="rounded-lg" key={index} value={`item-${index}`}>
+              <AccordionTrigger className="flex h-14 w-full items-center justify-between rounded-t-3xl p-4">
                 <span className="text-lg font-semibold">{faq.question}</span>
               </AccordionTrigger>
-              <AccordionContent className="rounded-bl-3xl rounded-br-3xl bg-blue-50 p-4 text-gray-700">
+              <AccordionContent className="rounded-b-3xl bg-blue-50 p-4 text-gray-700">
                 <div dangerouslySetInnerHTML={{ __html: faq.answer }} />
               </AccordionContent>
             </AccordionItem>

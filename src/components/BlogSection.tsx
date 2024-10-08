@@ -14,26 +14,30 @@ const BlogSection = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
+
   const handleLink = () => {
     router.push("/blog");
   };
+
   useEffect(() => {
-    async function fetchData() {
+    const fetchData = async () => {
       try {
         const posts = await fetchLatestPosts();
         setLatestPosts(posts);
       } catch (error) {
-        (error as Error).message;
+        console.error((error as Error).message);
       } finally {
         setLoading(false);
       }
-    }
+    };
 
-    fetchData();
+    void (async () => {
+      await fetchData();
+    })();
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>Chargement…</div>;
   }
 
   if (error) {
@@ -41,47 +45,51 @@ const BlogSection = () => {
   }
 
   return (
-    <section className="py-8 ">
+    <section className="py-8">
       <div className="flex-rows flex justify-between px-16 2xl:w-[1440px]">
         <div>
           <span
-            className="text-black-500 mb-2 inline-block h-6 rounded-full bg-[#CBE0E4] px-3 py-[1px] text-sm"
-            aria-label="articles recents"
+            className="text-black-500 bg-turquoise-light mb-2 inline-block h-6 rounded-full px-3 py-px text-sm"
+            aria-hidden
           >
             Actualité
           </span>
+
           <h2 className="mb-4 pb-4 text-3xl font-bold">Nos dernières actualités</h2>
+
           <p className="mb-8 text-gray-700">Tool and strategies modern teams need to help their companies grow.</p>
         </div>
+
         <div>
-          <Button href="/blog" variant={"buttonNoir"} onClick={handleLink} className="">
-            voir tous les articles{" "}
-          </Button>{" "}
+          <Button onClick={handleLink} className="" href="/blog" variant={"buttonNoir"}>
+            voir tous les articles
+          </Button>
         </div>
       </div>
-      <div className="grid gap-6 px-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3  ">
+
+      <div className="grid gap-6 px-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {latestPosts.map((post) => (
-          <article key={post.id} className="">
+          <article className="" key={post.id}>
             {post.img && (
               <div className="mb-4 h-48 w-full overflow-hidden rounded-xl">
-                <Image src={post.img} alt="" width={200} height={200} className="h-full w-full object-cover" />
+                <Image alt="" className="size-full object-cover" height={200} src={post.img} width={200} />
               </div>
             )}
             <div>
               {post.categoryNames.map((category, index) => (
                 <span
+                  className="bg-turquoise-light mb-2 inline-block rounded-full px-2 py-1 text-xs font-semibold uppercase tracking-wide text-gray-800"
                   key={index}
-                  className="mb-2 inline-block rounded-full bg-[#CBE0E4] px-2 py-1 text-xs font-semibold uppercase tracking-wide text-gray-800"
                 >
                   {category}
                 </span>
               ))}
               <h3 className="mb-2 text-xl font-semibold">
-                <Link href={`/blog/${post.slug}`} dangerouslySetInnerHTML={{ __html: post.title.rendered }}></Link>
+                <Link dangerouslySetInnerHTML={{ __html: post.title.rendered }} href={`/blog/${post.slug}`}></Link>
               </h3>
               <div
-                dangerouslySetInnerHTML={{ __html: post.content.rendered }}
                 className="mt-4 line-clamp-3 text-gray-700"
+                dangerouslySetInnerHTML={{ __html: post.content.rendered }}
               />
               <p className="mb-1 mt-4 font-semibold text-black">{post.authorName}</p>
               <p className="text-gray-500">
