@@ -9,20 +9,27 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
         marquee: "marquee 30s linear infinite",
       },
+      borderWidth: {
+        1: "1px",
+      },
       borderRadius: {
         "customl-tr": "18rem",
         "customm-tr": "18rem",
         "customs-tr": "16rem",
         "customx-tr": "10rem",
       },
+      colors: {
+        primary: "#111F22",
+        secondary: "#FCFBF9",
+        "green-dark": "#111F22",
+        "green-light": "#244044",
+        "turquoise-dark": "#8EBBC5",
+        "turquoise-light": "#CBE0E4",
+        white: "#FFFFFF",
+        "yellow-neon": "#E1FF01",
+      },
       fontFamily: {
-        manrope: ["Manrope", "sans-serif"],
-      },
-      fontSize: {
-        base: "16px",
-      },
-      fontWeight: {
-        medium: 500,
+        manrope: ["Manrope Variable", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {
@@ -38,11 +45,7 @@ export default {
           "100%": { transform: "translateX(-100%)" },
         },
       },
-      lineHeight: {
-        normal: "26px",
-      },
       screens: {
-
         "2xl": "1536px",
         xl: "1280px",
         lg: "1024px",
